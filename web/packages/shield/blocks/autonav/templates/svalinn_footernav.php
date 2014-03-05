@@ -1,5 +1,8 @@
 <?php defined('C5_EXECUTE') or die(_("Access Denied."));
 $navItems = $controller->getNavItems();
+
+print_r($navItems);
+
 // get rid of home level
 array_shift($navItems);
 $navCount = count($navItems);

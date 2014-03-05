@@ -99,6 +99,7 @@
 
                     print "Development database successfully created. \n";
                 }catch(Exception $e){
+                    var_dump($e);
                     throw new Exception("Unable to create local development database.");
                 }
             }

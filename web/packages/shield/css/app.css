@@ -6251,7 +6251,7 @@ FEATURE
     bottom: 0;
     width: 100%;
     height: 21px;
-    background: url(../img/horz-dash-gray.png) 0 100% repeat-x; }
+    background: url(../img/masthead/horz-dash-gray.png) 0 100% repeat-x; }
   .home .feature h2 {
     display: inline-block;
     margin: 0 0 0.75rem;
@@ -6316,8 +6316,8 @@ FEATURE
     bottom: 0;
     width: 100%;
     height: 21px;
-    background: url(../img/horz-dash-gray.png) 0 100% repeat-x;
-    background: url(../img/horz-dash-blue.png) 0 100% repeat-x; }
+    background: url(../img/masthead/horz-dash-gray.png) 0 100% repeat-x;
+    background: url(../img/masthead/horz-dash-blue.png) 0 100% repeat-x; }
   .privateclient .feature h2 {
     display: inline-block;
     margin: 0 0 0.75rem;

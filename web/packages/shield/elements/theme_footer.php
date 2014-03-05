@@ -30,9 +30,9 @@
 <?php
 $bt = BlockType::getByHandle('autonav');
 $bt->controller->orderBy = 'display_asc';
-$bt->controller->displayPages = 'top';
+$bt->controller->displayPages = 'third_level';
 $bt->controller->displaySubPages = 'all';
-$bt->controller->displaySubPageLevels = 'custom';
-$bt->controller->displaySubPageLevelsNum = 1;
+$bt->controller->displaySubPageLevels = 'all';
+//$bt->controller->displaySubPageLevelsNum = 1;
 $bt->render('templates/svalinn_footernav');
 ?>

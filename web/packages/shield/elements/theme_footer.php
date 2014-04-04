@@ -28,6 +28,7 @@
 </footer>
 
 <?php
+// TODO: distiguish between professional and private here....
 $bt = BlockType::getByHandle('autonav');
 $bt->controller->orderBy = 'display_asc';
 $bt->controller->displayPages = 'top';

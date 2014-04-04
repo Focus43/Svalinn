@@ -1,4 +1,3 @@
-
 <?php echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Dogs'), t(''), false, false ); ?>
 	<div id="clinicaWrap">
 		<div class="ccm-pane-body">

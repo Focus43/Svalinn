@@ -1,6 +1,6 @@
 <?php
 
-	class DashboardSrk9DogsSearchController extends Controller {
+	class DashboardShieldDogsSearchController extends Controller {
 	
 		public $helpers = array('form');
 	

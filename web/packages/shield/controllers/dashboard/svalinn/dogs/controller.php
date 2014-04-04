@@ -1,9 +1,8 @@
 <?php
 
-	class DashboardSrk9DogsController extends Controller {
-	
-	
-		public function on_start(){
+	class DashboardShieldDogsController extends Controller {
+
+   		public function on_start(){
 //            echo 'start';exit;
 			$this->addHeaderItem(Loader::helper('html')->css('dashboard/app.dashboard.css', 'svalinn'));
 		}
@@ -11,7 +10,7 @@
 	
 		public function view() {
             // just redirecting to the search page
-			$this->redirect('/dashboard/svalinn/dogs/search');
+			$this->redirect('/dashboard/shield/dogs/search');
 		}
 		
 		
@@ -30,7 +29,7 @@
 			$personnelObj = Dogs::getByID($id);
 			$personnelObj->setPropertiesFromArray($_POST);
 			$personnelObj->save();
-			$this->redirect('/dashboard/svalinn/dogs/search');
+			$this->redirect('/dashboard/shield/dogs/search');
 		}
 	
 	}

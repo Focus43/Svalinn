@@ -14,7 +14,7 @@
 			<div class="well <?php echo ($this->controller->getTask() == 'profile') ? "dog-sorting" : "" ?>" style="padding:8px 0;">
                 <h4 style="padding-left: 15px;">Sort By...</h4>
 				<ul id="dogTypeList" class="nav nav-list serifFont">
-					<li class="<?php echo !(isset($breedHandle) || isset($protectionHandle)) ? 'active' : ''; ?>"><a href="<?php echo $this->url('dogs_for_sale'); ?>">Alphabetical</a></li>
+					<li class="<?php echo !(isset($breedHandle) || isset($protectionHandle)) ? 'active' : ''; ?>"><a href="<?php echo $this->url('dogs-sale'); ?>">Alphabetical</a></li>
 					<li class="nav-header">By Breed</li>
 					<li class="<?php echo ($breedHandle == Dogs::BREED_GERMAN_SHEPHERD) ? 'active' : ''; ?>"><a href="<?php echo $this->action('breed', Dogs::BREED_GERMAN_SHEPHERD); ?>">German Shepherd</a></li>
                     <li class="<?php echo ($breedHandle == Dogs::BREED_DUTCH_SHEPHERD) ? 'active' : ''; ?>"><a href="<?php echo $this->action('breed', Dogs::BREED_DUTCH_SHEPHERD); ?>">Dutch Shepherd</a></li>

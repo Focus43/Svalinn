@@ -4,7 +4,7 @@ $navCount = count($navItems);
 
 if ( $navCount > 0 ) {
 
-    echo '<div class="well sidenav"><ul class="nav nav-list">';
+    echo '<ul class="side-nav"><ul class="dropdown">';
 
     for ($i = 0; $i < $navCount; $i++) {
 
@@ -19,6 +19,6 @@ if ( $navCount > 0 ) {
 
     }
 
-    echo '</ul></div>';
+    echo '</ul></ul>';
 
 }

@@ -4,7 +4,7 @@
 
         protected $pkgHandle 			= 'shield';
         protected $appVersionRequired 	= '5.6.1';
-        protected $pkgVersion 			= '0.24';
+        protected $pkgVersion 			= '0.28';
 
 
         /**
@@ -252,11 +252,11 @@
             SinglePage::add('/dogs-sale', $this->packageObject());
 
             // dashboard pages
-            $dogs = SinglePage::add('/dashboard/svalinn/dogs', $this->packageObject());
+            $dogs = SinglePage::add('/dashboard/shield/dogs', $this->packageObject());
             if( is_object($dogs) ){
-                $dogs->setAttribute('icon_dashboard', 'icon-user');
+                $dogs->setAttribute('icon_dashboard', 'icon-list');
             }
-            SinglePage::add('/dashboard/svalinn/dogs/search', $this->packageObject());
+            SinglePage::add('/dashboard/shield/dogs/search', $this->packageObject());
 
             return $this;
         }

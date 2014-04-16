@@ -43,10 +43,16 @@
 
         if( (isset($_SERVER['VAGRANT_VM']) && ((bool) $_SERVER['VAGRANT_VM'] === true)) || in_array('VAGRANT_VM', (array) $argv) ){
 
-            $_SERVER['DB1_HOST'] = 'localhost';
-            $_SERVER['DB1_USER'] = 'root';
-            $_SERVER['DB1_PASS'] = 'root';
-            $_SERVER['DB1_NAME'] = 'concrete5_site';
+            // This only applies when auto-installing through Vagrant provisioner; basically
+            // if the 3rd argument exists, we know we're receiving host, user, pass, and db_name
+            // in that order, and should set the $_SERVER variable here (then apache takes over
+            // for setting server variables when accessed via http
+            if( $argv[2] !== null ){
+                $_SERVER['DB1_HOST'] = $argv[2];
+                $_SERVER['DB1_USER'] = $argv[3];
+                $_SERVER['DB1_PASS'] = $argv[4];
+                $_SERVER['DB1_NAME'] = $argv[5];
+            }
 
             // enable all url rewriting
             define('URL_REWRITING_ALL', true);
@@ -83,8 +89,12 @@
 
 	}
 
-	// server variables are set by Pagoda, or by you in site.local.php
-	define('DB_SERVER',     $_SERVER['DB1_HOST']);
+
+    /**
+     * Database connection settings are passed as environment variables, from
+     * a) Pagodabox; b) Vagrant; c) manually if site.local.php exists
+     */
+    define('DB_SERVER',     $_SERVER['DB1_HOST']);
     define('DB_USERNAME',   $_SERVER['DB1_USER']);
     define('DB_PASSWORD',   $_SERVER['DB1_PASS']);
 	define('DB_DATABASE',   $_SERVER['DB1_NAME']);

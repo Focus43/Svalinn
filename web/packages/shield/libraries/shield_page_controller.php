@@ -85,7 +85,7 @@
             // take the route and explode to array slash delimited (/one/two = ['path-one', 'path-two'])
             $route = array_map(function( $node ){
                 if( !empty($node) ){
-                    return "path-{$node}";
+                    return $node;
                 }
             }, explode('/', $this->getCollectionObject()->getCollectionPath()));
             // set classes based on admin status and/or edit mode

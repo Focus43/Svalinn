@@ -18,12 +18,3 @@
 
 <script type="text/javascript" src="//use.typekit.net/lfq1daf.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
-<?php
-if (User::isLoggedIn()) {
-//            Loader::element('header_required');
-    // move navbar down so we can get to c5 bar in admin mode
-    echo "<style type=text/css> body { top: -48px; } .navbar { margin-top:48px; z-index:5; } </style>";
-}
-// Here comes a hack to preload images
-?>

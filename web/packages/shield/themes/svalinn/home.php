@@ -2,9 +2,9 @@
 <html lang="<?php echo LANGUAGE; ?>">
 <head>
 <?php
-    $formHelper = Loader::helper('form');
-    Loader::packageElement('html_head', 'shield');
-    Loader::element('header_required'); // REQUIRED BY C5 //
+//$formHelper = Loader::helper('form');
+Loader::packageElement('html_head', 'shield');
+Loader::element('header_required'); // REQUIRED BY C5 //
 ?>
 </head>
 

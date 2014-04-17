@@ -1,18 +1,13 @@
-
-
 <!-- Start the Footer Container -->
 <footer class="container footer" role="contentinfo">
     <div class="row">
         <div class="column medium-4 large-5 message">
-            <p>
-                <?php
-                $quoteStack = new Stack();
-                $quoteBlocks = $quoteStack->getByName("Footer Left")->getBlocks();
-                if ( count($quoteBlocks) > 0 ) {
-                    $quoteBlocks[0]->display();
+            <?php
+                $quoteStack = Stack::getByName('Footer Left')->getBlocks();
+                if( !empty($quoteStack) ){
+                    $quoteStack[array_rand($quoteStack)]->display();
                 }
-                ?>
-            </p>
+            ?>
         </div>
         <div class="column medium-8 large-7 contact">
             <a href="mailto:info@svalinn.com" class="btn btn-lg btn-contact btn-arrow uppercase">Email Us</a>
@@ -26,14 +21,3 @@
         </div>
     </div>
 </footer>
-
-<?php
-// TODO: distiguish between professional and private here....
-$bt = BlockType::getByHandle('autonav');
-$bt->controller->orderBy = 'display_asc';
-$bt->controller->displayPages = 'top';
-$bt->controller->displaySubPages = 'all';
-$bt->controller->displaySubPageLevels = 'all';
-//$bt->controller->displaySubPageLevelsNum = 1;
-$bt->render('templates/svalinn_footernav');
-?>

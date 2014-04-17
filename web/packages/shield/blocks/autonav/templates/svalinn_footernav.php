@@ -29,4 +29,4 @@ if ( $navCount > 0 ) {
 
     echo '<a class="exit-off-canvas"></a>';
 
-} ?>
+}

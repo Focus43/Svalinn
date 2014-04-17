@@ -1,4 +1,4 @@
-<?php
+<?php defined('C5_EXECUTE') or die("Access Denied.");
 
 	class ShieldPageController extends Controller {
 		
@@ -6,7 +6,9 @@
 			  FLASH_TYPE_OK		= 'success',
 			  FLASH_TYPE_ERROR	= 'error';
 			  
-		protected $requireHttps = false;
+		protected $requireHttps       = false;
+        protected $includeThemeAssets;
+
 		
 		
 		/**
@@ -26,10 +28,11 @@
 		/**
 		 * Before a page gets rendered, always make sure that the $_POST card_number
 		 * field is empty. For any page. No matter what.
+         * @todo: implement for auth.net transaction
 		 */
 		public function on_before_render(){
 			// never send back the credit card
-			$_POST['card_number'] = false;
+			//$_POST['card_number'] = false;
 		}
 		
 		
@@ -37,8 +40,24 @@
 		 * Add js/css + tools URL meta tag; clear the flash.
 		 * @return void
 		 */
-		public function on_start(){			
-			$this->includeAssets($this);
+		public function on_start(){
+            // force https (if $requireHTTPS == true)
+            if( $this->requireHttps == true && !( isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on') ) ){
+                header("Location: " . str_replace('http', 'https', BASE_URL . Page::getCurrentPage()->getCollectionPath()));
+            }
+
+            // child controller just needs to set $includeThemeAssets = true
+            if( $this->includeThemeAssets === true ){
+                $this->includeAssets($this);
+            }
+
+            $this->setBodyClasses();
+
+            // message flash
+            if( isset($_SESSION['flash_msg']) ){
+                $this->set('flash', $_SESSION['flash_msg']);
+                unset($_SESSION['flash_msg']);
+            }
 		}
 
 
@@ -52,32 +71,32 @@
          * @return void
          */
         public function includeAssets( Controller $pageController ){
-            // force https (if $requireHTTPS == true)
-            if( $pageController->requireHttps == true && !( isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on') ) ){
-                header("Location: " . str_replace('http', 'https', BASE_URL . Page::getCurrentPage()->getCollectionPath()));
-            }
-            
             // header and CSS items
-            $pageController->addHeaderItem( '<meta id="shieldToolsDir" value="'.SHIELD_TOOLS_URL.'" />' );
-            $pageController->addHeaderItem( $this->getHelper('html')->css('app.css', self::PACKAGE_HANDLE) );
+            $pageController->addHeaderItem( '<meta name="shield-tools-path" value="'.SHIELD_TOOLS_URL.'" />' );
+            $pageController->addHeaderItem( $this->getHelper('html')->css('application.css', self::PACKAGE_HANDLE) );
             $pageController->addHeaderItem( $this->getHelper('html')->javascript('modernizr.js', self::PACKAGE_HANDLE) );
             
-            // ie8 stylesheet
-            //$ie8 = "<!--[if lt IE 9]>\n" . $this->getHelper('html')->css('ie8.css', self::PACKAGE_HANDLE) . "\n<![endif]-->";
-            //$this->addHeaderItem( $ie8 );
-            
             // footer stuff (usually javascript)
-//            $pageController->addFooterItem( $this->getHelper('html')->javascript('jquery.js', self::PACKAGE_HANDLE) );
-            $pageController->addFooterItem( $this->getHelper('html')->javascript('foundation.min.js', self::PACKAGE_HANDLE) );
-            $pageController->addFooterItem( $this->getHelper('html')->javascript('debug.js', self::PACKAGE_HANDLE) );
-            $pageController->addFooterItem( $this->getHelper('html')->javascript('plugins.js', self::PACKAGE_HANDLE) );
-            $pageController->addFooterItem( $this->getHelper('html')->javascript('app.js', self::PACKAGE_HANDLE) );
+            $pageController->addFooterItem( $this->getHelper('html')->javascript('application.js', self::PACKAGE_HANDLE) );
+        }
 
-            // message flash
-            if( isset($_SESSION['flash_msg']) ){
-                $pageController->set('flash', $_SESSION['flash_msg']);
-                unset($_SESSION['flash_msg']);
+
+        private function setBodyClasses(){
+            // take the route and explode to array slash delimited (/one/two = ['path-one', 'path-two'])
+            $route = array_map(function( $node ){
+                if( !empty($node) ){
+                    return "path-{$node}";
+                }
+            }, explode('/', $this->getCollectionObject()->getCollectionPath()));
+            // set classes based on admin status and/or edit mode
+            if( $this->pagePermissionObject()->canWrite() ){
+                array_push($route, 'cms-admin');
+                if( $this->getCollectionObject()->isEditMode() ){
+                    array_push($route, 'edit-mode');
+                }
             }
+            // pass class string to the view
+            $this->set('bodyClasses', join($route, ' '));
         }
 		
 		
@@ -137,5 +156,17 @@
 			}
 			return $this->{$helper};
 		}
+
+
+        /**
+         * Get the Concrete5 permission object for the given page.
+         * @return Permissions
+         */
+        protected function pagePermissionObject(){
+            if( $this->_pagePermissionObj === null ){
+                $this->_pagePermissionObj = new Permissions( $this->getCollectionObject() );
+            }
+            return $this->_pagePermissionObj;
+        }
 		
 	}

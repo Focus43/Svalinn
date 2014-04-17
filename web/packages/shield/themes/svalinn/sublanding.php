@@ -7,7 +7,7 @@
 ?>
 </head>
 
-<body class="antialiased <?php echo $c->getAttribute('body_class'); ?>">
+<body class="antialiased <?php echo $bodyClasses; ?> <?php echo $c->getAttribute('body_class'); ?>">
 
     <div class="off-canvas-wrap">
         <div class="inner-wrap">

@@ -1,0 +1,366 @@
+/* =============================================================================
+FUNCTIONS
+============================================================================= */
+@function convert-to-px($value, $base-value: $rem-base)  {
+  $value: strip-unit($value) / strip-unit($base-value) * 1px;
+  @if ($value == 0px) { $value: 0; } // Turn 0rem into 0
+  @return $value;
+}
+
+/* =============================================================================
+FOUNDATION OVERRIDE
+============================================================================= */
+.contain-to-grid{background:transparent;}
+
+/* =============================================================================
+FONTS
+============================================================================= */
+@font-face {
+  font-family: 'Quadon Light';
+  src: url('../fonts/quadon-light.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/quadon-light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/quadon-light.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/quadon-light.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/quadon-light.svg#7102284ce0240c199a09b5c4ac069f0b') format('svg'); /* Legacy iOS */
+  font-style:   normal;
+  font-weight:  200;
+}
+
+/* =============================================================================
+ANIMATIONS
+============================================================================= */
+a,.btn{
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+
+/* =============================================================================
+TYPOGRAPHY
+============================================================================= */
+@mixin body($type){
+	a{
+		@if $type == professional{
+			color:$dark-green;
+		}else{
+			color:$brand-blue;
+		}
+	}
+	.btn{color:#FFF;}
+}
+body{ @include body(privateclient); }
+body.professional{ @include body(professional); }
+h1,h2{font-family: $quadon-light}
+h3{font-weight: 300;text-transform: uppercase;color:$brand-blue;}
+.main{
+	.h2,.h3{font-family: $proxima;}
+}
+.feature-title{
+	position: relative;
+	margin:3rem 0 2rem;
+	padding:0.75rem 0 1.25rem;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: $proxima;
+	font-weight:300;
+	color:$lite-blue;
+	&:before,&:after{
+		position: absolute;
+		margin: 0 45%;
+		width: 10%;
+		height: 1px;
+		background: $tan;
+		content: '';
+		opacity: 1;
+	}
+	&:before{
+		top: 0;
+		left: 0;
+	}
+	&:after{
+		bottom: 0;
+		left: 0;
+	}
+}
+blockquote{
+	width:100%;
+	border-left: 0;
+	p{
+		font-family: $quadon-light;
+		font-style: italic;
+		color:$lite-blue;
+		font-size:rem-calc(30);
+		line-height: rem-calc(42);
+		span{
+			display: block;
+			font-family: $proxima;
+			font-size:rem-calc(18);
+			font-style: normal;
+			line-height: rem-calc(21);
+			
+			@media #{$small-only}{
+				font-size:rem-calc(16);
+				line-height: rem-calc(18);
+			}
+			
+			&:before{
+				display:block;
+				margin:20px 0;
+				content: " ";
+				height:5px;
+				width:100%;
+				background: url("#{$imagePath}blockquote-signature.png") 50% 0 no-repeat;
+				
+			}
+		}	
+		@media #{$small-only}{
+			font-size:rem-calc(21);
+			line-height: rem-calc(26);
+		}
+	}
+}
+
+/* =============================================================================
+BUTTONS
+============================================================================= */
+@mixin btn{
+	display: inline-block;
+	position: relative;
+	padding:0.3333333333rem 1rem;
+	width: auto;
+	text-align: center;
+	text-transform: uppercase;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	font-size:0.7777777778rem;
+	line-height: 1.33333rem;
+	text-decoration: none;
+	font-weight: 600;
+	letter-spacing: 0.07em;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+@mixin btn-lg{
+	@include btn;
+	padding:1rem;
+	font-size:1rem;
+	min-width: 11rem;
+	&.btn-arrow:after{
+		top:1.3333rem;
+		right:1rem;
+		border-top: 6px solid transparent;
+		border-bottom: 6px solid transparent;
+		border-left: 6px solid #053047;
+	}
+}
+
+@mixin btn-inverse{
+	@include btn;
+	border-width:2px;
+	border-style: solid;
+	border-color: #FFF;
+}
+@mixin btn-red-inverse{
+	@include btn;
+	@include btn-inverse;
+	color: $red;
+	background: transparent;
+	border-color:$red;
+}
+@mixin btn-white-inverse-trans{
+	@include btn;
+	@include btn-inverse;
+	color: $dark-gray;
+	background: rgba(255,255,255,0.2);
+	border-color:white;
+}
+@mixin btn-orange-inverse{
+	@include btn;
+	@include btn-inverse;
+	color: $orange;
+	background: transparent;
+	border-color:$orange;
+}
+@mixin btn-green-inverse{
+	@include btn;
+	@include btn-inverse;
+	color: $medium-green !important;
+	background: transparent;
+	border-color:$brand-green;
+}
+@mixin btn-blue-inverse{
+	@include btn-inverse;
+	background: $brand-blue;
+}
+
+
+.btn{@include btn;}
+.btn-lg{@include btn-lg;}
+.btn-secondary{
+	padding:0.3333333334rem 1rem .3222222222rem;
+	color:#FFF;
+	line-height:1rem;
+	min-width:14rem;
+	text-align: left;
+	border:1px solid #35464f;
+	background:#0b1921;
+	&:hover{background:#132c3a;}
+}
+.btn-blue-inverse{
+	@include btn-blue-inverse;
+}
+.btn-green-inverse{@include btn-green-inverse;}
+.btn-white-inverse-trans{@include btn-white-inverse-trans;}
+.btn-blue{
+	color:#FFF;
+	background: $brand-blue;
+	&:hover{background:$medium-blue;}
+	&.btn-arrow:after{
+		border-left:4px solid $dark-blue;
+	}
+}
+
+.btn-orange{
+	color:#FFF;
+	background: #cf8328;
+	&:hover{background:#da933f;}
+	&.btn-arrow:after{
+		border-left:4px solid #b37122;
+	}
+}
+.btn-disabled{
+	color:#FFF;
+	background:#22221c;
+}
+.btn-arrow{
+	text-align: left;
+	&:after{
+		position:absolute;
+		top:0.6rem;
+		right:1rem;	
+		width: 0; 
+		height: 0;  
+		content:" ";
+		border-top: 4px solid transparent;
+		border-bottom: 4px solid transparent;
+		border-left: 4px solid #27333a;
+	}
+}
+
+/* =============================================================================
+OFF CANVAS NAV
+============================================================================= */
+.right-off-canvas-menu{
+	background:#333;
+	a{text-align: left;}
+	.primary-nav,.utility-nav{margin:0 20px;}
+	.primary-nav{
+		padding-bottom:30px;
+		
+		li{
+			padding-top:20px;
+			&.has-dropdown{}
+			a{
+				padding-left:0;
+				padding-right:0;
+				color:#FFF;
+				font-size: 1rem;
+				line-height: 1.5rem;
+				text-decoration: none;
+				text-transform: uppercase;
+				border-bottom:1px solid #ccc;
+			}
+			
+			ul{
+				@include clearfix;
+				display:block;
+				margin:0;
+				padding:0;
+			}
+			ul>li{
+				margin:0;
+				padding:0;
+				display: table-cell;
+				text-align: center;
+				list-style: none;
+				float:left;
+				width:50%;
+				
+				a{
+					padding-left:0;
+					padding-right:0;
+					border: 0;
+					display: block;
+					font-size: 11px;
+					line-height: 12px;
+				}
+			}
+		}
+	}
+	.utility-nav{
+		margin-top:30px;
+		.btn{
+			margin:10px;
+			width:auto;
+			text-align: center;
+			border: 2px solid #FFF;
+		}
+	}
+}
+.right-off-canvas-toggle{position: absolute;top:16px;right:0;}
+
+/* =============================================================================
+CALL TO ACTION ROW
+============================================================================= */
+.cta .btn{margin:0 0 3rem;}
+
+/* =============================================================================
+SECTIONS
+============================================================================= */
+.panel{margin:3rem 0;}
+.section {
+	margin-top:0;
+	margin-bottom:3rem;
+}
+.feathered-divide{
+	margin-top:0;
+	margin-bottom:3rem;
+	padding:2.75rem 0 1.5rem;
+	background-image: url("#{$imagePath}bg-feathered-top.png"), url("#{$imagePath}bg-feathered-bottom.png");
+	background-position: 50% 0, 50% 100%;
+	background-repeat: no-repeat;
+}
+/* =============================================================================
+TESTIMONIALS
+============================================================================= */
+@mixin testimonials($type){
+	h3{
+		color:#CFCFCF;
+		font-size: rem-calc(21);
+	}
+	blockquote{
+		p,span{
+			color:$brand-gray;
+			@if $type == professional {
+				color:$brand-green;
+			}
+			@if $type == privateclient {
+				color:$brand-blue;
+			}
+		}	
+	}
+	.btn,.btn-green-inverse{margin-top:1rem;}
+}
+.testimonials{ @include testimonials(privateclient); }
+.professional .testimonials{ @include testimonials(professional); }
+.professional .headline{
+	@include testimonials(professional);
+	blockquote p{
+		color:$brand-green;
+		font-size: rem-calc(34);
+		
+	}
+}
+

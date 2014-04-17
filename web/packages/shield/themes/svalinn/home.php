@@ -8,7 +8,7 @@
 ?>
 </head>
 
-<body class="antialiased home">
+<body class="antialiased home <?php echo $bodyClasses; ?>">
 
 <div class="off-canvas-wrap">
     <div class="inner-wrap">

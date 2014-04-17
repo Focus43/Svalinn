@@ -1,0 +1,3 @@
+sass --watch /PROJECTS_JG/_VHOSTS/lt1.dev/assets/scss/foundation.scss:/PROJECTS_JG/_VHOSTS/lt1.dev/assets/css/foundation.min.css --style compressed
+sass --watch /PROJECTS_JG/_VHOSTS/lt1.dev/assets/scss/global.scss:/PROJECTS_JG/_VHOSTS/lt1.dev/assets/css/global.css
+sass --watch /PROJECTS_JG/_VHOSTS/lt1.dev/assets/scss/app.scss:/PROJECTS_JG/_VHOSTS/lt1.dev/assets/css/app.css

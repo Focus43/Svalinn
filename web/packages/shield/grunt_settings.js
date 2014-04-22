@@ -58,6 +58,12 @@ module.exports = function( grunt, _configs ){
         tasks : ['concat:shield']
     };
 
+    _configs.watch.generated_css = {
+        options : {livereload: true},
+        files   : [pkgPath('css/*.css')],
+        tasks   : []
+    }
+
 
     /////////////////////////////// BUILD TASKS ///////////////////////////////
     grunt.registerTask('build', 'Building Svalinn Assets', function(){

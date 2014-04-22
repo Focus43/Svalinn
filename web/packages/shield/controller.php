@@ -4,7 +4,7 @@
 
         protected $pkgHandle 			= 'shield';
         protected $appVersionRequired 	= '5.6.1';
-        protected $pkgVersion 			= '0.29';
+        protected $pkgVersion 			= '0.37';
 
 
         /**
@@ -79,9 +79,8 @@
         private function installAndUpdate(){
             // Per-version specific tasks. Re-getByHandle so we make sure to have the package version
             // being upgrade *TO*, not from.
-            $this->runUpgradeTasks( Package::getByHandle($this->pkgHandle)->getPackageVersion() );
-
-            $this->setupUserAttributes()
+            $this->runUpgradeTasks( Package::getByHandle($this->pkgHandle)->getPackageVersion() )
+                ->setupUserAttributes()
                 ->setupBlocks()
                 ->setupPageTypes()
                 ->setupTheme()
@@ -101,17 +100,19 @@
             $handle = sprintf('v%s', str_replace('.', '_', (string)(float)$version));
             $klass  = sprintf('UpgradeTask_%s', $handle);
 
-            // Register for autoloading
-            Loader::registerAutoload(array(
-                $klass => array('library', "upgrade_task/{$handle}", $this->pkgHandle)
-            ));
+            if( file_exists(Environment::get()->getPath(DIRNAME_LIBRARIES . "/upgrade_task/{$handle}.php", $this->pkgHandle)) ){
+                // Register for autoloading
+                Loader::registerAutoload(array(
+                    $klass => array('library', "upgrade_task/{$handle}", $this->pkgHandle)
+                ));
 
-            // Test to see if the class exists (ie. was autoloaded)
-            if( class_exists($klass) ){
-                try {
-                    call_user_func(array($klass, 'run'));
-                }catch(Exception $e){
-                    throw new Exception("Tried executing upgrade_task {$handle} but failed.");
+                // Test to see if the class exists (ie. was autoloaded)
+                if( class_exists($klass) ){
+                    try {
+                        call_user_func(array($klass, 'run'));
+                    }catch(Exception $e){
+                        throw new Exception("Tried executing upgrade_task {$handle} but failed.");
+                    }
                 }
             }
 
@@ -156,10 +157,6 @@
                 CollectionType::add(array('ctHandle' => 'default', 'ctName' => 'Default'), $this->packageObject());
             }
 
-            if( !is_object($this->pageType('blog')) ){
-                CollectionType::add(array('ctHandle' => 'blog', 'ctName' => 'Blog'), $this->packageObject());
-            }
-
             if( !is_object($this->pageType('sublanding')) ){
                 CollectionType::add(array('ctHandle' => 'sublanding', 'ctName' => 'Sub Landing'), $this->packageObject());
             }
@@ -171,40 +168,6 @@
          * @return ShieldPackage
          */
         private function setupSpecialPageAttributes(){
-
-            $eaku = AttributeKeyCategory::getByHandle('collection');
-            $eaku->setAllowAttributeSets(AttributeKeyCategory::ASET_ALLOW_SINGLE);
-
-            $pageType = CollectionType::getByHandle('sublanding');
-
-            $themeSet = AttributeSet::getByHandle('page_extras');
-            if ( !is_object($themeSet) ) {
-                $themeSet = $eaku->addSet('page_extras',t('Page Extras'),$this->packageObject());
-            }
-
-            if( !is_object(CollectionAttributeKey::getByHandle('main_header')) ){
-                CollectionAttributeKey::add( $this->attributeType('text'), array(
-                    'akHandle'              => 'main_header',
-                    'akName'                => 'Main Header',
-                    'akIsSearchableIndexed' => 1,
-                    'akIsSearchable'        => 1
-                ), $this->packageObject())->setAttributeSet($themeSet);
-
-                $ak1= CollectionAttributeKey::getByHandle('main_header');
-                $pageType->assignCollectionAttribute($ak1);
-            }
-
-            if( !is_object(CollectionAttributeKey::getByHandle('sub_header')) ){
-                CollectionAttributeKey::add( $this->attributeType('text'), array(
-                    'akHandle'              => 'sub_header',
-                    'akName'                => 'Sub Header',
-                    'akIsSearchableIndexed' => 1,
-                    'akIsSearchable'        => 1
-                ), $this->packageObject())->setAttributeSet($themeSet);
-
-                $ak2= CollectionAttributeKey::getByHandle('sub_header');
-                $pageType->assignCollectionAttribute($ak2);
-            }
 
             return $this;
         }
@@ -260,10 +223,6 @@
          * @return ShieldPackage
          */
         private function setupFileSets(){
-//            if( !is_object(FileSet::getByName('Featured Dog Photos')) ){
-//                FileSet::createAndGetSet('Featured Dog Photos', FileSet::TYPE_PUBLIC);
-//            }
-
             return $this;
         }
 

@@ -9,7 +9,7 @@ $(document).foundation();
 		init: function(){
 			log('PAGE INIT');	
 			
-			site.home.init();		
+			site.home.init();
 			//FINALIZE PAGE
 			site.ready.finalize();
 		},

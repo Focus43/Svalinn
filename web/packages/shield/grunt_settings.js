@@ -30,7 +30,7 @@ module.exports = function( grunt, _configs ){
         files: {}
     };
 
-    Object.keys(_configs.concat.shield).forEach(function(script){
+    Object.keys(_configs.concat.shield.files).forEach(function(script){
         _configs.uglify.shield.files[script] = script;
     });
 
@@ -45,5 +45,23 @@ module.exports = function( grunt, _configs ){
             {src: [pkgPath('css/src/app.scss')], dest: pkgPath('css/application.css')}
         ]
     };
+
+
+    /////////////////////////////// WATCH ///////////////////////////////
+    _configs.watch.svalinn_sass = {
+        files : [pkgPath('css/src/*.scss')],
+        tasks : ['sass:shield']
+    };
+
+    _configs.watch.svalinn_js = {
+        files : [pkgPath('js/src/*.js')],
+        tasks : ['concat:shield']
+    };
+
+
+    /////////////////////////////// BUILD TASKS ///////////////////////////////
+    grunt.registerTask('build', 'Building Svalinn Assets', function(){
+       grunt.task.run(['concat:shield', 'uglify:shield', 'sass:shield']);
+    });
 
 };

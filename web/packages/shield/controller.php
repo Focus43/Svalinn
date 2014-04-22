@@ -79,7 +79,7 @@
         private function installAndUpdate(){
             // Per-version specific tasks. Re-getByHandle so we make sure to have the package version
             // being upgrade *TO*, not from.
-            $this->runUpgradeTasks( Package::getByHandle($this->pkgHandle)->getPackageVersion() )
+            $this //->runUpgradeTasks( Package::getByHandle($this->pkgHandle)->getPackageVersion() )
                 ->setupUserAttributes()
                 ->setupBlocks()
                 ->setupPageTypes()

@@ -1,157 +1,67 @@
-/* =============================================================================
-FEATURE 
-============================================================================= */
-@mixin feature($type) {
-	@include clearfix;
-	position: relative;
-	background-image:url("#{$imagePath}bg-textured.jpg");
-	border-top:1px solid $brand-gray;
-	border-bottom:1px solid $brand-gray;
-	background-color:$medium-gray;
-	
-	@if $type == professional {
-		border-top:1px solid $brand-green;
-		border-bottom:1px solid $brand-green;
-		background-color:$medium-green;
-	}
-	@if $type == privateclient {
-		border-top:1px solid $dark-blue;
-		border-bottom:1px solid $dark-blue;
-		background-color:$brand-blue;
-	}
-	padding-bottom:42px;	
-	.row{
-		@include clearfix;position: relative;
-		.column{
-			@include clearfix;
-			@media #{$small-only} {
-				min-height:0;
+body.home{
+	background-color:$black-blue;
+	.upper{
+		position: relative;
+		background-image:url("#{$imagePath}bg-home-upper.jpg");
+		background-position:50% 0;
+		background-repeat:no-repeat;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		padding-top:6rem;
+		padding-bottom:6rem;
+		min-height: 600px;
+
+		h1{
+			font-size:72px;
+			line-height: 76px;
+			color:#FFF;	
+		}
+		p{
+			color:#FFF;
+			letter-spacing: 0.2rem;
+		}
+		.intro{
+			padding:1rem 2rem;
+		}
+		@media (max-width:1080px){
+			h1{
+				font-size:64px;
+				line-height: 68px;
 			}
+			p.lead,p.lead-sm,a{font-size:14px;}
 		}
-		.seal{
-			top: -25px;
-			right:4%;
-			position: absolute;
-		}
-	}
-	
-	.dash{
-		position: absolute;
-		bottom:0;
-		width: 100%;
-		height:21px;
-		background:url("#{$imagePath}horz-dash-gray.png") 0 100% repeat-x;
-		@if $type == professional {
-			background:url("#{$imagePath}horz-dash-green.png") 0 100% repeat-x;
-		}
-		@if $type == privateclient {
-			background:url("#{$imagePath}horz-dash-blue.png") 0 100% repeat-x;
-		}
-	}
-	
-	h2{
-		display: inline-block;
-		margin:0 0 0.75rem;
-		padding:2rem 0 0.75rem;
-		font-size:rem-calc(36);
-		color:#FFF;
-		
-		@if $type == professional {
-			border-bottom:1px solid $lite-green;
-		}else{
-			border-bottom:1px solid $lite-blue;
+		@media (max-width:970px){
+			h1{
+				font-size:56px;
+				line-height: 62px;
+			}
+			p.lead,p.lead-sm,a{font-size:14px;}
 		}
 		@media #{$small-only} {
-			font-size:rem-calc(28);
-		}
-	}
-	p{
-		margin-top:0;
-		font-size:rem-calc(18);
-		line-height: rem-calc(28);
-		color:#FFF;
-		@media #{$small-only} {
-			font-size:rem-calc(16);
-			line-height: rem-calc(24);
-		}
-	}
-	
-}
-.home .feature{ @include feature(home); }
-.privateclient .feature{ @include feature(privateclient); }
-.professional .feature{ @include feature(professional); }
-
-/* =============================================================================
-THE BEST
-============================================================================= */
-@mixin the-best($type){
-	.dog{width:40%;}
-	h1{
-		margin:2.5rem 0 1.5rem;
-		font-family: $proxima;
-		font-size:rem-calc(18);
-		font-weight: 700;
-		color:$red;
-		@if $type == professional {
-			color:$orange;
-		}
-		width:100%;
-		text-align: center;
-		span{
-			margin:-13px auto 0;
-			display:block;
-			width:100px;
-			background:#F7F7F7;
-		}
-		&:before{
-			margin-top:12px;
-			line-height: 10px;
-			content:"";
-			display: block;
-			width:100%;
-			height:1px;
-			background:$red;
-			@if $type == professional {
-				background:$orange;
+			padding-top:2rem;
+			min-height: 0;
+			.intro{padding:1rem 0 2rem;}
+			h1{
+				font-size:52px;
+				line-height: 56px;
 			}
+			p.lead,p.lead-sm,a{font-size:14px;}
+			a{margin-bottom:1rem;}
 		}
 	}
-	.btn{
-		@include btn-red-inverse;
-		@if $type == professional {
-			@include btn-orange-inverse;
+	.lower{
+		padding-top:4rem;
+		padding-bottom:6rem;
+		.knot{margin:0 0 2rem;}
+		h2{
+			font-family: $proxima;
+			font-size:rem-calc(24);
+			letter-spacing: 0.2em;
+			color: #FFF;
 		}
-	}
-	.divided{
-		.column, .columns{
-			h2{
-				font-family:$proxima;
-				font-weight:300;
-				font-size:rem-calc(30);
-				text-transform: uppercase;
-				@if $type == professional {
-					color:$dark-green;
-				}else{
-					color:$dark-blue;
-				}
-			}
-			p{
-				margin-left:2.25rem;
-				padding-right:2.25rem;
-				font-size:rem-calc(14);
-				font-weight: 300;
-				@if $type == professional {
-					color:$medium-green;
-				}else{
-					color:$medium-blue;
-				}
-				border-right:1px solid #ccc;
-				border-collapse: collapse;
-			}
-			&:last-of-type p, &:last-of-type p{border-right:0;}
-		}
+		p{color:#FFF;font-weight:300;}
 	}
 }
-
-.the-best{ @include the-best(privateclient); }
-
+.fluid-width-video-wrapper{background: #000;}

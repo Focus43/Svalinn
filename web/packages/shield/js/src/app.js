@@ -7,11 +7,12 @@ $(document).foundation();
 	site.config = {};
 	site.ready = {
 		init: function(){
-			log('PAGE INIT');	
 			
-			site.home.init();
+			//LOAD HOMEPAGE
+			if( $('body').hasClass('home') ) site.home.init();
+			
 			//FINALIZE PAGE
-			site.ready.finalize();
+			this.finalize();
 		},
 		test: function(input){
 			log(input);
@@ -22,16 +23,9 @@ $(document).foundation();
 	}
 	site.home = {
 		init: function(){
-			site.home.introHeight();
-			$( window ).resize(function(){
-				site.home.introHeight();
-			});
-		},
-		introHeight: function(){
-			var minHeight = $('.masthead .gallery').height();
-			$('.masthead .intro .column').height(minHeight);
+			log('HOME INIT');
+			$(".upper").fitVids();			
 		}
-		
 	}
 	
 	

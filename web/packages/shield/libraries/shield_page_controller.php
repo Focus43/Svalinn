@@ -78,6 +78,11 @@
             
             // footer stuff (usually javascript)
             $pageController->addFooterItem( $this->getHelper('html')->javascript('application.js', self::PACKAGE_HANDLE) );
+
+            // include live reload for for grunt watch!
+            if(isset($_SERVER['VAGRANT_VM']) && ((bool) $_SERVER['VAGRANT_VM'] === true)){
+                $this->addFooterItem('<script src="http://localhost:35729/livereload.js"></script>');
+            }
         }
 
 

@@ -59,10 +59,10 @@ module.exports = function( grunt, _configs ){
     };
 
     _configs.watch.generated_css = {
-        options : {livereload: true},
+        options : {livereload: { port: 35729 }},
         files   : [pkgPath('css/*.css')],
         tasks   : []
-    }
+    };
 
 
     /////////////////////////////// BUILD TASKS ///////////////////////////////

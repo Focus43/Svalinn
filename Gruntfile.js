@@ -15,7 +15,7 @@ module.exports = function(grunt){
         banner   : '/*! Build: v<%= pkg.version %>; Author: <%= pkg.author.name %> */\n',
         bump     : {options: {files: ['package.json'], commit: false, push: false, createTag: false, updateConfigs: ['pkg', 'banner']}},
         jshint   : {options: { jshintrc: './.jshintrc' }},
-        watch    : {options: {spawn: false}},
+        watch    : {options: {spawn: true}},
         concat   : {},
         strip    : {},
         uglify   : {},

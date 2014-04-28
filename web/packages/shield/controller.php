@@ -4,7 +4,7 @@
 
         protected $pkgHandle 			= 'shield';
         protected $appVersionRequired 	= '5.6.1';
-        protected $pkgVersion 			= '0.38';
+        protected $pkgVersion 			= '0.41';
 
 
         /**
@@ -33,9 +33,9 @@
 
             // autoload classes
             Loader::registerAutoload(array(
-                'ShieldPageController' => array('library', 'shield_page_controller', $this->pkgHandle),
-                'Dogs'			    => array('model', 'dogs', $this->pkgHandle),
-                'DogList'		    => array('model', 'dog_list', $this->pkgHandle)
+                'ShieldPageController' => array('library', 'shield_page_controller', $this->pkgHandle)
+//                'Dogs'			    => array('model', 'dogs', $this->pkgHandle),
+//                'DogList'		    => array('model', 'dog_list', $this->pkgHandle)
             ));
         }
 
@@ -79,7 +79,7 @@
         private function installAndUpdate(){
             // Per-version specific tasks. Re-getByHandle so we make sure to have the package version
             // being upgrade *TO*, not from.
-            $this //->runUpgradeTasks( Package::getByHandle($this->pkgHandle)->getPackageVersion() )
+            $this->runUpgradeTasks( Package::getByHandle($this->pkgHandle)->getPackageVersion() )
                 ->setupUserAttributes()
                 ->setupBlocks()
                 ->setupPageTypes()
@@ -95,30 +95,30 @@
          * Run per-version tasks. The version passed in is the version being upgraded *to*.
          * @return ShieldPackage
          */
-//        private function runUpgradeTasks( $version ){
-//            // Get the handle
-//            $handle = sprintf('v%s', str_replace('.', '_', (string)(float)$version));
-//            $klass  = sprintf('UpgradeTask_%s', $handle);
-//
-//            if( file_exists(Environment::get()->getPath(DIRNAME_LIBRARIES . "/upgrade_task/{$handle}.php", $this->pkgHandle)) ){
-//                // Register for autoloading
-//                Loader::registerAutoload(array(
-//                    $klass => array('library', "upgrade_task/{$handle}", $this->pkgHandle)
-//                ));
-//
-//                // Test to see if the class exists (ie. was autoloaded)
-//                if( class_exists($klass) ){
-//                    try {
-//                        call_user_func(array($klass, 'run'));
-//                    }catch(Exception $e){
-//                        throw new Exception("Tried executing upgrade_task {$handle} but failed.");
-//                    }
-//                }
-//            }
-//
-//            // Return package instance
-//            return $this;
-//        }
+        private function runUpgradeTasks( $version ){
+            // Get the handle
+            $handle = sprintf('v%s', str_replace('.', '_', (string)(float)$version));
+            $klass  = sprintf('UpgradeTask_%s', $handle);
+
+            if( file_exists(Environment::get()->getPath(DIRNAME_LIBRARIES . "/upgrade_task/{$handle}.php", $this->pkgHandle)) ){
+                // Register for autoloading
+                Loader::registerAutoload(array(
+                    $klass => array('library', "upgrade_task/{$handle}", $this->pkgHandle)
+                ));
+
+                // Test to see if the class exists (ie. was autoloaded)
+                if( class_exists($klass) ){
+                    try {
+                        call_user_func(array($klass, 'run'));
+                    }catch(Exception $e){
+                        throw new Exception("Tried executing upgrade_task {$handle} but failed.");
+                    }
+                }
+            }
+
+            // Return package instance
+            return $this;
+        }
 
 
         /**
@@ -190,7 +190,8 @@
          */
         private function setupSitePages(){
             // setup single pages
-            SinglePage::add('/dogs-sale', $this->packageObject());
+            SinglePage::add('/dogs', $this->packageObject());
+            SinglePage::add('/contact', $this->packageObject());
 
             // dashboard pages
             $dogs = SinglePage::add('/dashboard/shield/dogs', $this->packageObject());

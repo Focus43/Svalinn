@@ -9,7 +9,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 
 <body class="antialiased<?php echo $bodyClasses; ?>">
 
-
+    <?php print $innerContent; ?>
 
 <?php Loader::element('footer_required'); // REQUIRED BY C5 // ?>
 </body>

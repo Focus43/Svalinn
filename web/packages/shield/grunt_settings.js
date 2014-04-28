@@ -12,7 +12,6 @@ module.exports = function( grunt, _configs ){
     // Main theme stuff
     _configs.concat.shield.files[ pkgPath('js/application.js') ] = [
         pkgPath('js/src/foundation.min.js'), // @todo: modularize to only in-use components
-        pkgPath('js/src/debug.js'),
         pkgPath('js/src/plugins.js'),
         pkgPath('js/src/app.js')
     ];

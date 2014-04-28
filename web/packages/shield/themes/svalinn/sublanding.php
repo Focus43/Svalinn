@@ -113,17 +113,17 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 									<div class="content" id="panel2a">
 										<h3>Company History</h3>
 										<p>Svalinn is based out of Jackson Hole, WY but the company’s story starts in east Africa. It was 2005 and Jeff and Kim Green, the founders of Svalinn, were living in Kenya. The couple was just blessed with twin boys and with work requiring frequent travel for Jeff; the Greens wanted a personal protection solution for their family. Svalinn’s first dogs were "Briggs" and "Banshee”, two Dutch Shepherds. Jeff trained these two “dutchies” himself after realizing there was no one in the industry providing what he was looking for: a vigilant and able protection dog with the stability and sociability to be around the babies.</p>
-										<p><a href="" class="btn btn-bordered btn-sm blue on-lite uppercase">Learn More</a></p>
+										<p><a href="" class="link">Learn More</a></p>
 									</div>
 									<div class="content" id="panel3a">
 										<h3>History of Working Dogs</h3>
 										<p>The bond between humans and canines is one of the most powerful in the natural world. The ancient Egyptians as well as the Greeks, Persians and Romans all used dogs for protection, hunting, herding and many other tasks. Even after all these millennia of living and working alongside dogs, we are just now starting to comprehend the depths and abilities of these wonderful creatures. The breeding of working dogs started by identifying and selecting the most intelligent, hardy, and alert dogs and breeding them together for specific uses.</p>
-										<p><a href="" class="btn btn-bordered btn-sm blue on-lite uppercase">Learn More</a></p>
+										<p><a href="" class="link">Learn More</a></p>
 									</div>
 									<div class="content" id="panel4a">
 										<h3>Philosophy &amp; Approach</h3>
 										<p>Svalinn breeds, raises and trains all of our dogs in-house. While some breeders are interested in only looks and kennel club guidelines, we breed for intelligence, capability and stability.  Many so-called “protection” dogs are trained around protection sports and competitions such as Schutzhund. At Svalinn, we aren’t interested in sports or games. We have trained every dog since they were 5-week-old puppies. Svalinn dogs train six days a week in stability, socialization, obedience, and protection.</p>
-										<p><a href="" class="btn btn-bordered btn-sm blue on-lite uppercase">Learn More</a></p>
+										<p><a href="" class="link">Learn More</a></p>
 									</div>
 								</div>
 							</div>

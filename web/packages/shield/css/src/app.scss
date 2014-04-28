@@ -282,6 +282,37 @@ ELEMENTS
 			font-weight: 300;
 			line-height:rem-calc(32);	
 		}
+		ul{
+			li{
+				color:$brand-blue;
+				font-size: rem-calc(18);
+				font-style: italic;
+				font-weight: 300;
+				letter-spacing: 0.06em;
+				line-height: rem-calc(21);
+			}
+			
+		}
+		.link{
+			position: relative;
+			margin-top:2rem;
+			color:$brand-blue;
+			font-size:rem-calc(14);
+			font-weight: 600;
+			text-transform: uppercase;
+			&:after{
+				position:absolute;
+				top:0.1rem;
+				right:-1rem;	
+				width: 0; 
+				height: 0;  
+				content:" ";
+				border-top: 4px solid transparent;
+				border-bottom: 4px solid transparent;
+				border-left: 4px solid #27333a;
+			}
+			&:hover{color:#27333a;}
+		}
 	}
 }
 
@@ -299,8 +330,26 @@ MAIN
 		blockquote p {font-size:rem-calc(26);}
 		
 	}
+	.lead{
+		margin:2rem 0;
+		font-size:rem-calc(21);
+		line-height:rem-calc(36);
+		letter-spacing: 0;
+	}
 }
-
+.boxed{
+	padding:2rem 3rem;
+	box-shadow: 0 0 0 1px #999, 0px 0px 0 5px #FFF, 0px 0px 0 6px #999;
+	background: #FFF;	
+	h3{
+		
+	}
+	p{
+		
+		
+	}
+	
+}
 /* =============================================================================
 FOOTER
 ============================================================================= */

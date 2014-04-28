@@ -44,16 +44,16 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 				</div>
 				<div class="row">
 					<div class="column medium-10 medium-centered">
-						<hr class="divide knots" />
+						<hr class="divide knots-blue" />
 						<p class="lead-sm text-center uppercase">LEARN MORE ABOUT SVALINN FOR</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="column medium-3 medium-offset-3 text-center">
-						<a href="/privateclient"  class="btn-bordered btn-full blue uppercase">Private Client</a>
+						<a href="/privateclient"  class="btn btn-bordered btn-full blue uppercase">Private Client</a>
 					</div>
 					<div class="column medium-3 end text-center">
-						<a href="/professional" class="btn-bordered btn-full blue uppercase">Professional</a>
+						<a href="/professional" class="btn btn-bordered btn-full blue uppercase">Professional</a>
 					</div>
 				</div>
 				<div class="celtic-knot"></div>
@@ -62,7 +62,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 			
 			
 			<!-- BEGIN .lower -->
-			<article class="container lower bg-wave-blue">
+			<article class="container lower bg-wave-drk-blue">
 				<div class="row">
 					<div class="column medium-11 medium-centered">
 						<p class="text-center knot"><img src="/packages/shield/img/knot-wave-blue.png" /></p>

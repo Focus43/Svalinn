@@ -1,6 +1,7 @@
+//INIT FOUNDATION
 $(document).foundation();
 
-
+//INIT SITE
 (function (site, $) {
 	'use strict';
 
@@ -28,7 +29,5 @@ $(document).foundation();
 		}
 	}
 	
-	
 }(window.site = window.site || {}, jQuery));
-
 site.ready.init();

@@ -50,8 +50,8 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 			<article class="container masthead bg-wave-blue">
 				<div class="row">
 					<div class="column medium-10 medium-centered intro">
-						<h1 class="text-center">Contact</h1>
-						<p class="lead uppercase text-center">Want to know more?</p>
+						<h1 class="text-center">Training</h1>
+						<p class="lead uppercase text-center">Working Dog Skill Levels</p>
 					</div>
 				</div>
 				<div class="celtic-knot"></div>
@@ -59,9 +59,15 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 			<!-- END .masthead -->
 			
 			<!-- BEGIN .submast -->
-			<article class="container bg-knot-gray-lg">
+			<article class="container tab-nav bg-knot-gray-lg">
 				<div class="row">
-					<div class="column medium-10 medium-centered"></div>
+					<div class="column medium-10 medium-centered">
+						<dl class="tabs centered" data-tab>
+							<dd class="active"><a href="#level1">Level I</a></dd>
+							<dd><a href="#level2">Level II</a></dd>
+							<dd><a href="#level3">Level III</a></dd>
+						</dl>
+					</div>
 				</div>
 			</article>
 			<!-- END .submast -->
@@ -69,74 +75,80 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 			<!-- BEGIN .content -->
 			<article class="container main bg-gray">
 				<div class="row">
-					<div class="small-12 medium-3 columns">
-						<br/><br/>
-						<h3 class="sans">Svalinn</h3>
-						<p>P.O. BOX 7497<br>JACKSON, WY 83002</p>
-						<p>(307) 200-1223</p>
+					<div class="column medium-10 large-8 medium-centered">
+						<p class="text-center lead">Svalinn K9s come in three breeds and three levels of training. Our German Shepherds, Dutch Shepherds and Belgian Malinois range from $30,000 to $85,000 depending on the selected training level.</p>
 					</div>
-					<div class="small-12 medium-9 columns">
-						<p class="lead">If you feel like discussing any of our dogs and would rather not fill in the contact us form, please feel free to call us in Jackson, Wyoming . We are open from 9am-5pm Monday through Saturday. Please leave us a message telling us when best to call you back so that we may answer your questions.</p>
-						<form class="contact-form">
-							<div class="row">
-							    <div class="large-6 columns">
-							      <label>Name
-							        <input type="text" placeholder="Your Name">
-							      </label>
-							    </div>
-							    <div class="large-6 columns">
-							      <label>Email
-							        <input type="text" placeholder="Email Address">
-							      </label>
-							    </div>
-							</div>
-							<div class="row">
-							    <div class="large-6 columns">
-							      <label>Phone
-							        <input type="text" placeholder="Phone Number">
-							      </label>
-							    </div>
-							    <div class="large-6 columns">
-							      <label>City
-							        <input type="text" placeholder="Your City">
-							      </label>
-							    </div>
-							</div>
-							<div class="row">
-							    <div class="large-6 columns">
-							      <label>Type of Client
-							        <select>
-							          <option value="Family">Family</option>
-							          <option value="Professional">Professional</option>
-							          <option value="Executive">Executive</option>
-							          <option value="Individual">Individual</option>
-							        </select>
-							      </label>
-							    </div>
-							    <div class="large-6 columns">
-							      <label>Other Pets
-							        <select>
-							          <option value="Yes">Yes</option>
-							          <option value="No">No</option>
-							        </select>
-							      </label>
-							    </div>
-							</div>
-							<div class="row">
-							    <div class="large-12 columns">
-							      <label>Tell Us Little About Yourself
-							        <textarea placeholder="About You / Questions"></textarea>
-							      </label>
-							    </div>
-							</div>
-							<div class="row">
-							    <div class="large-12 columns">
-							        <input type="submit" class="button btn btn-lg btn-contact btn-arrow uppercase push-right" value="Send">
-							    </div>
+				</div>
+				<div class="row">
+					<div class="column medium-12 large-10 medium-centered">
+						<div class="tabs-content">
+							<div class="content active" id="level1">
+								<div class="row">
+									<div class="column medium-6">
+										<ul>
+											<li>Will protect against up to two attackers</li>
+											<li>Fully obedient</li>
+											<li>Socialized to children and other pets</li>
+											<li>House trained</li>
+										</ul>
+									</div>
+									<div class="column medium-6">
+										<div class="boxed">
+											<div class="box">
+												<h3>Includes</h3>
+												<p>Two three-day training packages at our facility in Jackson Hole, Wyoming — one session upon purchase and a follow-up session during the first year of ownership.</p>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 							
-						</form>
-					</div>	
+							<div class="content" id="level2">
+								<div class="column medium-6">
+									<ul>
+										<li>All level I attributes +</li>
+										<li>Deeper vigilance training</li>
+										<li>Ability to conduct home searches</li>
+										<li>Vehicle deployment and protection</li>
+										<li>Adaptive response to multiple attackers</li>
+										<li>Socialized to airplanes and helicopters</li>
+										<li>Weapons recognition and tactical response</li>
+									</ul>
+								</div>
+								<div class="column medium-6">
+									<div class="boxed">
+										<div class="box">
+											<h3>Includes</h3>
+											<p>Two three-day training packages at our facility in Jackson Hole, Wyoming — one session upon purchase and a follow-up session during the first year of ownership.</p>
+										</div>
+									</div>
+								</div>							
+							</div>
+							<div class="content" id="level3">
+								<div class="column medium-6">
+										<ul>
+											<li>All level II attributes +</li>
+											<li>Ultimate vigilance</li>
+											<li>Tracking</li>
+											<li>Understands the effects of weapons, tactics and group dynamics</li>
+											<li>Deep experience, complete stability in all environments</li>
+										</ul>
+									</div>
+									<div class="column medium-6">
+										<div class="boxed">
+											<div class="box">
+												<h3>Includes</h3>
+												<p>Two three-day training sessions at our facility in Jacskon Hole, Wyoming or your place of choosing. The first session takes place upon purchase and the second on or about the one-year mark of ownership.
+</p>
+											</div>
+										</div>
+									</div>
+							</div>
+						</div>
+						<hr class="divide o-gray nomargin-top" />
+						<hr class="divide o-gray nomargin-top" />
+						<a href="/privateclient/the-svalinn-difference" class="btn btn-bordered btn-md blue cta on-lite uppercase align-center">More about our Dogs</a>
+					</div>
 				</div>
 			</article>
 			<!-- END .content -->

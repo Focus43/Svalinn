@@ -180,6 +180,23 @@ p.lead-sm{
 blockquote{
 	width:100%;
 	border-left: 0;
+	&.caption{
+		font-family: $quadon-light;
+		font-style: italic;
+		font-size:rem-calc(34);
+		line-height: rem-calc(48);
+		&:before, &:after{
+			display: block;
+			margin:1rem 0;
+			content:"";
+			height:2px;
+			width:30px;
+			background: $brand-gray;
+		}
+		&.text-right{
+			&:before, &:after{right:0;}
+		}
+	}
 	p{
 		font-family: $quadon-light;
 		font-style: italic;
@@ -204,7 +221,7 @@ blockquote{
 				content: " ";
 				height:5px;
 				width:100%;
-				background: url("#{$imagePath}blockquote-signature.png") 50% 0 no-repeat;
+				background: url(/assets/img/blockquote-signature.png) 50% 0 no-repeat;
 				
 			}
 		}	
@@ -215,6 +232,26 @@ blockquote{
 	}
 }
 .uppercase{text-transform: uppercase;}
+
+/* =============================================================================
+POSITIONING
+============================================================================= */
+.nomargin{margin:0 !important;}
+.nomargin-top{margin-top:0 !important;}
+.nomargin-bottom{margin-bottom:0 !important;}
+.nomargin-left{margin-left:0 !important;}
+.nomargin-right{margin-right:0 !important;}
+
+.nopadding{padding:0 !important;}
+.nopadding-top{padding-top:0 !important;}
+.nopadding-bottom{padding-bottom:0 !important;}
+.nopadding-left{padding-left:0 !important;}
+.nopadding-right{padding-right:0 !important;}
+
+.vertical-middle {
+	display: table;
+}
+
 /* =============================================================================
 BUTTONS
 ============================================================================= */
@@ -274,6 +311,11 @@ BUTTONS
 	&.cta{
 		margin-top:2rem;
 		margin-bottom:2rem;
+	}
+	&.gray{
+		color:#FFF;
+		background:$lite-gray;
+		text-transform: uppercase;
 	}
 }
 .btn-md{@include btn-md;}
@@ -388,8 +430,8 @@ SECTIONS
 ============================================================================= */
 .panel{margin:3rem 0;}
 .section {
-	margin-top:0;
-	margin-bottom:3rem;
+	margin-top:1rem;
+	margin-bottom:2rem;
 }
 .feathered-divide{
 	margin-top:0;

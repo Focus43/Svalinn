@@ -17,12 +17,22 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 					    <img src="/packages/shield/img/logo-svalinn.svg"/>
 				    </a></section>
 				    <section class="top-bar-section primary-nav-section show-for-large-up">
-				    	<ul class="left" role="navigation">
+				    	<!--<ul class="left" role="navigation">
 				    		<li><a href="/privateclient">Private Client</a></li>
 							<li><a href="/professional">Professional</a></li>
 							<li><a href="#">Contact</a></li>
-				    	</ul>
-				    	
+				    	</ul>-->
+                        <?php
+                        $page = Page::getCurrentPage();
+                        $typeHandle = $page->getCollectionTypeHandle();
+                        $bt = BlockType::getByHandle('autonav');
+                        $bt->controller->orderBy              = 'display_asc';
+                        $bt->controller->displayPages         = 'top';
+                        //$bt->controller->displaySubPages      = ($typeHandle === 'home') ? 'none' : 'all';
+                        //$bt->controller->displaySubPageLevels = ($typeHandle === 'home') ? 'none' :'custom';
+                        //$bt->controller->displaySubPageLevelsNum = 1;
+                        $bt->render('templates/header_navigation');
+                        ?>
 				    </section>
 				    <div class="right-off-canvas-toggle menu-icon show-for-medium-down right"><a href="#"><span></span></a></div>	
 				</nav>

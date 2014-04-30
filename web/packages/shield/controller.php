@@ -4,7 +4,7 @@
 
         protected $pkgHandle 			= 'shield';
         protected $appVersionRequired 	= '5.6.1';
-        protected $pkgVersion 			= '0.41';
+        protected $pkgVersion 			= '0.42';
 
 
         /**
@@ -109,7 +109,7 @@
                 // Test to see if the class exists (ie. was autoloaded)
                 if( class_exists($klass) ){
                     try {
-                        call_user_func(array($klass, 'run'));
+                        call_user_func_array(array($klass, 'run'), array( $this ));
                     }catch(Exception $e){
                         throw new Exception("Tried executing upgrade_task {$handle} but failed.");
                     }
@@ -194,11 +194,11 @@
             SinglePage::add('/contact', $this->packageObject());
 
             // dashboard pages
-            $dogs = SinglePage::add('/dashboard/shield/dogs', $this->packageObject());
-            if( is_object($dogs) ){
-                $dogs->setAttribute('icon_dashboard', 'icon-list');
-            }
-            SinglePage::add('/dashboard/shield/dogs/search', $this->packageObject());
+//            $dogs = SinglePage::add('/dashboard/shield/dogs', $this->packageObject());
+//            if( is_object($dogs) ){
+//                $dogs->setAttribute('icon_dashboard', 'icon-list');
+//            }
+//            SinglePage::add('/dashboard/shield/dogs/search', $this->packageObject());
 
             return $this;
         }
@@ -234,7 +234,7 @@
          * @param string Handle of the page_type to use
          * @return Page
          */
-        private function pageFactory( Page $parent, $name, $typeHandle = 'default' ){
+        public function pageFactory( Page $parent, $name, $typeHandle = 'default' ){
             return $parent->add( $this->pageType($typeHandle), array(
                 'cName' => $name,
                 'pkgID' => $this->packageObject()->getPackageID()
@@ -319,7 +319,7 @@
 
 
         /**
-         * "Memorize" helpers so they're only loaded once.
+         * Memoize helpers so they're only loaded once.
          * @param string $handle Handle of the helper to load
          * @param string $pkg Package to get the helper from
          * @return ...Helper class of some sort

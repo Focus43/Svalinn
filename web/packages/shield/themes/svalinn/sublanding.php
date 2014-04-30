@@ -11,39 +11,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 	<div class="off-canvas-wrap">
 		<div class="inner-wrap">
 			<!-- BEGIN HEADER -->
-			<header class="container header bg-white">
-				<nav class="primary-nav-container" data-topbar data-options="is_hover: true;">
-				    <section class="left name"><a href="/" title="Svalinn" rel="home">
-					    <img src="/packages/shield/img/logo-svalinn.svg"/>
-				    </a></section>
-				    <section class="top-bar-section primary-nav-section show-for-large-up">
-				    	<ul class="left" role="navigation">
-				    		<li><a href="#">About</a></li>
-							<li class="has-dropdown not-click">
-								<a href="#">Svalinn Difference</a>
-								<ul class="dropdown">
-									<li><a href="">Training</a></li>
-									<li><a href="">Guarantee</a></li>
-									<li><a href="">Breed Specifications</a></li>
-								</ul>
-							</li>
-							<li class="has-dropdown not-click">
-								<a href="#">Protection</a>
-								<ul class="dropdown">
-									<li><a href="">Family</a></li>
-									<li><a href="">Individual</a></li>
-									<li><a href="">Executive</a></li>
-								</ul>
-							</li>
-							<li><a href="#">Purchase Process</a></li>
-							<li><a href="#">Our Dogs</a></li>
-							<li><a href="#">Contact</a></li>
-				    	</ul>
-				    	
-				    </section>
-				    <div class="right-off-canvas-toggle menu-icon show-for-medium-down right"><a href="#"><span></span></a></div>	
-				</nav>
-			</header>
+            <?php Loader::packageElement('theme_header', 'shield'); ?>
 			<!-- END HEADER   -->
 			
 			<!-- BEGIN .masthead -->

@@ -7,13 +7,12 @@
         </section>
         <section class="top-bar-section primary-nav-section show-for-large-up">
             <?php
-            $bt = BlockType::getByHandle('autonav');
-            $bt->controller->orderBy                 = 'display_asc';
-            $bt->controller->displayPages            = 'second_level';
-            $bt->controller->displaySubPages         = 'all';
-            $bt->controller->displaySubPageLevels    = 'custom';
-            $bt->controller->displaySubPageLevelsNum = 1;
-            $bt->render('templates/primary_nav');
+                $blockTypeNav = BlockType::getByHandle('autonav');
+                $blockTypeNav->controller->orderBy = 'display_asc';
+                foreach((array) $navigationSettings AS $key => $value){
+                    $blockTypeNav->controller->{$key} = $value;
+                }
+                $blockTypeNav->render('templates/header_nav');
             ?>
         </section>
         <div class="right-off-canvas-toggle menu-icon show-for-medium-down right"><a href="#"><span></span></a></div>

@@ -11,32 +11,11 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 	<div class="off-canvas-wrap">
 		<div class="inner-wrap">
 			<!-- BEGIN HEADER -->
-			<header class="container header bg-white">
-				<nav class="primary-nav-container" data-topbar data-options="is_hover: true;">
-				    <section class="left name"><a href="/" title="Svalinn" rel="home">
-					    <img src="/packages/shield/img/logo-svalinn.svg"/>
-				    </a></section>
-				    <section class="top-bar-section primary-nav-section show-for-large-up">
-				    	<!--<ul class="left" role="navigation">
-				    		<li><a href="/privateclient">Private Client</a></li>
-							<li><a href="/professional">Professional</a></li>
-							<li><a href="#">Contact</a></li>
-				    	</ul>-->
-                        <?php
-                        $page = Page::getCurrentPage();
-                        $typeHandle = $page->getCollectionTypeHandle();
-                        $bt = BlockType::getByHandle('autonav');
-                        $bt->controller->orderBy              = 'display_asc';
-                        $bt->controller->displayPages         = 'top';
-                        //$bt->controller->displaySubPages      = ($typeHandle === 'home') ? 'none' : 'all';
-                        //$bt->controller->displaySubPageLevels = ($typeHandle === 'home') ? 'none' :'custom';
-                        //$bt->controller->displaySubPageLevelsNum = 1;
-                        $bt->render('templates/header_navigation');
-                        ?>
-				    </section>
-				    <div class="right-off-canvas-toggle menu-icon show-for-medium-down right"><a href="#"><span></span></a></div>	
-				</nav>
-			</header>
+            <?php Loader::packageElement('theme_header', 'shield', array(
+                'navigationSettings' => array(
+                    'displayPages'   => 'top'
+                )
+            )); ?>
 			<!-- END HEADER   -->
 			
 			<!-- BEGIN .upper -->
@@ -75,7 +54,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 			<article class="container lower bg-wave-drk-blue">
 				<div class="row">
 					<div class="column medium-11 medium-centered">
-						<p class="text-center knot"><img src="/packages/shield/img/knot-wave-blue.png" /></p>
+						<p class="text-center knot"><img src="<?php echo SHIELD_IMAGES_URL; ?>knot-wave-blue.png" /></p>
 						<h2 class="text-center uppercase">The Svalinn Name</h2>
 						<p class="lead-sm text-center">In Norse mythology Svalinn is the name of the legendary shield given by the gods to protect the steeds pulling the sun across the sky and Midgard (Earth) from the sun’s full power. Svalinn is a timeless symbol of strength and ardent vigilance. It’s a name that appropriately portrays the ever-present companionship and protection that our highly trained dogs provide.</p>
 					</div>
@@ -85,23 +64,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 			
 			
 			<!-- BEGIN .footer -->
-			<footer class="container footer" role="contentinfo">
-				<div class="row">
-					<div class="column medium-4 large-5 message">
-						<p>For more information about Svalinn <br class="show-for-large-up"/>and our services please get in touch.</p>
-					</div>
-					<div class="column medium-8 large-7 contact">
-						<a href="mailto:info@svalinn.com" class="btn btn-lg btn-contact btn-arrow uppercase">Email Us</a>
-						<div class="or fwsb">OR</div>
-						<a href="tel:1-307-200-1223" class="btn btn-lg btn-disabled uppercase">307.200.1223</a>
-					</div>
-				</div>
-				<div class="row copyright">
-					<div class="column small-12">
-						<p class="text-center">Copyright &copy; 2014 Svalinn • All Rights Reserved</p>
-					</div>
-				</div>
-			</footer>
+            <?php Loader::packageElement('theme_footer', 'shield'); ?>
 			<!-- END .footer -->
 			
 			<!-- BEGIN .right-off-canvas-menu -->

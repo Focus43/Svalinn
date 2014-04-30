@@ -4,7 +4,7 @@
 
         protected $pkgHandle 			= 'shield';
         protected $appVersionRequired 	= '5.6.1';
-        protected $pkgVersion 			= '0.42';
+        protected $pkgVersion 			= '0.43';
 
 
         /**
@@ -31,11 +31,9 @@
             define('SHIELD_TOOLS_URL', BASE_URL . REL_DIR_FILES_TOOLS_PACKAGES . '/' . $this->pkgHandle . '/');
             define('SHIELD_IMAGES_URL', DIR_REL . '/packages/' . $this->pkgHandle . '/img/');
 
-            // autoload classes
+            // Autoload classes
             Loader::registerAutoload(array(
                 'ShieldPageController' => array('library', 'shield_page_controller', $this->pkgHandle)
-//                'Dogs'			    => array('model', 'dogs', $this->pkgHandle),
-//                'DogList'		    => array('model', 'dog_list', $this->pkgHandle)
             ));
         }
 
@@ -155,6 +153,10 @@
 
             if( !is_object($this->pageType('default')) ){
                 CollectionType::add(array('ctHandle' => 'default', 'ctName' => 'Default'), $this->packageObject());
+            }
+
+            if( !is_object($this->pageType('default_2_column')) ){
+                CollectionType::add(array('ctHandle' => 'default_2_column', 'ctName' => 'Default: 2 Column'), $this->packageObject());
             }
 
             if( !is_object($this->pageType('sublanding')) ){

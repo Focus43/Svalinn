@@ -1,8 +1,3 @@
-<!-- 
-    ***************** HEY YOU! *****************
-    If you enjoy checking out what's under the hood, you're probably a nerd, and we
-    love nerds... so we should talk. http://focus-43.com
--->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">

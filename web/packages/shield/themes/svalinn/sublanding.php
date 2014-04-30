@@ -11,7 +11,14 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 	<div class="off-canvas-wrap">
 		<div class="inner-wrap">
 			<!-- BEGIN HEADER -->
-            <?php Loader::packageElement('theme_header', 'shield'); ?>
+            <?php Loader::packageElement('theme_header', 'shield', array(
+                'navigationSettings' => array(
+                    'displayPages'   => 'second_level',
+                    'displaySubPages' => 'all',
+                    'displaySubPageLevels' => 'custom',
+                    'displaySubPageLevelsNum' => 1
+                )
+            )); ?>
 			<!-- END HEADER   -->
 			
 			<!-- BEGIN .masthead -->
@@ -112,64 +119,18 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 			
 			
 			<!-- BEGIN .footer -->
-			<footer class="container footer" role="contentinfo">
-				<div class="row">
-					<div class="column medium-4 large-5 message">
-						<p>For more information about Svalinn <br class="show-for-large-up"/>and our services please get in touch.</p>
-					</div>
-					<div class="column medium-8 large-7 contact">
-						<a href="mailto:info@svalinn.com" class="btn btn-lg btn-contact btn-arrow uppercase">Email Us</a>
-						<div class="or fwsb">OR</div>
-						<a href="tel:1-307-200-1223" class="btn btn-lg btn-disabled uppercase">307.200.1223</a>
-					</div>
-				</div>
-				<div class="row copyright">
-					<div class="column small-12">
-						<p class="text-center">Copyright &copy; 2014 Svalinn • All Rights Reserved</p>
-					</div>
-				</div>
-			</footer>
+            <?php Loader::packageElement('theme_footer', 'shield'); ?>
 			<!-- END .footer -->
 			
 			<!-- BEGIN .right-off-canvas-menu -->
-		    <aside class="right-off-canvas-menu">
-		    	<ul class="primary-nav off-canvas-list">
-			    	<li class="has-dropdown">
-		    			<a href="#">About</a>
-		    			<ul class="dropdown">
-							<li><a href="">Overview</a></li>
-							<li><a href="">Philosophy/Approach</a></li>
-						</ul>
-		    		</li>
-					<li class="has-dropdown">
-						<a href="#">Svalinn Difference</a>
-						<ul class="dropdown">
-							<li><a href="">Training</a></li>
-							<li><a href="">Guarantee</a></li>
-							<li><a href="">Breed Specifications</a></li>
-						</ul>
-						
-					</li>
-					<li class="has-dropdown">
-						<a href="#">Protection</a>
-							<ul class="dropdown">
-								<li><a href="">Family</a></li>
-								<li><a href="">Individual</a></li>
-								<li><a href="">Executive</a></li>
-							</ul>
-					</li>
-					<li><a href="#">Purchase Process</a></li>
-					<li><a href="#">Our Dogs</a></li>
-					<li><a href="#">Contact</a></li>
-			    	</ul>
-		    	</ul>
-		    	<ul class="utility-nav off-canvas-list">
-		    		<li><a class="btn btn-blue" href="">Contact</a></li>
-			    	<li><a class="btn btn-blue" href="">Private Client</a></li>
-					<li><a class="btn btn-blue" href="">Professional</a></li>
-		    	</ul>
-		    </aside>
-			<a class="exit-off-canvas"></a>
+            <?php Loader::packageElement('responsive_sidebar', 'shield', array(
+                'navigationSettings' => array(
+                    'displayPages'   => 'second_level',
+                    'displaySubPages' => 'all',
+                    'displaySubPageLevels' => 'custom',
+                    'displaySubPageLevelsNum' => 1
+                )
+            )); ?>
 			<!-- END .right-off-canvas-menu -->
 			
 			

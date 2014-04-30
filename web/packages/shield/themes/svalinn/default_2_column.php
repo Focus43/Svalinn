@@ -54,17 +54,6 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 				</div>
 				<div class="row section">
 					<div class="small-12 medium-8 columns">
-						<!--<ul class="example-orbit" data-orbit>
-						  <li class="active">
-						    <img src="/packages/shield/img/photos/philosophy-approach/1.jpg" alt="slide 1" />
-						  </li>
-						  <li>
-						    <img src="/packages/shield/img/photos/philosophy-approach/2.jpg" alt="slide 2" />
-						  </li>
-						  <li>
-						    <img src="/packages/shield/img/photos/philosophy-approach/3.jpg" alt="slide 3" />
-						  </li>
-						</ul>-->
                         <?php $a = new Area('Main-2'); $a->display($c); ?>
 					</div>
 					<div class="small-12 medium-4 columns">

@@ -1,10 +1,3 @@
-<?php // deprecated, but keep for future reference...
-//    $quoteStack = Stack::getByName('Footer Left')->getBlocks();
-//    if( !empty($quoteStack) ){
-//        $quoteStack[array_rand($quoteStack)]->display();
-//    }
-?>
-
 <footer class="container footer" role="contentinfo">
     <div class="row">
         <div class="column medium-4 large-5 message">

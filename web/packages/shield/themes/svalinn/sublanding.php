@@ -25,13 +25,20 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 			<article class="container masthead bg-wave-blue">
 				<div class="row">
 					<div class="column medium-10 medium-centered intro">
-						<h1 class="text-center">Bred to Love.</h1>
-						<p class="lead uppercase text-center">Trained to Protect.</p>
+						<h1 class="text-center">
+                            <?php echo Page::getCurrentPage()->getAttribute('meta_title'); ?>
+						</h1>
+						<p class="lead uppercase text-center">
+                            <?php echo Page::getCurrentPage()->getAttribute('meta_description'); ?>
+						</p>
 					</div>
 					<div class="column medium-8 medium-centered">
-						<div class="dog"><img src="/packages/shield/img/celtic-dog-blue.png"/></div>
-						<h2 class="subtitle text-center">The bond between humans and canines is one <br class="show-for-large-up"/>of the most powerful in the natural world.</h2>
-						<p class="text-center">Svalinn's training is geared towards honoring the classic partnership between man and dog that has been forged over thousands of years. With focus on a dual role as both friend and protector gives our dogs a level of sociability and vigilance unparalleled in the industry.</p>
+						<div class="dog">
+                            <img src="<?php echo SHIELD_IMAGES_URL; ?>celtic-dog-blue.png"/>
+                        </div>
+                        <?php $a = new Area('Masthead'); $a->display($c); ?>
+						<!--<h2 class="subtitle text-center">The bond between humans and canines is one <br class="show-for-large-up"/>of the most powerful in the natural world.</h2>
+						<p class="text-center">Svalinn's training is geared towards honoring the classic partnership between man and dog that has been forged over thousands of years. With focus on a dual role as both friend and protector gives our dogs a level of sociability and vigilance unparalleled in the industry.</p>-->
 					</div>
 				</div>
 				<div class="celtic-knot"></div>
@@ -54,16 +61,19 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 						<!-- CONTENTS -->
 						<div class="options row">
 							<div class="column medium-4">
-								<h3>Best Friend</h3>
-								<p>The bond between humans and canines is one of the most powerful in the natural world. We can now comprehend the depths and abilities of these wonderful creatures in a working environment.</p>
+								<?php $a = new Area('Main Left'); ?>
+                                <!--<h3>Best Friend</h3>
+								<p>The bond between humans and canines is one of the most powerful in the natural world. We can now comprehend the depths and abilities of these wonderful creatures in a working environment.</p>-->
 							</div>
 							<div class="column medium-4">
-								<h3>Best Protection</h3>
-								<p>Svalinn K9s start their training at just 5 weeks old. Training geared towards a dual role as both friend and protector gives our dogs a level of sociability and vigilance unparalleled in the industry.</p>
+                                <?php $a = new Area('Main Center'); ?>
+                                <!--<h3>Best Protection</h3>
+								<p>Svalinn K9s start their training at just 5 weeks old. Training geared towards a dual role as both friend and protector gives our dogs a level of sociability and vigilance unparalleled in the industry.</p>-->
 							</div>
 							<div class="column medium-4">
-								<h3>Best Option</h3>
-								<p>Personal safety starts with you. Which is why every Svalinn K9 includes real-world safety training for its handler. Our personal security experts will guide you on with techniques for your dog.</p>
+                                <?php $a = new Area('Main Right'); ?>
+								<!--<h3>Best Option</h3>
+								<p>Personal safety starts with you. Which is why every Svalinn K9 includes real-world safety training for its handler. Our personal security experts will guide you on with techniques for your dog.</p>-->
 							</div>
 						</div>
 						<div class="row">
@@ -80,7 +90,6 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 									<dd><a href="#panel4a">Philosophy &amp; Approach</a></dd>
 								</dl>
 								<div class="tabs-content vertical">
-								
 									<div class="content active" id="panel1a">
 										<h3>The Svalinn Name</h3>
 										<p>In Norse mythology Svalinn is the name of the legendary shield given by the gods to protect the steeds pulling the sun across the sky and Midgard (Earth) from the sun’s full power. Svalinn is a timeless symbol of strength and ardent vigilance. It’s a name that appropriately portrays the ever-present companionship and protection that our highly trained dogs provide.</p>
@@ -103,12 +112,21 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 								</div>
 							</div>
 						</div>
+
 						<div class="row testimonials">
 							<div class="column medium-10 medium-centered">
-								<h3 class="text-center">From Our Clients</h3>
+                                <h3 class="text-center">From Our Clients</h3>
+                                <?php
+                                    $quoteStack = Stack::getByName('Testimonial Quotes')->getBlocks();
+                                    if( !empty($quoteStack) ){
+                                        $quoteStack[array_rand($quoteStack)]->display();
+                                    }
+                                ?>
+								<!--
 								<blockquote>
-									<p class="text-center">As a Diplomatic family living in a country where kidnapping, car jacking and home invasions are an active threat, our family literally sleeps better at night now.<br><span>P.M and L.M - Overseas</span></p>
+								As a Diplomatic family living in a country where kidnapping, car jacking and home invasions are an active threat, our family literally sleeps better at night now
 								</blockquote>
+                                <p>P.M and L.M - Overseas</p>-->
 							</div>
 						</div>
 						<!-- END CONTENTS -->							

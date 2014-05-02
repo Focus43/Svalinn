@@ -48,7 +48,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 			<!-- BEGIN .content -->
 			<article class="container main bg-gray">
 				<div class="row">
-					<div class="column medium-12 large-10">
+					<div class="column medium-12 large-10 medium-centered">
 						<?php $a = new Area('Main'); $a->display($c); ?>
 					</div>
 				</div>
@@ -65,7 +65,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 					</div>
 				</div>
 				<div class="row">
-					<div class="column medium-12 large-10">
+					<div class="column medium-12 large-10 medium-centered">
 						<!--<p>Our training curriculum is built upon a deep understanding and appreciation of the special relationship between man and dog. This foundation allows us to deliver the world’s best and most stable protection dogs. Consistent training geared towards a dual role as both friend and protector gives our dogs a level of sociability and vigilance unparalleled in the industry. Our methodology and techniques are based on our experience in non-permissive environments, real-world threats and defined performance criteria. It’s a distinction that makes all the difference.</p>
 						<p>Another key Svalinn difference is the genetic quality of our animals. Svalinn can trace the bloodlines of our three breeds back 80 years. From a health, temperament and characteristics standpoint, being able to follow our dogs’ lineage is a boon to both us a breeders and our clients as handlers. As well as being incredibly safe and reliable around children (which we will get into later), all Svalinn canines also come socialized to other animals, not just other dogs, as we know that clients have a wide range of pets and animals in their lives.</p>
 						<hr class="divide o-gray nomargin-top" />

@@ -48,7 +48,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 			<!-- BEGIN .content -->
 			<article class="container main bg-gray">
 				<div class="row">
-					<div class="column medium-12 large-10">
+					<div class="column medium-12 large-10 medium-centered">
 						<?php $a = new Area('Main'); $a->display($c); ?>
 					</div>
 				</div>

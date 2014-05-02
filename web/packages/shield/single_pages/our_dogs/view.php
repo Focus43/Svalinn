@@ -74,7 +74,11 @@
             <div class="small-12 medium-9 columns">
                 <ul class="small-block-grid-2 medium-block-grid-2 dog-grid">
                     <li class="dog-item">
-                        <img src="/packages/shield/img/dog-placeholder.jpg"/>
+                        <div class="row">
+		            		<div class="small-12 columns">
+		            			<img src="/packages/shield/img/dog-placeholder.jpg"/>
+		            		</div>
+		            	</div>
                         <div class="row">
                             <div class="small-6 columns name">Mayhem</div>
                             <div class="small-6 columns breed">Belgian Malinois</div>
@@ -86,12 +90,16 @@
                         </div>
                         <div class="row">
                             <div class="small-12 columns">
-                                <a href="#" class="btn btn-full gray">Learn More</a>
+                                <a href="#" class="btn gray">Learn More</a>
                             </div>
                         </div>
                     </li>
                     <li class="dog-item">
-                        <img src="/packages/shield/img/dog-placeholder.jpg"/>
+                        <div class="row">
+		            		<div class="small-12 columns">
+		            			<img src="/packages/shield/img/dog-placeholder.jpg"/>
+		            		</div>
+		            	</div>
                         <div class="row">
                             <div class="small-6 columns name">Mayhem</div>
                             <div class="small-6 columns breed">Belgian Malinois</div>
@@ -103,12 +111,16 @@
                         </div>
                         <div class="row">
                             <div class="small-12 columns">
-                                <a href="#" class="btn btn-full gray">Learn More</a>
+                                <a href="#" class="btn gray">Learn More</a>
                             </div>
                         </div>
                     </li>
                     <li class="dog-item">
-                        <img src="/packages/shield/img/dog-placeholder.jpg"/>
+                        <div class="row">
+		            		<div class="small-12 columns">
+		            			<img src="/packages/shield/img/dog-placeholder.jpg"/>
+		            		</div>
+		            	</div>
                         <div class="row">
                             <div class="small-6 columns name">Mayhem</div>
                             <div class="small-6 columns breed">Belgian Malinois</div>
@@ -120,12 +132,16 @@
                         </div>
                         <div class="row">
                             <div class="small-12 columns">
-                                <a href="#" class="btn btn-full gray">Learn More</a>
+                                <a href="#" class="btn gray">Learn More</a>
                             </div>
                         </div>
                     </li>
                     <li class="dog-item">
-                        <img src="/packages/shield/img/dog-placeholder.jpg"/>
+                        <div class="row">
+		            		<div class="small-12 columns">
+		            			<img src="/packages/shield/img/dog-placeholder.jpg"/>
+		            		</div>
+		            	</div>
                         <div class="row">
                             <div class="small-6 columns name">Mayhem</div>
                             <div class="small-6 columns breed">Belgian Malinois</div>
@@ -137,7 +153,7 @@
                         </div>
                         <div class="row">
                             <div class="small-12 columns">
-                                <a href="#" class="btn btn-full gray">Learn More</a>
+                                <a href="#" class="btn gray">Learn More</a>
                             </div>
                         </div>
                     </li>

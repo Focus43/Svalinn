@@ -130,12 +130,19 @@ h1,h2,h3,h4,p,ul{
 	&.small{font-size:80%;}
 }
 h3{font-weight: 300;text-transform: uppercase;color:$brand-blue;}
-p.lead{
-	font-size:rem-calc(21);
-	letter-spacing: 0.3rem;
-}
-p.lead-sm{
+p{
 	font-size:rem-calc(18);
+	font-weight: 300;
+	line-height: rem-calc(30);
+	letter-spacing:0.03em;
+	color:#414141;
+	&.lead{
+		font-size:rem-calc(21);
+		letter-spacing: 0.3rem;
+	}
+	&.lead-sm{
+		font-size:rem-calc(18);
+	}
 }
 .subtitle{
 	margin:2rem 0 1rem;
@@ -189,6 +196,14 @@ blockquote{
 		font-size:rem-calc(21);
 		line-height: rem-calc(26);
 	}
+}
+.medium-12 blockquote{
+	margin-top:2rem;
+	margin-bottom:3rem;
+	color:#959471;
+	font-size:rem-calc(30);
+	line-height: rem-calc(42);
+	text-align: center;
 }
 .uppercase{text-transform: uppercase;}
 

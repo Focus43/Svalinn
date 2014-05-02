@@ -180,6 +180,15 @@ p.lead-sm{
 blockquote{
 	width:100%;
 	border-left: 0;
+	font-family: $quadon-light;
+	font-style: italic;
+	color:$lite-blue;
+	font-size:rem-calc(30);
+	line-height: rem-calc(42);
+	@media #{$small-only}{
+			font-size:rem-calc(21);
+			line-height: rem-calc(26);
+		}
 	&.caption{
 		font-family: $quadon-light;
 		font-style: italic;
@@ -195,39 +204,6 @@ blockquote{
 		}
 		&.text-right{
 			&:before, &:after{right:0;}
-		}
-	}
-	p{
-		font-family: $quadon-light;
-		font-style: italic;
-		color:$lite-blue;
-		font-size:rem-calc(30);
-		line-height: rem-calc(42);
-		span{
-			display: block;
-			font-family: $proxima;
-			font-size:rem-calc(18);
-			font-style: normal;
-			line-height: rem-calc(21);
-			
-			@media #{$small-only}{
-				font-size:rem-calc(16);
-				line-height: rem-calc(18);
-			}
-			
-			&:before{
-				display:block;
-				margin:20px 0;
-				content: " ";
-				height:5px;
-				width:100%;
-				background: url(/assets/img/blockquote-signature.png) 50% 0 no-repeat;
-				
-			}
-		}	
-		@media #{$small-only}{
-			font-size:rem-calc(21);
-			line-height: rem-calc(26);
 		}
 	}
 }
@@ -452,15 +428,35 @@ TESTIMONIALS
 		font-size: rem-calc(21);
 	}
 	blockquote{
-		p,span{
-			color:$brand-gray;
-			@if $type == professional {
-				color:$brand-green;
-			}
-			@if $type == privateclient {
-				color:$brand-blue;
-			}
-		}	
+		@if $type == professional {
+			color:$brand-green;
+		}
+		@if $type == privateclient {
+			color:$brand-blue;
+		}
+	}
+	p{
+		display: block;
+		font-family: $proxima;
+		font-size:rem-calc(18);
+		font-style: normal;
+		line-height: rem-calc(21);
+		color:$brand-gray;
+		@media #{$small-only}{
+			font-size:rem-calc(16);
+			line-height: rem-calc(18);
+		}
+		
+		&:before{
+			display:block;
+			margin:20px 0;
+			content: " ";
+			height:5px;
+			width:100%;
+			background: url(/assets/img/blockquote-signature.png) 50% 0 no-repeat;
+			
+		}
+		
 	}
 	.btn,.btn-green-inverse{margin-top:1rem;}
 }

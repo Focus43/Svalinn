@@ -1,6 +1,6 @@
 <?php defined('C5_EXECUTE') or die(_("Access Denied."));
 
-	class DogsController extends ShieldPageController {
+	class OurDogsDetailsController extends ShieldPageController {
 		
 		protected $includeThemeAssets = true;
 		

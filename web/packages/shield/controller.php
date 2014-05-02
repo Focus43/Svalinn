@@ -4,7 +4,7 @@
 
         protected $pkgHandle 			= 'shield';
         protected $appVersionRequired 	= '5.6.1';
-        protected $pkgVersion 			= '0.43';
+        protected $pkgVersion 			= '0.45';
 
 
         /**
@@ -192,7 +192,8 @@
          */
         private function setupSitePages(){
             // setup single pages
-            SinglePage::add('/dogs', $this->packageObject());
+            SinglePage::add('/our_dogs', $this->packageObject());
+            SinglePage::add('/our_dogs/details', $this->packageObject());
             SinglePage::add('/contact', $this->packageObject());
 
             // dashboard pages

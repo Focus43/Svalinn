@@ -74,21 +74,6 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 						<p>Svalinn canines have researched bloodlines going back over 80 years that deliver the best genetics, most reliable temperament and the healthiest working dogs in the world. Because we breed in-house and are so confident in the bloodlines of our dogs, Svalinn offers a lifetime guarantee against genetic faults on your investment. If, during the life of your dog, the dog develops a genetic problem such as hip dysplasia, we will replace your dog. Period. No questions asked.</p>
 					</div>
 				</div>
-				<div class="row overlay section image-highlight">
-					<div class="small-12 medium-4 medium-push-8 columns" style="background:rgba(255,255,255,0.95);position:absolute;">
-						<br><br><br>
-						<blockquote>
-								<p class="text-center">As a Diplomatic family living in a country where kidnapping, car jacking and home invasions are an active threat, our family literally sleeps better at night now.<br><span>P.M and L.M - Overseas</span></p>
-							</blockquote>
-					</div>
-					<img src="/packages/shield/imgs/01.jpg">
-				</div>
-				<div class="row">
-					<div class="column medium-12 large-10">
-						<h2>Genetic Fault Guarantee</h2>
-						<p>Svalinn canines have researched bloodlines going back over 80 years that deliver the best genetics, most reliable temperament and the healthiest working dogs in the world. Because we breed in-house and are so confident in the bloodlines of our dogs, Svalinn offers a lifetime guarantee against genetic faults on your investment. If, during the life of your dog, the dog develops a genetic problem such as hip dysplasia, we will replace your dog. Period. No questions asked.</p>
-					</div>
-				</div>
 			</article>
 			<!-- END .content -->
 			

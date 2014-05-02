@@ -186,25 +186,8 @@ blockquote{
 	font-size:rem-calc(30);
 	line-height: rem-calc(42);
 	@media #{$small-only}{
-			font-size:rem-calc(21);
-			line-height: rem-calc(26);
-		}
-	&.caption{
-		font-family: $quadon-light;
-		font-style: italic;
-		font-size:rem-calc(34);
-		line-height: rem-calc(48);
-		&:before, &:after{
-			display: block;
-			margin:1rem 0;
-			content:"";
-			height:2px;
-			width:30px;
-			background: $brand-gray;
-		}
-		&.text-right{
-			&:before, &:after{right:0;}
-		}
+		font-size:rem-calc(21);
+		line-height: rem-calc(26);
 	}
 }
 .uppercase{text-transform: uppercase;}

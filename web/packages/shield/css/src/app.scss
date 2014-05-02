@@ -426,6 +426,26 @@ MAIN
 			line-height: rem-calc(21);
 		}	
 	}
+	.vertical-middle{
+		blockquote{
+			color: $brand-gray;
+			font-family: $quadon-light;
+			font-style: italic;
+			font-size:rem-calc(34);
+			line-height: rem-calc(48);
+			&:before, &:after{
+				display: block;
+				margin:1rem 0;
+				content:"";
+				height:2px;
+				width:30px;
+				background: $brand-gray;
+			}
+			&.text-right{
+				&:before, &:after{right:0;}
+			}
+		}
+	}
 }
 .boxed{
 	padding:2rem 2rem;

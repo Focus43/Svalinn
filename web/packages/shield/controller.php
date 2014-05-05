@@ -4,7 +4,7 @@
 
         protected $pkgHandle 			= 'shield';
         protected $appVersionRequired 	= '5.6.1';
-        protected $pkgVersion 			= '0.45';
+        protected $pkgVersion 			= '0.46';
 
 
         /**
@@ -161,6 +161,18 @@
 
             if( !is_object($this->pageType('sublanding')) ){
                 CollectionType::add(array('ctHandle' => 'sublanding', 'ctName' => 'Sub Landing'), $this->packageObject());
+            }
+
+            if( !is_object($this->pageType('breeds')) ){
+                CollectionType::add(array('ctHandle' => 'breeds', 'ctName' => 'Breeds'), $this->packageObject());
+            }
+
+            if( !is_object($this->pageType('training')) ){
+                CollectionType::add(array('ctHandle' => 'training', 'ctName' => 'Training'), $this->packageObject());
+            }
+
+            if( !is_object($this->pageType('guarantee')) ){
+                CollectionType::add(array('ctHandle' => 'guarantee', 'ctName' => 'Guarantee'), $this->packageObject());
             }
 
             return $this;

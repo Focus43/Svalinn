@@ -55,8 +55,9 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 				<div class="row">
 					<div class="column medium-11 medium-centered">
 						<p class="text-center knot"><img src="<?php echo SHIELD_IMAGES_URL; ?>knot-wave-blue.png" /></p>
-						<h2 class="text-center uppercase">The Svalinn Name</h2>
-						<p class="lead-sm text-center">In Norse mythology Svalinn is the name of the legendary shield given by the gods to protect the steeds pulling the sun across the sky and Midgard (Earth) from the sun’s full power. Svalinn is a timeless symbol of strength and ardent vigilance. It’s a name that appropriately portrays the ever-present companionship and protection that our highly trained dogs provide.</p>
+						<!--<h2 class="text-center uppercase">The Svalinn Name</h2>
+						<p class="lead-sm text-center">In Norse mythology Svalinn is the name of the legendary shield given by the gods to protect the steeds pulling the sun across the sky and Midgard (Earth) from the sun’s full power. Svalinn is a timeless symbol of strength and ardent vigilance. It’s a name that appropriately portrays the ever-present companionship and protection that our highly trained dogs provide.</p>-->
+                        <?php $a = new Area('Main'); $a->display($c); // @todo: classes on parents ?>
 					</div>
 				</div>
 			</article>

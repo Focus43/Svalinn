@@ -13,7 +13,7 @@
 
 <body class="srk9-Page <?php echo Page::getCurrentPage()->getCollectionHandle(); ?>">
     <?php Loader::packageElement('3rd_party_js_sdk', 'shield'); ?>
-    
+
 	<div class="container">
         <div class="row">
             <div id="cContainer" class="span12">

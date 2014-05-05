@@ -22,19 +22,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 			<!-- END HEADER   -->
 			
 			<!-- BEGIN .masthead -->
-			<article class="container masthead bg-wave-blue">
-				<div class="row">
-					<div class="column medium-10 medium-centered intro">
-						<h1 class="text-center">
-                            <?php echo Page::getCurrentPage()->getAttribute('meta_title'); ?>
-						</h1>
-						<p class="lead uppercase text-center">
-                            <?php echo Page::getCurrentPage()->getAttribute('meta_description'); ?>
-						</p>
-					</div>
-				</div>
-				<div class="celtic-knot"></div>
-			</article>
+			<?php Loader::packageElement('blue_masthead', 'shield', array('pageObj' => Page::getCurrentPage())); ?>
 			<!-- END .masthead -->
 			
 			<!-- BEGIN .submast -->

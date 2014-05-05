@@ -32,9 +32,9 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 				<div class="row">
 					<div class="column medium-10 medium-centered">
 						<dl class="tabs centered" data-tab>
-							<dd class="active"><a href="#level1">Level I</a></dd>
-							<dd><a href="#level2">Level II</a></dd>
-							<dd><a href="#level3">Level III</a></dd>
+							<dd class="active"><a href="#level1">German Shepherd</a></dd>
+							<dd><a href="#level2">Dutch Shepherd</a></dd>
+							<dd><a href="#level3">Belgian Malinois</a></dd>
 						</dl>
 					</div>
 				</div>

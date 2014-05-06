@@ -7,7 +7,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 ?>
 </head>
 
-<body class="antialiased<?php echo $bodyClasses; ?> default">
+<body class="antialiased<?php echo $bodyClasses; ?> breeds">
 	<div class="off-canvas-wrap">
 		<div class="inner-wrap">
 			<!-- BEGIN HEADER -->
@@ -27,8 +27,23 @@ Loader::element('header_required'); // REQUIRED BY C5 //
             )); ?>
 			<!-- END .masthead -->
 			
+			<!-- BEGIN .intro -->
+			<article class="container intro bg-white">
+				<div class="row">
+					<div class="column medium-10 medium-centered">
+						<p>Svalinn only breeds, raises, and trains three different breeds of working dogs: German Shepherds, Dutch Shepherds, and Belgian Malinois. All of our dogs come from working bloodlines that can be traced back many decades. We do not show dogs. We do not compete. Our dogs are bred to be constant companions and to protect individuals and families.  The following breed descriptions are our impressions. It should also be noted the dogs are individuals. While each breed exhibits distinct characteristics, every dog is different with personalities and looks varying widely within each breed.</p>
+					</div>
+				</div>
+			</article>
+			<!-- END .intro -->
+			
 			<!-- BEGIN .submast -->
 			<article class="container tab-nav bg-knot-gray-lg">
+				<div class="row title">
+					<div class="column medium-10 medium-centered">
+						<h3>EXPLORE THE BREEDS</h3>
+					</div>
+				</div>
 				<div class="row">
 					<div class="column medium-10 medium-centered">
 						<dl class="tabs centered" data-tab>
@@ -73,33 +88,45 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 										</div>
 									</div>
 								</div>
+								<div class="row desc">
+									<div class="column medium-8 medium-centered">
+										<!--<p>Belgian Malinois are very intelligent and bond with their handler quickly. They are energetic medium-sized dogs that want to go everywhere and do everything with their family. Most Belgian Malinois are better suited for pure working environments or living with a strong single handler. That said, Svalinn’s founder has a highly trained Belgian Malinois that accompanies him everywhere and has flawlessly assimilated into his family with young children. Malinois enjoy being challenged with new tasks and due to their high drive for rewards are among the easier breeds to train.</p>-->
+									</div>
+								</div>
 							</div>
 							
 							<div class="content" id="level2">
-								<div class="column medium-6">
-                                    <?php $a = new Area('Level 2-Left'); $a->display($c); ?>
-									<!--<ul>
-										<li>All level I attributes +</li>
-										<li>Deeper vigilance training</li>
-										<li>Ability to conduct home searches</li>
-										<li>Vehicle deployment and protection</li>
-										<li>Adaptive response to multiple attackers</li>
-										<li>Socialized to airplanes and helicopters</li>
-										<li>Weapons recognition and tactical response</li>
-									</ul>-->
-								</div>
-								<div class="column medium-6">
-									<div class="boxed">
-										<div class="box">
-											<!--<h3>Includes</h3>
-											<p>Two three-day training packages at our facility in Jackson Hole, Wyoming — one session upon purchase and a follow-up session during the first year of ownership.</p>-->
-                                            <?php $a = new Area('Level 2-Right'); $a->display($c); ?>
+								<div class="row">
+									<div class="column medium-6">
+	                                    <?php $a = new Area('Level 2-Left'); $a->display($c); ?>
+										<!--<ul>
+											<li>All level I attributes +</li>
+											<li>Deeper vigilance training</li>
+											<li>Ability to conduct home searches</li>
+											<li>Vehicle deployment and protection</li>
+											<li>Adaptive response to multiple attackers</li>
+											<li>Socialized to airplanes and helicopters</li>
+											<li>Weapons recognition and tactical response</li>
+										</ul>-->
+									</div>
+									<div class="column medium-6">
+										<div class="boxed">
+											<div class="box">
+												<!--<h3>Includes</h3>
+												<p>Two three-day training packages at our facility in Jackson Hole, Wyoming — one session upon purchase and a follow-up session during the first year of ownership.</p>-->
+	                                            <?php $a = new Area('Level 2-Right'); $a->display($c); ?>
+											</div>
 										</div>
 									</div>
+								</div>
+								<div class="row desc">
+									<div class="column medium-8 medium-centered">
+										<!--<p>Belgian Malinois are very intelligent and bond with their handler quickly. They are energetic medium-sized dogs that want to go everywhere and do everything with their family. Most Belgian Malinois are better suited for pure working environments or living with a strong single handler. That said, Svalinn’s founder has a highly trained Belgian Malinois that accompanies him everywhere and has flawlessly assimilated into his family with young children. Malinois enjoy being challenged with new tasks and due to their high drive for rewards are among the easier breeds to train.</p>-->
 								</div>							
 							</div>
 							<div class="content" id="level3">
-								<div class="column medium-6">
+								<div class="row">
+									<div class="column medium-6">
 										<!--<ul>
 											<li>All level II attributes +</li>
 											<li>Ultimate vigilance</li>
@@ -118,6 +145,11 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 											</div>
 										</div>
 									</div>
+								</div>
+								<div class="row desc">
+									<div class="column medium-8 medium-centered">
+										<!--<p>Belgian Malinois are very intelligent and bond with their handler quickly. They are energetic medium-sized dogs that want to go everywhere and do everything with their family. Most Belgian Malinois are better suited for pure working environments or living with a strong single handler. That said, Svalinn’s founder has a highly trained Belgian Malinois that accompanies him everywhere and has flawlessly assimilated into his family with young children. Malinois enjoy being challenged with new tasks and due to their high drive for rewards are among the easier breeds to train.</p>-->
+								</div>
 							</div>
 						</div>
 						<!--<hr class="divide o-gray nomargin-top" />

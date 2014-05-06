@@ -7,7 +7,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 ?>
 </head>
 
-<body class="antialiased<?php echo $bodyClasses; ?> default">
+<body class="antialiased<?php echo $bodyClasses; ?> training">
 	<div class="off-canvas-wrap">
 		<div class="inner-wrap">
 			<!-- BEGIN HEADER -->
@@ -29,6 +29,11 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 			
 			<!-- BEGIN .submast -->
 			<article class="container tab-nav bg-knot-gray-lg">
+				<div class="row title">
+					<div class="column medium-10 medium-centered">
+						<h3>EXPLORE THE TRAINING LEVELS</h3>
+					</div>
+				</div>
 				<div class="row">
 					<div class="column medium-10 medium-centered">
 						<dl class="tabs centered" data-tab>

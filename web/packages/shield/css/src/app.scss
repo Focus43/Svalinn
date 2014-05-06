@@ -49,6 +49,7 @@ hr.divide{
 BACKGROUNDS
 ============================================================================= */
 .bg-gray{background:#f7f7f7;}
+.bg-white{background:#FFF;}
 .bg-wave-blue{
 	background: #00182b url("#{$imagePath}bg-wave-blue.gif") 0 0 repeat;	
 }
@@ -236,7 +237,60 @@ MASTHEAD
 		}
 	}
 }
-
+.intro{
+	padding-top: 5rem;
+	padding-bottom: 6rem;
+	h2{
+		font-family: $proxima;
+		color:$brand-blue;
+		font-size: rem-calc(21);
+		font-weight:300;
+		letter-spacing: 0.1em;
+		text-align: center;
+	}
+	p{
+		color:$dark-gray;
+		font-size: rem-calc(18);
+		line-height: rem-calc(32);
+		text-align: center;
+	}
+	
+}
+.training{
+	.tab-nav{
+		.title{
+			margin-top:-40px;
+			padding:0;
+			h3{
+				margin:0;
+				padding:0;
+				height:40px;
+				color:#FFF;
+				font-size: rem-calc(21);
+				font-weight:300;
+				letter-spacing: 0.1em;
+				text-align: center;
+			}
+		}
+	}
+}
+.breeds{
+	.tab-nav{
+		.title{
+			height:0;
+			h3{
+				margin:-40px 0 0;
+				padding:0;
+				height:40px;
+				color:$brand-blue;
+				font-size: rem-calc(21);
+				font-weight:300;
+				letter-spacing: 0.1em;
+				text-align: center;
+			}
+		}	
+	}
+}
 /* =============================================================================
 ELEMENTS
 ============================================================================= */
@@ -332,6 +386,10 @@ ELEMENTS
 		font-size:rem-calc(18);
 		font-weight: 300;
 		line-height:rem-calc(32);	
+	}
+	.desc{
+		p{text-align: center;}
+		
 	}
 	.link{
 		position: relative;

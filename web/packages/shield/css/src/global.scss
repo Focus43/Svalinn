@@ -138,7 +138,8 @@ p{
 	color:#414141;
 	&.lead{
 		font-size:rem-calc(21);
-		letter-spacing: 0.3rem;
+		letter-spacing: 0.03em;
+		line-height: rem-cal(28);
 	}
 	&.lead-sm{
 		font-size:rem-calc(18);
@@ -295,7 +296,6 @@ BUTTONS
 .btn-md{@include btn-md;}
 .btn-lg{@include btn-lg;}
 
-
 .btn-bordered{
 	border-width:2px;
 	border-style: solid;
@@ -316,12 +316,15 @@ BUTTONS
 .btn-disabled{
 	color:#FFF;
 	background:#22221c;
+	&.btn-lg{
+		padding-top:1rem;padding-bottom:1rem;
+	}
 }
 .btn-arrow{
 	text-align: left;
 	&:after{
 		position:absolute;
-		top:0.6rem;
+		top:0.5rem;
 		right:1rem;	
 		width: 0; 
 		height: 0;  
@@ -330,6 +333,13 @@ BUTTONS
 		border-bottom: 4px solid transparent;
 		border-left: 4px solid #27333a;
 	}
+	&.btn-lg{
+		padding-top:1rem;padding-bottom:1rem;
+		&:after{
+			top:1rem;
+		}
+	}
+	
 }
 
 /* =============================================================================
@@ -451,8 +461,7 @@ TESTIMONIALS
 			content: " ";
 			height:5px;
 			width:100%;
-			background: url(/assets/img/blockquote-signature.png) 50% 0 no-repeat;
-			
+			background: url("#{$imagePath}blockquote-signature.png") 50% 0 no-repeat;	
 		}
 		
 	}

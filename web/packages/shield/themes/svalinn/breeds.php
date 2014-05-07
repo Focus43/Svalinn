@@ -28,10 +28,10 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 			<!-- END .masthead -->
 			
 			<!-- BEGIN .intro -->
-			<article class="container intro bg-white">
+			<article class="container main-intro bg-white">
 				<div class="row">
 					<div class="column medium-10 medium-centered">
-						<p>Svalinn only breeds, raises, and trains three different breeds of working dogs: German Shepherds, Dutch Shepherds, and Belgian Malinois. All of our dogs come from working bloodlines that can be traced back many decades. We do not show dogs. We do not compete. Our dogs are bred to be constant companions and to protect individuals and families.  The following breed descriptions are our impressions. It should also be noted the dogs are individuals. While each breed exhibits distinct characteristics, every dog is different with personalities and looks varying widely within each breed.</p>
+						<?php $a = new Area('Main'); $a->display($c); ?>
 					</div>
 				</div>
 			</article>
@@ -59,12 +59,6 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 			<!-- BEGIN .content -->
 			<article class="container main bg-gray">
 				<div class="row">
-					<div class="column medium-10 large-8 medium-centered">
-                        <?php $a = new Area('Main'); $a->display($c); ?>
-						<!--<p class="text-center lead">Svalinn K9s come in three breeds and three levels of training. Our German Shepherds, Dutch Shepherds and Belgian Malinois range from $30,000 to $85,000 depending on the selected training level.</p>-->
-					</div>
-				</div>
-				<div class="row">
 					<div class="column medium-12 large-10 medium-centered">
 						<div class="tabs-content">
 							<div class="content active" id="level1">
@@ -89,8 +83,8 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 									</div>
 								</div>
 								<div class="row desc">
-									<div class="column medium-8 medium-centered">
-										<!--<p>Belgian Malinois are very intelligent and bond with their handler quickly. They are energetic medium-sized dogs that want to go everywhere and do everything with their family. Most Belgian Malinois are better suited for pure working environments or living with a strong single handler. That said, Svalinn’s founder has a highly trained Belgian Malinois that accompanies him everywhere and has flawlessly assimilated into his family with young children. Malinois enjoy being challenged with new tasks and due to their high drive for rewards are among the easier breeds to train.</p>-->
+									<div class="column medium-12 medium-centered">
+										<p>The German Shepherd is an iconic animal with a vast and storied history of companionship, working, saving, protecting, and detecting. This breed, a relatively new one, originated in the 1890s in, you guessed it, Germany. German Shepherds are excellent with families and children, highly social and loving, and willing to please. They tend to do well within a family with multiple handlers.  Because of their intelligence and demeanor, German Shepherds are generally recognized as one of the world’s best working dogs. They are generally larger and stouter than the Dutch Shepherd or Belgian Malinois.</p>
 									</div>
 								</div>
 							</div>
@@ -120,8 +114,9 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 									</div>
 								</div>
 								<div class="row desc">
-									<div class="column medium-8 medium-centered">
-										<!--<p>Belgian Malinois are very intelligent and bond with their handler quickly. They are energetic medium-sized dogs that want to go everywhere and do everything with their family. Most Belgian Malinois are better suited for pure working environments or living with a strong single handler. That said, Svalinn’s founder has a highly trained Belgian Malinois that accompanies him everywhere and has flawlessly assimilated into his family with young children. Malinois enjoy being challenged with new tasks and due to their high drive for rewards are among the easier breeds to train.</p>-->
+									<div class="column medium-12 medium-centered">
+										<p>The Dutch Shepherd or “Dutchie” is a medium-sized dog that loves to work. They are very good with families and children and highly protective. They have great senses of humor and are willing to please. The females are generally more social than the males. These dogs are less sensitive than their German counterparts. Dutch Shepherds range in size and stature depending on the individual bloodlines within the breed. We have a number of different sizes to fit almost any lifestyle from open ranches to living on a sailboat. Dutchies are always alert and watchful and have a true shepherding temperament.</p>
+									</div>
 								</div>							
 							</div>
 							<div class="content" id="level3">
@@ -147,8 +142,9 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 									</div>
 								</div>
 								<div class="row desc">
-									<div class="column medium-8 medium-centered">
-										<!--<p>Belgian Malinois are very intelligent and bond with their handler quickly. They are energetic medium-sized dogs that want to go everywhere and do everything with their family. Most Belgian Malinois are better suited for pure working environments or living with a strong single handler. That said, Svalinn’s founder has a highly trained Belgian Malinois that accompanies him everywhere and has flawlessly assimilated into his family with young children. Malinois enjoy being challenged with new tasks and due to their high drive for rewards are among the easier breeds to train.</p>-->
+									<div class="column medium-12 medium-centered">
+										<p>Belgian Malinois are very intelligent and bond with their handler quickly. They are energetic medium-sized dogs that want to go everywhere and do everything with their family. Most Belgian Malinois are better suited for pure working environments or living with a strong single handler. That said, Svalinn’s founder has a highly trained Belgian Malinois that accompanies him everywhere and has flawlessly assimilated into his family with young children. Malinois enjoy being challenged with new tasks and due to their high drive for rewards are among the easier breeds to train.</p>
+									</div>
 								</div>
 							</div>
 						</div>

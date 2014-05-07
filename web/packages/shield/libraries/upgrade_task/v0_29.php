@@ -5,8 +5,11 @@
         /**
          * Backtrack on some previously installed attributes.
          */
-        public static function run(){
-            CollectionAttributeKey::getByHandle('body_class')->delete();
+        public static function run( Package $controller ){
+            $bodyClassAK = CollectionAttributeKey::getByHandle('body_class');
+            if( $bodyClassAK instanceof AttributeKey ){
+                $bodyClassAK->delete();
+            }
         }
 
     }

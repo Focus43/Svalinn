@@ -4,7 +4,7 @@
 
         protected $pkgHandle 			= 'shield';
         protected $appVersionRequired 	= '5.6.1';
-        protected $pkgVersion 			= '0.46';
+        protected $pkgVersion 			= '0.47';
 
 
         /**
@@ -182,7 +182,6 @@
          * @return ShieldPackage
          */
         private function setupSpecialPageAttributes(){
-
             return $this;
         }
 

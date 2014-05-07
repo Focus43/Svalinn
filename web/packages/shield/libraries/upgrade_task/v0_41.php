@@ -6,7 +6,7 @@
          * Backtrack on some previously installed attributes and
          * the blog page type.
          */
-        public static function run(){
+        public static function run( Package $controller ){
             // Delete "Dogs Sale" page
             Page::getByPath('/dogs-sale')->delete();
         }

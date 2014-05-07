@@ -6,14 +6,23 @@
          * Backtrack on some previously installed attributes and
          * the blog page type.
          */
-        public static function run(){
+        public static function run( Package $controller ){
             // Delete "Blog" page type
-            $blogPageType = CollectionType::getByHandle('blog');
-            $blogPageType->delete();
+            $blogPageTypeCT = CollectionType::getByHandle('blog');
+            if( $blogPageTypeCT instanceof CollectionType ){
+                $blogPageTypeCT->delete();
+            }
 
-            // Delete Collection Attributes
-            CollectionAttributeKey::getByHandle('main_header')->delete();
-            CollectionAttributeKey::getByHandle('sub_header')->delete();
+            // Collection Attributes
+            $mainHeaderAK = CollectionAttributeKey::getByHandle('main_header');
+            if($mainHeaderAK instanceof AttributeKey){
+                $mainHeaderAK->delete();
+            }
+
+            $subHeaderAK = CollectionAttributeKey::getByHandle('sub_header');
+            if($subHeaderAK instanceof AttributeKey){
+                $subHeaderAK->delete();
+            }
 
             // Delete Attribute set
             $themeSet = AttributeSet::getByHandle('page_extras');

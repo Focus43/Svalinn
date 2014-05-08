@@ -113,11 +113,9 @@ foreach ($navItems as $ni) {
 echo '<ul class="left" role="navigation">'; //opens the top-level menu
 
 foreach ($navItems as $ni) {
-
 	echo '<li class="' . $ni->classes . '">'; //opens a nav item
 
-	//echo '<a href="' . $ni->url . '" target="' . $ni->target . '" class="' . $ni->classes . '">' . $ni->name . '</a>';
-    echo '<a href="' . $ni->url . '" target="' . $ni->target . '">' . $ni->name . '</a>';
+    echo '<a ' . ($ni->hasSubmenu ? '' : sprintf('href="%s"', $ni->url)) . ' target="' . $ni->target . '">' . $ni->name . '</a>';
 
 	if ($ni->hasSubmenu) {
 		echo '<ul class="dropdown">'; //opens a dropdown sub-menu

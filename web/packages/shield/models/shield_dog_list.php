@@ -37,7 +37,7 @@
         }
 
 		public function sortByName(){
-			parent::sortBy('dogs.name', 'asc');
+            $this->sortBy('dogs.name', 'asc');
 		}
 		
 		

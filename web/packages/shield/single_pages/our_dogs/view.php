@@ -30,13 +30,13 @@
             <div class="small-12 medium-3 columns">
                 <ul class="side-nav">
                     <li class="divider">BY BREED</li>
-                    <li class="active"><a href="#">German Shepherd</a></li>
-                    <li><a href="#">Dutch Shepherd</a></li>
-                    <li><a href="#">Belgian Malinois</a></li>
+                    <li><a href="<?php echo $this->action('breed', ShieldDog::BREED_GERMAN_SHEPHERD); ?>">German Shepherd</a></li>
+                    <li><a href="<?php echo $this->action('breed', ShieldDog::BREED_DUTCH_SHEPHERD); ?>">Dutch Shepherd</a></li>
+                    <li><a href="<?php echo $this->action('breed', ShieldDog::BREED_MALINOIS); ?>">Belgian Malinois</a></li>
                     <li class="divider">BY PROTECTION LEVEL</li>
-                    <li><a href="#">Level I</a></li>
-                    <li><a href="#">Level II</a></li>
-                    <li><a href="#">Level III</a></li>
+                    <li><a href="<?php echo $this->action('protection_level', ShieldDog::PROTECTION_LEVEL_I); ?>">Level I</a></li>
+                    <li><a href="<?php echo $this->action('protection_level', ShieldDog::PROTECTION_LEVEL_II); ?>">Level II</a></li>
+                    <li><a href="<?php echo $this->action('protection_level', ShieldDog::PROTECTION_LEVEL_III); ?>">Level III</a></li>
                 </ul>
             </div>
             <div class="small-12 medium-9 columns">

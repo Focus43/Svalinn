@@ -1,51 +1,25 @@
+<?php /** @var $dogObj ShieldDog */ ?>
+
 <div class="off-canvas-wrap">
     <div class="inner-wrap">
     <!-- BEGIN HEADER -->
-    <header class="container header bg-white">
-        <nav class="primary-nav-container" data-topbar data-options="is_hover: true;">
-            <section class="left name"><a href="/" title="Svalinn" rel="home">
-                    <img src="/packages/shield/img/logo-svalinn.svg"/>
-                </a></section>
-            <section class="top-bar-section primary-nav-section show-for-large-up">
-                <ul class="left" role="navigation">
-                    <li><a href="#">About</a></li>
-                    <li class="has-dropdown not-click">
-                        <a href="#">Svalinn Difference</a>
-                        <ul class="dropdown">
-                            <li><a href="">Training</a></li>
-                            <li><a href="">Guarantee</a></li>
-                            <li><a href="">Breed Specifications</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-dropdown not-click">
-                        <a href="#">Protection</a>
-                        <ul class="dropdown">
-                            <li><a href="">Family</a></li>
-                            <li><a href="">Individual</a></li>
-                            <li><a href="">Executive</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Purchase Process</a></li>
-                    <li><a href="#">Our Dogs</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-
-            </section>
-            <div class="right-off-canvas-toggle menu-icon show-for-medium-down right"><a href="#"><span></span></a></div>
-        </nav>
-    </header>
+    <?php Loader::packageElement('theme_header', 'shield', array(
+        'navigationSettings' => array(
+            'displayPages' => 'custom',
+            'displayPagesCID' => Page::getByPath('/privateclient')->getCollectionID(),
+            'displaySubPages' => 'all',
+            'displaySubPageLevels' => 'custom',
+            'displaySubPageLevelsNum' => 1
+        )
+    )); ?>
     <!-- END HEADER   -->
 
     <!-- BEGIN .masthead -->
-    <article class="container masthead bg-wave-blue">
-        <div class="row">
-            <div class="column medium-10 medium-centered intro">
-                <h1 class="text-center">Mayhem</h1>
-                <p class="lead uppercase text-center">Belgian Malinois</p>
-            </div>
-        </div>
-        <div class="celtic-knot"></div>
-    </article>
+        <?php Loader::packageElement('blue_masthead', 'shield', array(
+            'pageObj'       => Page::getCurrentPage(),
+            'customTitle'   => $dogObj->getName(),
+            'customDescr'   => $dogObj->getShortDescription()
+        )); ?>
     <!-- END .masthead -->
 
     <!-- BEGIN .submast -->
@@ -60,25 +34,15 @@
     <article class="container main bg-gray dog-details">
         <div class="row">
             <div class="small-12 medium-4 columns dog-item">
-            	<div class="row">
-            		<div class="small-12 columns">
-            			<img src="/packages/shield/img/dog-placeholder.jpg"/>
-            		</div>
-            	</div>
-            	<div class="row">
-                    <div class="small-6 columns name">Mayhem</div>
-                    <div class="small-6 columns breed">Belgian Malinois</div>
-                </div>
-                <hr/>
-                <div class="row">
-                    <div class="small-6 columns level">Level III Protection</div>
-                    <div class="small-6 columns dob">Born: March 12, 2008</div>
-                </div>
+                <?php Loader::packageElement('partials/dog_item', 'shield', array(
+                    'dogObj'      => $dogObj,
+                    'imageHelper' => $imageHelper
+                )); ?>
 				<div class="row">
-                            <div class="small-12 columns">
-                                <a href="#" class="btn btn-full gray">See Other Dogs</a>
-                            </div>
-                        </div>
+                    <div class="small-12 columns">
+                        <a href="<?php echo $this->url('/our_dogs'); ?>" class="btn btn-full gray">See Other Dogs</a>
+                    </div>
+                </div>
                 <?php /*foreach ($galleryFiles as $file) {
                     $fv = $file->getApprovedVersion();
                     $desc = $fv->getDescription();
@@ -90,11 +54,11 @@
             </div>
             <div class="small-12 medium-7 columns">
                 <div class="dog-desc">
-					<p>Mayhem may be one of the best snugglers out there but he is also a very serious dog. A dedicated and patient handler is needed get the best out of this high octane Mali. He is an absolute pleasure to be around but like all dogs needs consistency and boundaries to truly excel. He is electrifying to see work. He will hurdle any task you give him with ease. Protection, tracking or just lounging with his handler are all child’s play for this terrific specimen.</p>
+					<?php echo $dogObj->getLongDescription(); ?>
 				</div>
 				<div class="reserve">
 					<hr class="divide o-gray"/>
-					<p>Reserve Mayhem For $5,000</p>
+					<p>Reserve Mayhem For $<?php echo $dogObj->getPrice(true); ?></p>
 					<a href="#" class="btn btn-bordered btn-md blue on-lite uppercase align-center">Make A Deposit</a>
 				</div>
             </div>

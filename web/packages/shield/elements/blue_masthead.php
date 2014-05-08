@@ -3,10 +3,10 @@
     <div class="row">
         <div class="column medium-10 medium-centered intro">
             <h1 class="text-center">
-                <?php echo $pageObj->getAttribute('meta_title'); ?>
+                <?php echo ($customTitle) ? $customTitle : $pageObj->getAttribute('meta_title'); ?>
             </h1>
             <p class="lead uppercase text-center">
-                <?php echo $pageObj->getAttribute('meta_description'); ?>
+                <?php echo ($customDescr) ? $customDescr : $pageObj->getAttribute('meta_description'); ?>
             </p>
         </div>
         <?php if($mastheadEditableArea === true && ($c instanceof Page)): ?>

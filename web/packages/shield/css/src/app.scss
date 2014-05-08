@@ -37,6 +37,7 @@ hr.divide{
 		background-color:transparent;
 		background-image: url("#{$imagePath}divide-x-blue.gif");
 	}
+	&.btn-divide{margin-top:3rem}
 }
 .sublanding{
 	.btn-divide{display: none;}

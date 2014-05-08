@@ -440,11 +440,14 @@ TESTIMONIALS
 	padding-top:2rem;
 	padding-bottom:4rem;
 	h3{
+		margin:0;
+		
 		color:#CFCFCF;
 		font-size: rem-calc(21);
 		font-weight:600;
 	}
 	blockquote{
+		margin-top:0;
 		@if $type == professional {
 			color:$brand-green;
 		}
@@ -475,6 +478,11 @@ TESTIMONIALS
 		
 	}
 	.btn,.btn-green-inverse{margin-top:1rem;}
+}
+.default .testimonial{
+	margin-top:1rem;
+	padding-top:3rem;
+	background: url("#{$imagePath}blockquote-signature.png") 50% 0 no-repeat;
 }
 .testimonials{ @include testimonials(privateclient); }
 .professional .testimonials{ @include testimonials(professional); }

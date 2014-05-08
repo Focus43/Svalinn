@@ -4,7 +4,7 @@
 
         protected $pkgHandle 			= 'shield';
         protected $appVersionRequired 	= '5.6.1';
-        protected $pkgVersion 			= '0.51';
+        protected $pkgVersion 			= '0.52';
 
 
         /**
@@ -160,6 +160,10 @@
 
             if( !is_object($this->pageType('default_2_column')) ){
                 CollectionType::add(array('ctHandle' => 'default_2_column', 'ctName' => 'Default: 2 Column'), $this->packageObject());
+            }
+
+            if( !is_object($this->pageType('default_2_equal_column')) ){
+                CollectionType::add(array('ctHandle' => 'default_2_equal_column', 'ctName' => 'Default: 2 Equal Column'), $this->packageObject());
             }
 
             if( !is_object($this->pageType('sublanding')) ){

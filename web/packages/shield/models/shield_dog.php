@@ -61,9 +61,9 @@
         /** @return string Get name */
         public function getName(){ return ucfirst($this->name); }
 		/** @return string Get breed */
-		public function getBreed(){ return ucfirst($this->breed); }
+		//public function getBreed(){ return ucfirst($this->breed); }
 		/** @return string Get protection level */
-		public function getProtectionLevel(){ return ucfirst($this->protectionLevel); }
+		//public function getProtectionLevel(){ return ucfirst($this->protectionLevel); }
         /** @return string Get picture ID (File object ID) */
         public function getPicID(){ return $this->picID; }
         /** @return string Get media set ID (File object ID) */

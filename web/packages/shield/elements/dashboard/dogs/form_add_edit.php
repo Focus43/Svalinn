@@ -4,7 +4,7 @@
 ?>
 			
 <form method="post" action="<?php echo $this->action('save', $dogObj->getDogID()); ?>">
-	<h4>Add Or Update Personnel</h4>
+	<h4>Add Or Update Dog</h4>
 
 	<div class="row-fluid">
 		<div class="span12">
@@ -23,10 +23,10 @@
 					<tr>
 						<td><?php echo $formHelper->text('name', $dogObj->getName(), array('class' => 'input-block-level')); ?></td>
                         <td>
-                            <?php echo $formHelper->select('breedHandle', Dogs::$dogBreeds, $dogObj->getBreedHandle()); ?>
+                            <?php echo $formHelper->select('breedHandle', ShieldDog::$dogBreeds, $dogObj->getBreedHandle()); ?>
                         </td>
                         <td colspan="2">
-                            <?php echo $formHelper->select('protectionHandle', Dogs::$protectionLevels, $dogObj->getProtectionHandle()); ?>
+                            <?php echo $formHelper->select('protectionHandle', ShieldDog::$protectionLevels, $dogObj->getProtectionHandle()); ?>
                         </td>
 					</tr>
 					<tr>
@@ -52,7 +52,7 @@
                             <?php echo $formHelper->select('mediaSetID', $fileSetList , $dogObj->getMediaSetID()); ?>
                         </td>
                         <td><?php echo $formHelper->text('price', $dogObj->getPrice(), array('class' => 'input-block-level')); ?></td>
-                        <td><?php foreach ( Dogs::$reservedOptions as $key=>$option ) {
+                        <td><?php foreach ( ShieldDog::$reservedOptions as $key=>$option ) {
                                 echo $formHelper->radio('reservedStatus', $key, $dogObj->getReservedStatus()) . " " . $option . "<br>";
                             }?>
                         </td>

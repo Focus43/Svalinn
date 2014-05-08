@@ -1,6 +1,6 @@
 <?php
 
-	class Dogs {
+	class ShieldDog {
 		
 		
 		const BREED_GERMAN_SHEPHERD = 'german_shepherd',
@@ -180,7 +180,7 @@
 					$values[] = $this->{$property};
 				}
 				$values[] = $this->id;
-				Loader::db()->Execute("UPDATE {$this->tableName} SET {$updateStr} WHERE id = ?", array($values));
+				Loader::db()->Execute("UPDATE {$this->tableName} SET {$updateStr} WHERE id = ?", (array) $values);
 			}else{
 				$db 		= Loader::db();
 				$fields		= $this->persistable();

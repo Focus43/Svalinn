@@ -1,4 +1,4 @@
-<?php Loader::packageElement('flash_message', 'svalinn', array('flash' => $flash)); ?>
+<?php Loader::packageElement('flash_message', 'shield', array('flash' => $flash)); ?>
 
 <?php echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Dog Search'), t('View dogs for sale.'), false, false ); ?>
 	
@@ -20,13 +20,13 @@
 						</div>
 					</div>
 					<div class="pull-right">
-						<a class="btn success" href="<?php echo View::url('dashboard/svalinn/dogs/add'); ?>">Add Dog</a>
+						<a class="btn success" href="<?php echo View::url('dashboard/shield/dogs/add'); ?>">Add Dog</a>
 					</div>
 				</div>
 			</form>
 		</div>
 		
-		<?php Loader::packageElement('dashboard/dogs/search_results', 'svalinn', array(
+		<?php Loader::packageElement('dashboard/dogs/search_results', 'shield', array(
 			'searchInstance'	=> $searchInstance,
 			'listObject'		=> $listObject,
 			'listResults'		=> $listResults,

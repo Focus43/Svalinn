@@ -1,7 +1,7 @@
 <div class="off-canvas-wrap">
     <div class="inner-wrap">
     <!-- BEGIN HEADER -->
-    <header class="container header bg-white">
+    <!--<header class="container header bg-white">
         <nav class="primary-nav-container" data-topbar data-options="is_hover: true;">
             <section class="left name"><a href="/" title="Svalinn" rel="home">
                     <img src="/packages/shield/img/logo-svalinn.svg"/>
@@ -33,19 +33,20 @@
             </section>
             <div class="right-off-canvas-toggle menu-icon show-for-medium-down right"><a href="#"><span></span></a></div>
         </nav>
-    </header>
+    </header>-->
+    <?php Loader::packageElement('theme_header', 'shield', array(
+        'navigationSettings' => array(
+            'displayPages' => 'custom',
+            'displayPagesCID' => Page::getByPath('/privateclient')->getCollectionID(),
+            'displaySubPages' => 'all',
+            'displaySubPageLevels' => 'custom',
+            'displaySubPageLevelsNum' => 1
+        )
+    )); ?>
     <!-- END HEADER   -->
 
     <!-- BEGIN .masthead -->
-    <article class="container masthead bg-wave-blue">
-        <div class="row">
-            <div class="column medium-10 medium-centered intro">
-                <h1 class="text-center">Our Dogs</h1>
-                <p class="lead uppercase text-center">Svalinn Bred &amp; Trained</p>
-            </div>
-        </div>
-        <div class="celtic-knot"></div>
-    </article>
+    <?php Loader::packageElement('blue_masthead', 'shield', array('pageObj' => Page::getCurrentPage())); ?>
     <!-- END .masthead -->
 
     <!-- BEGIN .submast -->
@@ -73,7 +74,15 @@
             </div>
             <div class="small-12 medium-9 columns">
                 <ul class="small-block-grid-2 medium-block-grid-2 dog-grid">
-                    <li class="dog-item">
+                    <?php
+                        foreach($listResults AS $dogObj){
+                            Loader::packageElement('partials/dog_item', 'shield', array(
+                                'dogObj'      => $dogObj,
+                                'imageHelper' => $imageHelper
+                            ));
+                        }
+                    ?>
+                    <!--<li class="dog-item">
                         <div class="row">
 		            		<div class="small-12 columns">
 		            			<img src="/packages/shield/img/dog-placeholder.jpg"/>
@@ -156,7 +165,7 @@
                                 <a href="#" class="btn gray">Learn More</a>
                             </div>
                         </div>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
         </div>
@@ -165,27 +174,11 @@
 
 
     <!-- BEGIN .footer -->
-    <footer class="container footer" role="contentinfo">
-        <div class="row">
-            <div class="column medium-4 large-5 message">
-                <p>For more information about Svalinn <br class="show-for-large-up"/>and our services please get in touch.</p>
-            </div>
-            <div class="column medium-8 large-7 contact">
-                <a href="mailto:info@svalinn.com" class="btn btn-lg btn-contact btn-arrow uppercase">Email Us</a>
-                <div class="or fwsb">OR</div>
-                <a href="tel:1-307-200-1223" class="btn btn-lg btn-disabled uppercase">307.200.1223</a>
-            </div>
-        </div>
-        <div class="row copyright">
-            <div class="column small-12">
-                <p class="text-center">Copyright &copy; 2014 Svalinn • All Rights Reserved</p>
-            </div>
-        </div>
-    </footer>
+    <?php Loader::packageElement('theme_footer', 'shield'); ?>
     <!-- END .footer -->
 
     <!-- BEGIN .right-off-canvas-menu -->
-    <aside class="right-off-canvas-menu">
+    <!--<aside class="right-off-canvas-menu">
         <ul class="primary-nav off-canvas-list">
             <li class="has-dropdown">
                 <a href="#">About</a>
@@ -222,7 +215,15 @@
             <li><a class="btn btn-blue" href="">Professional</a></li>
         </ul>
     </aside>
-    <a class="exit-off-canvas"></a>
+    <a class="exit-off-canvas"></a>-->
+    <?php Loader::packageElement('responsive_sidebar', 'shield', array(
+        'navigationSettings' => array(
+            'displayPages'   => 'second_level',
+            'displaySubPages' => 'all',
+            'displaySubPageLevels' => 'custom',
+            'displaySubPageLevelsNum' => 1
+        )
+    )); ?>
     <!-- END .right-off-canvas-menu -->
 
 

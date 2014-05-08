@@ -79,6 +79,14 @@
                                 <a href="#" class="btn btn-full gray">See Other Dogs</a>
                             </div>
                         </div>
+                <?php /*foreach ($galleryFiles as $file) {
+                    $fv = $file->getApprovedVersion();
+                    $desc = $fv->getDescription();
+                    ?>
+                    <img src="<?php echo $image->getThumbnail($file, 600, 400, false)->src; ?>" class="thumbnail" style="margin: 0 auto">
+                    <span class="caption"><?php echo $desc ?></span>
+
+                <?php }*/ ?>
             </div>
             <div class="small-12 medium-7 columns">
                 <div class="dog-desc">

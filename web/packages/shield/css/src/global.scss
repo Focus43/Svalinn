@@ -486,7 +486,7 @@ TESTIMONIALS
 	.testimonials{
 		margin-top:1rem;
 		padding-top:3rem;
-		background: url("#{$imagePath}divide-o-gray.gif") 50% 0 no-repeat;
+		
 	}
 }
 .testimonials{ @include testimonials(privateclient); }

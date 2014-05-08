@@ -4,7 +4,7 @@
 
         protected $pkgHandle 			= 'shield';
         protected $appVersionRequired 	= '5.6.1';
-        protected $pkgVersion 			= '0.48';
+        protected $pkgVersion 			= '0.49';
 
 
         /**
@@ -95,10 +95,11 @@
          */
         private function runUpgradeTasks( $version ){
             // Get the handle
-            $handle = sprintf('v%s', str_replace('.', '_', (string)(float)$version));
-            $klass  = sprintf('UpgradeTask_%s', $handle);
+            $handle   = sprintf('v%s', str_replace('.', '_', (string)(float)$version));
+            $klass    = sprintf('UpgradeTask_%s', $handle);
+            $filePath = DIR_PACKAGES . '/' . $this->pkgHandle . '/' . DIRNAME_LIBRARIES . '/upgrade_task/' . $handle . '.php';
 
-            if( file_exists(Environment::get()->getPath(DIRNAME_LIBRARIES . "/upgrade_task/{$handle}.php", $this->pkgHandle)) ){
+            if( file_exists($filePath) ){
                 // Register for autoloading
                 Loader::registerAutoload(array(
                     $klass => array('library', "upgrade_task/{$handle}", $this->pkgHandle)
@@ -208,11 +209,12 @@
             SinglePage::add('/contact', $this->packageObject());
 
             // dashboard pages
-//            $dogs = SinglePage::add('/dashboard/shield/dogs', $this->packageObject());
-//            if( is_object($dogs) ){
-//                $dogs->setAttribute('icon_dashboard', 'icon-list');
-//            }
-//            SinglePage::add('/dashboard/shield/dogs/search', $this->packageObject());
+            SinglePage::add('/dashboard/svalinn', $this->packageObject());
+            $dogs = SinglePage::add('/dashboard/svalinn/dogs', $this->packageObject());
+            if( is_object($dogs) ){
+                $dogs->setAttribute('icon_dashboard', 'icon-list');
+            }
+            SinglePage::add('/dashboard/svalinn/dogs/search', $this->packageObject());
 
             return $this;
         }

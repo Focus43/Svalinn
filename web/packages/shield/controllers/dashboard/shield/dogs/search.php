@@ -1,21 +1,15 @@
-<?php
+<?php defined('C5_EXECUTE') or die("Access Denied.");
 
 	class DashboardShieldDogsSearchController extends Controller {
 	
 		public $helpers = array('form');
-	
-		public function on_start() {
-//            echo 'search on start';exit;
-		}
 		
 		
 		public function view(){
-//            echo 'search view';exit;
 			$searchInstance = 'dogs' . time();
-			$this->addHeaderItem(Loader::helper('html')->css('dashboard/app.dashboard.css', 'svalinn'));
-			$this->addHeaderItem( '<meta id="svalinnToolsDir" value="'.SHIELD_TOOLS_URL.'" />' );
+			$this->addHeaderItem( '<meta name="svalinn-tools" content="'.SHIELD_TOOLS_URL.'" />' );
 			$this->addFooterItem('<script type="text/javascript">$(function() { ccm_setupAdvancedSearch(\''.$searchInstance.'\'); });</script>');
-			$this->addFooterItem(Loader::helper('html')->javascript('dashboard/app.dashboard.js', 'svalinn'));
+			$this->addFooterItem(Loader::helper('html')->javascript('dashboard/shield.dashboard.js', 'shield'));
 			$this->set('listObject', $this->dogListObj());
 			$this->set('listResults', $this->dogListObj()->getPage());
 			$this->set('searchInstance', $searchInstance);
@@ -24,14 +18,14 @@
 		
 		public function dogListObj(){
 			if( $this->_dogListObj === null ){
-				$this->_dogListObj = new DogList();
+				$this->_dogListObj = new ShieldDogList();
 				$this->applySearchFilters( $this->_dogListObj );
 			}
 			return $this->_dogListObj;
 		}
 		
 		
-		private function applySearchFilters( DogList $listObj ){
+		private function applySearchFilters( ShieldDogList $listObj ){
 			if( !empty($_REQUEST['numResults']) ){
 				$listObj->setItemsPerPage( $_REQUEST['numResults'] );
 			}

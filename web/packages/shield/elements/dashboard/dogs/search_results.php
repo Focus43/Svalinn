@@ -1,4 +1,4 @@
-<?php $columns = DogColumnSet::getCurrent();
+<?php $columns = ShieldDogColumnSet::getCurrent();
 	$imageHelper = Loader::helper('image');
 ?>
 
@@ -52,6 +52,6 @@
 	
 	<!-- paging stuff -->
 	<div class="ccm-pane-footer">
-		<?php $listObject->displayPagingV2((SRK_TOOLS_URL . 'dashboard/personnel/search_results'), array()) ?>
+		<?php $listObject->displayPagingV2((SHIELD_TOOLS_URL . 'dashboard/dogs/search_results'), array()) ?>
 	</div>
 </div>

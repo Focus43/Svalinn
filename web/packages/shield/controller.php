@@ -4,7 +4,7 @@
 
         protected $pkgHandle 			= 'shield';
         protected $appVersionRequired 	= '5.6.1';
-        protected $pkgVersion 			= '0.49';
+        protected $pkgVersion 			= '0.51';
 
 
         /**
@@ -33,7 +33,9 @@
 
             // Autoload classes
             Loader::registerAutoload(array(
-                'ShieldPageController' => array('library', 'shield_page_controller', $this->pkgHandle)
+                'ShieldPageController' => array('library', 'shield_page_controller', $this->pkgHandle),
+                'ShieldDog'			   => array('model', 'shield_dog', $this->pkgHandle),
+                'ShieldDogList'		   => array('model', 'shield_dog_list', $this->pkgHandle)
             ));
         }
 
@@ -75,9 +77,9 @@
          * @return void
          */
         private function installAndUpdate(){
-            // Per-version specific tasks. Re-getByHandle so we make sure to have the package version
-            // being upgrade *TO*, not from.
-            $this->runUpgradeTasks( Package::getByHandle($this->pkgHandle)->getPackageVersion() )
+            $pkgObj  = Package::getByHandle($this->pkgHandle);
+            $version = ($pkgObj instanceof Package) ? $pkgObj->getPackageVersion() : '';
+            $this->runUpgradeTasks($version)
                 ->setupUserAttributes()
                 ->setupBlocks()
                 ->setupPageTypes()
@@ -209,12 +211,11 @@
             SinglePage::add('/contact', $this->packageObject());
 
             // dashboard pages
-            SinglePage::add('/dashboard/svalinn', $this->packageObject());
-            $dogs = SinglePage::add('/dashboard/svalinn/dogs', $this->packageObject());
+            $dogs = SinglePage::add('/dashboard/shield/dogs', $this->packageObject());
             if( is_object($dogs) ){
                 $dogs->setAttribute('icon_dashboard', 'icon-list');
             }
-            SinglePage::add('/dashboard/svalinn/dogs/search', $this->packageObject());
+            SinglePage::add('/dashboard/shield/dogs/search', $this->packageObject());
 
             return $this;
         }

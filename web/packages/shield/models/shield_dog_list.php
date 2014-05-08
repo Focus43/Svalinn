@@ -1,6 +1,6 @@
 <?php
 
-	class DogList extends DatabaseItemList {
+	class ShieldDogList extends DatabaseItemList {
 		
 		const DB_FRIENDLY_DATE = 'Y-m-d H:i:s';
 		
@@ -42,13 +42,13 @@
 		
 		
 		public function get( $itemsToGet = 100, $offset = 0 ){
-            $personnel = array();
+            $dogs = array();
             $this->createQuery();
             $r = parent::get($itemsToGet, $offset);
             foreach($r AS $row){
-                $personnel[] = Dogs::getByID( $row['id'] );
+                $dogs[] = ShieldDog::getByID( $row['id'] );
             }
-            return $personnel;
+            return $dogs;
         }
         
         
@@ -66,36 +66,36 @@
         }
         
         public function setBaseQuery(){
-            $queryStr = "SELECT dogs.id FROM Dogs dogs";
+            $queryStr = "SELECT dogs.id FROM ShieldDog dogs";
             $this->setQuery( $queryStr );
         }
 		
 	}
 
 
-	class DogColumnSet extends DatabaseItemListColumnSet {
+	class ShieldDogColumnSet extends DatabaseItemListColumnSet {
 		
 		public function __construct(){
-			$this->addColumn(new DatabaseItemListColumn('name', t('Name'), array('DogColumnSet', 'getNameAsLast')));
-			$this->addColumn(new DatabaseItemListColumn('breed', t('Breed'), array('DogColumnSet', 'getBreed')));
-			$this->addColumn(new DatabaseItemListColumn('protectionLevel', t('Protection Level'), array('DogColumnSet', 'getProtectionLevel')));
-            $this->addColumn(new DatabaseItemListColumn('reservedStatus', t('Status'), array('DogColumnSet', 'getReservedStatus')));
+			$this->addColumn(new DatabaseItemListColumn('name', t('Name'), array('ShieldDogColumnSet', 'getNameAsLast')));
+			$this->addColumn(new DatabaseItemListColumn('breed', t('Breed'), array('ShieldDogColumnSet', 'getBreed')));
+			$this->addColumn(new DatabaseItemListColumn('protectionLevel', t('Protection Level'), array('ShieldDogColumnSet', 'getProtectionLevel')));
+            $this->addColumn(new DatabaseItemListColumn('reservedStatus', t('Status'), array('ShieldDogColumnSet', 'getReservedStatus')));
 		}
 		
-		public function getNameAsLast( Dogs $dogObj ){
+		public function getNameAsLast( ShieldDog $dogObj ){
 			$name = "{$dogObj->getName()}";
-			return '<a href="'.View::url('dashboard/svalinn/dogs/edit', $dogObj->getDogID()).'">'.$name.'</a>';
+			return '<a href="'.View::url('dashboard/shield/dogs/edit', $dogObj->getDogID()).'">'.$name.'</a>';
 		}
 
-		public function getBreed( Dogs $dogObj ){
+		public function getBreed( ShieldDog $dogObj ){
 			return $dogObj->getBreedHandle(true);
 		}
 
-        public function getProtectionLevel( Dogs $dogObj ){
+        public function getProtectionLevel( ShieldDog $dogObj ){
             return $dogObj->getProtectionHandle(true);
         }
 
-        public function getReservedStatus( Dogs $dogObj ){
+        public function getReservedStatus( ShieldDog $dogObj ){
             return $dogObj->getReservedStatus(true);
         }
 		

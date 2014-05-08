@@ -7,7 +7,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 ?>
 </head>
 
-<body class="antialiased<?php echo $bodyClasses; ?> default">
+<body class="antialiased<?php echo $bodyClasses; ?> default default-2-equal-column">
 	<div class="off-canvas-wrap">
 		<div class="inner-wrap">
 			<!-- BEGIN HEADER -->
@@ -41,10 +41,10 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 					</div>
 				</div>
 				<div class="row section">
-					<div class="small-12 medium-6 large-5 columns">
+					<div class="small-12 medium-6 large-5 large-offset-1 columns">
                         <?php $a = new Area('Main-2'); $a->display($c); ?>
 					</div>
-					<div class="small-12 medium-6 large-5 columns">
+					<div class="small-12 medium-6 large-5 end columns">
 						<div class="vertical-middle">
                             <?php $a = new Area('Main-3'); $a->display($c); ?>
 						</div>

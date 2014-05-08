@@ -190,6 +190,7 @@ blockquote{
 	border-left: 0;
 	font-family: $quadon-light;
 	font-style: italic;
+	text-align: center;
 	color:$lite-blue;
 	font-size:rem-calc(30);
 	line-height: rem-calc(42);
@@ -201,8 +202,8 @@ blockquote{
 .medium-12 blockquote{
 	margin-top:2rem;
 	margin-bottom:3rem;
-	color:#959471;
-	font-size:rem-calc(30);
+	color:$dark-blue;
+	font-size:rem-calc(36);
 	line-height: rem-calc(42);
 	text-align: center;
 }
@@ -448,6 +449,8 @@ TESTIMONIALS
 	}
 	blockquote{
 		margin-top:0;
+		font-size: rem-calc(28);
+		line-height: rem-calc(32);
 		@if $type == professional {
 			color:$brand-green;
 		}
@@ -479,10 +482,12 @@ TESTIMONIALS
 	}
 	.btn,.btn-green-inverse{margin-top:1rem;}
 }
-.default .testimonial{
-	margin-top:1rem;
-	padding-top:3rem;
-	background: url("#{$imagePath}blockquote-signature.png") 50% 0 no-repeat;
+.default{
+	.testimonials{
+		margin-top:1rem;
+		padding-top:3rem;
+		
+	}
 }
 .testimonials{ @include testimonials(privateclient); }
 .professional .testimonials{ @include testimonials(professional); }

@@ -27,6 +27,16 @@ Loader::element('header_required'); // REQUIRED BY C5 //
             )); ?>
 			<!-- END .masthead -->
 			
+			<!-- BEGIN .intro -->
+			<article class="container main-intro bg-white">
+				<div class="row">
+					<div class="column medium-10 medium-centered">
+						<?php $a = new Area('Main'); $a->display($c); ?>
+					</div>
+				</div>
+			</article>
+			<!-- END .intro -->
+			
 			<!-- BEGIN .submast -->
 			<article class="container tab-nav bg-knot-gray-lg">
 				<div class="row title">
@@ -47,14 +57,6 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 			<!-- END .submast -->
 			
 			<!-- BEGIN .content -->
-            <article class="container main-intro bg-gray">
-                <div class="row">
-                    <div class="column medium-10 medium-centered">
-                        <?php $a = new Area('Main'); $a->display($c); ?>
-                        <!--<p class="text-center lead">Svalinn K9s come in three breeds and three levels of training. Our German Shepherds, Dutch Shepherds and Belgian Malinois range from $30,000 to $85,000 depending on the selected training level.</p>-->
-                    </div>
-                </div>
-            </article>
 			<article class="container main bg-gray">
                 <div class="row">
                     <div class="column medium-12 large-10 medium-centered">

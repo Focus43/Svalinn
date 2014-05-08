@@ -303,10 +303,18 @@ BUTTONS
 	background: transparent;
 	&.blue{
 		border-color:$lite-blue;
+		&:hover{
+			border-color:$brand-blue;
+			background: rgba(0,85,129,0.3);
+		}
 	}
 	&.on-lite{
 		color:$medium-blue;
 		background:#FFF;
+		&:hover{
+			border-color:$lite-blue;
+			background: #F7F7F7;
+		}
 	}
 }
 .btn-full{
@@ -429,11 +437,12 @@ SECTIONS
 TESTIMONIALS
 ============================================================================= */
 @mixin testimonials($type){
-	padding-top:4rem;
+	padding-top:2rem;
 	padding-bottom:4rem;
 	h3{
 		color:#CFCFCF;
 		font-size: rem-calc(21);
+		font-weight:600;
 	}
 	blockquote{
 		@if $type == professional {

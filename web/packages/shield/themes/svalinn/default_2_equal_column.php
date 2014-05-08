@@ -41,10 +41,10 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 					</div>
 				</div>
 				<div class="row section">
-					<div class="small-12 medium-6 large-5 large-offset-1 columns">
+					<div class="small-12 medium-6 large-5 large-offset-1 columns left-col">
                         <?php $a = new Area('Main-2'); $a->display($c); ?>
 					</div>
-					<div class="small-12 medium-6 large-5 end columns">
+					<div class="small-12 medium-6 large-5 end columns right-col">
 						<div class="vertical-middle">
                             <?php $a = new Area('Main-3'); $a->display($c); ?>
 						</div>

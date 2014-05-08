@@ -3,6 +3,7 @@
 @import "foundation";
 @import "global";
 
+
 body{
 	background:$black-blue;
 }
@@ -269,6 +270,7 @@ MASTHEAD
 	}	
 }
 .img-border{
+	position:relative;
 	margin-top:2rem;
 	margin-bottom:2rem;
 	@media #{$large-up}{
@@ -276,7 +278,6 @@ MASTHEAD
 			position: absolute;
 			top: 0;
 			left: 0;
-			margin:0 15px;
 			content: "";
 			height: 100%;
 			width: 100%;
@@ -397,9 +398,11 @@ MAIN
 		line-height: rem-cal(28);
 	}
 }
-.breeds .main-intro{
-	padding-top: 5rem;
-	padding-bottom: 6rem;
+.breeds,.training{
+	.main-intro{
+		padding-top: 5rem;
+		padding-bottom: 6rem;
+	}
 }
 
 /* =============================================================================
@@ -446,7 +449,9 @@ TABS
 }
 .tabs{
 	margin-top:3.2rem;
-	&.vertical{width:28%;}
+	&.vertical{
+		width:28%;
+	}
 	dd{
 		background: none;
 		text-align: right;
@@ -496,6 +501,7 @@ TABS
 }
 .tabs-content{
 	&.vertical{width:72%;padding-bottom:3.5rem;}
+	
 	h3{
 		color:#959471;
 		font-family: $quadon-light;
@@ -531,6 +537,28 @@ TABS
 			border-left: 4px solid #27333a;
 		}
 		&:hover{color:#27333a;}
+	}
+}
+.left-col{
+	h3{
+		margin-top:3rem;
+		margin-bottom: 1rem;
+		font-family: $proxima;
+		color: #333;
+		font-size: rem-calc(21);
+		font-weight: 300;
+		text-align: left;
+		text-transform: uppercase;
+	}
+	ul{
+		margin-left:0;
+		li{
+			margin:0.25rem 0;
+			padding:0 0 0.25rem;
+			list-style: none;
+			font-size:rem-calc(16);
+			border-bottom: 1px solid #f1f1f1;
+		}
 	}
 }
 
@@ -619,6 +647,8 @@ DOUBLE BORDER BOX
 }
 .breeds{
 	.boxed{
+		margin-top:6px;
+		.box{min-height: 320px;}
 		h3,p{text-align: left;}
 	}
 }

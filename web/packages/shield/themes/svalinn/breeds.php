@@ -63,10 +63,10 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 						<div class="tabs-content">
 							<div class="content active" id="level1">
 								<div class="row">
-									<div class="column medium-6">
+									<div class="column medium-6 left-col">
                                         <?php $a = new Area('Level 1-Left'); $a->display($c); ?>
 									</div>
-									<div class="column medium-6">
+									<div class="column medium-6 right-col">
 										<div class="boxed">
 											<div class="box">
                                                 <?php $a = new Area('Level 1-Right'); $a->display($c); ?>
@@ -83,10 +83,10 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 							
 							<div class="content" id="level2">
 								<div class="row">
-									<div class="column medium-6">
+									<div class="column medium-6 left-col">
 	                                    <?php $a = new Area('Level 2-Left'); $a->display($c); ?>
 									</div>
-									<div class="column medium-6">
+									<div class="column medium-6 right-col">
 										<div class="boxed">
 											<div class="box">
 	                                            <?php $a = new Area('Level 2-Right'); $a->display($c); ?>
@@ -102,10 +102,10 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 							</div>
 							<div class="content" id="level3">
 								<div class="row">
-									<div class="column medium-6">
+									<div class="column medium-6 left-col">
                                         <?php $a = new Area('Level 3-Left'); $a->display($c); ?>
 									</div>
-									<div class="column medium-6">
+									<div class="column medium-6 right-col">
 										<div class="boxed">
 											<div class="box">
                                                 <?php $a = new Area('Level 3-Right'); $a->display($c); ?>

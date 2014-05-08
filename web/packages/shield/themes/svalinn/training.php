@@ -63,7 +63,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
                         <div class="tabs-content">
                             <div class="content active" id="level1">
                                 <div class="row">
-                                    <div class="column medium-6">
+                                    <div class="column medium-6 left-col">
                                         <!--<ul>
                                             <li>Will protect against up to two attackers</li>
                                             <li>Fully obedient</li>
@@ -72,7 +72,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
                                         </ul>-->
                                         <?php $a = new Area('Level 1-Left'); $a->display($c); ?>
                                     </div>
-                                    <div class="column medium-6">
+                                    <div class="column medium-6 right-col">
                                         <div class="boxed">
                                             <div class="box">
                                                 <?php $a = new Area('Level 1-Right'); $a->display($c); ?>
@@ -85,7 +85,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
                             </div>
 
                             <div class="content" id="level2">
-                                <div class="column medium-6">
+                                <div class="column medium-6 left-col">
                                     <?php $a = new Area('Level 2-Left'); $a->display($c); ?>
                                     <!--<ul>
                                         <li>All level I attributes +</li>
@@ -97,7 +97,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
                                         <li>Weapons recognition and tactical response</li>
                                     </ul>-->
                                 </div>
-                                <div class="column medium-6">
+                                <div class="column medium-6 right-col">
                                     <div class="boxed">
                                         <div class="box">
                                             <!--<h3>Includes</h3>
@@ -108,7 +108,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
                                 </div>
                             </div>
                             <div class="content" id="level3">
-                                <div class="column medium-6">
+                                <div class="column medium-6 left-col">
                                     <!--<ul>
                                         <li>All level II attributes +</li>
                                         <li>Ultimate vigilance</li>
@@ -118,7 +118,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
                                     </ul>-->
                                     <?php $a = new Area('Level 3-Left'); $a->display($c); ?>
                                 </div>
-                                <div class="column medium-6">
+                                <div class="column medium-6 right-col">
                                     <div class="boxed">
                                         <div class="box">
                                             <?php $a = new Area('Level 3-Right'); $a->display($c); ?>

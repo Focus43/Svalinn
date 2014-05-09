@@ -206,6 +206,11 @@ blockquote{
 	font-size:rem-calc(36);
 	line-height: rem-calc(42);
 	text-align: center;
+	@media #{$small-only}{
+		font-size: 2rem;
+		padding: 0;
+		margin-top: 0;
+	}
 }
 .uppercase{text-transform: uppercase;}
 
@@ -226,6 +231,23 @@ POSITIONING
 
 .vertical-middle {
 	display: table;
+	blockquote{text-align: left;}
+	@media #{$medium-only}{
+		margin-top: -15px;
+		blockquote{
+			font-size: 1.5rem;
+			line-height: 2rem;
+			margin: 0;
+			padding: 0;
+		}
+	}
+	@media #{$small-only}{
+		blockquote{
+			text-align: center;
+			&:before,&:after{display:none;}
+		}
+	}
+	
 }
 
 /* =============================================================================

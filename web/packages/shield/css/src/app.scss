@@ -208,6 +208,7 @@ MASTHEAD
 			line-height:3.5rem;
 			letter-spacing: 0.06em;
 			text-align: center;
+			@media #{$small-only}{font-size:3rem;}
 		}
 		p{
 			@include lead;
@@ -266,6 +267,10 @@ MASTHEAD
 			font-weight:300;
 			letter-spacing: 0.1em;
 			text-align: center;
+			@media #{$small-only}{
+				height:auto;
+				font-size:1rem;
+			}
 		}
 	}	
 }
@@ -298,6 +303,10 @@ MAIN
 .main{
 	background:#f7f7f7;
 	padding:3rem 2.5rem;
+	@media #{$small-only}{
+		padding-left:0;
+		padding-right:0;
+	}
 	.aside{
 		blockquote p {font-size:rem-calc(26);}
 		
@@ -444,22 +453,46 @@ TABS
 		content:"";
 		background:url("#{$imagePath}divide-o-gray.gif") 50% no-repeat;	
 	}
-	&:before{margin-top:1rem;margin-bottom:4rem;}
-	&:after{margin-top:4rem;margin-bottom:1rem;}
+	&:before{
+		margin-top:1rem;margin-bottom:4rem;
+		@media #{$small-only}{
+			margin-top:1rem;margin-bottom:1rem;
+		}
+	}
+	&:after{
+		margin-top:4rem;margin-bottom:1rem;
+		@media #{$small-only}{
+			margin-top:1rem;margin-bottom:1rem;
+		}
+	}
 }
 .tabs{
 	margin-top:3.2rem;
 	&.vertical{
 		width:28%;
+		@media #{$small-only}{
+			margin-top:1rem;
+			width:100%;
+		}
 	}
 	dd{
 		background: none;
 		text-align: right;
 		font-size:rem-calc(16);
+		@media #{$small-only}{
+			text-align: center;
+		}
 		a{
 			padding:0.25rem 3rem 0.25rem 1rem;
 			color:$brand-blue;
 			background: none;
+			@media #{$medium-only}{
+				padding-right:1rem;
+			}
+			@media #{$small-only}{
+				text-align: center;
+				padding-left:0;padding-right:0;
+			}
 			&:hover{
 				color:#6c6c6c;
 				background:none;
@@ -476,9 +509,16 @@ TABS
 	&.centered{
 		display: table;
 		margin: 0 auto;
+		@media #{$small-only}{
+			margin-left: -15px;
+			margin-right: -15px;			
+		}
 		dd{
 			top:0 !important;
 			margin-right:1px;
+			@media #{$small-only}{
+				width:100%;
+			}
 			a{
 				height:2.5rem;
 				line-height: 2.5rem;
@@ -500,19 +540,33 @@ TABS
 	
 }
 .tabs-content{
-	&.vertical{width:72%;padding-bottom:3.5rem;}
+	&.vertical{
+		width:72%;
+		padding-bottom:3.5rem;
+		@media #{$small-only}{
+			width:100%;
+			padding-top:2rem;
+			padding-bottom:2rem;
+		}
+	}
 	
 	h3{
 		color:#959471;
 		font-family: $quadon-light;
 		font-size:rem-calc(28);
 		text-transform: none;
+		@media #{$small-only}{
+			text-align: center;
+		}
 	}
 	p{
 		color:#414141;
 		font-size:rem-calc(18);
 		font-weight: 300;
-		line-height:rem-calc(28);	
+		line-height:rem-calc(28);
+		@media #{$small-only}{
+			text-align: center;
+		}	
 	}
 	.desc{
 		p{text-align: center;}
@@ -678,6 +732,7 @@ DOGS
 	}
 	.breed{font-size: rem-calc(18);}
 	.level,.dob{font-size:rem-calc(14);}
+	.dob{display:none;}
 	.btn{
 		margin:0.5rem 0 0;
 		font-size:rem-calc(16);

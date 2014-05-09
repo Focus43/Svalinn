@@ -58,8 +58,8 @@
 				</div>
 				<div class="reserve">
 					<hr class="divide o-gray"/>
-					<p>Reserve <?php echo $dogObj->getName(); ?> For $<?php echo $dogObj->getPrice(true); ?></p>
-					<a href="#" class="btn btn-bordered btn-md blue on-lite uppercase align-center">Make A Deposit</a>
+					<!--<p>Reserve <?php echo $dogObj->getName(); ?> For $<?php echo $dogObj->getPrice(true); ?></p>-->
+					<a href="/privateclient/contact/" class="btn btn-bordered btn-md blue on-lite uppercase align-center">Contact Us</a>
 				</div>
             </div>
         </div>

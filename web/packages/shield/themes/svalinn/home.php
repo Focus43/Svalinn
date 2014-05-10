@@ -74,59 +74,14 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 			<!-- END .footer -->
 			
 			<!-- BEGIN .right-off-canvas-menu -->
-		    <aside class="right-off-canvas-menu">
-		    	<ul class="primary-nav off-canvas-list">
-			    	<li class="has-dropdown">
-		    			<a href="#">About</a>
-		    			<ul class="dropdown">
-							<li><a href="">Overview</a></li>
-							<li><a href="">Philosophy/Approach</a></li>
-						</ul>
-		    		</li>
-					<li class="has-dropdown">
-						<a href="#">Svalinn Difference</a>
-						<ul class="dropdown">
-							<li><a href="">Our Dogs</a></li>
-							<li><a href="">Training</a></li>
-							<li><a href="">Guarantee</a></li>
-						</ul>
-						
-					</li>
-					<li class="has-dropdown">
-						<a href="#">Protection</a>
-						<ul class="dropdown">
-							<li><a href="">Why Dogs</a></li>
-							<li><a href="">Family</a></li>
-							<li><a href="">Individual</a></li>
-							<li><a href="">Training Levels</a></li>
-						</ul>
-					</li>
-					<li class="has-dropdown">
-						<a href="#">Speciality Services</a>
-						<ul class="dropdown">
-							<li><a href="">PTSD Assistance</a></li>
-							<li><a href="">Training Seminars</a></li>
-							<li><a href="">Residential Training</a></li>
-						</ul>
-					</li>
-					<li class="has-dropdown">
-						<a href="#">Purchasing</a>
-						<ul class="dropdown">
-							<li><a href="">Selection Process</a></li>
-							<li><a href="">Purchase Process</a></li>
-							<li><a href="">Handler Training</a></li>
-							<li><a href="">Dogs For Sale</a></li>
-						</ul>
-					</li>
-					
-		    	</ul>
-		    	<ul class="utility-nav off-canvas-list">
-		    		<li><a class="btn btn-blue" href="">Contact</a></li>
-			    	<li><a class="btn btn-blue" href="">Private Client</a></li>
-					<li><a class="btn btn-blue" href="">Professional</a></li>
-		    	</ul>
-		    </aside>
-			<a class="exit-off-canvas"></a>
+            <?php Loader::packageElement('responsive_sidebar', 'shield', array(
+                'navigationSettings' => array(
+                    'displayPages'   => 'second_level',
+                    'displaySubPages' => 'all',
+                    'displaySubPageLevels' => 'custom',
+                    'displaySubPageLevelsNum' => 1
+                )
+            )); ?>
 			<!-- END .right-off-canvas-menu -->
 			
 			

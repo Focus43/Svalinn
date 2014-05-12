@@ -53,7 +53,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 			<!-- BEGIN .submast -->
 			<article class="container bg-knot-gray-lg">
 				<div class="row">
-					<div class="column medium-10 medium-centered"></div>
+					<div class="column medium-12 large-10 medium-centered"></div>
 				</div>
 			</article>
 			<!-- END .submast -->
@@ -88,7 +88,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 							</div>
 						</div>
 						<div class="row tab-group">
-							<div class="column medium-10 medium-centered">
+							<div class="column  medium-12 large-10 medium-centered">
 								<dl class="tabs vertical" data-tab>
 									<dd class="active"><a href="#panel1a">The Svalinn Name</a></dd>
 									<dd><a href="#panel2a">Company History</a></dd>
@@ -124,7 +124,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 						</div>
 
 						<div class="row testimonials">
-							<div class="column medium-10 medium-centered">
+							<div class="column medium-12 large-10 medium-centered">
                                 <h3 class="text-center">From Our Clients</h3>
                                 <?php
                                     $quoteStack = Stack::getByName('Testimonial Quotes')->getBlocks();

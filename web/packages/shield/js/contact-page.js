@@ -1,0 +1,2 @@
+/*! Build: v0.0.01; Author: Focus43 */
+!function(a){a(document).on("submit","#frm-contact",function(b){b.preventDefault();var c=a(this),d=c.attr("action"),e=c.serializeArray();a.post(d,e,function(b){return a(".columns.error",c).removeClass("error"),1!==b.code?void a.each(b.messages,function(b,d){a('[data-field="'+d+'"]',c).addClass("error")}):void c.addClass("form-sent")},"json")})}(jQuery);

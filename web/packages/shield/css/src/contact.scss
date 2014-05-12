@@ -1,0 +1,15 @@
+body.contact {
+  form {
+    // hidden by default
+    small.error {display:none;}
+    // if container .columns has class error...
+    .columns.error small.error {display:block;}
+    // alert box for showing feedback on success
+    .alert-box {display:none;}
+    // set form class to: toggle submit button to invis & show success alert
+    &.form-sent {
+      input[type="submit"] {display:none;}
+      .alert-box {display:block;}
+    }
+  }
+}

@@ -21,6 +21,7 @@
          */
         public function breed( $breed = null ){
             if( $breed ){
+                $this->set('filteredBy', $breed);
                 $this->dogListObj()->filterByBreedHandle($breed);
                 $this->view();
             }
@@ -32,6 +33,7 @@
          */
         public function protection_level( $level = null ){
             if( $level ){
+                $this->set('filteredBy', (int) $level);
                 $this->dogListObj()->filterByProtectionHandle($level);
                 $this->view();
             }

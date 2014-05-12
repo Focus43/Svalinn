@@ -30,18 +30,31 @@
             <div class="small-12 medium-3 columns">
                 <ul class="side-nav">
                     <li class="divider">BY BREED</li>
-                    <li><a href="<?php echo $this->action('breed', ShieldDog::BREED_GERMAN_SHEPHERD); ?>">German Shepherd</a></li>
-                    <li><a href="<?php echo $this->action('breed', ShieldDog::BREED_DUTCH_SHEPHERD); ?>">Dutch Shepherd</a></li>
-                    <li><a href="<?php echo $this->action('breed', ShieldDog::BREED_MALINOIS); ?>">Belgian Malinois</a></li>
+                    <li class="<?php if($filteredBy === ShieldDog::BREED_GERMAN_SHEPHERD){echo 'active';} ?>">
+                        <a href="<?php echo $this->action('breed', ShieldDog::BREED_GERMAN_SHEPHERD); ?>">German Shepherd</a>
+                    </li>
+                    <li class="<?php if($filteredBy === ShieldDog::BREED_DUTCH_SHEPHERD){echo 'active';} ?>">
+                        <a href="<?php echo $this->action('breed', ShieldDog::BREED_DUTCH_SHEPHERD); ?>">Dutch Shepherd</a>
+                    </li>
+                    <li class="<?php if($filteredBy === ShieldDog::BREED_MALINOIS){echo 'active';} ?>">
+                        <a href="<?php echo $this->action('breed', ShieldDog::BREED_MALINOIS); ?>">Belgian Malinois</a>
+                    </li>
                     <li class="divider">BY PROTECTION LEVEL</li>
-                    <li><a href="<?php echo $this->action('protection_level', ShieldDog::PROTECTION_LEVEL_I); ?>">Level I</a></li>
-                    <li><a href="<?php echo $this->action('protection_level', ShieldDog::PROTECTION_LEVEL_II); ?>">Level II</a></li>
-                    <li><a href="<?php echo $this->action('protection_level', ShieldDog::PROTECTION_LEVEL_III); ?>">Level III</a></li>
+                    <li class="<?php if($filteredBy === ShieldDog::PROTECTION_LEVEL_I){echo 'active';} ?>">
+                        <a href="<?php echo $this->action('protection_level', ShieldDog::PROTECTION_LEVEL_I); ?>">Level I</a>
+                    </li>
+                    <li class="<?php if($filteredBy === ShieldDog::PROTECTION_LEVEL_II){echo 'active';} ?>">
+                        <a href="<?php echo $this->action('protection_level', ShieldDog::PROTECTION_LEVEL_II); ?>">Level II</a>
+                    </li>
+                    <li class="<?php if($filteredBy === ShieldDog::PROTECTION_LEVEL_III){echo 'active';} ?>">
+                        <a href="<?php echo $this->action('protection_level', ShieldDog::PROTECTION_LEVEL_III); ?>">Level III</a>
+                    </li>
                 </ul>
             </div>
             <div class="small-12 medium-9 columns">
+                <?php if(!empty($listResults)): ?>
                 <ul class="small-block-grid-2 medium-block-grid-2 dog-grid">
-                    <?php foreach($listResults AS $dogObj){ ?>
+                    <?php foreach($listResults AS $dogObj): ?>
                         <li class="dog-item">
                             <?php Loader::packageElement('partials/dog_item', 'shield', array(
                                 'dogObj'      => $dogObj,
@@ -53,8 +66,11 @@
                                 </div>
                             </div>
                         </li>
-                    <?php } ?>
+                    <?php endforeach; ?>
                 </ul>
+                <?php else: ?>
+                    <h4 class="text-center">No dogs with requested breed/protection level available.</h4>
+                <?php endif; ?>
             </div>
         </div>
     </article>

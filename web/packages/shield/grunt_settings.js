@@ -16,6 +16,10 @@ module.exports = function( grunt, _configs ){
         pkgPath('js/src/app.js')
     ];
 
+    _configs.concat.shield.files[ pkgPath('js/contact-page.js') ] = [
+        pkgPath('js/src/contact-page/contact.js')
+    ];
+
 
     /////////////////////////////// UGLIFY FILES ///////////////////////////////
     _configs.uglify.shield = {
@@ -53,7 +57,7 @@ module.exports = function( grunt, _configs ){
     };
 
     _configs.watch.svalinn_js = {
-        files : [pkgPath('js/src/*.js')],
+        files : [pkgPath('js/src/*.js'), pkgPath('js/src/contact-page/*.js')],
         tasks : ['concat:shield']
     };
 

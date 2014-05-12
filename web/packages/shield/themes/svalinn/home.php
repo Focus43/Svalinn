@@ -28,7 +28,8 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 						</div>
 					</div>
 					<div class="column medium-5 large-6">
-						<iframe class="fitvid" src="http://player.vimeo.com/video/92781493" width="480" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+						<!--<iframe class="fitvid" src="http://player.vimeo.com/video/92781493" width="480" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>-->
+						<img src="<?php echo SHIELD_IMAGES_URL; ?>video-placeholder.jpg" style="max-width:100%;" />
 					</div>
 				</div>
 				<div class="row">

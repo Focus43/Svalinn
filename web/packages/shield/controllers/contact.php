@@ -31,8 +31,21 @@
             }
 
             // If here, it's valid (send email)...
+            $this->issueEmail();
+            // Log the entry as well
             Log::addEntry(print_r($_REQUEST,true), 'contact_email');
+            // Return JSON
             $this->formResponder(true, 'Thanks');
+        }
+
+
+        private function issueEmail(){
+            $mailerObj = $this->getHelper('mail');
+            $mailerObj->to('jon@focus-43.com');
+            $mailerObj->from(OUTGOING_MAIL_ISSUER_ADDRESS);
+            $mailerObj->addParameter('formData', (object)$_REQUEST);
+            $mailerObj->load('contact_form', self::PACKAGE_HANDLE);
+            $mailerObj->sendMail();
         }
 
     }

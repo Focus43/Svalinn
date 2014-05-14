@@ -232,6 +232,24 @@ MASTHEAD
 }
 .sublanding{
 	.masthead{
+		height:650px;
+		background: url("#{$imagePath}private-client-landingpage.jpg");
+		background-position:50%;
+		background-repeat: no-repeat;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		.intro{
+			margin-top:4rem;
+		}
+		.secondary-intro{
+			margin-top:4rem;
+			p{
+				font-size:rem-calc(21);
+				line-height: rem-calc(32);
+			}
+		}
 		.dog{
 			margin:3rem auto 0;
 			text-align: center;

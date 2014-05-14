@@ -13,7 +13,7 @@ $imagePath: '/packages/shield/img/';
 // Allows the use of rem-calc() or lower-bound() in your settings
 @import "foundation/functions";
 
-$body-font-family: 'Proxima Nova', 'Open Sans', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-family: 'proxima-nova', 'Open Sans', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 
 $proxima: $body-font-family;
 $quadon-light: 'Quadon Light', 'Open Sans', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;

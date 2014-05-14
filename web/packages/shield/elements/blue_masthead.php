@@ -2,6 +2,9 @@
 <article class="container masthead bg-wave-blue">
     <div class="row">
         <div class="column medium-10 medium-centered intro">
+        	<?php if($mastheadEditableArea === true && ($c instanceof Page)): ?>
+	        <div class="text-center svalinn-knot"><img src="/packages/shield/img/knot-wave-lite-blue.png" /></div>
+	        <?php endif; ?>
             <h1 class="text-center">
                 <?php echo ($customTitle) ? $customTitle : $pageObj->getAttribute('meta_title'); ?>
             </h1>

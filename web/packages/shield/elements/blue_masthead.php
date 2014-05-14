@@ -10,9 +10,6 @@
             </p>
         </div>
         <?php if($mastheadEditableArea === true && ($c instanceof Page)): ?>
-        <div class="column small-8 large-3 small-centered dog">
-                <img src="<?php echo SHIELD_IMAGES_URL; ?>celtic-dog-blue.png"/>
-            </div>
         <div class="column medium-10 medium-centered">
             <?php $a = new Area('Masthead'); $a->display($c); ?>
         </div>

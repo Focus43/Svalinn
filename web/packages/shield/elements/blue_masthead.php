@@ -2,6 +2,9 @@
 <article class="container masthead bg-wave-blue">
     <div class="row">
         <div class="column medium-10 medium-centered intro">
+        	<?php if($mastheadEditableArea === true && ($c instanceof Page)): ?>
+	        <div class="text-center svalinn-knot"><img src="/packages/shield/img/knot-wave-lite-blue.png" /></div>
+	        <?php endif; ?>
             <h1 class="text-center">
                 <?php echo ($customTitle) ? $customTitle : $pageObj->getAttribute('meta_title'); ?>
             </h1>
@@ -10,10 +13,7 @@
             </p>
         </div>
         <?php if($mastheadEditableArea === true && ($c instanceof Page)): ?>
-        <div class="column small-8 large-3 small-centered dog">
-                <img src="<?php echo SHIELD_IMAGES_URL; ?>celtic-dog-blue.png"/>
-            </div>
-        <div class="column medium-10 medium-centered">
+        <div class="column medium-8 medium-centered secondary-intro">
             <?php $a = new Area('Masthead'); $a->display($c); ?>
         </div>
         <?php endif; ?>

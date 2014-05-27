@@ -4,7 +4,7 @@
 
         protected $pkgHandle 			= 'shield';
         protected $appVersionRequired 	= '5.6.1';
-        protected $pkgVersion 			= '0.52';
+        protected $pkgVersion 			= '0.53';
 
 
         /**
@@ -168,6 +168,10 @@
 
             if( !is_object($this->pageType('sublanding')) ){
                 CollectionType::add(array('ctHandle' => 'sublanding', 'ctName' => 'Sub Landing'), $this->packageObject());
+            }
+
+            if( !is_object($this->pageType('pro_landing')) ){
+                CollectionType::add(array('ctHandle' => 'pro_landing', 'ctName' => 'Pro Landing'), $this->packageObject());
             }
 
             if( !is_object($this->pageType('breeds')) ){

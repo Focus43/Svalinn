@@ -39,10 +39,9 @@ hr.divide{
 		background-image: url("#{$imagePath}divide-x-blue.gif");
 	}
 	&.btn-divide{margin-top:3rem}
+	.private-client.sublanding &{display:none;}
 }
-.sublanding{
-	.btn-divide{display: none;}
-}
+
 .celtic-knot{
 	position:absolute;
 	height:65px;
@@ -50,6 +49,11 @@ hr.divide{
 	bottom:0;
 	background:url("#{$imagePath}bg-knot-blue.png") 50% 100% no-repeat;
 }
+
+img{
+	&.full-width{width:100%;height:auto;}
+}
+.list-table{display: table;margin: 0 auto;}
 
 /* =============================================================================
 BACKGROUNDS
@@ -72,6 +76,9 @@ BACKGROUNDS
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+}
+.bg-lite-tan{
+	background:$lite-tan;
 }
 
 
@@ -208,7 +215,7 @@ MASTHEAD
 			line-height:3.5rem;
 			letter-spacing: 0.06em;
 			text-align: center;
-			@media #{$small-only}{font-size:3rem;}
+			@media #{$small-only}{font-size:2.5rem;}
 		}
 		p{
 			@include lead;
@@ -218,22 +225,27 @@ MASTHEAD
 			font-size: rem-calc(18);
 			letter-spacing:0.3rem;
 			text-transform: uppercase;
+			@media #{$small-only}{font-size:rem-calc(14);letter-spacing:0.15rem;}
 			&:before,&:after{
 				display:table;
 				padding:0 2rem;
 				height:5px;
 				width:100%;
 				content:"";
-				background: url("#{$imagePath}divide-x-blue.gif") 50% no-repeat;
+				.private-client &{background: url("#{$imagePath}divide-x-blue.gif") 50% no-repeat;}
+				.professional &{background: url("#{$imagePath}divide-x-green.gif") 50% no-repeat;}
 			}	
 		}
 	}
 	.celtic-knot{opacity:0.7;}
 }
 .sublanding{
+	&.private-client .masthead{background-image: url("#{$imagePath}private-client-landingpage.jpg");}
+	&.professional .masthead{background-image: url("#{$imagePath}professional-landingpage.jpg");}
 	.masthead{
 		height:650px;
-		background: url("#{$imagePath}private-client-landingpage.jpg");
+		@media #{$small-only}{height:auto;}
+				
 		background-position:50%;
 		background-repeat: no-repeat;
 		-webkit-background-size: cover;
@@ -246,32 +258,33 @@ MASTHEAD
 		}
 		.secondary-intro{
 			margin-top:4rem;
+			@media #{$small-only}{margin-top:2rem;}
+			h2{
+				margin:2rem 0 1.5rem;
+				color:#FFF;
+				font-family: $proxima;
+				font-weight: 300;
+				font-size: rem-calc(36);
+				line-height: rem-calc(42);
+				letter-spacing: 0.05em;
+				text-align: center;
+				@media #{$small-only}{
+					margin-top:1rem;
+					font-size: rem-calc(24);
+					line-height: rem-calc(28);
+				}
+			}
 			p{
-				font-size:rem-calc(21);
-				line-height: rem-calc(32);
+				font-size: rem-calc(18);
+				line-height: rem-calc(28);
+				color:#FFF;
+				text-align: center;
 			}
 		}
-		.dog{
-			margin:3rem auto 0;
-			text-align: center;
-		}
-		h2{
-			margin:2rem 0 1.5rem;
-			color:#FFF;
-			font-family: $proxima;
-			font-weight: 300;
-			font-size: rem-calc(24);
-			line-height: rem-calc(26);
-			letter-spacing: 0.05em;
-			text-align: center;
-			text-transform: uppercase;
-		}
-		p{
-			font-size: rem-calc(18);
-			line-height: rem-calc(28);
-			color:#FFF;
-			text-align: center;
-		}
+		
+	}
+	.professional &{
+	
 	}
 }
 .tab-nav{
@@ -437,7 +450,63 @@ MAIN
 		padding-bottom: 6rem;
 	}
 }
-
+.main-sub{
+	background: $lite-tan;
+	padding-top:2rem;
+	padding-bottom:4rem;
+	
+	h3{margin-bottom:2.5rem;font-size:rem-calc(24);text-align: center;width: 100%;}
+	.inline-list{
+		margin:0;
+		width: 100%;
+		display: block;
+		text-align: center;
+		>li{
+			display: inline-block !important;
+			float: none;
+			margin:0;
+			padding:0;
+			height:3rem;
+			width:auto;
+			color:$medium-gray;
+			font-family:$quadon-light;
+			font-size:rem-calc(32);
+			line-height:rem-calc(32);
+			text-transform: uppercase;
+			@media #{$large-up}{
+				font-size:rem-calc(36);
+				line-height:rem-calc(36);
+			}
+			&.divide{
+				margin:0 0.5rem;
+				height:rem-calc(36);
+				width:1px;
+				border-right: 1px solid $lite-gray;
+				@media #{$small-only}{
+					&.hide-for-small-only{display:none !important;}
+				}
+				@media #{$small-only}{
+					@media #{$landscape}{
+						&.hide-exception{display:inline-block !important;}
+					}
+				}
+				@media #{$medium-up}{
+					margin:0 1rem;	
+				}
+				@media #{$large-up}{
+					margin:0 1.5rem;
+					
+				}
+				@media #{$xlarge-up}{
+					margin:0 2rem;
+				}
+			}
+		}
+	}
+}
+.img-span{
+	background-color:$medium-tan;
+}
 /* =============================================================================
 COLUMNS - HIGHLIGHTS
 ============================================================================= */

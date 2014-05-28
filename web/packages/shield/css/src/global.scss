@@ -82,7 +82,10 @@ h1,h2{font-family: $quadon-light}
 h1,h2,h3,h4,p,ul{
 	&.small{font-size:80%;}
 }
-h3{font-weight: 300;text-transform: uppercase;color:$brand-blue;}
+h3{font-weight: 300;text-transform: uppercase;
+	color:$brand-blue;
+	.professional &{color:$brand-green}
+}
 p{
 	font-size:rem-calc(18);
 	font-weight: 300;
@@ -284,11 +287,20 @@ BUTTONS
 			background: rgba(0,85,129,0.3);
 		}
 	}
+	&.green{
+		border-color:$lite-green;
+		&:hover{
+			border-color:$brand-green;
+			background: rgba(0,85,129,0.3);
+		}
+	}
 	&.on-lite{
 		color:$medium-blue;
 		background:#FFF;
+		.professional &{color:$brand-green;}
 		&:hover{
 			border-color:$lite-blue;
+			.professional &{border-color:$brand-green;}
 			background: #F7F7F7;
 		}
 	}
@@ -426,6 +438,9 @@ TESTIMONIALS
 		margin-top:0;
 		font-size: rem-calc(28);
 		line-height: rem-calc(32);
+		@media #{$small-only}{
+			margin-top:1rem;
+		}
 		@if $type == professional {
 			color:$brand-green;
 		}

@@ -39,17 +39,12 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 					</div>
 				</div>
 				<div class="row">
-					<div class="column medium-3 small-centered text-center">
-						<a href="/privateclient"  class="btn btn-bordered btn-full blue uppercase">Private Client</a>
-					</div>
-					<!--
 					<div class="column medium-3 medium-offset-3 text-center">
 						<a href="/privateclient"  class="btn btn-bordered btn-full blue uppercase">Private Client</a>
 					</div>
 					<div class="column medium-3 end text-center">
 						<a href="/professional" class="btn btn-bordered btn-full blue uppercase">Professional</a>
 					</div>
-					-->
 				</div>
 				<div class="celtic-knot"></div>
 			</article>

@@ -37,13 +37,13 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 				<!-- BEGIN .content -->
 				<article class="container main main-2">
 					<div class="row">
-						<div class="small-12 medium-4 columns">
+						<div class="small-12 medium-4 columns column-1">
 	                        <?php $a = new Area('Main-2'); $a->display($c); ?>
 						</div>
-						<div class="small-12 medium-4 columns">
+						<div class="small-12 medium-4 columns column-2">
 							<?php $a = new Area('Main-3'); $a->display($c); ?>
 						</div>
-						<div class="small-12 medium-4 columns">
+						<div class="small-12 medium-4 columns column-3">
 							<?php $a = new Area('Main-4'); $a->display($c); ?>
 						</div>
 					</div>

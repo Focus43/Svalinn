@@ -105,7 +105,7 @@ HEADER BAR
 							height:$header-height;
 							background: transparent;
 							@media #{$xlarge-up}{
-								padding: 0 22px;
+								padding: 0 17px !important;
 							}
 						}
 					}
@@ -551,7 +551,6 @@ PAGE ELEMENTS
 		&.active{
 			a{
 				color:#6c6c6c;
-				font-weight:600;
 				background: none;
 			}
 		}

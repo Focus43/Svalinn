@@ -12,36 +12,6 @@ body{
 }
 
 /* =============================================================================
-ELEMENTS
-============================================================================= */
-
-/* =============================================================================
-BACKGROUNDS
-============================================================================= */
-.bg-gray{background:#f7f7f7;}
-.bg-white{background:#FFF;}
-.bg-wave-blue{
-	background: #00182b url("#{$imagePath}bg-wave-blue.gif") 0 0 repeat;	
-}
-.bg-wave-drk-blue{
-	background: #00182b url("#{$imagePath}bg-wave-drk-blue.gif") 0 0 repeat;	
-}
-.bg-knot-masthead{
-	height:60px;
-	background-image: url("#{$imagePath}bg-knot-masthead.png");
-	background-position:50%;
-	background-repeat: no-repeat;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
-.bg-lite-tan{
-	background:$lite-tan;
-}
-
-
-/* =============================================================================
 PAGE
 ============================================================================= */
 body{background:$dark-white;}
@@ -235,6 +205,9 @@ MASTHEAD
 	}
 	.privateclient.purchase-process &{
 		background-image:url("#{$imagePath}private/masthead/bg-purchase-process.jpg");
+	}
+	.contact &{
+		background-image:url("#{$imagePath}private/masthead/bg-contact.jpg");
 	}
 }
 /* =============================================================================
@@ -501,6 +474,10 @@ PAGE ELEMENTS
 	.peace-mind &{
 		background: url("#{$imagePath}private/bg-blockquote-02.jpg") 50% 0 no-repeat;
 		h3,blockquote,p{color:$brand-blue;}
+	}
+	.executive &{
+		background: url("#{$imagePath}private/bg-blockquote-03.jpg") 50% 0 no-repeat;
+		h3,blockquote,p{color:#FFF;}
 	}
 }
 
@@ -913,30 +890,36 @@ ABOUT
 .working-dogs{
 	.main{
 		&.main-1{
-			margin-bottom:0;
+			padding-bottom:0;
 		}
 		&.main-2{
 			.section{
-				margin-top: 0;
+				padding-top: 0;
 			}
 		}
-		h2{
-			margin:0 0 1.5rem;
-			padding:0;
-			color:#959471;
-			font-size:rem-calc(36);	
+		&.main-3{
+			padding-bottom:4rem;
 		}
+		h2{
+			margin:0 0 0.75rem;
+			padding:0;
+			color:$medium-gray;
+			font-family: $proxima;
+			font-size:rem-calc(28);	
+			text-transform: uppercase;
+		}
+		hr{margin-top:2rem;margin-bottom:3rem;}
 		h3{
 			margin-bottom:2rem;
 			color:$brand-blue;
-			font-size:rem-calc(26);
+			font-size:rem-calc(32);
 			font-family: $quadon;
 			font-style: italic;
 			line-height:rem-calc(36);
 			text-align: center;
 			text-transform: none;
 		}
-		blockquote{font-size:rem-calc(32);line-height:rem-calc(36)}
+		blockquote{font-size:rem-calc(36);line-height:rem-calc(42)}
 		p{
 			span.footnote{
 				display:block;
@@ -1055,6 +1038,7 @@ SVALINN DIFFERENCE
 	.main-2{
 		background:#fbfbf9 url("#{$imagePath}private/bg-guarantee-section.jpg") 50% 0 no-repeat;
 		.guarantee-col{
+			p{font-size:rem-calc(14);line-height:rem-calc(22);}
 			text-align: center;
 			hr{background-image:url("#{$imagePath}divide-knot-gray.gif");}
 		}
@@ -1105,6 +1089,7 @@ PURCHASING
 			padding-top:3rem;
 			background:url("#{$imagePath}private/bg-protection-peace-mind.jpg") 50% no-repeat;	
 		}
+		.main-3{border:0;}
 	}
 	&.family{
 		.main-2{
@@ -1159,6 +1144,7 @@ PURCHASING
 				background:url("#{$imagePath}divide-knot-gray.gif") 50% no-repeat;
 			}
 		}
+		.main-3{border:0;}
 	}
 }
 .purchase-process{
@@ -1255,7 +1241,15 @@ FOOTER
 	.privateclient &{
 		background-image:url("#{$imagePath}private/footer/bg-sublanding.jpg");
 	}
-	.securing-your-dog &, .peace-mind &, .executive &{
+	.company-history &{	
+		height:320px;
+		background-image:url("#{$imagePath}private/footer/bg-company.jpg");
+	}
+	.training &{
+		height:420px;
+		background-image:url("#{$imagePath}private/footer/bg-training.jpg");
+	}
+	.securing-your-dog &, .peace-mind &, .executive &, .working-dogs &{
 		display:none;
 	}
 	.handler-training &{

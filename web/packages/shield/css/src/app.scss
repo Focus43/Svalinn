@@ -220,6 +220,20 @@ MAIN
 	&.main-1,&.main-2,&.main-3{border-bottom:0;}
 	&.main-2,&.main-3{padding-top:0;}
 	&.main-1{
+		h1{
+			margin-bottom:36px;
+			color: $brand-blue;
+			font-family: $proxima;
+			font-size: rem-calc(26px);
+			font-style: italic;
+			font-weight: 300;
+			text-align: center;
+			text-transform: uppercase;
+			
+		}
+		h1+p{
+			text-align: center;
+		}
 		h2,p{text-align: center;}
 		h2{
 			margin:0;
@@ -931,6 +945,48 @@ ABOUT
 		}
 	}
 }
+.philosophy-approach{
+	.main-2{
+		border-top:40px solid $lite-gray !important;
+		background:#FBFBF9 url("#{$imagePath}private/bg-guarantee-section.jpg") 50% 0 no-repeat;
+		.tabs {margin-top:-40px;}
+		.tabs-content{
+			.content{
+				h3{
+					color:$brand-blue;
+					font-size:rem-calc(42);
+					font-family: $quadon;
+					font-style: italic;
+					line-height:rem-calc(48);
+					text-align: center;
+					text-transform: none;
+					text-align: center;
+				}
+				hr{background-image:url("#{$imagePath}divide-knot-gray.gif")}
+				blockquote{
+					margin-top:24px;
+					margin-bottom:24px;
+					padding:36px 0 0;
+					width:90%;
+					color:$dark-gray;
+					font-size:rem-calc(24);
+					line-height:rem-calc(28);
+					background-position:50% 0;
+					background-image:url("#{$imagePath}divide-x-blue.gif")
+				}
+				blockquote:after{
+					display: block;
+					content:"";
+					margin:24px 0 0;
+					height:12px;
+					width: 100%;
+					background:url("#{$imagePath}divide-x-blue.gif") 50% no-repeat;
+				}
+			}
+		}
+	}
+	.main-3{border:0;}
+}
 
 
 /* =============================================================================
@@ -1048,22 +1104,6 @@ SVALINN DIFFERENCE
 PURCHASING
 ============================================================================= */
 .purchase-process,.protection{
-	.main-1{
-		h1{
-			margin-bottom:36px;
-			color: $brand-blue;
-			font-family: $proxima;
-			font-size: rem-calc(26px);
-			font-style: italic;
-			font-weight: 300;
-			text-align: center;
-			text-transform: uppercase;
-			
-		}
-		h1+p{
-			text-align: center;
-		}	
-	}
 	.main-2{
 		h1{
 			color:$brand-blue;

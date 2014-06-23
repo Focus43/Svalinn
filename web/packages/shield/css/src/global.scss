@@ -6,7 +6,16 @@ FUNCTIONS
   @if ($value == 0px) { $value: 0; } // Turn 0rem into 0
   @return $value;
 }
-
+/* =============================================================================
+MIXINS
+============================================================================= */
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
 /* =============================================================================
 FOUNDATION OVERRIDE
 ============================================================================= */
@@ -21,7 +30,7 @@ FONTS
  * 
  * The fonts listed in this notice are subject to the End User License
  * Agreement(s) entered into by the website owner. All other parties are 
- * explicitly restricted from using the Licensed Webfonts(s).
+ * explicitly restricted from using the Licensed ../fonts(s).
  * 
  * You may obtain a valid license at the URLs below.
  * 
@@ -38,17 +47,18 @@ FONTS
 
 
 /* @import must be at top of file, otherwise CSS will not work */
-@import url("//hello.myfonts.net/count/2ae4cf");
+@import url("//hello.myfonts.net/count/2b3008");
 
-@font-face {
-  font-family: 'Quadon Light';
-  src: url('../fonts/2AE4CF_0_0.eot'); /* IE9 Compat Modes */
-  src: url('../fonts/2AE4CF_0_0.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/2AE4CF_0_0.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/2AE4CF_0_0.ttf')  format('truetype'); /* Safari, Android, iOS */
-  font-style:   normal;
-  font-weight:  200;
-}
+/* LIGHT */ 
+@font-face {font-family: 'Quadon';src: url('../fonts/2B3008_1_0.eot');src: url('../fonts/2B3008_1_0.eot?#iefix') format('embedded-opentype'),url('../fonts/2B3008_1_0.woff') format('woff'),url('../fonts/2B3008_1_0.ttf') format('truetype'),url('../fonts/2B3008_1_0.svg#wf') format('svg');font-weight:300;font-style: normal;}
+  
+@font-face {font-family: 'Quadon';src: url('../fonts/2B3008_2_0.eot');src: url('../fonts/2B3008_2_0.eot?#iefix') format('embedded-opentype'),url('../fonts/2B3008_2_0.woff') format('woff'),url('../fonts/2B3008_2_0.ttf') format('truetype'),url('../fonts/2B3008_2_0.svg#wf') format('svg');font-weight:300;font-style: italic;}
+ 
+/* REGULAR */
+@font-face {font-family: 'Quadon';src: url('../fonts/2B3008_3_0.eot');src: url('../fonts/2B3008_3_0.eot?#iefix') format('embedded-opentype'),url('../fonts/2B3008_3_0.woff') format('woff'),url('../fonts/2B3008_3_0.ttf') format('truetype'),url('../fonts/2B3008_3_0.svg#wf') format('svg');font-weight:400;font-style: normal;}
+
+/* BOLD */
+@font-face {font-family: 'Quadon';src: url('../fonts/2B3008_0_0.eot');src: url('../fonts/2B3008_0_0.eot?#iefix') format('embedded-opentype'),url('../fonts/2B3008_0_0.woff') format('woff'),url('../fonts/2B3008_0_0.ttf') format('truetype'),url('../fonts/2B3008_0_0.svg#wf') format('svg');font-weight:600;font-style: normal;}
 /* =============================================================================
 ANIMATIONS
 ============================================================================= */
@@ -78,7 +88,7 @@ body{
 body.professional{ @include body(professional); }
 
 
-h1,h2{font-family: $quadon-light}
+h1,h2{font-family: $quadon}
 h1,h2,h3,h4,p,ul{
 	&.small{font-size:80%;}
 }
@@ -144,7 +154,7 @@ p{
 blockquote{
 	width:100%;
 	border-left: 0;
-	font-family: $quadon-light;
+	font-family: $quadon;
 	font-style: italic;
 	text-align: center;
 	color:$lite-blue;
@@ -155,21 +165,17 @@ blockquote{
 		line-height: rem-calc(26);
 	}
 }
-.medium-12 blockquote{
-	margin-top:2rem;
-	margin-bottom:3rem;
-	color:$dark-blue;
-	font-size:rem-calc(36);
-	line-height: rem-calc(42);
-	text-align: center;
-	@media #{$small-only}{
-		font-size: 2rem;
-		padding: 0;
-		margin-top: 0;
-	}
-}
 .uppercase{text-transform: uppercase;}
 
+hr{
+	margin:18px auto 24px;
+	height:12px;
+	width:70%;
+	border:0;
+	background-position:50%;
+	background-repeat: no-repeat;
+	.privateclient & {background-image:url("#{$imagePath}divide-o-gray.gif")}
+}
 /* =============================================================================
 POSITIONING
 ============================================================================= */
@@ -229,7 +235,7 @@ BUTTONS
 	transition: all 0.5s;
 }
 @mixin btn-md{
-	padding:0.6em 2em 0.5em;
+	padding:0.8em 2em 0.7em;
 	font-size: rem-calc(14);
 	letter-spacing: 0.15rem;
 	min-width: 11rem;
@@ -296,12 +302,12 @@ BUTTONS
 	}
 	&.on-lite{
 		color:$medium-blue;
-		background:#FFF;
+		background:$lite-tan;
 		.professional &{color:$brand-green;}
 		&:hover{
 			border-color:$lite-blue;
 			.professional &{border-color:$brand-green;}
-			background: #F7F7F7;
+			background: #FFF;
 		}
 	}
 }
@@ -337,156 +343,3 @@ BUTTONS
 	}
 	
 }
-
-/* =============================================================================
-OFF CANVAS NAV
-============================================================================= */
-.right-off-canvas-menu{
-	background:#333;
-	a{text-align: left;}
-	.primary-nav,.utility-nav{margin:0 20px;}
-	.primary-nav{
-		padding-bottom:30px;
-		
-		li{
-			padding-top:20px;
-			&.has-dropdown{}
-			a{
-				padding-left:0;
-				padding-right:0;
-				color:#FFF;
-				font-size: 1rem;
-				line-height: 1.5rem;
-				text-decoration: none;
-				text-transform: uppercase;
-				border-bottom:1px solid #ccc;
-			}
-			
-			ul{
-				@include clearfix;
-				display:block;
-				margin:0;
-				padding:0;
-			}
-			ul>li{
-				margin:0;
-				padding:0;
-				display: table-cell;
-				text-align: center;
-				list-style: none;
-				float:left;
-				width:50%;
-				
-				a{
-					padding-left:0;
-					padding-right:0;
-					border: 0;
-					display: block;
-					font-size: 11px;
-					line-height: 12px;
-				}
-			}
-		}
-	}
-	.utility-nav{
-		margin-top:30px;
-		.btn{
-			margin:10px;
-			width:auto;
-			text-align: center;
-			border: 2px solid #FFF;
-		}
-	}
-}
-.right-off-canvas-toggle{position: absolute;top:16px;right:0;}
-
-/* =============================================================================
-CALL TO ACTION ROW
-============================================================================= */
-.cta .btn{margin:0 0 3rem;}
-
-/* =============================================================================
-SECTIONS
-============================================================================= */
-.panel{margin:3rem 0;}
-.section {
-	margin-top:1rem;
-	margin-bottom:2rem;
-}
-.feathered-divide{
-	margin-top:0;
-	margin-bottom:3rem;
-	padding:2.75rem 0 1.5rem;
-	background-image: url("#{$imagePath}bg-feathered-top.png"), url("#{$imagePath}bg-feathered-bottom.png");
-	background-position: 50% 0, 50% 100%;
-	background-repeat: no-repeat;
-}
-/* =============================================================================
-TESTIMONIALS
-============================================================================= */
-@mixin testimonials($type){
-	padding-top:2rem;
-	padding-bottom:4rem;
-	h3{
-		margin:0;
-		
-		color:#CFCFCF;
-		font-size: rem-calc(21);
-		font-weight:600;
-	}
-	blockquote{
-		margin-top:0;
-		font-size: rem-calc(28);
-		line-height: rem-calc(32);
-		@media #{$small-only}{
-			margin-top:1rem;
-		}
-		@if $type == professional {
-			color:$brand-green;
-		}
-		@if $type == privateclient {
-			color:$brand-blue;
-		}
-	}
-	p{
-		display: block;
-		font-family: $proxima;
-		font-size:rem-calc(18);
-		font-style: normal;
-		line-height: rem-calc(21);
-		color:$brand-gray;
-		@media #{$small-only}{
-			font-size:rem-calc(16);
-			line-height: rem-calc(18);
-		}
-		
-		&:before{
-			display:block;
-			margin:20px 0;
-			content: " ";
-			height:5px;
-			width:100%;
-			background: url("#{$imagePath}blockquote-signature.png") 50% 0 no-repeat;	
-		}
-		
-	}
-	.btn,.btn-green-inverse{margin-top:1rem;}
-}
-.default{
-	.testimonials{
-		margin-top:1rem;
-		padding-top:3rem;
-		
-	}
-}
-.testimonials{ @include testimonials(privateclient); }
-.professional .testimonials{ @include testimonials(professional); }
-.professional .headline{
-	@include testimonials(professional);
-	blockquote p{
-		color:$brand-green;
-		font-size: rem-calc(34);
-		
-	}
-}
-

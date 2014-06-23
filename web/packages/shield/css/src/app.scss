@@ -3,9 +3,8 @@
 @import "foundation";
 @import "global";
 
-
 body{
-	background:$black-blue;
+	.privateclient &{background:$black-blue;}
 }
 .menu-icon span {
 	-webkit-box-shadow: 1px 10px 0 1px #185775, 1px 16px 0 1px #185775, 1px 22px 0 1px #185775;
@@ -15,45 +14,6 @@ body{
 /* =============================================================================
 ELEMENTS
 ============================================================================= */
-
-hr.divide{
-	margin:3rem 0;
-	border:0;
-	height:1px;
-	background-color: #ddd;
-	background-position:50%;
-	background-repeat: no-repeat;
-	&.knots-blue{
-		height:15px;
-		background-color:transparent;
-		background-image:url("#{$imagePath}divide-knots-blue.png");
-	}
-	&.o-gray{
-		height:15px;
-		background-color:transparent;
-		background-image:url("#{$imagePath}divide-o-gray.gif");		
-	}
-	&.x-blue{
-		height:15px;
-		background-color:transparent;
-		background-image: url("#{$imagePath}divide-x-blue.gif");
-	}
-	&.btn-divide{margin-top:3rem}
-	.private-client.sublanding &{display:none;}
-}
-
-.celtic-knot{
-	position:absolute;
-	height:65px;
-	width:100%;
-	bottom:0;
-	background:url("#{$imagePath}bg-knot-blue.png") 50% 100% no-repeat;
-}
-
-img{
-	&.full-width{width:100%;height:auto;}
-}
-.list-table{display: table;margin: 0 auto;}
 
 /* =============================================================================
 BACKGROUNDS
@@ -66,10 +26,9 @@ BACKGROUNDS
 .bg-wave-drk-blue{
 	background: #00182b url("#{$imagePath}bg-wave-drk-blue.gif") 0 0 repeat;	
 }
-.bg-knot-gray-lg{
-	height:2.5rem;
-	background-color:#f7f7f7;
-	background-image: url("#{$imagePath}bg-knot-gray-lg.jpg");
+.bg-knot-masthead{
+	height:60px;
+	background-image: url("#{$imagePath}bg-knot-masthead.png");
 	background-position:50%;
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
@@ -81,6 +40,22 @@ BACKGROUNDS
 	background:$lite-tan;
 }
 
+
+/* =============================================================================
+PAGE
+============================================================================= */
+body{background:$dark-white;}
+.off-canvas-wrap{
+	.inner-wrap{
+		.main-wrap{
+			margin:0 auto;
+			width: 100%;
+			max-width: 1300px;
+			box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+			background:#FFF;
+		}
+	}
+}
 
 /* =============================================================================
 HEADER BAR
@@ -198,155 +173,132 @@ HEADER BAR
 MASTHEAD
 ============================================================================= */
 .masthead{
-	position: relative;
-	padding-top:4rem;
-	padding-bottom:7rem;
-	min-height:19rem;
-	p{
-		color:#9ca9bb;
-		font-size: rem-calc(18);
-		line-height: rem-calc(28);
-		text-align: center;
-	}
+	height:235px;
+	background-color:$medium-tan;
+	background-position:50% 0;
+	background-repeat: no-repeat;
+	>.row{@include vertical-align;}
 	.intro{
-		h1{
-			color:#FFF;
-			font-size:4rem;
-			line-height:3.5rem;
-			letter-spacing: 0.06em;
-			text-align: center;
-			@media #{$small-only}{font-size:2.5rem;}
-		}
-		p{
-			@include lead;
-			margin:0 auto;
-			display:table;
-			color:#FFF;
-			font-size: rem-calc(18);
-			letter-spacing:0.3rem;
-			text-transform: uppercase;
-			@media #{$small-only}{font-size:rem-calc(14);letter-spacing:0.15rem;}
-			&:before,&:after{
-				display:table;
-				padding:0 2rem;
-				height:5px;
-				width:100%;
-				content:"";
-				.private-client &{background: url("#{$imagePath}divide-x-blue.gif") 50% no-repeat;}
-				.professional &{background: url("#{$imagePath}divide-x-green.gif") 50% no-repeat;}
-			}	
-		}
-	}
-	.celtic-knot{opacity:0.7;}
-}
-.sublanding{
-	&.private-client .masthead{background-image: url("#{$imagePath}private-client-landingpage.jpg");}
-	&.professional .masthead{background-image: url("#{$imagePath}professional-landingpage.jpg");}
-	.masthead{
-		height:650px;
-		@media #{$small-only}{height:auto;}
-				
-		background-position:50%;
-		background-repeat: no-repeat;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-		.intro{
-			margin-top:3rem;
-			.svalinn-knot{margin-bottom:1rem;}
-		}
-		.secondary-intro{
-			margin-top:4rem;
-			@media #{$small-only}{margin-top:2rem;}
-			h2{
-				margin:2rem 0 1.5rem;
-				color:#FFF;
-				font-family: $proxima;
-				font-weight: 300;
-				font-size: rem-calc(36);
-				line-height: rem-calc(42);
-				letter-spacing: 0.05em;
+		border:2px solid $lite-tan;
+		padding:4px;
+		.intro-inner{
+			padding:36px 0 24px;
+			background:$lite-tan;
+			background:rgba(247,245,237,0.9);
+			h1{
+				margin:0;
+				padding:0;
+				font-size:50px;
+				font-weight: 400;
+				line-height: 50px;
+				color:$brand-blue;
 				text-align: center;
-				@media #{$small-only}{
-					margin-top:1rem;
-					font-size: rem-calc(24);
-					line-height: rem-calc(28);
+			}
+			hr{
+				margin:6px auto 8px;
+				width:480px;
+				background-image:url("#{$imagePath}divide-x-gray.gif")
+			}
+			.intro-content{
+				p{
+					margin:0;
+					padding:0;
+					color:$medium-gray;
+					font-size: 16px;
+					line-height: 22px;
+					text-align: center;
 				}
 			}
-			p{
-				font-size: rem-calc(18);
-				line-height: rem-calc(28);
-				color:#FFF;
-				text-align: center;
+			p.lead{
+				
 			}
 		}
-		
 	}
-	.professional &{
-	
-	}
-}
-.tab-nav{
-	.title{
-		height:0;
-		h3{
-			margin:-40px 0 0;
-			padding:0;
-			height:50px;
-			color:$brand-blue;
-			font-size: rem-calc(24);
-			font-weight:300;
-			letter-spacing: 0.1em;
-			text-align: center;
-			@media #{$small-only}{
-				height:auto;
-				font-size:1rem;
+	.sublanding &, .home &{height:450px;}
+	.privateclient.sublanding &{
+		background-image:url("#{$imagePath}private/masthead/bg-sublanding.jpg");
+		.intro{
+			.intro-inner{
+				padding:64px;
+				hr{margin:24px auto 20px;}
 			}
 		}
-	}	
-}
-.img-border{
-	position:relative;
-	margin-top:2rem;
-	margin-bottom:2rem;
-	@media #{$large-up}{
-		&:before{
-			position: absolute;
-			top: 0;
-			left: 0;
-			content: "";
-			height: 100%;
-			width: 100%;
-			background: url("#{$imagePath}bordered-img-overlay.png") 0 0 no-repeat;
-			z-index: 9;
-		}
 	}
-	
+	.privateclient.about-us &{
+		background-image:url("#{$imagePath}private/masthead/bg-about.jpg");
+	}
+	.privateclient.svalinn-difference &{
+		background-image:url("#{$imagePath}private/masthead/bg-svalinn-difference.jpg");
+	}
+	.privateclient.protection &{
+		background-image:url("#{$imagePath}private/masthead/bg-protection.jpg");
+	}
 }
-/* =============================================================================
-HOMEPAGE
-============================================================================= */
-@import "home";
-
-/* =============================================================================
-CONTACT PAGE
-============================================================================= */
-@import "contact";
-
 /* =============================================================================
 MAIN
 ============================================================================= */
 .main{
-	background:#f7f7f7;
+	background:#FFF;
 	padding:3rem 2.5rem;
+	border-bottom:24px solid #dbdcd5;
+	&.main-1,&.main-2,&.main-3{border-bottom:0;}
+	&.main-2,&.main-3{padding-top:0;}
+	&.main-1{
+		h2,p{text-align: center;}
+		h2{
+			margin:0;
+			padding:42px 0;
+			color:$brand-blue;
+			font-family: $proxima;
+			font-size:rem-calc(26px);
+			font-style: italic;
+			font-weight: 300;
+			line-height: rem-calc(36px);
+			text-transform: uppercase;
+		}
+	}
+	&.main-3{
+		padding-bottom: 0;
+		border-bottom:24px solid #dbdcd5;
+	}
+	&.main-breeds{
+		padding:0;
+		>.row{
+			width:100%;
+			max-width:100%;
+		}
+	}
 	@media #{$small-only}{
 		padding-left:0;
 		padding-right:0;
 	}
-	.aside{
-		blockquote p {font-size:rem-calc(26);}
-		
+	/*BGs*/
+	.breed-specifications &{border:0;}
+	.company-history &{background:url("#{$imagePath}private/company-history-map.png") 100% 280px no-repeat;}
+	/*SECTIONS*/
+	.section{
+		padding-top:64px;	
+	}
+	.aside{}
+	/*ELEMENTS*/
+	blockquote{
+		margin:0 auto 36px;
+		padding:0 0 36px;
+		color:$brand-blue;
+		font-size: rem-calc(46);
+		line-height: rem-calc(54);
+		text-align: center;
+		background:url("#{$imagePath}divide-knot-gray.gif") 50% 100% no-repeat;
+		@media #{$small-only}{
+			font-size: 2rem;
+			padding: 0;
+			margin-top: 0;
+		}
+		.guarantee &{
+			margin:32px 0;
+			padding:0;
+			background:none;
+		}
 	}
 	.lead{
 		margin:2rem 0;
@@ -385,7 +337,6 @@ MAIN
 						color:$brand-gray !important;
 						font-weight:600;
 					}
-					
 				}
 				a{
 					color:$brand-blue !important;
@@ -398,7 +349,7 @@ MAIN
 	.vertical-middle{
 		blockquote{
 			color: $brand-gray;
-			font-family: $quadon-light;
+			font-family: $quadon;
 			font-style: italic;
 			font-size:rem-calc(34);
 			line-height: rem-calc(48);
@@ -416,18 +367,117 @@ MAIN
 		}
 	}
 }
-.main-intro{
-	padding-top: 3rem;
-	padding-bottom:0;
-	h2{
-		font-family: $proxima;
-		color:$brand-blue;
-		font-size: rem-calc(24);
+.img-span{
+	background-color:$medium-tan;
+}
+
+/* =============================================================================
+PAGE ELEMENTS
+============================================================================= */
+/*  OFF CANVAS NAV  */
+.right-off-canvas-menu{
+	background:#333;
+	a{text-align: left;}
+	.primary-nav,.utility-nav{margin:0 20px;}
+	.primary-nav{
+		padding-bottom:30px;
+		
+		li{
+			padding-top:20px;
+			&.has-dropdown{}
+			a{
+				padding-left:0;
+				padding-right:0;
+				color:#FFF;
+				font-size: 1rem;
+				line-height: 1.5rem;
+				text-decoration: none;
+				text-transform: uppercase;
+				border-bottom:1px solid #ccc;
+			}
+			
+			ul{
+				@include clearfix;
+				display:block;
+				margin:0;
+				padding:0;
+			}
+			ul>li{
+				margin:0;
+				padding:0;
+				display: table-cell;
+				text-align: center;
+				list-style: none;
+				float:left;
+				width:50%;
+				
+				a{
+					padding-left:0;
+					padding-right:0;
+					border: 0;
+					display: block;
+					font-size: 11px;
+					line-height: 12px;
+				}
+			}
+		}
+	}
+	.utility-nav{
+		margin-top:30px;
+		.btn{
+			margin:10px;
+			width:auto;
+			text-align: center;
+			border: 2px solid #FFF;
+		}
+	}
+}
+.right-off-canvas-toggle{position: absolute;top:16px;right:0;}
+
+/*  CALL TO ACTION ROW  */
+.cta .btn{margin:0 0 3rem;}
+
+/*  TESTIMONIALS  */
+@mixin testimonials($type){
+	padding-top:82px;
+	padding-bottom:82px;
+	background: $lite-tan;
+	@if $type == professional {
+	
+	}
+	@if $type == privateclient {
+		
+	}
+	h3{
+		margin:0 0 48px;
+		color:$medium-gray2;
+		font-size: rem-calc(19);
 		font-weight:300;
-		letter-spacing: 0.1em;
-		text-align: center;
-		text-transform: uppercase;
-		&:after{
+		letter-spacing: 0.15em;
+	}
+	blockquote{
+		margin:0;
+		padding:0;
+		color:$brand-blue;
+		font-size: rem-calc(30);
+		line-height: rem-calc(42);
+		background-image: none;
+		@media #{$small-only}{
+			margin-top:1rem;
+		}
+	}
+	p{
+		display: block;
+		font-family: $proxima;
+		font-size:rem-calc(18);
+		font-style: normal;
+		line-height: rem-calc(21);
+		color:$brand-blue;
+		@media #{$small-only}{
+			font-size:rem-calc(16);
+			line-height: rem-calc(18);
+		}
+		&:before{
 			display:block;
 			margin:20px 0;
 			content: " ";
@@ -435,81 +485,24 @@ MAIN
 			width:100%;
 			background: url("#{$imagePath}blockquote-signature.png") 50% 0 no-repeat;	
 		}
+		
 	}
-	p, .lead{
-		color:$dark-gray;
-		text-align: center;
-		font-size:rem-calc(18);
-		letter-spacing: 0.03em;
-		line-height: rem-cal(28);
-	}
+	.btn,.btn-green-inverse{margin-top:1rem;}
 }
-.breeds,.training{
-	.main-intro{
-		padding-top: 5rem;
-		padding-bottom: 6rem;
+.testimonials{
+	@include testimonials(privateclient);
+	.securing-your-dog &{
+		background: url("#{$imagePath}private/bg-blockquote-01.jpg") 50% 0 no-repeat;
+		h3,blockquote,p{color:#FFF;}
 	}
-}
-.main-sub{
-	background: $lite-tan;
-	padding-top:2rem;
-	padding-bottom:4rem;
-	
-	h3{margin-bottom:2.5rem;font-size:rem-calc(24);text-align: center;width: 100%;}
-	.inline-list{
-		margin:0;
-		width: 100%;
-		display: block;
-		text-align: center;
-		>li{
-			display: inline-block !important;
-			float: none;
-			margin:0;
-			padding:0;
-			height:3rem;
-			width:auto;
-			color:$medium-gray;
-			font-family:$quadon-light;
-			font-size:rem-calc(32);
-			line-height:rem-calc(32);
-			text-transform: uppercase;
-			@media #{$large-up}{
-				font-size:rem-calc(36);
-				line-height:rem-calc(36);
-			}
-			&.divide{
-				margin:0 0.5rem;
-				height:rem-calc(36);
-				width:1px;
-				border-right: 1px solid $lite-gray;
-				@media #{$small-only}{
-					&.hide-for-small-only{display:none !important;}
-				}
-				@media #{$small-only}{
-					@media #{$landscape}{
-						&.hide-exception{display:inline-block !important;}
-					}
-				}
-				@media #{$medium-up}{
-					margin:0 1rem;	
-				}
-				@media #{$large-up}{
-					margin:0 1.5rem;
-					
-				}
-				@media #{$xlarge-up}{
-					margin:0 2rem;
-				}
-			}
-		}
+	.peace-mind &{
+		background: url("#{$imagePath}private/bg-blockquote-02.jpg") 50% 0 no-repeat;
+		h3,blockquote,p{color:$brand-blue;}
 	}
 }
-.img-span{
-	background-color:$medium-tan;
-}
-/* =============================================================================
-COLUMNS - HIGHLIGHTS
-============================================================================= */
+
+
+/*  COLUMNS - HIGHLIGHTS  */
 .options{
 	.column{
 		padding-left:30px;
@@ -525,42 +518,25 @@ COLUMNS - HIGHLIGHTS
 		h3{
 			margin:0 0 1.5rem;
 			color:$medium-blue;
+			font-family: $quadon;
 			font-size: rem-calc(21);
+			font-weight: 400;
 			line-height: rem-calc(21);
 		}
 		p{
-			color: $brand-blue;
-			font-size: rem-calc(14);
-			line-height: rem-calc(18);
+			color: $medium-gray;
+			font-size: rem-calc(16);
+			line-height: rem-calc(19);
 		}
 	}
 }
 
-/* =============================================================================
-TABS
-============================================================================= */
-.tab-group{
-	&:before,&:after{
-		height:15px;
-		width: 100%;
-		content:"";
-		background:url("#{$imagePath}divide-o-gray.gif") 50% no-repeat;	
-	}
-	&:before{
-		margin-top:1rem;margin-bottom:4rem;
-		@media #{$small-only}{
-			margin-top:1rem;margin-bottom:1rem;
-		}
-	}
-	&:after{
-		margin-top:4rem;margin-bottom:1rem;
-		@media #{$small-only}{
-			margin-top:1rem;margin-bottom:1rem;
-		}
-	}
+/*  TABS  */
+.tab-nav{
+	background:$lite-tan;
 }
 .tabs{
-	margin-top:3.2rem;
+	margin-top:5.2rem;
 	&.vertical{
 		width:28%;
 		@media #{$small-only}{
@@ -578,6 +554,7 @@ TABS
 		a{
 			padding:0.25rem 3rem 0.25rem 1rem;
 			color:$brand-blue;
+			letter-spacing:0.02em;
 			background: none;
 			@media #{$medium-only}{
 				padding-right:1rem;
@@ -624,8 +601,8 @@ TABS
 			&.active{
 				a{
 					color:$medium-blue;
-					font-weight:600;
-					background: #f7f7f7;
+					font-weight:400;
+					background: #FFF;
 				}
 			}
 		}
@@ -633,6 +610,12 @@ TABS
 	
 }
 .tabs-content{
+	.breeds &{
+		margin-bottom: 0;
+		@media #{$large-up}{
+			.content{min-height:877px;}
+		}
+	}
 	&.vertical{
 		width:72%;
 		padding-bottom:3.5rem;
@@ -642,12 +625,14 @@ TABS
 			padding-bottom:2rem;
 		}
 	}
-	
 	h3{
-		color:#959471;
-		font-family: $quadon-light;
-		font-size:rem-calc(28);
-		text-transform: none;
+		margin-bottom:48px;
+		color:$brand-blue;
+		font-family: $proxima;
+		font-size:rem-calc(24);
+		font-style: italic;
+		font-weight: 300;
+		text-transform: uppercase;
 		@media #{$small-only}{
 			text-align: center;
 		}
@@ -709,9 +694,7 @@ TABS
 	}
 }
 
-/* =============================================================================
-GALLERY
-============================================================================= */
+/*  GALLERY  */
 .orbit-container{
 	.orbit-timer, .orbit-progress,.orbit-slide-number{display:none;}
 	.orbit-slides-container{
@@ -760,9 +743,7 @@ GALLERY
 	}
 }
 
-/* =============================================================================
-DOUBLE BORDER BOX
-============================================================================= */
+/*  DOUBLE BORDER BOX  */
 
 .boxed{
 	padding:2rem 2rem;
@@ -801,106 +782,245 @@ DOUBLE BORDER BOX
 }
 
 /* =============================================================================
-HISTORY OF WORKING DOG
+HOMEPAGE
 ============================================================================= */
-.working-dogs{
-	.main{
+@import "home";
+
+/* =============================================================================
+ABOUT
+============================================================================= */
+@import "about";
+
+/* =============================================================================
+SVALINN DIFFERENCE
+============================================================================= */
+@import "svalinn_difference";
+/*  BREED SPECIFICATION  */
+.breed-specifications{
+	.desc{
+		padding:64px 32px 0;
 		h2{
-			margin:0 0 1.5rem;
-			padding:0;
-			color:#959471;
-			font-size:rem-calc(36);	
-		}
-		h3{
-			margin-bottom:2rem;
-			color:$brand-blue;
-			font-size:rem-calc(26);
-			font-family: $quadon-light;
+			margin:0 032px;
+			color:#FFF;
+			font-size:rem-calc(24px);
 			font-style: italic;
-			line-height:rem-calc(36);
+			font-weight: 600;
 			text-align: center;
-			text-transform: none;
 		}
 		p{
-			span.footnote{
-				display:block;
-				padding-top:4px;
-				color:#000;
-				font-size:rem-calc(12);
-				line-height:rem-calc(15);
+			color:#FFF;
+			margin-top:32px;
+			text-align: center;
+		}
+	}
+	.char{
+		h3{
+			margin:0 0 6px;
+			color:#FFF;
+			font-size:rem-calc(15px);
+			font-weight: 600;
+			text-align: center;
+			text-transform: uppercase;
+		}
+		p{
+			color:#FFF;
+			font-size:rem-calc(16px);
+			font-style: italic;
+			line-height: rem-calc(18px);
+			text-align: center;
+			a{
+				@include btn();
+				@include btn-md();
+				margin-top:16px;
+				color:$brand-blue;
+				font-style: normal;
+				font-weight: 400;
+				background: #FFF;
+			}
+		}
+
+	}
+	
+}
+#german-shepherd{
+	background:url("#{$imagePath}private/bg-german-shepherd.jpg");
+}
+#dutch-sheperd{
+		.desc,.char{
+		h2,h3,p{color:#000;}
+	}
+	background:url("#{$imagePath}private/bg-dutch-shepherd.jpg");
+}
+#belgian-malinois{
+	background:url("#{$imagePath}private/bg-belgian-malinois.jpg");
+}
+/*  TRAINING  */
+.training-levels{
+	.main-2{
+		background:#FFF url("#{$imagePath}bg-dog-knots.jpg") 50% 0 no-repeat;
+		
+	}
+}
+
+/*  GUARANTEE  */
+.guarantee{
+	.main-2{
+		background:#fbfbf9 url("#{$imagePath}private/bg-guarantee-section.jpg") 50% 0 no-repeat;
+		.guarantee-col{
+			text-align: center;
+			hr{background-image:url("#{$imagePath}divide-knot-gray.gif");}
+		}
+	}
+}
+
+/* =============================================================================
+PURCHASING
+============================================================================= */
+@import "purchasing";
+.purchase-process,.protection{
+	.main-1{
+		h1{
+			color: $brand-blue;
+			font-family: $proxima;
+			font-size: rem-calc(26px);
+			font-style: italic;
+			font-weight: 300;
+			text-align: center;
+			text-transform: uppercase;
+			
+		}
+		h1+p{
+			text-align: center;
+		}	
+	}
+}
+.protection{
+	&.peace-mind{
+		.main-2{
+			padding-top:3rem;
+			background:url("#{$imagePath}private/bg-protection-peace-mind.jpg") 50% no-repeat;
+			blockquote{
+				padding:36px 0 0;
+				color:$dark-gray;
+				background-position: 50% 0;
+				font-size: rem-calc(28px);
 				font-style: italic;
 			}
 		}
+	}
+	
+}
+.purchase-process{
+	&.selection-process{
+		.main-2{
+			padding:64px 0;
+			background:#fbfbf9 url("#{$imagePath}private/bg-selection-process.jpg") 50% 0 no-repeat;
+			.selection-steps{
+				h2,p{text-align: center;}
+				p{font-size: rem-calc(14px);line-height:rem-calc(28px);}
+			}
+		}
+	}
+	&.securing-your-dog{
+		.main-1{
+			padding-bottom:0;
+			h1{margin-bottom:36px;}
+			p{
+				text-align: left;
+				img{float:left;margin-right:36px;width:180px;}
+			}
+		}
+		.main-3{
+			border:0;
+		}
+	}
+	&.handler-training{
+		.main-1{
+			h1{
+				margin-bottom:48px;
+			}
+		}
+		.main-2{
+			padding:64px 0;
+			background:#fbfbf9 url("#{$imagePath}private/bg-selection-process.jpg") 50% 0 no-repeat;
+			h2{
+				margin:48px 0 0;
+				color: $brand-blue;
+				font-size:rem-calc(24px);
+				font-style: italic;
+				font-weight: 300;
+				text-align: center;
+				
+				text-transform: uppercase;
+			}
+			ul{
+				margin:24px 0 0;
+				li{
+					float: left;
+					width: 50%;
+					list-style: none;
+					border-bottom: 1px solid #CCC;
+					text-align: center;
+					display: inline-block;
+					margin:0;
+					padding: 20px 0;
+					&:last-child{
+						width: 300px;
+						border:0;
+						-webkit-transform: translateX(100%);
+					}
+				}
+			}
+			.box{
+				min-height: 240px;
+				h3{
+					color:$brand-blue;
+					font-style: normal;
+					font-weight: 600;
+				}
+				p{margin-top:1rem;}
+			}
+		}
+		.main-3{border:0;}
 	}
 }
 
 /* =============================================================================
 DOGS
 ============================================================================= */
+@import "dogs";
 
-
-.dog-item{
-	padding:1.5rem !important;
-	img{
-		margin:0 0 0.5rem;
-		border:1px solid #DDD;
-	}
-	hr{margin:0.5rem 0;}
-	.name{
-		font-size: rem-calc(21);
-		font-weight: 300;
-		line-height:  rem-calc(24);
-		color:$medium-gray;
-	}
-	.level,.breed,.dob{
-		font-weight: 300;
-		line-height:  rem-calc(24);
-		color:$brand-gray;
-	}
-	.breed{font-size: rem-calc(18);}
-	.level,.dob{font-size:rem-calc(14);}
-	.dob{display:none;}
-	.btn{
-		margin:0.5rem 0 0;
-		font-size:rem-calc(16);
-		display: block;
-	}
-}
-.image-grid{margin-top:1.25rem !important;}
-	
-.dog-details{
-	.side-nav {
-		margin-top:2rem;
-	}
-	.dog-desc{padding-top: 1.25rem}
-	.reserve{
-		hr{margin:2rem 0 1rem;}
-		p{
-			margin:0 0 1rem;
-			color:$dark-gray;
-			font-family: $quadon-light;
-			font-size:rem-calc(18);
-			text-align: center;
-			text-transform: uppercase;
-		}
-		
-	}
-}
 /* =============================================================================
-CONTACT FORM
+CONTACT PAGE
 ============================================================================= */
-.contact-form{
-	background:#f1f1f1;
-	padding:1.875rem 1.875rem 0.9375rem;
-	
-}
+@import "contact";
 
 /* =============================================================================
 FOOTER
 ============================================================================= */
+.footer-img{
+	height:255px;
+	background-position: 50%;
+	background-repeat: no-repeat;
+	.privateclient &{
+		background-image:url("#{$imagePath}private/footer/bg-sublanding.jpg");
+	}
+	.securing-your-dog &, .peace-mind &{
+		display:none;
+	}
+	.handler-training &{
+		height:450px;
+		background-image:url("#{$imagePath}private/footer/bg-handler-training.jpg");
+	}
+	
+	
+}
 @mixin footer($type) {
 	padding-top:3rem;
 	color:#FFF;
+	.sublanding &{
+		border-top:24px solid #dbdcd5;
+	}
 	.contact{margin-top:0.3333334rem;}
 	.or{
 		position: relative;

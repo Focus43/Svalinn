@@ -209,6 +209,9 @@ MASTHEAD
 	.contact &{
 		background-image:url("#{$imagePath}private/masthead/bg-contact.jpg");
 	}
+	.our_dogs &{
+		background-image:url("#{$imagePath}private/masthead/bg-our-dogs.jpg");
+	}
 }
 /* =============================================================================
 MAIN
@@ -1346,7 +1349,7 @@ FOOTER
 		height:420px;
 		background-image:url("#{$imagePath}private/footer/bg-training.jpg");
 	}
-	.securing-your-dog &, .working-dogs &{
+	.securing-your-dog &, .working-dogs &, .our_dogs &{
 		display:none;
 	}
 	.guarantee &{

@@ -894,6 +894,17 @@ PRIVATE LANDING
 .privateclient{
 	&.sublanding{
 		.btn-divide{display:none;}
+		.intro{
+			h1{
+				font-size:rem-calc(42);
+				span{
+					display: block;
+					font-size: rem-calc(24);
+					color: #333;
+					font-style: italic;
+				}
+			}
+		}
 	}
 }
 

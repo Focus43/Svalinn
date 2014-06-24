@@ -28,7 +28,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 				        <div class="column medium-11 medium-centered intro">
 							<div class="intro-inner">
 					            <h1 class="text-center">
-					                We started breeding our own<br/>protection dogs when we realized nothing<br/>beats a dog for family security."
+					                "We started breeding our own<br/>protection dogs when we realized nothing<br/>beats a dog for family security."
 					                <span>- Svalinn Founder &amp; CEO</span>
 					            </h1>
 					            <hr/>

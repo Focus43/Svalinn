@@ -143,16 +143,18 @@ HEADER BAR
 MASTHEAD
 ============================================================================= */
 .masthead{
-	height:235px;
+	height:auto;
 	background-color:$medium-tan;
 	background-position:50% 0;
 	background-repeat: no-repeat;
-	>.row{@include vertical-align;}
 	.intro{
 		border:2px solid $lite-tan;
 		padding:4px;
+		margin-top: 1.5rem;
+		margin-bottom: 1.5rem;
 		.intro-inner{
-			padding:36px 0 24px;
+			height: 175px;
+			padding: 28px 0 18px;
 			background:$lite-tan;
 			background:rgba(247,245,237,0.9);
 			h1{
@@ -184,11 +186,14 @@ MASTHEAD
 			}
 		}
 	}
-	.sublanding &, .home &{height:450px;}
+	.sublanding &, .home &{height:auto;}
 	.privateclient.sublanding &{
 		background-image:url("#{$imagePath}private/masthead/bg-sublanding.jpg");
 		.intro{
+			margin-top: 3rem;
+			margin-bottom: 3rem;
 			.intro-inner{
+				height:auto;
 				padding:64px;
 				hr{margin:24px auto 20px;}
 			}
@@ -787,25 +792,30 @@ HOMEPAGE
 ============================================================================= */
 .home{
 	.masthead{
-		height:540px;
+		height:auto;
 		background-image: url("#{$imagePath}home/bg-intro.jpg");
-		.intro{		
-			.btn-lg{
-				margin:2rem 0 0;
-				padding:1rem 2rem;
-				color:#FFF;
-				font-size: rem-calc(17);
-				font-weight: 400;
-				letter-spacing: 0;
-				background:$brand-blue;
-			}
-			.social{
-				margin:2rem 0 0;
-				padding-left:32px;
-				color:#3C5A96;
-				font-size:rem-calc(14);
-				text-transform: none;
-				background:url("#{$imagePath}facebook-blue.png") 0 50% no-repeat;
+		.intro{	
+			margin-top: 3rem;
+			margin-bottom: 3rem;	
+			.intro-inner{
+				height:auto;
+				.btn-lg{
+					margin:2rem 0 0;
+					padding:1rem 2rem;
+					color:#FFF;
+					font-size: rem-calc(17);
+					font-weight: 400;
+					letter-spacing: 0;
+					background:$brand-blue;
+				}
+				.social{
+					margin:2rem 0 0;
+					padding-left:32px;
+					color:#3C5A96;
+					font-size:rem-calc(14);
+					text-transform: none;
+					background:url("#{$imagePath}facebook-blue.png") 0 50% no-repeat;
+				}
 			}
 		}
 	}

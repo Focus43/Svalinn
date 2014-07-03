@@ -135,14 +135,16 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 				<!-- END .content -->
 				<div class="footer-img"></div>
 				<div class="testimonials">
-					<div class="column medium-10 large-10 medium-centered">
-                        <h3 class="text-center">From Our Clients</h3>
-                        <?php
-                            $quoteStack = Stack::getByName('Testimonial Quotes')->getBlocks();
-                            if( !empty($quoteStack) ){
-                                $quoteStack[array_rand($quoteStack)]->display();
-                            }
-                        ?>
+					<div class="row">
+						<div class="column medium-10 large-10 medium-centered">
+	                        <h3 class="text-center">From Our Clients</h3>
+	                        <?php
+	                            $quoteStack = Stack::getByName('Testimonial Quotes')->getBlocks();
+	                            if( !empty($quoteStack) ){
+	                                $quoteStack[array_rand($quoteStack)]->display();
+	                            }
+	                        ?>
+						</div>
 					</div>
 				</div>
 				<!-- BEGIN .footer -->

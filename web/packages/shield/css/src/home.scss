@@ -1,4 +1,16 @@
 @import "settings";
+.btn{
+	@media #{$small-only}{
+		white-space:normal;
+		line-height: 1.1rem;
+	}
+}
+.btn-lg{
+	@media #{$small-only}{
+		font-size:rem-calc(14);
+	}
+}
+			
 /* =============================================================================
 HOMEPAGE
 ============================================================================= */
@@ -6,17 +18,23 @@ HOMEPAGE
 	.masthead{
 		height:auto;
 		background-image: url("#{$imagePath}home/bg-intro.jpg");
+		@media #{$small-only}{
+			background-position:0 0;
+		}
 		.intro{	
 			margin-top: 3rem;
 			margin-bottom: 3rem;	
+			@media #{$small-only}{
+				margin:0;
+			}
 			.intro-inner{
 				height:auto;
 				@media #{$small-only}{
-					padding-left:2rem;
-					padding-right:2rem;
-					h1{font-size:rem-calc(36);}
+					padding-left:1rem;
+					padding-right:1rem;
+					h1{font-size:rem-calc(32);line-height:rem-calc(34);}
 					hr{width:80%;}
-					.btn{white-space:normal;}
+					p{font-size:rem-calc(14);}
 				}
 				.btn-lg{
 					margin:2rem 0 0;
@@ -34,6 +52,11 @@ HOMEPAGE
 					font-size:rem-calc(14);
 					text-transform: none;
 					background:url("#{$imagePath}facebook-blue.png") 0 50% no-repeat;
+					@media #{$small-only}{
+						background-position:50% 0;
+						padding-top:30px;
+						font-size:rem-calc(10);
+					}
 				}
 			}
 		}
@@ -42,6 +65,10 @@ HOMEPAGE
 		padding-top:5rem;
 		padding-bottom:5rem;
 		background:url("#{$imagePath}bg-dog-knots.jpg") 0 50% no-repeat;
+		@media #{$small-only}{
+			padding-top:3rem;
+			padding-bottom:3rem;
+		}
 		h1{
 			margin:0 0 2rem;
 			color:$dark-gray;
@@ -50,6 +77,9 @@ HOMEPAGE
 			font-weight: 400;
 			letter-spacing: 0.4em;
 			text-align: center;
+			@media #{$small-only}{
+				font-size: rem-calc(16);	
+			}
 		}
 		p{
 			color:$dark-gray;
@@ -59,12 +89,20 @@ HOMEPAGE
 			font-weight: 600;
 			line-height: rem-calc(34);
 			text-align: center;
+			@media #{$small-only}{
+				padding:0 0.75rem;
+				font-size: rem-calc(14);
+				line-height: rem-calc(24);
+			}
 		}
 	}
 	.pro-section{
 		margin:0;
 		padding-top:7.5rem;
-		background:url("#{$imagePath}home/bg-professional.jpg") 0 50% no-repeat;
+		background:url("#{$imagePath}home/bg-professional.jpg") 50% 0 no-repeat;
+		@media #{$small-only}{
+			padding-top:3rem;
+		}
 		h1{
 			font-size:rem-calc(56);
 			font-weight: 300;
@@ -72,6 +110,11 @@ HOMEPAGE
 			text-transform: uppercase;
 			color: white;
 			@include metalic;
+			@media #{$small-only}{
+				font-size:rem-calc(32);
+				line-height:rem-calc(34);
+				font-weight:400;
+			}
 		}
 		hr{width:65%;background-image:url("#{$imagePath}divide-x-green.gif");}
 		p{
@@ -83,6 +126,11 @@ HOMEPAGE
 			letter-spacing: 0.03em;
 			text-align: center;
 			text-transform: uppercase;
+			@media #{$small-only}{
+				font-size: rem-calc(16);
+				font-weight: 400;
+				line-height: rem-calc(24);
+			}
 		}
 		.btn-lg{
 			margin:0.75rem 0 0;
@@ -100,6 +148,12 @@ HOMEPAGE
 			font-size:rem-calc(14);
 			text-transform: none;
 			background:url("#{$imagePath}facebook-white.png") 0 50% no-repeat;
+			@media #{$small-only}{
+				margin:1rem 0;
+				padding:30px 0 0;
+				background-position: 50% 0;
+				font-size:rem-calc(10);
+			}
 		}
 		
 	}
@@ -118,6 +172,12 @@ HOMEPAGE
 			font-size:rem-calc(14);
 			text-transform: none;
 			background:url("#{$imagePath}instagram-black.png") 0 50% no-repeat;
+			@media #{$small-only}{
+				margin:1rem 0;
+				padding:30px 0 0;
+				background-position: 50% 0;
+				font-size:rem-calc(10);
+			}
 		}
 	}
 }

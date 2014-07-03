@@ -5,14 +5,44 @@ LANDING PAGE
 .privateclient{
 	&.sublanding{
 		.btn-divide{display:none;}
-		.intro{
-			h1{
-				font-size:rem-calc(42);
-				span{
-					display: block;
-					font-size: rem-calc(24);
-					color: #333;
-					font-style: italic;
+		.masthead{
+			.intro{
+				@media #{$small-only}{
+					margin:0;
+				}
+				.intro-inner{
+					@media #{$small-only}{
+						padding:2rem 1rem;
+					}
+					h1{
+						font-size:rem-calc(42);
+						span{
+							display: block;
+							font-size: rem-calc(24);
+							color: #333;
+							font-style: italic;
+						}
+						@media #{$small-only}{
+							font-size:rem-calc(28);
+							line-height:rem-calc(32);
+							span{
+								font-size: rem-calc(14);
+							}
+						}
+					}
+					hr{width:80%;}
+					p{font-size:rem-calc(14);}
+				}
+			}
+		}
+		.main{
+			@media #{$small-only}{
+				margin-bottom:0;
+				padding-bottom:0;
+				.tabs-content{
+					margin-bottom:0;
+					background:url("#{$imagePath}bg-dog-knots.jpg") 50% no-repeat;
+					p{font-size:rem-calc(14);}
 				}
 			}
 		}
@@ -26,11 +56,22 @@ ABOUT
 		&.main-1{
 			padding-bottom:0;
 			p{text-align: left;}
+			blockquote{
+				@media #{$small-only}{
+					padding-bottom:3rem;
+					font-size:rem-calc(18);
+					line-height:rem-calc(21);
+					br{display:none;}
+				}
+			}
 		}
 		&.main-2{
 			padding-top:0;
 			padding-bottom:0;
 			background:url("#{$imagePath}private/company-history-map.png?v=1") 100% 0 no-repeat;
+			@media #{$small-only}{
+				background:none;
+			}
 			.section{padding-top:0;}
 		}
 		&.main-3{
@@ -73,7 +114,13 @@ ABOUT
 				font-size:rem-calc(24);
 				line-height:rem-calc(28);
 				background-position:50% 0;
-				background-image:url("#{$imagePath}divide-x-blue.gif")
+				background-image:url("#{$imagePath}divide-x-blue.gif");
+				@media #{$small-only}{
+					padding-bottom:3rem;
+					font-size:rem-calc(18);
+					line-height:rem-calc(21);
+					br{display:none;}
+				}
 			}
 			blockquote:after{
 				display: block;
@@ -107,6 +154,10 @@ ABOUT
 			font-family: $proxima;
 			font-size:rem-calc(28);	
 			text-transform: uppercase;
+			@media #{$small-only}{
+				font-size:rem-calc(18);
+				line-height:rem-calc(21);
+			}
 		}
 		hr{margin-top:2rem;margin-bottom:3rem;}
 		h3{
@@ -118,8 +169,22 @@ ABOUT
 			line-height:rem-calc(36);
 			text-align: center;
 			text-transform: none;
+			@media #{$small-only}{
+				font-size:rem-calc(16);
+				line-height:rem-calc(18);
+			}
 		}
-		blockquote{font-size:rem-calc(36);line-height:rem-calc(42)}
+		blockquote{
+			font-size:rem-calc(36);
+			line-height:rem-calc(42);
+			@media #{$small-only}{
+				padding-top:2rem;
+				padding-bottom:3rem;
+				font-size:rem-calc(24);
+				line-height:rem-calc(34);
+				br{display:none;}
+			}
+		}
 		p{
 			span.footnote{
 				display:block;
@@ -181,6 +246,13 @@ SVALINN DIFFERENCE
 ============================================================================= */
 /*  TRAINING  */
 .training{
+	.main-1{
+		blockquote{
+			@media #{$small-only}{
+				padding-bottom:3rem;
+			}
+		}
+	}
 	.tabs-content{
 		.content{
 			padding-top:5rem;
@@ -210,20 +282,55 @@ SVALINN DIFFERENCE
 }
 /*  BREED SPECIFICATION  */
 .breed-specifications{
-	.desc{
-		padding:64px 32px 0;
+	.main-1{
 		h2{
-			margin:0 032px;
+			@media #{$small-only}{
+				font-size: rem-calc(18);
+				line-height: rem-calc(24);
+			}
+		}
+	}
+	.tabs-content{
+		.content{
+			@media #{$small-only}{
+				-webkit-background-size: contain;
+				-moz-background-size: contain;
+				-o-background-size: contain;
+				background-size: contain;
+				background-repeat:no-repeat;
+				padding-top:280px;
+			}
+		}
+	}
+	.desc{
+		padding:4rem 2rem 0;
+		@media #{$small-only}{
+			padding:1rem 0.75rem 0;
+		}
+		h2{
+			margin:0 0 2rem;
 			color:#FFF;
 			font-size:rem-calc(24px);
 			font-style: italic;
 			font-weight: 600;
 			text-align: center;
+			@media #{$small-only}{
+				margin:0 0 1rem;
+				font-size: rem-calc(18);
+				line-height: rem-calc(24);
+			}
 		}
 		p{
 			color:#FFF;
 			margin-top:32px;
 			text-align: center;
+			@media #{$small-only}{
+				font-size: rem-calc(14);
+				line-height: rem-calc(18);
+			}
+		}
+		@media #{$small-only}{
+			h2,p{color:#000;}
 		}
 	}
 	.char{
@@ -251,21 +358,24 @@ SVALINN DIFFERENCE
 				background: #FFF;
 			}
 		}
+		@media #{$small-only}{
+			h3,p{color:#000;}
+		}
 
 	}
 	
 }
 #german-shepherd{
-	background:url("#{$imagePath}private/bg-german-shepherd.jpg");
+	background-image:url("#{$imagePath}private/bg-german-shepherd.jpg");
 }
 #dutch-sheperd{
-		.desc,.char{
+	.desc,.char{
 		h2,h3,p{color:#000;}
 	}
-	background:url("#{$imagePath}private/bg-dutch-shepherd.jpg");
+	background-image:url("#{$imagePath}private/bg-dutch-shepherd.jpg");
 }
 #belgian-malinois{
-	background:url("#{$imagePath}private/bg-belgian-malinois.jpg");
+	background-image:url("#{$imagePath}private/bg-belgian-malinois.jpg");
 }
 /*  TRAINING  */
 .training-levels{
@@ -301,12 +411,17 @@ PURCHASING
 	}
 	.main-2, .main-3{
 		blockquote{
-			padding:36px 0 0;
+			padding:2rem 0 0;
 			color:$dark-gray;
 			background-position: 50% 0;
 			font-size: rem-calc(28px);
 			font-style: italic;
 			line-height: rem-calc(32px);
+			@media #{$small-only}{
+				margin-top:1rem;
+				font-size: rem-calc(18);
+				line-height: rem-calc(24);
+			}
 		}
 	}
 }
@@ -319,6 +434,10 @@ PURCHASING
 				color:$brand-blue;
 				font-size:rem-calc(21);
 				text-align:center;
+				@media #{$small-only}{
+					font-size:rem-calc(16);
+					line-height:rem-calc(20);	
+				}
 			}
 		}
 		.main-3{border:0;}
@@ -332,12 +451,18 @@ PURCHASING
 				color:$brand-blue;
 				font-size:rem-calc(21);
 				text-align:center;
+				@media #{$small-only}{
+					font-size:rem-calc(16);
+					line-height:rem-calc(20);	
+				}
 			}
 		}
 		.main-3{
 			padding-top:3rem;
 			padding-bottom:3rem;
-			blockquote{margin-top:2rem;}
+			blockquote{
+				margin-top:2rem;	
+			}
 		}
 	}
 	&.individual{
@@ -349,6 +474,10 @@ PURCHASING
 				color:$brand-blue;
 				font-size:rem-calc(21);
 				text-align:center;
+				@media #{$small-only}{
+					font-size:rem-calc(16);
+					line-height:rem-calc(20);
+				}
 			}
 			blockquote{margin-top:24px;margin-bottom:24px;width:80%;background-image:url("#{$imagePath}divide-x-gray.gif");}
 			blockquote:after{
@@ -369,16 +498,29 @@ PURCHASING
 				font-size:rem-calc(36);
 				line-height:rem-calc(36);
 				background: none;
+				@media #{$small-only}{
+					margin-top:1rem;
+					font-size: rem-calc(18);
+					line-height: rem-calc(24);
+				}
 			}
 		}
 		.main-2{
 			padding-top:5rem;
 			padding-bottom:5rem;
+			@media #{$small-only}{
+				padding-top:1rem;
+			padding-bottom:1rem;
+			}
 			background:url("#{$imagePath}bg-dog-knots.jpg") 50% no-repeat;
 			p{
 				color:$brand-blue;
 				font-size:rem-calc(21);
 				text-align:center;
+				@media #{$small-only}{
+					font-size:rem-calc(16);	
+					line-height:rem-calc(20);	
+				}
 			}
 			blockquote{
 				margin-top:24px;
@@ -391,6 +533,11 @@ PURCHASING
 				font-style: italic;
 				line-height: rem-calc(32px);
 				background-image:url("#{$imagePath}divide-x-gray.gif");
+				@media #{$small-only}{
+					margin-top:1rem;
+					font-size: rem-calc(18);
+					line-height: rem-calc(24);
+				}	
 			}
 			blockquote:after{
 				display: block;
@@ -443,17 +590,21 @@ PURCHASING
 			padding:64px 0;
 			background:#fbfbf9 url("#{$imagePath}private/bg-selection-process.jpg") 50% 0 no-repeat;
 			h2{
-				margin:48px 0 0;
+				margin:3rem 0 0;
 				color: $brand-blue;
 				font-size:rem-calc(24px);
 				font-style: italic;
 				font-weight: 300;
 				text-align: center;
-				
 				text-transform: uppercase;
+				@media #{$small-only}{
+					margin-top:1rem;
+					font-size: rem-calc(18);
+					line-height: rem-calc(24);
+				}
 			}
 			ul{
-				margin:24px 0 0;
+				margin:1.5rem 0 0;
 				li{
 					float: left;
 					width: 50%;
@@ -468,10 +619,18 @@ PURCHASING
 						border:0;
 						-webkit-transform: translateX(100%);
 					}
+					@media #{$small-only}{
+						width: 100%;
+						&:last-child{border:0;width:100%;}
+					}
 				}
 			}
 			.box{
 				min-height: 240px;
+				@media #{$small-only}{
+					min-height: 0;
+					margin-bottom:1rem;
+				}
 				h3{
 					color:$brand-blue;
 					font-style: normal;
@@ -487,8 +646,13 @@ PURCHASING
 FOOTER
 ============================================================================= */
 .footer-img{
+	@media #{$small-only}{
+		display:none;
+	}
 	.privateclient &{
 		background-image:url("#{$imagePath}private/footer/bg-sublanding.jpg");
+	}
+	.privateclient.sublanding &{
 	}
 	.company-history &{	
 		height:320px;

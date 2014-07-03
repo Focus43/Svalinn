@@ -3,6 +3,8 @@
 @import "foundation";
 @import "global";
 
+
+/* === V.2.15 === */
 body{
 	.privateclient &{background:$black-blue;}
 }
@@ -10,11 +12,29 @@ body{
 	-webkit-box-shadow: 1px 10px 0 1px #185775, 1px 16px 0 1px #185775, 1px 22px 0 1px #185775;
 	box-shadow: 1px 10px 0 1px #185775, 1px 16px 0 1px #185775, 1px 22px 0 1px #185775;
 }
+.professional {
+	.menu-icon span {
+		-webkit-box-shadow: 1px 10px 0 1px $lite-green, 1px 16px 0 1px $lite-green, 1px 22px 0 1px $lite-green;
+		box-shadow: 1px 10px 0 1px $lite-green, 1px 16px 0 1px $lite-green, 1px 22px 0 1px $lite-green;
+	}
+}
 
 @mixin metalic{
 	background: url("/packages/shield/img/professional/bg-title-mask.jpg") no-repeat;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+}
+
+h1, h2, h3, h4, p{
+	@media #{$small-only}{
+		br{
+			display:inline;
+			&:before{
+				display:inline-block;
+				content:" ";
+			}
+		}
+	}
 }
 
 /* =============================================================================
@@ -81,7 +101,7 @@ HEADER BAR
 		}
 		.name, .name a{
 			@media #{$small-only} {
-				width:100%;
+				width:225px;
 				text-align: left;
 				background:#fff;
 				.professional &{background:#000;}
@@ -182,11 +202,18 @@ MASTHEAD
 		padding:4px;
 		margin-top: 1.5rem;
 		margin-bottom: 1.5rem;
+		@media #{$small-only}{
+			margin-top:0;
+			margin-bottom:0;
+		}
 		.intro-inner{
 			height: 175px;
 			padding: 28px 0 18px;
 			background:$lite-tan;
 			background:rgba(247,245,237,0.9);
+			@media #{$small-only}{
+				height:auto;
+			}
 			h1{
 				margin:0;
 				padding:0;
@@ -195,11 +222,17 @@ MASTHEAD
 				line-height: 50px;
 				color:$brand-blue;
 				text-align: center;
+				@media #{$small-only}{
+					font-size:rem-calc(32);line-height:rem-calc(34);
+				}
 			}
 			hr{
 				margin:6px auto 8px;
 				width:480px;
-				background-image:url("#{$imagePath}divide-x-gray.gif")
+				background-image:url("#{$imagePath}divide-x-gray.gif");
+				@media #{$small-only}{
+					width:80%;
+				}
 			}
 			.intro-content{
 				p{
@@ -209,6 +242,11 @@ MASTHEAD
 					font-size: 16px;
 					line-height: 22px;
 					text-align: center;
+				}
+			}
+			p{
+				@media #{$small-only}{
+					font-size:rem-calc(14);
 				}
 			}
 			p.lead{
@@ -270,9 +308,15 @@ MASTHEAD
 	}
 	.professional.sublanding &{
 		background:url("#{$imagePath}professional/masthead/bg-landing.jpg") 50% 0 no-repeat;
+		@media #{$small-only}{background-position:50% 0;}
 		.intro{
 			margin-top: 7rem;
 			margin-bottom: 7rem;
+			
+			@media #{$small-only}{
+				margin-top: 3rem;
+				margin-bottom: 5rem;
+			}
 			.intro-inner{
 				background: transparent;
 				.maskTitle{
@@ -280,13 +324,22 @@ MASTHEAD
 					margin:0 auto;
 					height: 50px;
 					width: 750px;
+					@media #{$small-only}{
+						height:70px;
+						width:100%;
+					}
 					h1,span {
 						position: absolute;
 						top:0;
 						left:0;
 						font-family: $quadon;
 						font-size:rem-calc(57);
+						text-align:center;
 						-webkit-text-fill-color:transparent;
+						@media #{$small-only}{
+							font-size:rem-calc(32);
+							line-height:rem-calc(34);
+						}
 					}
 					h1 {
 						-webkit-background-clip:none;
@@ -302,12 +355,17 @@ MASTHEAD
 						content: attr(title);
 					}
 				}
+				
 				p{
 					color:#FFF;
 					font-size:rem-calc(18);
 					font-weight:400;
 					text-align: center;
 					text-transform: uppercase;
+				}
+				@media #{$small-only}{
+					hr{margin:1.5rem auto;width:70%;}
+					p{font-size:rem-calc(12);line-height:rem-calc(18);}
 				}
 			}
 		}
@@ -335,6 +393,9 @@ MAIN
 	&.main-1,&.main-2,&.main-3{border-bottom:0;}
 	&.main-2,&.main-3{padding-top:0;}
 	&.main-1{
+		@media #{$small-only}{
+			padding:1rem;
+		}
 		h1{
 			margin-bottom:36px;
 			color: $brand-blue;
@@ -344,10 +405,17 @@ MAIN
 			font-weight: 300;
 			text-align: center;
 			text-transform: uppercase;
-			
+			@media #{$small-only}{
+				font-size:rem-calc(18);
+				line-height:rem-calc(22);
+			}
 		}
 		h1+p{
 			text-align: center;
+			@media #{$small-only}{
+				font-size:rem-calc(14);
+				line-height:rem-calc(18);
+			}
 		}
 		h2,p{text-align: center;}
 		h2{
@@ -388,6 +456,12 @@ MAIN
 	}
 	.aside{}
 	/*ELEMENTS*/
+	h2{
+		@media #{$small-only}{
+			font-size: rem-calc(18);
+			line-height: rem-calc(24);
+		}
+	}
 	blockquote{
 		margin:0 auto 36px;
 		padding:0 0 36px;
@@ -397,7 +471,8 @@ MAIN
 		text-align: center;
 		background:url("#{$imagePath}divide-knot-gray.gif") 50% 100% no-repeat;
 		@media #{$small-only}{
-			font-size: 2rem;
+			font-size: rem-calc(24);
+			line-height: rem-calc(32);
 			padding: 0;
 			margin-top: 0;
 		}
@@ -546,18 +621,26 @@ PAGE ELEMENTS
 
 /*  TESTIMONIALS  */
 .testimonials{
-	padding-top:82px;
-	padding-bottom:82px;
+	padding-top:5rem;
+	padding-bottom:5rem;
+	@media #{$small-only}{
+		padding-top:2rem;
+		padding-bottom:2rem;
+	}
 	.executive & ,.peace-mind &{
 		display:none;
 	}
 	.professional &{display:none;}
 	h3{
-		margin:0 0 48px;
+		margin:0 0 3rem;
 		color:$medium-gray2;
 		font-size: rem-calc(19);
 		font-weight:300;
 		letter-spacing: 0.15em;
+		@media #{$small-only}{
+			margin:0 0 1.5rem;
+			font-size: rem-calc(16);
+		}
 	}
 	blockquote{
 		margin:0;
@@ -568,6 +651,8 @@ PAGE ELEMENTS
 		background-image: none;
 		@media #{$small-only}{
 			margin-top:1rem;
+			font-size: rem-calc(18);
+			line-height: rem-calc(24);
 		}
 	}
 	p{
@@ -578,8 +663,8 @@ PAGE ELEMENTS
 		line-height: rem-calc(21);
 		color:$brand-blue;
 		@media #{$small-only}{
-			font-size:rem-calc(16);
-			line-height: rem-calc(18);
+			font-size:rem-calc(14);
+			line-height: rem-calc(16);
 		}
 		&:before{
 			display:block;
@@ -890,6 +975,10 @@ PROFESSIONAL LANDING
 	&.sublanding{
 		.btn-divide{display:none;}
 		.main-1{
+			@media #{$small-only}{
+				padding-top:0.5rem;
+				padding-bottom:0.5rem;
+			}
 			h2{
 				color:#000;
 				font-family: $quadon;
@@ -898,8 +987,18 @@ PROFESSIONAL LANDING
 				letter-spacing: 0.1em;
 				line-height: rem-calc(38);
 				text-align: center;
+				@media #{$small-only}{
+					font-size:rem-calc(16);
+					line-height: rem-calc(18);
+				}
 			}
-			p{text-align:left;}
+			p{
+				text-align:left;
+				@media #{$small-only}{
+					font-size:rem-calc(14);
+					line-height:rem-calc(18);
+				}
+			}
 		}
 		.main-3{
 			padding-top:4rem;
@@ -912,6 +1011,11 @@ PROFESSIONAL LANDING
 				font-size: rem-calc(18);
 				letter-spacing: 0.4em;
 				text-align: center;
+				@media #{$small-only}{
+					font-size: rem-calc(14);
+					line-height:rem-calc(18);
+
+				}
 			}
 			p{
 				color:#FFF;
@@ -920,6 +1024,10 @@ PROFESSIONAL LANDING
 				font-weight: 400;
 				line-height: rem-calc(45);
 				text-align: center;
+				@media #{$small-only}{
+					font-size:rem-calc(16);
+					line-height: rem-calc(18);
+				}
 			}
 		}
 	}
@@ -950,6 +1058,9 @@ FOOTER
 	.professional .sublanding &{
 		height:280px;
 		background-image:url("#{$imagePath}professional/footer/bg-k9.jpg");
+		@media #{$small-only}{
+			background-position:0 0;
+		}
 	}
 }
 @mixin footer($type) {
@@ -977,24 +1088,27 @@ FOOTER
 			margin: 0 35%;
 		}
 	}
+	
+	.copyright{margin-top:6rem;padding-top:3rem;}
+	
+	@media only screen and (max-width: 40em){
+		.or{display: none;}
+		.btn, .footer .or{margin: 0.3333334rem 0;width:100%;}
+	}
+	@media only screen and (max-width: 56.888888889em){
+		.or{width: 3rem;}
+	}
 	.message p{
 		margin:0;
 		font-size: 1.1666666667rem;
 		line-height: 2rem;
 		color:#FFF;
+		@media only screen and (max-width: 56.888888889em){
+			text-align: left;line-height: 1.33334;font-size: 0.8888888889rem;
+		}
+		@media #{$small-only}{margin:2rem auto;text-align: center;line-height: 1.5rem;}
+		
 	}
-	.copyright{margin-top:6rem;padding-top:3rem;}
-	
-	@media only screen and (max-width: 40em){
-		.or{display: none;}
-		.message p{text-align: center;line-height: 1.5rem;}
-		.btn, .footer .or{margin: 0.3333334rem 0;width:100%;}
-	}
-	@media only screen and (max-width: 56.888888889em){
-		.message p{text-align: left;line-height: 1.33334;font-size: 0.8888888889rem;}
-		.or{width: 3rem;}
-	}
-	
 	@if $type == privateclient {
 		background:$black-blue;
 		

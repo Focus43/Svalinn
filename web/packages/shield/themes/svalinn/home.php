@@ -61,7 +61,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 							<h1>A Legacy Of Vigilance.</h1>
 							<hr/>
 							<p>In addition to personal protection, Svalinn has advanced the art<br/>and ability of the military working dog.</p>
-							<p><a href="#" class="btn btn-lg">LEARN MORE ABOUT OUR PROFESSIONAL SERVICES</a></p>
+							<p><a href="/professional" class="btn btn-lg">LEARN MORE ABOUT OUR PROFESSIONAL SERVICES</a></p>
 							<p><a href="https://www.facebook.com/pages/Svalinn/451171018338883" target="_blank" class="btn social">Follow Svalinn Professional on facebook</a></p>
 	                        
 						</div>

@@ -11,6 +11,13 @@ body{
 	box-shadow: 1px 10px 0 1px #185775, 1px 16px 0 1px #185775, 1px 22px 0 1px #185775;
 }
 
+
+@mixin metalic{
+	background: url("/packages/shield/img/professional/bg-title-mask.jpg") no-repeat;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
 /* =============================================================================
 PAGE
 ============================================================================= */
@@ -38,6 +45,7 @@ HEADER BAR
 	width: 100%;
 	z-index: 1;
 	z-index:999;
+	.professional &{background:#000;}
 	.primary-nav-container{
 		position: relative;
 		max-width: $row-width;
@@ -47,15 +55,26 @@ HEADER BAR
 		margin-bottom: 0;
 		
 		.name{
+			position:relative;
+			z-index:999;
 			margin:0;
 			padding:0;
 			line-height:1;
 			text-align: center;
+			.professional & {
+				#privateclient{display:none;}
+				#professional{}
+			}
+			.privateclient &, .home &{
+				#professional{display:none;}
+				#privateclient{}
+			}
 			a{
 				display:block;
 				height:$header-height;
 				width:225px;
 				background: #FFF;
+				.professional &{background:#000;}
 			}
 			@media (min-width:1020px) and (max-width:1100px){
 				margin-left: -17px;
@@ -66,14 +85,13 @@ HEADER BAR
 				width:100%;
 				text-align: left;
 				background:#fff;
+				.professional &{background:#000;}
 				img{
 					margin-left:-20px;
 				}
 			}
 		}
 		.primary-nav-section {
-			position:absolute;
-			margin-left:225px;
 			height:$header-height;
 			@media (min-width:1020px) and (max-width:1100px){
 				margin-left: 200px;
@@ -84,6 +102,7 @@ HEADER BAR
 				li {
 					list-style: none;
 					background: #FFF;
+					.professional &{background:#000;}
 					&:last-child {border:0;}
 					&:hover,&.nav-path-selected {
 						a{
@@ -91,12 +110,16 @@ HEADER BAR
 							&:hover { color: $medium-gray; }
 						}
 					}
-						a{
+					a{
 						color: $brand-blue;
 						font-size:rem-calc(16);
 						font-weight: 400;
 						text-transform: uppercase;
 						&:hover { color: $dark-blue; }
+						.professional &{
+							color: #FFF;
+							&:hover { color: $medium-gray; }
+						}
 					}
 					&:not(.has-form) {
 						a:not(.button) {
@@ -115,11 +138,13 @@ HEADER BAR
 							padding-left:1rem;
 							padding-right:1rem;
 							background: #FFF;
+							.professional &{background:#000;}
 							&:first-child{padding-top:2rem;}
 							&:last-child{padding-bottom:1rem;}
 							&.nav-selected{
 								a{
 									color: $medium-gray; 
+									.professional &{color:$medium-gray;}
 								}
 							}
 							a{
@@ -127,6 +152,10 @@ HEADER BAR
 								line-height: 3rem !important;
 								height: 3rem !important;
 								&:hover { color: $medium-gray; }
+								.professional &{
+									color: #FFF;
+									&:hover { color: $medium-gray; }
+								}
 							}
 						}
 						
@@ -217,6 +246,83 @@ MASTHEAD
 	.our_dogs &{
 		background-image:url("#{$imagePath}private/masthead/bg-our-dogs.jpg");
 	}
+	.professional &{
+		background:url("#{$imagePath}professional/masthead/bg-knot.jpg") 50% 0 no-repeat;
+		.intro{
+			margin-top: 4rem;
+			margin-bottom: 5rem;
+			border:0;
+			background:transparent;
+			.intro-inner{
+				background: transparent;
+				h1{
+					@include metalic;
+				}
+				p{color:#FFF;}
+				hr{
+					margin:1.5rem auto;
+					height:8px;
+					background-image:url("#{$imagePath}divide-x-green.gif")
+				}
+			}
+		}
+	}
+	.professional.sublanding &{
+		background:url("#{$imagePath}professional/masthead/bg-landing.jpg") 50% 0 no-repeat;
+		.intro{
+			margin-top: 7rem;
+			margin-bottom: 7rem;
+			.intro-inner{
+				background: transparent;
+				.maskTitle{
+					position:relative;
+					margin:0 auto;
+					height: 50px;
+					width: 750px;
+					h1,span {
+						position: absolute;
+						top:0;
+						left:0;
+						font-family: $quadon;
+						font-size:rem-calc(57);
+						-webkit-text-fill-color:transparent;
+					}
+					h1 {
+						-webkit-background-clip:none;
+						background:transparent;
+						text-shadow: 0 5px 20px rgb(0,0,0);
+						z-index:5;
+					}
+					span {
+						@include metalic;
+						z-index:10;
+					}
+					span:after {
+						content: attr(title);
+					}
+				}
+				p{
+					color:#FFF;
+					font-size:rem-calc(18);
+					font-weight:400;
+					text-align: center;
+					text-transform: uppercase;
+				}
+			}
+		}
+		.masthead{
+			.intro{
+				h1{
+					text-shadow: 0 0 10px rgba(0,0,0,0.5);
+					span{
+						font-size:rem-calc(57);
+						@include metalic;
+					}
+				}
+				hr{margin:1.5rem auto;height:8px;}
+			}
+		}
+	}
 }
 /* =============================================================================
 MAIN
@@ -258,6 +364,9 @@ MAIN
 	&.main-3{
 		padding-bottom: 0;
 		border-bottom:24px solid #dbdcd5;
+		.professional &{
+			border-color:$lite-green;
+		}
 	}
 	&.main-breeds{
 		padding:0;
@@ -435,16 +544,13 @@ PAGE ELEMENTS
 .cta .btn{margin:0 0 3rem;}
 
 /*  TESTIMONIALS  */
-@mixin testimonials($type){
+.testimonials{
 	padding-top:82px;
 	padding-bottom:82px;
-	background: $lite-tan;
-	@if $type == professional {
-	
+	.executive & ,.peace-mind &{
+		display:none;
 	}
-	@if $type == privateclient {
-		
-	}
+	.professional &{display:none;}
 	h3{
 		margin:0 0 48px;
 		color:$medium-gray2;
@@ -485,29 +591,8 @@ PAGE ELEMENTS
 		
 	}
 	.btn,.btn-green-inverse{margin-top:1rem;}
+	
 }
-.testimonials{
-	@include testimonials(privateclient);
-	/*
-	.securing-your-dog &{
-		background: url("#{$imagePath}private/bg-blockquote-01.jpg") 50% 0 no-repeat;
-		h3,blockquote,p{color:#FFF;}
-	}
-	.peace-mind &{
-		background: url("#{$imagePath}private/bg-blockquote-02.jpg") 50% 0 no-repeat;
-		h3,blockquote,p{color:$brand-blue;}
-	}
-	.executive &{
-		background: url("#{$imagePath}private/bg-blockquote-03.jpg") 50% 0 no-repeat;
-		h3,blockquote,p{color:#FFF;}
-	}
-	*/
-	.executive & ,.peace-mind &{
-		display:none;
-	}
-}
-
-
 /*  COLUMNS - HIGHLIGHTS  */
 .options{
 	.column{
@@ -790,604 +875,52 @@ PAGE ELEMENTS
 /* =============================================================================
 HOMEPAGE
 ============================================================================= */
-.home{
-	.masthead{
-		height:auto;
-		background-image: url("#{$imagePath}home/bg-intro.jpg");
-		.intro{	
-			margin-top: 3rem;
-			margin-bottom: 3rem;	
-			.intro-inner{
-				height:auto;
-				.btn-lg{
-					margin:2rem 0 0;
-					padding:1rem 2rem;
-					color:#FFF;
-					font-size: rem-calc(17);
-					font-weight: 400;
-					letter-spacing: 0;
-					background:$brand-blue;
-				}
-				.social{
-					margin:2rem 0 0;
-					padding-left:32px;
-					color:#3C5A96;
-					font-size:rem-calc(14);
-					text-transform: none;
-					background:url("#{$imagePath}facebook-blue.png") 0 50% no-repeat;
-				}
-			}
-		}
-	}
-	.name-section{
-		padding-top:5rem;
-		padding-bottom:5rem;
-		background:url("#{$imagePath}bg-dog-knots.jpg") 0 50% no-repeat;
-		h1{
-			margin:0 0 2rem;
-			color:$dark-gray;
-			font-family: $proxima;
-			font-size: rem-calc(18);
-			font-weight: 400;
-			letter-spacing: 0.4em;
-			text-align: center;
-		}
-		p{
-			color:$dark-gray;
-			font-family: $quadon;
-			font-size: rem-calc(20);
-			font-style: italic;
-			font-weight: 600;
-			line-height: rem-calc(34);
-			text-align: center;
-		}
-	}
-	.pro-section{
-		margin:0;
-		padding-top:7.5rem;
-		background:url("#{$imagePath}home/bg-professional.jpg") 0 50% no-repeat;
-		h1{
-			font-size:rem-calc(56);
-			font-weight: 300;
-			text-align: center;
-			text-transform: uppercase;
-			color: white;  /* Fallback: assume this color ON TOP of image */
-			background: url("#{$imagePath}professional/bg-title-mask.jpg") no-repeat;
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-		}
-		hr{width:65%;background-image:url("#{$imagePath}divide-x-green.gif");}
-		p{
-			color:#FFF;
-			font-family: $proxima;
-			font-size: rem-calc(20);
-			font-weight: 300;
-			line-height: rem-calc(36);
-			letter-spacing: 0.03em;
-			text-align: center;
-			text-transform: uppercase;
-		}
-		.btn-lg{
-			margin:0.75rem 0 0;
-			padding:1rem 2rem;
-			color:#FFF;
-			font-size: rem-calc(17);
-			font-weight: 400;
-			letter-spacing: 0;
-			background:$medium-green;
-		}
-		.social{
-			margin:3.5rem 0 4rem;
-			padding-left:32px;
-			color:#FFF;
-			font-size:rem-calc(14);
-			text-transform: none;
-			background:url("#{$imagePath}facebook-white.png") 0 50% no-repeat;
-		}
-		
-	}
-	.instagram-section{
-		padding:0;
-		.source{
-			height:330px;
-			width: 100%;
-			background:url("#{$imagePath}home/bg-instagram.jpg") 0 50% no-repeat;
-		}
-		p{text-align: center;}
-		.social{
-			margin:0.75rem 0;
-			padding-left:32px;
-			color:#000;
-			font-size:rem-calc(14);
-			text-transform: none;
-			background:url("#{$imagePath}instagram-black.png") 0 50% no-repeat;
-		}
-	}
-}
+@import "home";
 
 /* =============================================================================
-PRIVATE LANDING
+PRIVATE
 ============================================================================= */
-.privateclient{
+@import "private";
+
+/* =============================================================================
+PROFESSIONAL LANDING
+============================================================================= */
+.professional{
 	&.sublanding{
 		.btn-divide{display:none;}
-		.intro{
-			h1{
-				font-size:rem-calc(42);
-				span{
-					display: block;
-					font-size: rem-calc(24);
-					color: #333;
-					font-style: italic;
-				}
-			}
-		}
-	}
-}
-
-/* =============================================================================
-ABOUT
-============================================================================= */
-.company-history{
-	.main{
-		&.main-1{
-			padding-bottom:0;
-			p{text-align: left;}
-		}
-		&.main-2{
-			padding-top:0;
-			padding-bottom:0;
-			background:url("#{$imagePath}private/company-history-map.png?v=1") 100% 0 no-repeat;
-			.section{padding-top:0;}
-		}
-		&.main-3{
-			padding-bottom:3rem;
-			/*background:url("#{$imagePath}bg-dog-knots.jpg") 50% no-repeat;*/
-			blockquote{
-				margin-top:24px;
-				margin-bottom:24px;
-				padding:36px 0 0;
-				width:90%;
-				color:$dark-gray;
-				font-size:rem-calc(24);
-				line-height:rem-calc(28);
-				background-position:50% 0;
-				background-image:url("#{$imagePath}divide-x-gray.gif")
-			}
-			blockquote:after{
-				display: block;
-				content:"";
-				margin:24px 0 0;
-				height:12px;
-				width: 100%;
-				background:url("#{$imagePath}divide-x-gray.gif") 50% no-repeat;
-			}
-		}
-	}
-}
-.leadership-team{
-	.main{
-		&.main-2{
-			padding-top:5rem;
-			padding-bottom:5rem;
-			background:url("#{$imagePath}bg-dog-knots.jpg") 50% no-repeat;
-			blockquote{
-				margin-top:24px;
-				margin-bottom:24px;
-				padding:36px 0 0;
-				width:90%;
-				color:$dark-gray;
-				font-size:rem-calc(24);
-				line-height:rem-calc(28);
-				background-position:50% 0;
-				background-image:url("#{$imagePath}divide-x-blue.gif")
-			}
-			blockquote:after{
-				display: block;
-				content:"";
-				margin:24px 0 0;
-				height:12px;
-				width: 100%;
-				background:url("#{$imagePath}divide-x-blue.gif") 50% no-repeat;
-			}
-		}
-		&.main-3{border:0;}
-	}
-}
-.working-dogs{
-	.main{
-		&.main-1{
-			padding-bottom:0;
-		}
-		&.main-2{
-			.section{
-				padding-top: 0;
-			}
-		}
-		&.main-3{
-			padding-bottom:4rem;
-		}
-		h2{
-			margin:0 0 0.75rem;
-			padding:0;
-			color:$medium-gray;
-			font-family: $proxima;
-			font-size:rem-calc(28);	
-			text-transform: uppercase;
-		}
-		hr{margin-top:2rem;margin-bottom:3rem;}
-		h3{
-			margin-bottom:2rem;
-			color:$brand-blue;
-			font-size:rem-calc(32);
-			font-family: $quadon;
-			font-style: italic;
-			line-height:rem-calc(36);
-			text-align: center;
-			text-transform: none;
-		}
-		blockquote{font-size:rem-calc(36);line-height:rem-calc(42)}
-		p{
-			span.footnote{
-				display:block;
-				padding-top:4px;
-				color:#000;
-				font-size:rem-calc(12);
-				line-height:rem-calc(15);
-				font-style: italic;
-			}
-		}
-	}
-}
-.philosophy-approach{
-	.main-2{
-		border-top:40px solid $lite-gray !important;
-		background:#FBFBF9 url("#{$imagePath}private/bg-guarantee-section.jpg") 50% 0 no-repeat;
-		.tabs {margin-top:-40px;}
-		.tabs-content{
-			.content{
-				h3{
-					color:$brand-blue;
-					font-size:rem-calc(42);
-					font-family: $quadon;
-					font-style: italic;
-					line-height:rem-calc(48);
-					text-align: center;
-					text-transform: none;
-					text-align: center;
-				}
-				hr{background-image:url("#{$imagePath}divide-knot-gray.gif")}
-				blockquote{
-					margin-top:24px;
-					margin-bottom:24px;
-					padding:36px 0 0;
-					width:90%;
-					color:$dark-gray;
-					font-size:rem-calc(24);
-					line-height:rem-calc(28);
-					background-position:50% 0;
-					background-image:url("#{$imagePath}divide-x-blue.gif")
-				}
-				blockquote:after{
-					display: block;
-					content:"";
-					margin:24px 0 0;
-					height:12px;
-					width: 100%;
-					background:url("#{$imagePath}divide-x-blue.gif") 50% no-repeat;
-				}
-			}
-		}
-	}
-	.main-3{border:0;}
-}
-
-
-/* =============================================================================
-SVALINN DIFFERENCE
-============================================================================= */
-/*  TRAINING  */
-.training{
-	.tabs-content{
-		.content{
-			padding-top:5rem;
-			padding-bottom:5rem;
-			.left-col{
-				h3{
-					margin-top:1rem;
-					font-family: $quadon;
-					font-weight: 600;
-				}
-				li{
-					padding-left:32px;
-					border:0;
-					background:url("#{$imagePath}private/bullet.gif") 0 50% no-repeat;
-				}
-			}
-			.right-col{
-				h3{
-					color: $brand-blue;
-					font-family: $proxima;
-					font-size: rem-calc(24);
-				}
-			}
-		}
-	}
-	
-}
-/*  BREED SPECIFICATION  */
-.breed-specifications{
-	.desc{
-		padding:64px 32px 0;
-		h2{
-			margin:0 032px;
-			color:#FFF;
-			font-size:rem-calc(24px);
-			font-style: italic;
-			font-weight: 600;
-			text-align: center;
-		}
-		p{
-			color:#FFF;
-			margin-top:32px;
-			text-align: center;
-		}
-	}
-	.char{
-		h3{
-			margin:0 0 6px;
-			color:#FFF;
-			font-size:rem-calc(15px);
-			font-weight: 600;
-			text-align: center;
-			text-transform: uppercase;
-		}
-		p{
-			color:#FFF;
-			font-size:rem-calc(16px);
-			font-style: italic;
-			line-height: rem-calc(18px);
-			text-align: center;
-			a{
-				@include btn();
-				@include btn-md();
-				margin-top:16px;
-				color:$brand-blue;
-				font-style: normal;
-				font-weight: 400;
-				background: #FFF;
-			}
-		}
-
-	}
-	
-}
-#german-shepherd{
-	background:url("#{$imagePath}private/bg-german-shepherd.jpg");
-}
-#dutch-sheperd{
-		.desc,.char{
-		h2,h3,p{color:#000;}
-	}
-	background:url("#{$imagePath}private/bg-dutch-shepherd.jpg");
-}
-#belgian-malinois{
-	background:url("#{$imagePath}private/bg-belgian-malinois.jpg");
-}
-/*  TRAINING  */
-.training-levels{
-	.main-2{
-		background:#FFF url("#{$imagePath}bg-dog-knots.jpg") 50% 0 no-repeat;
-		
-	}
-}
-
-/*  GUARANTEE  */
-.guarantee{
-	.main-2{
-		background:#fbfbf9 url("#{$imagePath}private/bg-guarantee-section.jpg") 50% 0 no-repeat;
-		.guarantee-col{
-			p{font-size:rem-calc(14);line-height:rem-calc(22);}
-			text-align: center;
-			hr{background-image:url("#{$imagePath}divide-knot-gray.gif");}
-		}
-	}
-	.main-3{border:0;}
-}
-
-/* =============================================================================
-PURCHASING
-============================================================================= */
-.purchase-process,.protection{
-	.main-2{
-		h1{
-			color:$brand-blue;
-			font-weight: 300;
-			text-align: center;
-		}
-	}
-	.main-2, .main-3{
-		blockquote{
-			padding:36px 0 0;
-			color:$dark-gray;
-			background-position: 50% 0;
-			font-size: rem-calc(28px);
-			font-style: italic;
-			line-height: rem-calc(32px);
-		}
-	}
-}
-.protection{
-	&.peace-mind{
-		.main-2{
-			padding-top:2rem;
-			background:url("#{$imagePath}bg-dog-knots.jpg") 50% no-repeat;	
-			p{
-				color:$brand-blue;
-				font-size:rem-calc(21);
-				text-align:center;
-			}
-		}
-		.main-3{border:0;}
-	}
-	&.family{
-		.main-2{
-			padding-top:5rem;
-			padding-bottom:5rem;
-			background:url("#{$imagePath}private/bg-protection-family.jpg") 50% no-repeat;
-			p{
-				color:$brand-blue;
-				font-size:rem-calc(21);
-				text-align:center;
-			}
-		}
-		.main-3{
-			padding-top:3rem;
-			padding-bottom:3rem;
-			blockquote{margin-top:2rem;}
-		}
-	}
-	&.individual{
-		.main-2{
-			padding-top:5rem;
-			padding-bottom:5rem;
-			background:url("#{$imagePath}bg-dog-knots.jpg") 50% no-repeat;
-			p{
-				color:$brand-blue;
-				font-size:rem-calc(21);
-				text-align:center;
-			}
-			blockquote{margin-top:24px;margin-bottom:24px;width:80%;background-image:url("#{$imagePath}divide-x-gray.gif");}
-			blockquote:after{
-				display: block;
-				content:"";
-				margin:24px 0 0;
-				height:12px;
-				width: 100%;
-				background:url("#{$imagePath}divide-x-gray.gif") 50% no-repeat;
-			}
-		}
-	}
-	&.executive{
 		.main-1{
-			margin-bottom:0;
-			padding-bottom:0;
-			blockquote{
-				font-size:rem-calc(36);
-				line-height:rem-calc(36);
-				background: none;
-			}
-		}
-		.main-2{
-			padding-top:5rem;
-			padding-bottom:5rem;
-			background:url("#{$imagePath}bg-dog-knots.jpg") 50% no-repeat;
-			p{
-				color:$brand-blue;
-				font-size:rem-calc(21);
-				text-align:center;
-			}
-			blockquote{
-				margin-top:24px;
-				margin-bottom:24px;
-				width:80%;
-				padding:36px 0 0;
-				color:$brand-blue;
-				background-position: 50% 0;
-				font-size: rem-calc(28px);
-				font-style: italic;
-				line-height: rem-calc(32px);
-				background-image:url("#{$imagePath}divide-x-gray.gif");
-			}
-			blockquote:after{
-				display: block;
-				content:"";
-				margin:24px 0 0;
-				height:12px;
-				width: 100%;
-				background:url("#{$imagePath}divide-x-gray.gif") 50% no-repeat;
-			}
-		}
-		.main-3{border:0;}
-	}
-}
-.purchase-process{
-	&.selection-process{
-		.main-2{
-			padding:64px 0;
-			background:#fbfbf9 url("#{$imagePath}private/bg-selection-process.jpg") 50% 0 no-repeat;
-			.selection-steps{
-				h2,p{text-align: center;}
-				p{font-size: rem-calc(14px);line-height:rem-calc(28px);}
-			}
-		}
-	}
-	&.securing-your-dog{
-		.main-1{
-			padding-bottom:0;
-			p{
-				text-align: left;
-				img{float:left;margin-right:36px;width:180px;}
-			}
-		}
-		.main-2{
-			.left-col{
-				width:260px;
-			}
-			.right-col{}
-		}
-		.main-3{
-			border:0;
-		}
-	}
-	&.handler-training{
-		.main-1{
-			h1{
-				margin-bottom:48px;
-			}
-		}
-		.main-2{
-			padding:64px 0;
-			background:#fbfbf9 url("#{$imagePath}private/bg-selection-process.jpg") 50% 0 no-repeat;
 			h2{
-				margin:48px 0 0;
-				color: $brand-blue;
-				font-size:rem-calc(24px);
-				font-style: italic;
-				font-weight: 300;
+				color:#000;
+				font-family: $quadon;
+				font-size:rem-calc(32);
+				font-weight: 600;
+				letter-spacing: 0.1em;
+				line-height: rem-calc(38);
 				text-align: center;
-				
-				text-transform: uppercase;
 			}
-			ul{
-				margin:24px 0 0;
-				li{
-					float: left;
-					width: 50%;
-					list-style: none;
-					border-bottom: 1px solid #CCC;
-					text-align: center;
-					display: inline-block;
-					margin:0;
-					padding: 20px 0;
-					&:last-child{
-						width: 300px;
-						border:0;
-						-webkit-transform: translateX(100%);
-					}
-				}
+			p{text-align:left;}
+		}
+		.main-3{
+			padding-top:4rem;
+			padding-bottom:4rem;
+			background:url("#{$imagePath}professional/masthead/bg-knot.jpg") 50% 0 no-repeat;
+			h2{
+				margin:0 0 2.5rem;
+				color:$lite-green;
+				font-family: $proxima;
+				font-size: rem-calc(18);
+				letter-spacing: 0.4em;
+				text-align: center;
 			}
-			.box{
-				min-height: 240px;
-				h3{
-					color:$brand-blue;
-					font-style: normal;
-					font-weight: 600;
-				}
-				p{margin-top:1rem;}
+			p{
+				color:#FFF;
+				font-family: $quadon;
+				font-size:rem-calc(30);
+				font-weight: 400;
+				line-height: rem-calc(45);
+				text-align: center;
 			}
 		}
-		.main-3{border:0;}
 	}
 }
 
@@ -1408,50 +941,15 @@ FOOTER
 	height:255px;
 	background-position: 50%;
 	background-repeat: no-repeat;
-	.privateclient &{
-		background-image:url("#{$imagePath}private/footer/bg-sublanding.jpg");
+
+	.professional &{
+		height:280px;
+		background-image:url("#{$imagePath}professional/footer/bg-k9.jpg");
 	}
-	.company-history &{	
-		height:320px;
-		background-image:url("#{$imagePath}private/footer/bg-company.jpg");
+	.professional .sublanding &{
+		height:280px;
+		background-image:url("#{$imagePath}professional/footer/bg-k9.jpg");
 	}
-	.leadership-team &{
-		height:420px;
-		background-image:url("#{$imagePath}private/footer/bg-leadership-team.jpg");
-	}
-	.training &{
-		height:420px;
-		background-image:url("#{$imagePath}private/footer/bg-training.jpg");
-	}
-	.securing-your-dog &, .working-dogs &, .our_dogs &{
-		display:none;
-	}
-	.guarantee &{
-		height:450px;
-		background-image:url("#{$imagePath}private/footer/bg-guarantee.jpg");
-	}
-	.handler-training &{
-		height:450px;
-		background-image:url("#{$imagePath}private/footer/bg-handler-training.jpg");
-	}
-	.peace-mind &{
-		height:550px;
-		background-image:url("#{$imagePath}private/footer/bg-peace-mind.jpg");
-	}
-	.family &{background-image:url("#{$imagePath}private/footer/bg-protection-family.jpg");}
-	.individual &{
-		height:420px;
-		background-image:url("#{$imagePath}private/footer/bg-individual.jpg");
-	}
-	.executive &{
-		height:420px;
-		background-image:url("#{$imagePath}private/footer/bg-executive.jpg");
-	}
-	.selection-process &{
-		height:380px;
-		background-image:url("#{$imagePath}private/footer/bg-selection.jpg");
-	}
-	
 }
 @mixin footer($type) {
 	padding-top:3rem;
@@ -1517,11 +1015,12 @@ FOOTER
 		.copyright{color:#413f26;}
 		.btn-contact{
 			color:#FFF;
-			background: #8e8a19;
+			background: #606060;
 		}
-		.btn-contact:hover{background:#aba61e;}
+		.btn-disabled{background:#606060;}
+		.btn-contact:hover{background:#808080;}
 		.btn-contact.btn-arrow:after{
-			border-left:4px solid #716e14;
+			border-left:4px solid #333;
 		}
 		
 	}

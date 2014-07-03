@@ -1,0 +1,117 @@
+@import "settings";
+@import "normalize";
+/* =============================================================================
+HOMEPAGE
+============================================================================= */
+.home{
+	.masthead{
+		height:auto;
+		background-image: url("#{$imagePath}home/bg-intro.jpg");
+		.intro{	
+			margin-top: 3rem;
+			margin-bottom: 3rem;	
+			.intro-inner{
+				height:auto;
+				.btn-lg{
+					margin:2rem 0 0;
+					padding:1rem 2rem;
+					color:#FFF;
+					font-size: rem-calc(17);
+					font-weight: 400;
+					letter-spacing: 0;
+					background:$brand-blue;
+				}
+				.social{
+					margin:2rem 0 0;
+					padding-left:32px;
+					color:#3C5A96;
+					font-size:rem-calc(14);
+					text-transform: none;
+					background:url("#{$imagePath}facebook-blue.png") 0 50% no-repeat;
+				}
+			}
+		}
+	}
+	.name-section{
+		padding-top:5rem;
+		padding-bottom:5rem;
+		background:url("#{$imagePath}bg-dog-knots.jpg") 0 50% no-repeat;
+		h1{
+			margin:0 0 2rem;
+			color:$dark-gray;
+			font-family: $proxima;
+			font-size: rem-calc(18);
+			font-weight: 400;
+			letter-spacing: 0.4em;
+			text-align: center;
+		}
+		p{
+			color:$dark-gray;
+			font-family: $quadon;
+			font-size: rem-calc(20);
+			font-style: italic;
+			font-weight: 600;
+			line-height: rem-calc(34);
+			text-align: center;
+		}
+	}
+	.pro-section{
+		margin:0;
+		padding-top:7.5rem;
+		background:url("#{$imagePath}home/bg-professional.jpg") 0 50% no-repeat;
+		h1{
+			font-size:rem-calc(56);
+			font-weight: 300;
+			text-align: center;
+			text-transform: uppercase;
+			color: white;
+			@include metalic;
+		}
+		hr{width:65%;background-image:url("#{$imagePath}divide-x-green.gif");}
+		p{
+			color:#FFF;
+			font-family: $proxima;
+			font-size: rem-calc(20);
+			font-weight: 300;
+			line-height: rem-calc(36);
+			letter-spacing: 0.03em;
+			text-align: center;
+			text-transform: uppercase;
+		}
+		.btn-lg{
+			margin:0.75rem 0 0;
+			padding:1rem 2rem;
+			color:#FFF;
+			font-size: rem-calc(17);
+			font-weight: 400;
+			letter-spacing: 0;
+			background:$medium-green;
+		}
+		.social{
+			margin:3.5rem 0 4rem;
+			padding-left:32px;
+			color:#FFF;
+			font-size:rem-calc(14);
+			text-transform: none;
+			background:url("#{$imagePath}facebook-white.png") 0 50% no-repeat;
+		}
+		
+	}
+	.instagram-section{
+		padding:0;
+		.source{
+			height:330px;
+			width: 100%;
+			background:url("#{$imagePath}home/bg-instagram.jpg") 0 50% no-repeat;
+		}
+		p{text-align: center;}
+		.social{
+			margin:0.75rem 0;
+			padding-left:32px;
+			color:#000;
+			font-size:rem-calc(14);
+			text-transform: none;
+			background:url("#{$imagePath}instagram-black.png") 0 50% no-repeat;
+		}
+	}
+}

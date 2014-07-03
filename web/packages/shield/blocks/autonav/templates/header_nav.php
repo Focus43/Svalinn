@@ -110,7 +110,7 @@ foreach ($navItems as $ni) {
 
 //*** Step 2 of 2: Output menu HTML ***/
 
-echo '<ul class="left" role="navigation">'; //opens the top-level menu
+echo '<ul class="right" role="navigation">'; //opens the top-level menu
 
 foreach ($navItems as $ni) {
 	echo '<li class="' . $ni->classes . '">'; //opens a nav item

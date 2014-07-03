@@ -47,6 +47,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 							<div class="intro">
 								<h1>THE SVALINN NAME</h1>
 								<p>In Norse mythology Svalinn is the name of a legendary shield given by the gods. Svalinn protects Alsvin and Avakar, two steeds that pull the sun across the sky and Earth, from the sun’s full power. Svalinn is a timeless symbol of strength and ardent vigilance. It’s a name that appropriately portrays the ever-present companionship and protection that our highly trained dogs provide.</p>
+								<p><em>Bottom line, Svalinn means peace of mind.</em></p>
 
 							</div>
 						</div>

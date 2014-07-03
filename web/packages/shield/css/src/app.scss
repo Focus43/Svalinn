@@ -11,7 +11,6 @@ body{
 	box-shadow: 1px 10px 0 1px #185775, 1px 16px 0 1px #185775, 1px 22px 0 1px #185775;
 }
 
-
 @mixin metalic{
 	background: url("/packages/shield/img/professional/bg-title-mask.jpg") no-repeat;
 	-webkit-background-clip: text;
@@ -65,7 +64,7 @@ HEADER BAR
 				#privateclient{display:none;}
 				#professional{}
 			}
-			.privateclient &, .home &{
+			.privateclient &, .home &, .our_dogs &{
 				#professional{display:none;}
 				#privateclient{}
 			}
@@ -133,6 +132,8 @@ HEADER BAR
 						}
 					}
 					.dropdown{
+						left:0;
+						right:auto;
 						margin-left:-1rem;
 						li{
 							padding-left:1rem;

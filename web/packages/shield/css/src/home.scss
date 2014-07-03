@@ -11,6 +11,13 @@ HOMEPAGE
 			margin-bottom: 3rem;	
 			.intro-inner{
 				height:auto;
+				@media #{$small-only}{
+					padding-left:2rem;
+					padding-right:2rem;
+					h1{font-size:rem-calc(36);}
+					hr{width:80%;}
+					.btn{white-space:normal;}
+				}
 				.btn-lg{
 					margin:2rem 0 0;
 					padding:1rem 2rem;

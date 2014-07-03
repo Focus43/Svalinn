@@ -24,7 +24,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 				    <div class="row">
 				        <div class="column medium-11 medium-centered intro">
 							<div class="intro-inner">
-					            <h1>Bred to Love. Trained to Protect.</h1>
+					            <h1>Bred to Love.<span class="show-for-small-only">&nbsp;</span><br class="show-for-medium-up"/>Trained to Protect.</h1>
 								<hr/>
 								<div class="intro-content row">
 						        	<div class="column medium-10 medium-centered">
@@ -60,7 +60,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 						<div class="column medium-11 medium-centered">
 							<h1>A Legacy Of Vigilance.</h1>
 							<hr/>
-							<p>In addition to personal protection, Svalinn has advanced the art<br/>and ability of the military working dog.</p>
+							<p>In addition to personal protection, Svalinn has advanced the art<br class="show-for-large-up"/>and ability of the military working dog.</p>
 							<p><a href="/professional" class="btn btn-lg">LEARN MORE ABOUT OUR PROFESSIONAL SERVICES</a></p>
 							<p><a href="https://www.facebook.com/pages/Svalinn/451171018338883" target="_blank" class="btn social">Follow Svalinn Professional on facebook</a></p>
 	                        

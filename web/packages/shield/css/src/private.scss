@@ -6,6 +6,12 @@ LANDING PAGE
 	&.sublanding{
 		.btn-divide{display:none;}
 		.masthead{
+			@media #{$medium-only}{
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+			}
 			.intro{
 				@media #{$small-only}{
 					margin:0;
@@ -41,7 +47,7 @@ LANDING PAGE
 				padding-bottom:0;
 				.tabs-content{
 					margin-bottom:0;
-					background:url("#{$imagePath}bg-dog-knots.jpg") 50% no-repeat;
+					background-image:url("#{$imagePath}bg-dog-knots.jpg") 50% no-repeat;
 					p{font-size:rem-calc(14);}
 				}
 			}
@@ -68,7 +74,15 @@ ABOUT
 		&.main-2{
 			padding-top:0;
 			padding-bottom:0;
-			background:url("#{$imagePath}private/company-history-map.png?v=1") 100% 0 no-repeat;
+			background-image:url("#{$imagePath}private/company-history-map.png?v=1");
+			background-position:100% 0;
+			background-repeat:no-repeat;
+			@media #{$medium-only}{
+				-webkit-background-size: contain;
+				-moz-background-size: contain;
+				-o-background-size: contain;
+				background-size: contain;
+			}
 			@media #{$small-only}{
 				background:none;
 			}
@@ -657,14 +671,23 @@ FOOTER
 	.company-history &{	
 		height:320px;
 		background-image:url("#{$imagePath}private/footer/bg-company.jpg");
+		@media #{$medium-only}{
+			height:185px;
+		}
 	}
 	.leadership-team &{
 		height:420px;
 		background-image:url("#{$imagePath}private/footer/bg-leadership-team.jpg");
+		@media #{$medium-only}{
+			height:250px;
+		}
 	}
 	.training &{
 		height:420px;
 		background-image:url("#{$imagePath}private/footer/bg-training.jpg");
+		@media #{$medium-only}{
+			height:250px;
+		}
 	}
 	.securing-your-dog &, .working-dogs &, .our_dogs &{
 		display:none;
@@ -672,26 +695,44 @@ FOOTER
 	.guarantee &{
 		height:450px;
 		background-image:url("#{$imagePath}private/footer/bg-guarantee.jpg");
+		@media #{$medium-only}{
+			height:260px;
+		}
 	}
 	.handler-training &{
 		height:450px;
 		background-image:url("#{$imagePath}private/footer/bg-handler-training.jpg");
+		@media #{$medium-only}{
+			height:260px;
+		}
 	}
 	.peace-mind &{
 		height:550px;
 		background-image:url("#{$imagePath}private/footer/bg-peace-mind.jpg");
+		@media #{$medium-only}{
+			height:300px;
+		}
 	}
 	.family &{background-image:url("#{$imagePath}private/footer/bg-protection-family.jpg");}
 	.individual &{
 		height:420px;
 		background-image:url("#{$imagePath}private/footer/bg-individual.jpg");
+		@media #{$medium-only}{
+			height:250px;
+		}
 	}
 	.executive &{
 		height:420px;
 		background-image:url("#{$imagePath}private/footer/bg-executive.jpg");
+		@media #{$medium-only}{
+			height:250px;
+		}
 	}
 	.selection-process &{
 		height:380px;
 		background-image:url("#{$imagePath}private/footer/bg-selection.jpg");
+		@media #{$medium-only}{
+			height:215px;
+		}
 	}
 }

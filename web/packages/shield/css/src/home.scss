@@ -105,11 +105,15 @@ HOMEPAGE
 		}
 		h1{
 			font-size:rem-calc(56);
+			line-height:rem-calc(60);
 			font-weight: 300;
 			text-align: center;
 			text-transform: uppercase;
 			color: white;
 			@include metalic;
+			@media #{$medium-only}{
+				font-weight: 400;
+			}
 			@media #{$small-only}{
 				font-size:rem-calc(32);
 				line-height:rem-calc(34);

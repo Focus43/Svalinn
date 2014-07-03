@@ -1050,16 +1050,26 @@ FOOTER
 	height:255px;
 	background-position: 50%;
 	background-repeat: no-repeat;
-
+	@media #{$medium-only}{
+		height:200px;
+		background-position: 50% 0;
+		-webkit-background-size: 100% auto;
+		-moz-background-size: 100% auto;
+		-o-background-size: 100% auto;
+		background-size: 100% auto;
+	}
 	.professional &{
 		height:280px;
 		background-image:url("#{$imagePath}professional/footer/bg-k9.jpg");
+		@media #{$medium-only}{
+			height:230px;
+		}
 	}
 	.professional .sublanding &{
 		height:280px;
 		background-image:url("#{$imagePath}professional/footer/bg-k9.jpg");
-		@media #{$small-only}{
-			background-position:0 0;
+		@media #{$medium-only}{
+			height:230px;
 		}
 	}
 }

@@ -40,8 +40,8 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 				
 				<!-- BEGIN .submast -->
 				<article class="container tab-nav">
-					<div class="row">
-						<div class="column medium-10 medium-centered">
+					<div class="row collapse">
+						<div class="column medium-12 large-10 medium-centered">
 							<dl class="tabs centered" data-tab>
 								<dd class="active"><a href="#level1">Level I</a></dd>
 								<dd><a href="#level2">Level II</a></dd>

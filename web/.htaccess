@@ -23,6 +23,10 @@
         #RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R,L]
         ###########################################################################
 
+        # Redirect all domains to svalinn.com
+        RewriteCond %{HTTP_HOST} !=svalinn.com
+        RewriteRule ^ http://svalinn.com%{REQUEST_URI} [L,R=301]
+
         # Normal concrete URL rewriting
         RewriteBase /
         RewriteCond %{REQUEST_URI} !^/favicon.ico$

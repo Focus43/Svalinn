@@ -24,7 +24,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 				    <div class="row">
 				        <div class="column medium-11 medium-centered intro">
 							<div class="intro-inner">
-					            <h1>Bred to Love.<span class="show-for-small-only">&nbsp;</span><br class="show-for-medium-up"/>Trained to Protect.</h1>
+					            <h1>Bred to Love. <br class="show-for-medium-up"/>Trained to Protect.</h1>
 								<hr/>
 								<div class="intro-content row">
 						        	<div class="column medium-10 medium-centered">

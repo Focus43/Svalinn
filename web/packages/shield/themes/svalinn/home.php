@@ -69,7 +69,9 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 				</article>
 				<!-- END .pro-section -->
 				<div class="container instagram-section">
-					<div class="source"></div>
+					<div class="source">
+						<ul id="instagram_feed"></ul>
+					</div>
 					<p><a href="http://instagram.com/svalinn_private" target="_blank" class="btn social">Follow Svalinn on Instagram</a></p>
 				</div>
 				<!-- BEGIN .footer -->

@@ -962,6 +962,40 @@ PAGE ELEMENTS
 HOMEPAGE
 ============================================================================= */
 @import "home";
+.simply-scroll { 
+	width: 100%;
+	height: auto;
+	margin: 1rem 0;
+	&.simply-scroll-container { 
+		position: relative;
+	}
+	.simply-scroll-clip {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		.simply-scroll-list { 
+			overflow: hidden;
+			margin: 0 0 0 -150px;
+			padding: 0;
+			list-style: none;
+			height: 306px;
+			li {
+				padding:0 0.5rem;
+				list-style: none;
+				float: left;
+				width: 306px;
+				height: 306px;
+				text-align: center;
+				img {
+					border: none;
+					display: inline-block;
+					width: 306px;
+					height: 306px;
+				}
+			}
+		}
+	}
+}
 
 /* =============================================================================
 PRIVATE

@@ -1,8 +1,11 @@
 /* =============================================================================
 FUNCTIONS
 ============================================================================= */
-@function convert-to-px($value, $base-value: $rem-base)  {
-  $value: strip-unit($value) / strip-unit($base-value) * 1px;
+@function parseInt($n) { /* 2 */
+  @return $n / ($n * 0 + 1);
+}
+@function px($value, $base-value: $rem-base)  {
+  $value: strip-unit($value) * strip-unit($base-value) * 1px;
   @if ($value == 0px) { $value: 0; } // Turn 0rem into 0
   @return $value;
 }
@@ -16,6 +19,34 @@ MIXINS
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+
+@mixin rem($property, $values, $condition:"") {
+  	$px: null;
+  	$rem: null;
+	@each $value in $values {
+		
+		@if $value == 0 or $value == auto {
+			$px : append($px , $value);
+			$rem: append($rem, $value);
+		}
+		@else{
+			$unit: unit($value);
+			$val: parseInt($value);
+			@if $unit == "px" {
+				$px : append( $px, $val+px );
+				$rem : append( $rem, rem-calc($val) );
+			}
+			@if $unit == "rem" {
+				$px : append( $px, px($val, $rem-base) );
+				$rem : append( $rem, $val+rem );
+			}
+		}
+	}
+  
+	#{$property}: $px unquote($condition);
+	#{$property}: $rem unquote($condition);
+}
+
 /* =============================================================================
 FOUNDATION OVERRIDE
 ============================================================================= */
@@ -97,31 +128,32 @@ h3{font-weight: 300;text-transform: uppercase;
 	.professional &{color:$brand-green}
 }
 p{
-	font-size:rem-calc(18);
+	@include rem(font-size, 18px);
 	font-weight: 300;
-	line-height: rem-calc(30);
+	@include rem(line-height, 30px);
 	letter-spacing:0.03em;
 	color:#414141;
 	&.lead{
-		font-size:rem-calc(21);
+		@include rem(font-size, 21px);
 		letter-spacing: 0.03em;
-		line-height: rem-cal(28);
+		@include rem(line-height, 28px);
 	}
 	&.lead-sm{
-		font-size:rem-calc(18);
+		@include rem(font-size, 18px);
+		
 	}
 	.small{
-		font-size:12px;
-		line-height: 14px;
+		@include rem(font-size, 12px);
+		@include rem(line-height, 14px);
 	}
 }
 .subtitle{
-	margin:2rem 0 1rem;
+	@include rem(margin, 2rem 0 1rem);
 	font-family: $proxima;
-	font-size:rem-calc(24);
+	@include rem(font-size, 28px);
 	font-weight: 300;
 	letter-spacing: 0.07em;
-	line-height:rem-calc(26); 
+	@include rem(line-height, 26px);
 	text-align: center;
 	text-transform: uppercase;
 }
@@ -130,8 +162,8 @@ p{
 }
 .feature-title{
 	position: relative;
-	margin:3rem 0 2rem;
-	padding:0.75rem 0 1.25rem;
+	@include rem(margin, 3rem 0 2rem);
+	@include rem(padding, 0.75rem 0 1.25rem);
 	text-align: center;
 	text-transform: uppercase;
 	font-family: $proxima;
@@ -162,17 +194,18 @@ blockquote{
 	font-style: italic;
 	text-align: center;
 	color:$lite-blue;
-	font-size:rem-calc(30);
-	line-height: rem-calc(42);
+	@include rem(font-size, 30px);
+	@include rem(line-height, 42px);
 	@media #{$small-only}{
-		font-size:rem-calc(21);
-		line-height: rem-calc(26);
+		@include rem(font-size, 21px);
+		@include rem(line-height, 26px);
 	}
 }
 .uppercase{text-transform: uppercase;}
 
 hr{
 	margin:18px auto 24px;
+	@include rem(margin, 18px auto 24px);
 	height:12px;
 	width:70%;
 	border:0;
@@ -201,8 +234,8 @@ POSITIONING
 	@media #{$medium-only}{
 		margin-top: -15px;
 		blockquote{
-			font-size: 1.5rem;
-			line-height: 2rem;
+			@include rem(font-size, 1.5rem);
+			@include rem(line-height, 2rem);
 			margin: 0;
 			padding: 0;
 		}
@@ -223,6 +256,7 @@ BUTTONS
 	display: inline-block;
 	position: relative;
 	padding:0.6em 2em 0.5em;
+	@include rem(padding, 0.6em 2em 0.5em);
 	width: auto;
 	text-align: center;
 	text-transform: uppercase;
@@ -230,8 +264,8 @@ BUTTONS
 	white-space: nowrap;
 	vertical-align: middle;
 	cursor: pointer;
-	font-size:0.7777777778rem;
-	line-height: 0.7777777778rem;
+	@include rem(font-size, 0.7777777778rem);
+	@include rem(line-height, 0.7777777778rem);
 	text-decoration: none;
 	font-weight: 400;
 	letter-spacing: 0.07em;
@@ -239,13 +273,13 @@ BUTTONS
 	transition: all 0.5s;
 }
 @mixin btn-md{
-	padding:0.8em 2em 0.7em;
-	font-size: rem-calc(14);
-	letter-spacing: 0.15rem;
-	min-width: 11rem;
+	@include rem(padding, 0.8em 2em 0.7em);
+	@include rem(font-size, 14px);
+	@include rem(letter-spacing, 0.15rem);
+	@include rem(min-width, 11rem);
 	&.btn-arrow:after{
-		top:1.3333rem;
-		right:1rem;
+		@include rem(top, 1.3333rem);
+		@include rem(right, 1rem);
 		border-top: 6px solid transparent;
 		border-bottom: 6px solid transparent;
 		border-left: 6px solid #053047;
@@ -253,12 +287,13 @@ BUTTONS
 }
 @mixin btn-lg{
 	padding:0.5em 1rem;
-	font-size: rem-calc(18);
-	letter-spacing: 0.15rem;
-	min-width: 11rem;
+	@include rem(padding, 0.5em 1rem);
+	@include rem(font-size, 18px);
+	@include rem(letter-spacing, 0.15rem);
+	@include rem(min-width, 11rem);
 	&.btn-arrow:after{
-		top:1.3333rem;
-		right:1rem;
+		@include rem(top, 1.3333rem);
+		@include rem(right, 1rem);
 		border-top: 6px solid transparent;
 		border-bottom: 6px solid transparent;
 		border-left: 6px solid #053047;
@@ -294,6 +329,7 @@ BUTTONS
 		border-color:$lite-blue;
 		&:hover{
 			border-color:$brand-blue;
+			background:rgb(0,85,129);
 			background: rgba(0,85,129,0.3);
 		}
 	}
@@ -301,7 +337,8 @@ BUTTONS
 		border-color:$lite-green;
 		&:hover{
 			border-color:$brand-green;
-			background: rgba(0,85,129,0.3);
+			background:rgb(113,110,20);
+			background: rgba(113,110,20,0.3);
 		}
 	}
 	&.on-lite{
@@ -323,15 +360,16 @@ BUTTONS
 	color:#FFF;
 	background:#22221c;
 	&.btn-lg{
-		padding-top:1rem;padding-bottom:1rem;
+		@include rem(padding-top, 1rem);
+		@include rem(padding-bottom, 1rem);
 	}
 }
 .btn-arrow{
 	text-align: left;
 	&:after{
 		position:absolute;
-		top:0.5rem;
-		right:1rem;	
+		@include rem(top, 0.5rem);
+		@include rem(right, 1rem);
 		width: 0; 
 		height: 0;  
 		content:" ";
@@ -340,9 +378,10 @@ BUTTONS
 		border-left: 4px solid #27333a;
 	}
 	&.btn-lg{
-		padding-top:1rem;padding-bottom:1rem;
+		@include rem(padding-top, 1rem);
+		@include rem(padding-bottom, 1rem);
 		&:after{
-			top:1rem;
+			@include rem(top, 1rem);
 		}
 	}
 	

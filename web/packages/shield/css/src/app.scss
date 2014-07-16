@@ -36,7 +36,22 @@ h1, h2, h3, h4, p{
 		}
 	}
 }
+p{@include rem(margin-bottom,1.25rem);}
+.ie7,.ie8,.ie9,
+.lt-ie8,.lt-ie9{
 
+	.right-off-canvas-menu, .exit-off-canvas{display:none !important;}
+	.home .pro-section h1{background: none !important;}
+	.maskTitle{
+		color:#FFF;
+		background: none !important;
+		h1{color:#FFF !important;}
+		span{
+			display:none !important;
+			&:after{display:none !important;}
+		}
+	}	
+}
 /* =============================================================================
 PAGE
 ============================================================================= */
@@ -121,47 +136,61 @@ HEADER BAR
 				li {
 					list-style: none;
 					background: #FFF;
+					.lt-ie9 &{float:left;width:150px;}
 					.professional &{background:#000;}
 					&:last-child {border:0;}
 					&:hover,&.nav-path-selected {
-						a{
-							color: $medium-gray;
-							&:hover { color: $medium-gray; }
+						.home &, .our_dogs &, .contact &, .privateclient &{
+							a{
+								color: $medium-gray;
+								background: #FFF !important;
+								&:hover {
+									color: $medium-gray;
+									background: #FFF !important;
+								}
+							}
+						}
+						.professional &{
+							a{
+								color: #FFF;
+								background: #000 !important;
+								&:hover {
+									color: $lite-gray;
+									background: #000 !important;
+								}
+							}
 						}
 					}
 					a{
-						color: $brand-blue;
-						font-size:rem-calc(16);
+						@include rem(font-size, 1rem);
 						font-weight: 400;
 						text-transform: uppercase;
-						&:hover { color: $dark-blue; }
+						padding: 0 12px;
+						line-height: 75px;
+						height:$header-height;
+						.home &, .our_dogs &, .contact &, .privateclient &{
+							color: $brand-blue;
+							background: #FFF !important;
+						}
 						.professional &{
 							color: #FFF;
-							&:hover { color: $medium-gray; }
+							background: #000 !important;
 						}
-					}
-					&:not(.has-form) {
-						a:not(.button) {
-							padding: 0 12px;
-							line-height: ($header-height)-(convert-to-px($header-link-font-size))+2;
-							height:$header-height;
-							background: transparent;
-							@media #{$xlarge-up}{
-								padding: 0 17px !important;
-							}
+						@media #{$xlarge-up}{
+							padding: 0 17px !important;
 						}
 					}
 					.dropdown{
 						left:0;
 						right:auto;
-						margin-left:-1rem;
+						@include rem(margin-left, -1rem);
 						li{
-							padding-left:1rem;
-							padding-right:1rem;
+							@include rem(padding-left, 1rem);
+							@include rem(padding-right, 1rem);
 							background: #FFF;
 							.professional &{background:#000;}
-							&:first-child{padding-top:2rem;}
-							&:last-child{padding-bottom:1rem;}
+							&:first-child{@include rem(padding-top, 1rem);}
+							&:last-child{@include rem(padding-bottom, 1rem);}
 							&.nav-selected{
 								a{
 									color: $medium-gray; 
@@ -170,12 +199,16 @@ HEADER BAR
 							}
 							a{
 								color:$brand-blue;
-								line-height: 3rem !important;
-								height: 3rem !important;
-								&:hover { color: $medium-gray; }
+								@include rem(line-height, 3rem);
+								@include rem(height, 3rem);
+								&:hover {
+									color: $medium-gray;
+								}
 								.professional &{
 									color: #FFF;
-									&:hover { color: $medium-gray; }
+									&:hover {
+										color: $medium-gray;
+									}
 								}
 							}
 						}
@@ -188,7 +221,6 @@ HEADER BAR
 	}
 }
 .utility-nav-container{}
-
 /* =============================================================================
 MASTHEAD
 ============================================================================= */
@@ -200,8 +232,8 @@ MASTHEAD
 	.intro{
 		border:2px solid $lite-tan;
 		padding:4px;
-		margin-top: 1.5rem;
-		margin-bottom: 1.5rem;
+		@include rem(margin-top, 1.5rem);
+		@include rem(margin-bottom, 1.5rem);
 		@media #{$small-only}{
 			margin-top:0;
 			margin-bottom:0;
@@ -223,7 +255,8 @@ MASTHEAD
 				color:$brand-blue;
 				text-align: center;
 				@media #{$small-only}{
-					font-size:rem-calc(32);line-height:rem-calc(34);
+					@include rem(font-size, 32px);
+					@include rem(line-height, 34px);
 				}
 			}
 			hr{
@@ -239,14 +272,14 @@ MASTHEAD
 					margin:0;
 					padding:0;
 					color:$medium-gray;
-					font-size: 16px;
-					line-height: 22px;
+					@include rem(font-size, 1rem);
+					@include rem(line-height, 2rem);
 					text-align: center;
 				}
 			}
 			p{
 				@media #{$small-only}{
-					font-size:rem-calc(14);
+					@include rem(font-size, 14px);
 				}
 			}
 			p.lead{
@@ -258,12 +291,15 @@ MASTHEAD
 	.privateclient.sublanding &{
 		background-image:url("#{$imagePath}private/masthead/bg-sublanding.jpg");
 		.intro{
-			margin-top: 3rem;
-			margin-bottom: 3rem;
+			@include rem(margin-top, 3rem);
+			@include rem(margin-bottom, 3rem);
 			.intro-inner{
 				height:auto;
-				padding:64px;
-				hr{margin:24px auto 20px;}
+				@include rem(padding, 4rem);
+				hr{
+					@include rem(margin, 24px auto 24px);
+					
+				}
 			}
 		}
 	}
@@ -286,22 +322,41 @@ MASTHEAD
 		background-image:url("#{$imagePath}private/masthead/bg-our-dogs.jpg");
 	}
 	.professional &{
-		background:url("#{$imagePath}professional/masthead/bg-knot.jpg") 50% 0 no-repeat;
+		background:url("#{$imagePath}professional/bg-knot-drk.jpg") 50% 0 no-repeat;
 		.intro{
-			margin-top: 4rem;
-			margin-bottom: 5rem;
+			@include rem(margin-top, 3rem);
+			@include rem(margin-bottom, 4.5rem);
 			border:0;
 			background:transparent;
 			.intro-inner{
 				background: transparent;
 				h1{
-					@include metalic;
+					text-shadow: 0 0 40px rgba(0,0,0,0.5);
+					 font-weight: 300;
+					span{
+						@include metalic;
+						@include rem(font-size, 65px);
+					}
 				}
-				p{color:#FFF;}
+				p.lead{
+					color:#FFF;
+					@include rem(font-size, 22px);
+					letter-spacing:0.1em;
+					@include rem(line-height, 32px);
+				}
 				hr{
-					margin:1.5rem auto;
+					@include rem(margin, 0.75rem auto);
 					height:8px;
 					background-image:url("#{$imagePath}divide-x-green.gif")
+				}
+			}
+		}
+	.masthead{
+			.intro{
+				h1{
+					span{
+						@include rem(font-size, 57px);
+					}
 				}
 			}
 		}
@@ -310,12 +365,11 @@ MASTHEAD
 		background:url("#{$imagePath}professional/masthead/bg-landing.jpg") 50% 0 no-repeat;
 		@media #{$small-only}{background-position:50% 0;}
 		.intro{
-			margin-top: 7rem;
-			margin-bottom: 7rem;
-			
+			@include rem(margin-top, 7rem);
+			@include rem(margin-bottom, 7rem);
 			@media #{$small-only}{
-				margin-top: 3rem;
-				margin-bottom: 5rem;
+				@include rem(margin-top, 3rem);
+				@include rem(margin-bottom, 5rem);
 			}
 			.intro-inner{
 				background: transparent;
@@ -333,12 +387,13 @@ MASTHEAD
 						top:0;
 						left:0;
 						font-family: $quadon;
-						font-size:rem-calc(57);
+						@include rem(font-size, 57px);
+						font-weight: 300;
 						text-align:center;
 						-webkit-text-fill-color:transparent;
 						@media #{$small-only}{
-							font-size:rem-calc(32);
-							line-height:rem-calc(34);
+							@include rem(font-size, 32px);
+							@include rem(line-height, 34px);
 						}
 					}
 					h1 {
@@ -358,29 +413,24 @@ MASTHEAD
 				
 				p{
 					color:#FFF;
-					font-size:rem-calc(18);
+					@include rem(font-size, 24px);
+					@include rem(line-height, 32px);
 					font-weight:400;
 					text-align: center;
 					text-transform: uppercase;
 				}
 				@media #{$small-only}{
-					hr{margin:1.5rem auto;width:70%;}
-					p{font-size:rem-calc(12);line-height:rem-calc(18);}
-				}
-			}
-		}
-		.masthead{
-			.intro{
-				h1{
-					text-shadow: 0 0 10px rgba(0,0,0,0.5);
-					span{
-						font-size:rem-calc(57);
-						@include metalic;
+					hr{@include rem(margin, 1.5rem auto);width:70%;}
+					p{
+						@include rem(font-size, 12px);
+						@include rem(line-height, 18px);
 					}
 				}
-				hr{margin:1.5rem auto;height:8px;}
 			}
 		}
+	}
+	.professional.k9-teams &{
+		background:url("#{$imagePath}professional/masthead/bg-k9-teams.jpg") 50% 0 no-repeat;
 	}
 }
 /* =============================================================================
@@ -388,33 +438,33 @@ MAIN
 ============================================================================= */
 .main{
 	background:#FFF;
-	padding:3rem 2.5rem;
+	@include rem(padding, 3rem 2.5rem);
 	border-bottom:24px solid #dbdcd5;
 	&.main-1,&.main-2,&.main-3{border-bottom:0;}
 	&.main-2,&.main-3{padding-top:0;}
 	&.main-1{
 		@media #{$small-only}{
-			padding:1rem;
+			@include rem(padding, 1rem);
 		}
 		h1{
-			margin-bottom:36px;
+			@include rem(margin-bottom, 36px);
 			color: $brand-blue;
 			font-family: $proxima;
-			font-size: rem-calc(26px);
+			@include rem(font-size, 26px);
 			font-style: italic;
 			font-weight: 300;
 			text-align: center;
 			text-transform: uppercase;
 			@media #{$small-only}{
-				font-size:rem-calc(18);
-				line-height:rem-calc(22);
+				@include rem(font-size, 18px);
+				@include rem(line-height, 22px);
 			}
 		}
 		h1+p{
 			text-align: center;
 			@media #{$small-only}{
-				font-size:rem-calc(14);
-				line-height:rem-calc(18);
+				@include rem(font-size, 14px);
+				@include rem(line-height, 18px);
 			}
 		}
 		h2,p{text-align: center;}
@@ -423,10 +473,10 @@ MAIN
 			padding:42px 0;
 			color:$brand-blue;
 			font-family: $proxima;
-			font-size:rem-calc(26px);
+			@include rem(font-size, 26px);
 			font-style: italic;
 			font-weight: 300;
-			line-height: rem-calc(36px);
+			@include rem(line-height, 36px);
 			text-transform: uppercase;
 		}
 	}
@@ -458,56 +508,56 @@ MAIN
 	/*ELEMENTS*/
 	h2{
 		@media #{$small-only}{
-			font-size: rem-calc(18);
-			line-height: rem-calc(24);
+			@include rem(font-size, 18px);
+			@include rem(line-height, 24px);
 		}
 	}
 	blockquote{
-		margin:0 auto 36px;
-		padding:0 0 36px;
+		@include rem(margin, 0 0 36px);
+		@include rem(padding, 0 0 36px);
 		color:$brand-blue;
-		font-size: rem-calc(46);
-		line-height: rem-calc(54);
+		@include rem(font-size, 46px);
+		@include rem(line-height, 54px);
 		text-align: center;
 		background:url("#{$imagePath}divide-knot-gray.gif") 50% 100% no-repeat;
 		@media #{$small-only}{
-			font-size: rem-calc(24);
-			line-height: rem-calc(32);
+			@include rem(font-size, 24px);
+			@include rem(line-height, 32px);
 			padding: 0;
 			margin-top: 0;
 		}
 		.guarantee &{
-			margin:32px 0;
+			@include rem(margin, 2rem 0);
 			padding:0;
 			background:none;
 		}
 	}
 	.lead{
 		margin:2rem 0;
-		font-size:rem-calc(21);
+		@include rem(font-size, 21px);
 		letter-spacing: 0.03em;
-		line-height: rem-cal(28);
+		@include rem(line-height, 28px);
 		font-weight: 400;
 	}
 	ul{
 		li{
-			margin:0.75rem 0;
+			@include rem(margin, 0.75rem 0);
 			padding:0;
 			color:$brand-blue;
-			font-size: rem-calc(18);
+			@include rem(font-size, 18px);
 			font-style: italic;
 			font-weight: 300;
 			letter-spacing: 0.06em;
-			line-height: rem-calc(21);
+			@include rem(line-height, 21px);
 		}
 		&.side-nav {
-			padding-top:2rem;
+			@include rem(padding-top, 2rem);
 			li{
-				margin:0.5rem 0;
-				font-size:1rem;
+				@include rem(margin, 0.5rem 0);
+				@include rem(font-size, 1rem);
 				font-weight: 400;
 				&.divider{
-					margin-top:1.75rem;
+					@include rem(margin-top, 1.75rem);
 					height:auto;
 					color:$brand-gray;
 					font-weight:700;
@@ -533,8 +583,8 @@ MAIN
 			color: $brand-gray;
 			font-family: $quadon;
 			font-style: italic;
-			font-size:rem-calc(34);
-			line-height: rem-calc(48);
+			@include rem(font-size, 34px);
+			@include rem(font-size, 48px);
 			&:before, &:after{
 				display: block;
 				margin:1rem 0;
@@ -560,19 +610,18 @@ PAGE ELEMENTS
 .right-off-canvas-menu{
 	background:#333;
 	a{text-align: left;}
-	.primary-nav,.utility-nav{margin:0 20px;}
+	.primary-nav,.utility-nav{@include rem(margin, 0 20px);}
 	.primary-nav{
-		padding-bottom:30px;
-		
+		@include rem(padding-bottom, 30px);
 		li{
-			padding-top:20px;
+			@include rem(padding-top, 0 20px);
 			&.has-dropdown{}
 			a{
 				padding-left:0;
 				padding-right:0;
 				color:#FFF;
-				font-size: 1rem;
-				line-height: 1.5rem;
+				@include rem(font-size, 1rem);
+				@include rem(line-height, 1.5rem);
 				text-decoration: none;
 				text-transform: uppercase;
 				border-bottom:1px solid #ccc;
@@ -598,16 +647,16 @@ PAGE ELEMENTS
 					padding-right:0;
 					border: 0;
 					display: block;
-					font-size: 11px;
-					line-height: 12px;
+					@include rem(font-size, 11px);
+					@include rem(line-height, 12px);
 				}
 			}
 		}
 	}
 	.utility-nav{
-		margin-top:30px;
+		@include rem(margin-top, 30px);
 		.btn{
-			margin:10px;
+			@include rem(margin, 10px);
 			width:auto;
 			text-align: center;
 			border: 2px solid #FFF;
@@ -617,54 +666,54 @@ PAGE ELEMENTS
 .right-off-canvas-toggle{position: absolute;top:16px;right:0;}
 
 /*  CALL TO ACTION ROW  */
-.cta .btn{margin:0 0 3rem;}
+.cta .btn{@include rem(margin, 0 0 3rem);}
 
 /*  TESTIMONIALS  */
 .testimonials{
-	padding-top:5rem;
-	padding-bottom:5rem;
+	@include rem(padding-top, 5rem);
+	@include rem(padding-bottom, 5rem);
 	@media #{$small-only}{
-		padding-top:2rem;
-		padding-bottom:2rem;
+		@include rem(padding-top, 2rem);
+		@include rem(padding-bottom, 2rem);
 	}
 	.executive & ,.peace-mind &{
 		display:none;
 	}
 	.professional &{display:none;}
 	h3{
-		margin:0 0 3rem;
+		@include rem(margin, 0 0 3rem);
 		color:$medium-gray2;
-		font-size: rem-calc(19);
+		@include rem(font-size, 19px);
 		font-weight:300;
 		letter-spacing: 0.15em;
 		@media #{$small-only}{
-			margin:0 0 1.5rem;
-			font-size: rem-calc(16);
+			@include rem(margin, 0 0 1.5rem);
+			@include rem(font-size, 1rem);
 		}
 	}
 	blockquote{
 		margin:0;
 		padding:0;
 		color:$brand-blue;
-		font-size: rem-calc(30);
-		line-height: rem-calc(42);
+		@include rem(font-size, 30px);
+		@include rem(line-height, 32px);
 		background-image: none;
 		@media #{$small-only}{
-			margin-top:1rem;
-			font-size: rem-calc(18);
-			line-height: rem-calc(24);
+			@include rem(margin-top, 1rem);
+			@include rem(font-size, 18px);
+			@include rem(line-height, 24px);
 		}
 	}
 	p{
 		display: block;
 		font-family: $proxima;
-		font-size:rem-calc(18);
+		@include rem(font-size, 18px);
 		font-style: normal;
-		line-height: rem-calc(21);
+		@include rem(line-height, 21px);
 		color:$brand-blue;
 		@media #{$small-only}{
-			font-size:rem-calc(14);
-			line-height: rem-calc(16);
+			@include rem(font-size, 14px);
+			@include rem(line-height, 16px);
 		}
 		&:before{
 			display:block;
@@ -676,14 +725,14 @@ PAGE ELEMENTS
 		}
 		
 	}
-	.btn,.btn-green-inverse{margin-top:1rem;}
+	.btn,.btn-green-inverse{@include rem(margin-top, 1rem);}
 	
 }
 /*  COLUMNS - HIGHLIGHTS  */
 .options{
 	.column{
-		padding-left:30px;
-		padding-right:30px;
+		@include rem(padding-left, 30px);
+		@include rem(padding-right, 30px);
 		background:url("#{$imagePath}divide-vert-gray.gif") 0 3rem no-repeat;
 		@media #{$small-only}{
 			padding:20px 15px 0;
@@ -693,17 +742,17 @@ PAGE ELEMENTS
 		&:first-child{border:0;background:none;}
 		h3,p{text-align: center;}
 		h3{
-			margin:0 0 1.5rem;
+			@include rem(margin, 0 0 24px);
 			color:$medium-blue;
 			font-family: $quadon;
-			font-size: rem-calc(21);
+			@include rem(font-size, 21px);
 			font-weight: 400;
-			line-height: rem-calc(21);
+			@include rem(line-height, 21px);
 		}
 		p{
 			color: $medium-gray;
-			font-size: rem-calc(16);
-			line-height: rem-calc(19);
+			@include rem(font-size, 16px);
+			@include rem(line-height, 19px);
 		}
 	}
 }
@@ -713,28 +762,28 @@ PAGE ELEMENTS
 	background:$lite-tan;
 }
 .tabs{
-	margin-top:5.2rem;
+	@include rem(margin-top, 5.2rem);
 	&.vertical{
 		width:28%;
 		@media #{$small-only}{
-			margin-top:1rem;
+			@include rem(margin-top, 1rem);
 			width:100%;
 		}
 	}
 	dd{
 		background: none;
 		text-align: right;
-		font-size:rem-calc(16);
+		@include rem(font-size, 1rem);
 		@media #{$small-only}{
 			text-align: center;
 		}
 		a{
-			padding:0.25rem 3rem 0.25rem 1rem;
+			@include rem(padding, 0.25rem 3rem 0.25rem 1rem);
 			color:$brand-blue;
 			letter-spacing:0.02em;
 			background: none;
 			@media #{$medium-only}{
-				padding-right:1rem;
+				@include rem(padding-right, 1rem);
 			}
 			@media #{$small-only}{
 				text-align: center;
@@ -766,9 +815,9 @@ PAGE ELEMENTS
 				width:100%;
 			}
 			a{
-				height:2.5rem;
-				line-height: 2.5rem;
-				padding:0 4rem;
+				@include rem(height, 2.5rem);
+				@include rem(line-height, 2.5rem);
+				@include rem(padding, 0 4rem);
 				text-align: center;
 				color:#FFF;
 				text-transform: uppercase;
@@ -794,19 +843,19 @@ PAGE ELEMENTS
 	}
 	&.vertical{
 		width:72%;
-		padding-bottom:3.5rem;
+		@include rem(padding-bottom, 3.5rem);
 		@media #{$small-only}{
 			width:100%;
-			padding-top:2rem;
-			padding-bottom:2rem;
+			@include rem(padding-top, 2rem);
+			@include rem(padding-bottom, 2rem);
 		}
 	}
 	h3{
-		margin-top:2rem;
-		margin-bottom:1rem;
+		@include rem(margin-top, 2rem);
+		@include rem(margin-bottom, 1rem);
 		color:$brand-blue;
 		font-family: $proxima;
-		font-size:rem-calc(24);
+		@include rem(font-size, 24px);
 		font-style: italic;
 		font-weight: 300;
 		text-transform: uppercase;
@@ -816,9 +865,9 @@ PAGE ELEMENTS
 	}
 	p{
 		color:#414141;
-		font-size:rem-calc(18);
+		@include rem(font-size, 18px);
 		font-weight: 300;
-		line-height:rem-calc(28);
+		@include rem(line-height, 28px);
 		@media #{$small-only}{
 			text-align: center;
 		}	
@@ -829,15 +878,15 @@ PAGE ELEMENTS
 	}
 	.link{
 		position: relative;
-		margin-top:2rem;
+		@include rem(margin-top, 2rem);
 		color:$brand-blue;
-		font-size:rem-calc(14);
+		@include rem(font-size, 14px);
 		font-weight: 600;
 		text-transform: uppercase;
 		&:after{
 			position:absolute;
-			top:0.1rem;
-			right:-1rem;	
+			@include rem(top, 0.1rem);	
+			@include rem(right, -1rem);
 			width: 0; 
 			height: 0;  
 			content:" ";
@@ -850,11 +899,11 @@ PAGE ELEMENTS
 }
 .left-col{
 	h3{
-		margin-top:3rem;
-		margin-bottom: 1rem;
+		@include rem(margin-top, 3rem);
+		@include rem(margin-bottom, 3rem);
 		font-family: $proxima;
 		color: #333;
-		font-size: rem-calc(21);
+		@include rem(font-size, 21px);
 		font-weight: 300;
 		text-align: left;
 		text-transform: uppercase;
@@ -862,10 +911,10 @@ PAGE ELEMENTS
 	ul{
 		margin-left:0;
 		li{
-			margin:0.25rem 0;
-			padding:0 0 0.25rem;
+			@include rem(margin, 0.25rem 0);
+			@include rem(padding, 0 0 0.25rem);
 			list-style: none;
-			font-size:rem-calc(16);
+			@include rem(font-size, 1rem);
 			border-bottom: 1px solid #f1f1f1;
 		}
 	}
@@ -893,9 +942,9 @@ PAGE ELEMENTS
 	.orbit-prev,.orbit-next{
 		top: 50%;
 		margin-top: -11px;
-		width: 21px;
-		height: 24px;
-		line-height: 24px;
+		@include rem(width, 21px);
+		@include rem(height, 24px);
+		@include rem(line-height, 24px);
 		
 		span{display:none;}
 	}
@@ -923,32 +972,32 @@ PAGE ELEMENTS
 /*  DOUBLE BORDER BOX  */
 
 .boxed{
-	padding:2rem 2rem;
+	@include rem(padding, 2rem);
 	box-shadow: 0 0 0 1px #999, 0px 0px 0 5px #FFF, 0px 0px 0 6px #999;
 	background: #FFF;	
 	h3{
-		margin-bottom:1rem;
+		@include rem(margin-bottom, 1rem);
 		font-family: $proxima;
 		color:$dark-gray;
-		font-size: rem-calc(21);
+		@include rem(font-size, 21px);
 		font-weight: 300;
 		text-align: center;
 		text-transform: uppercase;
 	}
 	p{
-		font-size:rem-calc(16);
+		@include rem(font-size, 1rem);
 		font-style: italic;
 		font-weight: 300;
 		letter-spacing: 0.06em;
-		line-height: rem-calc(21);
+		@include rem(line-height, 21px);
 		text-align: center;
 	}
 }
 .tabs-content{
 	.boxed{
-		margin-top:1rem;
+		@include rem(margin-top, 1rem);
 	}
-	.desc{margin-top:2rem;}
+	.desc{@include rem(margin-top, 2rem);}
 }
 .breeds{
 	.boxed{
@@ -980,7 +1029,7 @@ HOMEPAGE
 			list-style: none;
 			height: 306px;
 			li {
-				padding:0 0.5rem;
+				@include rem(padding, 0 0 0.5rem);
 				list-style: none;
 				float: left;
 				width: 306px;
@@ -996,7 +1045,6 @@ HOMEPAGE
 		}
 	}
 }
-
 /* =============================================================================
 PRIVATE
 ============================================================================= */
@@ -1006,61 +1054,251 @@ PRIVATE
 PROFESSIONAL LANDING
 ============================================================================= */
 .professional{
+	.btn{background:$medium-green;}
+	.main{
+		&.main-1{
+			background:	url("#{$imagePath}professional/bg-main-1-02.jpg") 50% no-repeat;
+			h2{
+				color:$brand-green;
+				@include rem(font-size, 32px);
+				@include rem(line-height, 36px);
+				letter-spacing: 0.1em;
+				text-align: center;
+				text-transform: uppercase;
+			}
+			p{
+				@include rem(font-size, 21px);
+				@include rem(line-height, 34px);
+				text-align: center;
+			}
+		}
+		&.main-2{
+			hr{
+				width:70%;
+				background:url("#{$imagePath}divide-x-white.gif") 50% no-repeat;
+			}
+		}
+		&.main-3{
+			@include rem(padding-top, 3rem);
+			@include rem(padding-bottom, 3rem);
+			background:url("#{$imagePath}professional/bg-knot-drk.jpg") 50% 0 no-repeat;
+			h3{
+				@include rem(margin, 0 0 3rem);
+				color:$lite-green;
+				@include rem(font-size, 24px);
+				font-weight:400;
+				letter-spacing: 0.1em;
+				text-align: center;
+				text-transform: uppercase;
+			}
+			hr{
+				width:70%;
+				background:url("#{$imagePath}divide-x-green.gif") 50% no-repeat;
+			}
+			p{
+				color:#FFF;
+				text-align: center;
+			}
+			.btn{@include rem(margin, 2rem 0 0);}
+		}
+	}
 	&.sublanding{
 		.btn-divide{display:none;}
 		.main-1{
 			@media #{$small-only}{
-				padding-top:0.5rem;
-				padding-bottom:0.5rem;
+				@include rem(padding-top, 0.5rem);
+				@include rem(padding-bottom, 0.5rem);
 			}
 			h2{
 				color:#000;
 				font-family: $quadon;
-				font-size:rem-calc(32);
+				@include rem(font-size, 32px);
 				font-weight: 600;
 				letter-spacing: 0.1em;
-				line-height: rem-calc(38);
+				@include rem(line-height, 38px);
 				text-align: center;
 				@media #{$small-only}{
-					font-size:rem-calc(16);
-					line-height: rem-calc(18);
+					@include rem(font-size, 16px);
+					@include rem(line-height, 18px);
 				}
 			}
 			p{
 				text-align:left;
 				@media #{$small-only}{
-					font-size:rem-calc(14);
-					line-height:rem-calc(18);
+					@include rem(font-size, 14px);
+					@include rem(line-height, 18px);
 				}
 			}
 		}
+		.main-2{padding:0;}
 		.main-3{
-			padding-top:4rem;
-			padding-bottom:4rem;
-			background:url("#{$imagePath}professional/masthead/bg-knot.jpg") 50% 0 no-repeat;
+			@include rem(padding-top, 4rem);
+			@include rem(padding-bottom, 4rem);
+			background:url("#{$imagePath}professional/bg-knot-drk.jpg") 50% 0 no-repeat;
 			h2{
-				margin:0 0 2.5rem;
+				@include rem(margin, 0 0 2.5rem);
 				color:$lite-green;
 				font-family: $proxima;
-				font-size: rem-calc(18);
+				@include rem(font-size, 18px);
+				font-weight: 300;
 				letter-spacing: 0.4em;
 				text-align: center;
 				@media #{$small-only}{
-					font-size: rem-calc(14);
-					line-height:rem-calc(18);
+					@include rem(font-size, 14px);
+					@include rem(line-height, 18px);
 
 				}
 			}
 			p{
 				color:#FFF;
 				font-family: $quadon;
-				font-size:rem-calc(30);
+				@include rem(font-size, 30px);
 				font-weight: 400;
-				line-height: rem-calc(45);
+				@include rem(line-height, 45px);
 				text-align: center;
 				@media #{$small-only}{
-					font-size:rem-calc(16);
-					line-height: rem-calc(18);
+					@include rem(font-size, 16px);
+					@include rem(line-height, 18px);
+				}
+			}
+		}
+	}
+	
+	&.about-us{
+		.main-1{
+			@include rem(padding-top, 7rem);
+			@include rem(padding-bottom, 7rem);
+		}
+		.main-2{padding:0;}
+		.main-3{
+			hr{
+				@include rem(padding-top, 0.5rem);
+				@include rem(padding-bottom, 0.5rem);
+				width:30%;
+			}
+			p{
+				strong{
+					display:block;
+					color:$lite-green;
+					@include rem(font-size, 18px);
+					text-align: center;
+					text-transform: uppercase;
+				}
+				@include rem(font-size, 18px);
+				@include rem(line-height, 24px);
+			}
+		}
+	}
+	&.k9-teams{
+		.main-1{
+			h2{
+				color:#000;
+				font-family: $quadon;
+				@include rem(font-size, 21px);
+				font-weight: 700;
+				@include rem(line-height, 32px);
+				text-align: center;
+				text-transform:uppercase;
+			}
+			h3{
+				color:#000;
+				letter-spacing: 0.2em;
+				text-align: center;
+			}
+			hr{
+				width:70%;
+				background:url("#{$imagePath}divide-x-green.gif") 50% no-repeat;
+			}
+			p{
+				color:#000;
+				@include rem(font-size, 15px);
+				@include rem(line-height, 21px);
+				text-align: center;
+			}
+			li{
+				color:#000;
+				@include rem(font-size, 14px);
+			}
+			.medium-7 p{
+				text-align: left;
+			}
+			
+			background:	url("#{$imagePath}professional/bg-main-1-02.jpg") 50% 0 no-repeat;
+		}
+		.main-2{padding:0;}
+		.main-3{
+			ul{
+				margin:0;
+				padding:0;
+				height:160px;
+				width:100%;
+				@media #{$small-only}{
+					height:auto;
+				}
+			}
+			li{
+				margin:0;
+				@include rem(padding, 0 0 0.5rem);
+				width:25%;
+				list-style: none;
+				float:left;
+				text-align: center;
+				&:last-child {
+					width: 300px;
+					border: 0;
+					-webkit-transform: translateX(100%);
+				}
+				@media #{$small-only}{
+					width:100% !important;
+					-webkit-transform: none;
+				}
+			}
+		}
+	}
+	&.k9s{
+		.main-1{padding:0;}
+		.main-2{
+			background:	url("#{$imagePath}professional/bg-k9s-main-1.jpg") 50% 0 no-repeat;
+			h2{
+				@include rem(font-size, 19px);
+				font-weight: 700;
+				@include rem(line-height, 24px);
+				text-align: center;
+				text-transform:uppercase;
+			}
+			hr{background:url("#{$imagePath}divide-x-green.gif") 50% no-repeat;}
+			p{
+				color:#000;
+				@include rem(font-size, 16px);
+				@include rem(line-height, 21px);
+				text-align: center;
+			}
+		}
+		.main-3{
+			li{
+				@include rem(margin-bottom,1rem);
+				color:#FFF;
+				@include rem(font-size, 14px);
+				font-style:normal;
+				font-weight:700;
+				text-transform: uppercase;
+				
+			}
+		}
+	}
+	&.technical-services{
+		.main-1{
+			@include rem(padding-top, 7rem);
+			@include rem(padding-bottom, 7rem);
+		}
+		.main-2{padding:0;}
+		.main-3{
+			ul{
+				@include rem(margin-bottom, 3rem);
+				li{
+					color:#FFF;
+					list-style: none;
+					text-align: center;
 				}
 			}
 		}
@@ -1108,19 +1346,19 @@ FOOTER
 	}
 }
 @mixin footer($type) {
-	padding-top:3rem;
+	@include rem(padding-top, 3rem);
 	color:#FFF;
 	.sublanding &{
 		border-top:24px solid #dbdcd5;
 	}
-	.contact{margin-top:0.3333334rem;}
+	.contact{@include rem(margin-top,0.3333334rem);}
 	.or{
 		position: relative;
 		display: inline-block;
 		text-align: center;
-		line-height: 2rem;
-		height: 2rem;
-		width: 6rem;
+		@include rem(line-height, 2rem);
+		@include rem(height, 2rem);
+		@include rem(width, 6rem);
 		vertical-align: middle;
 		&:before, &:after{
 			position: absolute;
@@ -1133,24 +1371,30 @@ FOOTER
 		}
 	}
 	
-	.copyright{margin-top:6rem;padding-top:3rem;}
+	.copyright{@include rem(margin-top,6rem);@include rem(padding-top,3rem);}
 	
 	@media only screen and (max-width: 40em){
 		.or{display: none;}
-		.btn, .footer .or{margin: 0.3333334rem 0;width:100%;}
+		.btn, .footer .or{@include rem(margin, 0.3333334rem 0);width:100%;}
 	}
 	@media only screen and (max-width: 56.888888889em){
-		.or{width: 3rem;}
+		.or{@include rem(width, 3rem);}
 	}
 	.message p{
 		margin:0;
-		font-size: 1.1666666667rem;
-		line-height: 2rem;
+		@include rem(font-size, 18px);
+		@include rem(line-height, 32px);
 		color:#FFF;
 		@media only screen and (max-width: 56.888888889em){
-			text-align: left;line-height: 1.33334;font-size: 0.8888888889rem;
+			text-align: left;
+			@include rem(font-size, 14px);
+			@include rem(line-height, 18px);
 		}
-		@media #{$small-only}{margin:2rem auto;text-align: center;line-height: 1.5rem;}
+		@media #{$small-only}{
+			@include rem(margin, 2rem auto);
+			text-align: center;
+			@include rem(line-height, 24px);
+		}
 		
 	}
 	@if $type == privateclient {

@@ -2,46 +2,47 @@
 DOGS
 ============================================================================= */
 .dog-item{
-	padding:1.5rem !important;
+	@include rem(padding, 1.5rem, !important);
 	img{
-		margin:0 0 0.5rem;
+		@include rem(margin, 0 0 0.5rem);
+		@include rem(padding-top, 2rem);
 		border:1px solid #DDD;
 	}
-	hr{margin:0.5rem 0;}
+	hr{@include rem(margin, 0.5rem 0 0);}
 	.name{
-		font-size: rem-calc(21);
+		@include rem(font-size, 21px);			
 		font-weight: 300;
-		line-height:  rem-calc(24);
+		@include rem(line-height, 24px);
 		color:$medium-gray;
 	}
 	.level,.breed,.dob{
 		font-weight: 300;
-		line-height:  rem-calc(24);
+		@include rem(line-height, 24px);
 		color:$brand-gray;
 	}
-	.breed{font-size: rem-calc(18);}
-	.level,.dob{font-size:rem-calc(14);}
+	.breed{@include rem(font-size, 18px);}
+	.level,.dob{@include rem(font-size, 14px);}
 	.dob{display:none;}
 	.btn{
-		margin:0.5rem 0 0;
-		font-size:rem-calc(16);
+		@include rem(margin, 0.5rem 0 0);
+		@include rem(font-size, 16px);
 		display: block;
 	}
 }
-.image-grid{margin-top:1.25rem !important;}
+.image-grid{@include rem(margin-top, 1.25rem, !important);}
 	
 .dog-details{
 	.side-nav {
-		margin-top:2rem;
+		@include rem(margin-top, 2rem);
 	}
-	.dog-desc{padding-top: 1.25rem}
+	.dog-desc{@include rem(padding-top, 1.25rem);}
 	.reserve{
-		hr{margin:2rem 0 1rem;}
+		hr{@include rem(margin, 2rem 0 1rem);}
 		p{
-			margin:0 0 1rem;
+			@include rem(margin, 0 0 1rem);
 			color:$dark-gray;
 			font-family: $quadon;
-			font-size:rem-calc(18);
+			@include rem(font-size, 18px);
 			text-align: center;
 			text-transform: uppercase;
 		}

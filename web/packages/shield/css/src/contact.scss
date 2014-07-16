@@ -6,7 +6,7 @@ body.contact {
   form {
   	&.contact-form{
 		background:#f1f1f1;
-		padding:1.875rem 1.875rem 0.9375rem;
+		@include rem(padding, 1.875rem 1.875rem 0.9375rem);
 		
 	}
     // hidden by default

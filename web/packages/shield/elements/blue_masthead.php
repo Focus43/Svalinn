@@ -4,7 +4,7 @@
         <div class="column medium-11 medium-centered intro">
 			<div class="intro-inner">
 	            <h1 class="text-center">
-	                <?php echo ($customTitle) ? $customTitle : $pageObj->getAttribute('meta_title'); ?>
+	                <span><?php echo ($customTitle) ? $customTitle : $pageObj->getAttribute('meta_title'); ?></span>
 	            </h1>
 	            <hr/>
 	            <?php if($mastheadEditableArea === true && ($c instanceof Page)): ?>

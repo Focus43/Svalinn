@@ -322,10 +322,10 @@ MASTHEAD
 		background-image:url("#{$imagePath}private/masthead/bg-our-dogs.jpg");
 	}
 	.professional &{
-		background:url("#{$imagePath}professional/bg-knot-drk.jpg") 50% 0 no-repeat;
+		background:url("#{$imagePath}professional/masthead/bg-knot-drk.jpg") 50% 0 no-repeat;
 		.intro{
 			@include rem(margin-top, 3rem);
-			@include rem(margin-bottom, 4.5rem);
+			@include rem(margin-bottom, 5.5rem);
 			border:0;
 			background:transparent;
 			.intro-inner{
@@ -1196,9 +1196,9 @@ PROFESSIONAL LANDING
 				@include rem(margin-bottom, 1rem);
 				padding:0;
 				font-family: $quadon;
-				@include rem(font-size, 46px);
+				@include rem(font-size, 36px);
 				font-weight: 400;
-				@include rem(line-height, 58px);
+				@include rem(line-height, 42px);
 				text-align: center;
 				text-transform:uppercase;
 			}
@@ -1303,7 +1303,12 @@ PROFESSIONAL LANDING
 		}
 		.main-2{padding:0;}
 		.main-3{
+			h3{
+				@include rem(margin-bottom, 2rem);
+			}
 			ul{
+				margin:0;
+				padding:0;
 				li{
 					float: left;
 					width: 50%;
@@ -1311,13 +1316,14 @@ PROFESSIONAL LANDING
 					color:#FFF;
 					list-style: none;
 					text-align: center;
+					@include rem(font-size, 28px);
 					border-bottom: 1px solid #333;
 					text-align: center;
 					display: inline-block;
 					margin: 0;
-					padding: 20px 0;
+					padding: 25px 0 28px;
 					@media #{$medium-up}{
-						.no-border{border:0;}	
+						&.no-border{border:0;}	
 					}
 					@media #{$small-only}{
 						li{
@@ -1327,7 +1333,8 @@ PROFESSIONAL LANDING
 					}
 				}
 			}
-			p{@include rem(padding-top, 3rem);}
+			p{@include rem(padding-top, 2rem);}
+			.btn{margin-top:0;}
 		}
 	}
 }
@@ -1396,9 +1403,6 @@ FOOTER
 @mixin footer($type) {
 	@include rem(padding-top, 3rem);
 	color:#FFF;
-	.sublanding &{
-		border-top:24px solid #dbdcd5;
-	}
 	.contact{@include rem(margin-top,0.3333334rem);}
 	.or{
 		position: relative;
@@ -1444,6 +1448,9 @@ FOOTER
 			@include rem(line-height, 24px);
 		}
 		
+	}
+	.privateclient.sublanding &{
+		border-top:24px solid #dbdcd5;
 	}
 	@if $type == privateclient {
 		background:$black-blue;

@@ -1193,18 +1193,20 @@ PROFESSIONAL LANDING
 		.main-1{
 			h2{
 				color:#000;
-				margin-bottom:0;
+				@include rem(margin-bottom, 1rem);
+				padding:0;
 				font-family: $quadon;
-				@include rem(font-size, 21px);
-				font-weight: 700;
-				@include rem(line-height, 32px);
+				@include rem(font-size, 46px);
+				font-weight: 400;
+				@include rem(line-height, 58px);
 				text-align: center;
 				text-transform:uppercase;
 			}
 			h3{
-				margin:0;
+				margin: 0 0 3rem;
+				padding:0;
 				color:#000;
-				@include rem(font-size, 16px);
+				@include rem(font-size, 19px);
 				letter-spacing: 0.2em;
 				text-align: center;
 			}
@@ -1293,17 +1295,39 @@ PROFESSIONAL LANDING
 		.main-1{
 			@include rem(padding-top, 7rem);
 			@include rem(padding-bottom, 7rem);
+			hr{
+				@include rem(margin-top, 3.5rem);
+				@include rem(margin-bottom, 2rem);
+				background:url("#{$imagePath}divide-knot-gray.gif") 50% no-repeat;
+			}
 		}
 		.main-2{padding:0;}
 		.main-3{
 			ul{
-				@include rem(margin-bottom, 3rem);
 				li{
+					float: left;
+					width: 50%;
+					list-style: none;
 					color:#FFF;
 					list-style: none;
 					text-align: center;
+					border-bottom: 1px solid #333;
+					text-align: center;
+					display: inline-block;
+					margin: 0;
+					padding: 20px 0;
+					@media #{$medium-up}{
+						.no-border{border:0;}	
+					}
+					@media #{$small-only}{
+						li{
+							float: left;
+							width: 50%;
+						}
+					}
 				}
 			}
+			p{@include rem(padding-top, 3rem);}
 		}
 	}
 }
@@ -1333,16 +1357,37 @@ FOOTER
 		-o-background-size: 100% auto;
 		background-size: 100% auto;
 	}
-	.professional &{
+	.professional.sublanding &{
 		height:280px;
-		background-image:url("#{$imagePath}professional/footer/bg-k9.jpg");
+		background-image:url("#{$imagePath}professional/footer/bg-landing.jpg");
 		@media #{$medium-only}{
 			height:230px;
 		}
 	}
-	.professional .sublanding &{
+	.professional &, .professional.about-us &{
+		height:340px;
+		background-image:url("#{$imagePath}professional/footer/bg-about-us.jpg");
+		@media #{$medium-only}{
+			height:260px;
+		}
+	}
+	.professional.k9s &{
 		height:280px;
-		background-image:url("#{$imagePath}professional/footer/bg-k9.jpg");
+		background-image:url("#{$imagePath}professional/footer/bg-k9s.jpg");
+		@media #{$medium-only}{
+			height:230px;
+		}
+	}
+	.professional.k9-teams &{
+		height:340px;
+		background-image:url("#{$imagePath}professional/footer/bg-k9-teams.jpg");
+		@media #{$medium-only}{
+			height:260px;
+		}
+	}
+	.professional.technical-services &{
+		height:280px;
+		background-image:url("#{$imagePath}professional/footer/bg-technical-services.jpg");
 		@media #{$medium-only}{
 			height:230px;
 		}

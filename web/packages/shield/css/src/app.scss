@@ -3,7 +3,14 @@
 @import "foundation";
 @import "global";
 
-
+.alert-box{
+	padding:50px 20%;
+	font-size:18px;
+	line-height:24px;
+	text-align: center;
+	a{color:#ffe8d1;text-decoration:underline;}
+	.close{display:none;}
+}
 /* === V.2.5 === */
 body{
 	.privateclient &{background:$black-blue;}
@@ -39,7 +46,7 @@ h1, h2, h3, h4, p{
 p{@include rem(margin-bottom,1.25rem);}
 .ie7,.ie8,.ie9,
 .lt-ie8,.lt-ie9{
-
+	
 	.right-off-canvas-menu, .exit-off-canvas{display:none !important;}
 	.home .pro-section h1{background: none !important;}
 	.maskTitle{
@@ -1014,7 +1021,7 @@ HOMEPAGE
 .simply-scroll { 
 	width: 100%;
 	height: auto;
-	margin: 1rem 0;
+	@include rem(margin, 0);
 	&.simply-scroll-container { 
 		position: relative;
 	}

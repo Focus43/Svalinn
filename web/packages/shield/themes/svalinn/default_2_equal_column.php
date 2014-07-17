@@ -14,6 +14,11 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 </head>
 
 <body class="antialiased<?php echo $bodyClasses; ?> default default-2-equal-column">
+	<!--[if lte IE 8]>
+        <div data-alert class="alert-box warning chromeframe">
+Your browser is out of date! It looks like you're using an old version of Internet Explorer.<br/>For the best experience, <a href="http://browsehappy.com/">please update your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a>.
+		</div>
+    <![endif]-->
 	<div class="off-canvas-wrap">
 		<div class="inner-wrap">
 			<div class="main-wrap">

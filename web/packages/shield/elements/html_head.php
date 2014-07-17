@@ -1,4 +1,5 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/devices/icon-ipad.png" />

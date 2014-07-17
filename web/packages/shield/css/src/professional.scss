@@ -1,0 +1,286 @@
+.professional{
+	.btn{background:$medium-green;}
+	.main{
+		&.main-1{
+			background:	url("#{$imagePath}bg-dog-knots.jpg") 50% no-repeat;
+			h2{
+				color:$brand-green;
+				@include rem(font-size, 32px);
+				@include rem(line-height, 36px);
+				letter-spacing: 0.1em;
+				text-align: center;
+				text-transform: uppercase;
+			}
+			p{
+				@include rem(font-size, 21px);
+				@include rem(line-height, 34px);
+				text-align: center;
+			}
+		}
+		&.main-2{
+			hr{
+				width:70%;
+				background:url("#{$imagePath}divide-x-white.gif") 50% no-repeat;
+			}
+		}
+		&.main-3{
+			@include rem(padding-top, 3rem);
+			@include rem(padding-bottom, 3rem);
+			background:url("#{$imagePath}professional/bg-knot-drk.jpg") 50% 0 no-repeat;
+			h3{
+				@include rem(margin, 0 0 3rem);
+				color:$lite-green;
+				@include rem(font-size, 24px);
+				font-weight:400;
+				letter-spacing: 0.1em;
+				text-align: center;
+				text-transform: uppercase;
+			}
+			hr{
+				width:70%;
+				background:url("#{$imagePath}divide-x-green.gif") 50% no-repeat;
+			}
+			p{
+				color:#FFF;
+				text-align: center;
+			}
+			.btn{@include rem(margin, 2rem 0 0);}
+		}
+	}
+	&.sublanding{
+		.btn-divide{display:none;}
+		.main-1{
+			@media #{$small-only}{
+				@include rem(padding-top, 0.5rem);
+				@include rem(padding-bottom, 0.5rem);
+			}
+			h2{
+				color:#000;
+				font-family: $quadon;
+				@include rem(font-size, 32px);
+				font-weight: 600;
+				letter-spacing: 0.1em;
+				@include rem(line-height, 38px);
+				text-align: center;
+				@media #{$small-only}{
+					@include rem(font-size, 16px);
+					@include rem(line-height, 18px);
+				}
+			}
+			p{
+				text-align:left;
+				@media #{$small-only}{
+					@include rem(font-size, 14px);
+					@include rem(line-height, 18px);
+				}
+			}
+		}
+		.main-2{padding:0;}
+		.main-3{
+			@include rem(padding-top, 4rem);
+			@include rem(padding-bottom, 4rem);
+			background:url("#{$imagePath}professional/bg-knot-drk.jpg") 50% 0 no-repeat;
+			h2{
+				@include rem(margin, 0 0 2.5rem);
+				color:$lite-green;
+				font-family: $proxima;
+				@include rem(font-size, 18px);
+				font-weight: 300;
+				letter-spacing: 0.4em;
+				text-align: center;
+				@media #{$small-only}{
+					@include rem(font-size, 14px);
+					@include rem(line-height, 18px);
+
+				}
+			}
+			p{
+				color:#FFF;
+				font-family: $quadon;
+				@include rem(font-size, 30px);
+				font-weight: 400;
+				@include rem(line-height, 45px);
+				text-align: center;
+				@media #{$small-only}{
+					@include rem(font-size, 16px);
+					@include rem(line-height, 18px);
+				}
+			}
+		}
+	}
+	
+	&.about-us{
+		.main-1{
+			@include rem(padding-top, 7rem);
+			@include rem(padding-bottom, 7rem);
+		}
+		.main-2{padding:0;}
+		.main-3{
+			hr{
+				@include rem(padding-top, 0.5rem);
+				@include rem(padding-bottom, 0.5rem);
+				width:30%;
+			}
+			p{
+				strong{
+					display:block;
+					color:$lite-green;
+					@include rem(font-size, 18px);
+					text-align: center;
+					text-transform: uppercase;
+				}
+				@include rem(font-size, 18px);
+				@include rem(line-height, 24px);
+			}
+		}
+	}
+	&.k9-teams{
+		.main-1{
+			background:	url("#{$imagePath}bg-dog-knots.jpg") 50% 0 no-repeat;
+			h2{
+				color:#000;
+				@include rem(margin-bottom, 1rem);
+				padding:0;
+				font-family: $quadon;
+				@include rem(font-size, 36px);
+				font-weight: 400;
+				@include rem(line-height, 42px);
+				text-align: center;
+				text-transform:uppercase;
+			}
+			h3{
+				margin: 0 0 3rem;
+				padding:0;
+				color:#000;
+				@include rem(font-size, 19px);
+				letter-spacing: 0.2em;
+				text-align: center;
+			}
+			hr{
+				width:70%;
+				background:url("#{$imagePath}divide-x-green.gif") 50% no-repeat;
+			}
+			p{
+				color:#000;
+				@include rem(font-size, 15px);
+				@include rem(line-height, 21px);
+				text-align: center;
+			}
+			li{
+				color:#000;
+				@include rem(font-size, 14px);
+			}
+			.medium-7 p{
+				text-align: left;
+			}
+			
+			
+		}
+		.main-2{padding:0;}
+		.main-3{
+			ul{
+				margin:0;
+				padding:0;
+				height:160px;
+				width:100%;
+				@media #{$small-only}{
+					height:auto;
+				}
+			}
+			li{
+				margin:0;
+				@include rem(padding, 0 0 0.5rem);
+				width:25%;
+				list-style: none;
+				float:left;
+				text-align: center;
+				&:last-child {
+					width: 300px;
+					border: 0;
+					-webkit-transform: translateX(100%);
+				}
+				@media #{$small-only}{
+					width:100% !important;
+					-webkit-transform: none;
+				}
+			}
+		}
+	}
+	&.k9s{
+		.main-1{padding:0;}
+		.main-2{
+			background:	url("#{$imagePath}professional/bg-k9s-main-1.jpg") 50% 0 no-repeat;
+			h2{
+				@include rem(font-size, 19px);
+				font-weight: 700;
+				@include rem(line-height, 24px);
+				text-align: center;
+				text-transform:uppercase;
+			}
+			hr{background:url("#{$imagePath}divide-x-green.gif") 50% no-repeat;}
+			p{
+				color:#000;
+				@include rem(font-size, 16px);
+				@include rem(line-height, 21px);
+				text-align: center;
+			}
+		}
+		.main-3{
+			li{
+				@include rem(margin-bottom,1rem);
+				color:#FFF;
+				@include rem(font-size, 14px);
+				font-style:normal;
+				font-weight:700;
+				text-transform: uppercase;
+				
+			}
+		}
+	}
+	&.technical-services{
+		.main-1{
+			@include rem(padding-top, 7rem);
+			@include rem(padding-bottom, 7rem);
+			hr{
+				@include rem(margin-top, 3.5rem);
+				@include rem(margin-bottom, 2rem);
+				background:url("#{$imagePath}divide-knot-gray.gif") 50% no-repeat;
+			}
+		}
+		.main-2{padding:0;}
+		.main-3{
+			h3{
+				@include rem(margin-bottom, 2rem);
+			}
+			ul{
+				margin:0;
+				padding:0;
+				li{
+					float: left;
+					width: 50%;
+					list-style: none;
+					color:#FFF;
+					list-style: none;
+					text-align: center;
+					@include rem(font-size, 28px);
+					border-bottom: 1px solid #333;
+					text-align: center;
+					display: inline-block;
+					margin: 0;
+					padding: 25px 0 28px;
+					@media #{$medium-up}{
+						&.no-border{border:0;}	
+					}
+					@media #{$small-only}{
+						li{
+							float: left;
+							width: 50%;
+						}
+					}
+				}
+			}
+			p{@include rem(padding-top, 2rem);}
+			.btn{margin-top:0;}
+		}
+	}
+}

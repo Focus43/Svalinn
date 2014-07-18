@@ -3,6 +3,14 @@
 DOGS
 ============================================================================= */
 .our_dogs{
+	li.dog-item{
+		hr{height:1px;width:100%;color:$lite-gray;background-image:none;background-color:$lite-gray;}
+	}
+	&.details{
+		.dog-desc{
+			hr{width:100%;background-image:url("#{$imagePath}divide-x-gray.gif");}
+		}
+	}
 	.main{
 		@include rem(padding-bottom, 4rem);
 	}
@@ -18,7 +26,6 @@ DOGS
 	}
 	hr{
 		@include rem(margin, 0.5rem auto 0);
-		background-image:url("#{$imagePath}divide-x-gray.gif");
 	}
 	.name{
 		@include rem(font-size, 21px);			

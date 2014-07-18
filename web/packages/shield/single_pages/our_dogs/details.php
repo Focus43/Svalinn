@@ -41,8 +41,8 @@
 		                )); ?>
 						<div class="row">
 		                    <div class="small-12 columns">
-		                        <a href="<?php echo $this->url('/our_dogs'); ?>" class="btn btn-full gray">See Other Dogs</a>
-		                        <a href="/privateclient/contact/" class="btn btn-full blue">Contact Us</a>
+		                        <a href="<?php echo $this->url('/our_dogs'); ?>" class="btn btn-full gray">See Other Dogs</a><br/>
+		                        <a href="/privateclient/contact/" class="btn btn-full blue on-lite">Contact Us</a>
 		                        <!--<p>Reserve <?php echo $dogObj->getName(); ?> For $<?php echo $dogObj->getPrice(true); ?></p>-->
 		                    </div>
 		                </div>
@@ -50,35 +50,23 @@
 		            <div class="small-12 medium-7 columns">
 		                <div class="dog-desc">
 							<?php echo $dogObj->getLongDescription(); ?>
-						</div>
-						<div class="reserve">
-							<hr class="divide o-gray"/>
-							<?php  ?>
-							
-							<!--
-							<?php 
-							
-								foreach ($galleryFiles as $file) {
-				                    $fv = $file->getApprovedVersion();
-				                    $desc = $fv->getDescription();
-				                    echo '<img src="'.$image->getThumbnail($file, 600, 400, false)->src.'" class="thumbnail" style="margin: 0 auto">';
-				
-				                }
-								echo '------------';
-								$fs = FileSet::getByID($dogObj->mediaSetID);
-								$fileList = new FileList();
-								$fileList->filterBySet($fs);
-								$fileList->filterByType(FileType::T_IMAGE);   
-								$files = $fileList->get(100,0); //limit it to 100 pictures
-								print_r($files);
-								foreach($files as $f) {
-									$view_url = View::url('/', $f->getFileID(),$cID);
-									print_r($view_url);
-									echo '<img src="'.$f->getURL().'" style="margin: 0 auto">';
-								}
+							<hr />
+							<div class="gallery">
+								<ul>
+								<?php 
+	
+									$fs = FileSet::getByID($dogObj->mediaSetID);
+									$fileList = new FileList();
+									$fileList->filterBySet($fs);
+									$fileList->filterByType(FileType::T_IMAGE);   
+									$files = $fileList->get(100,0); //limit it to 100 pictures
+									print_r($files);
+									foreach($files as $f) {
+										echo '<li><img src="'.$f->getURL().'"></li>';
+									}
 								?>
-							
-							-->
+								</ul>
+							</div>
 						</div>
 		            </div>
 		        </div>

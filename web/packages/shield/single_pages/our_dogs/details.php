@@ -71,6 +71,11 @@
 								$fileList->filterByType(FileType::T_IMAGE);   
 								$files = $fileList->get(100,0); //limit it to 100 pictures
 								print_r($files);
+								foreach($files as $f) {
+									$view_url = View::url('/', $f->getFileID(),$cID);
+									print_r($view_url);
+									echo '<img src="'.$f->getURL().'" style="margin: 0 auto">';
+								}
 								?>
 							
 							-->

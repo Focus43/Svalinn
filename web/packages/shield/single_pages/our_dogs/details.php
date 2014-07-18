@@ -43,16 +43,9 @@
 		                    <div class="small-12 columns">
 		                        <a href="<?php echo $this->url('/our_dogs'); ?>" class="btn btn-full gray">See Other Dogs</a>
 		                        <a href="/privateclient/contact/" class="btn btn-full blue">Contact Us</a>
+		                        <!--<p>Reserve <?php echo $dogObj->getName(); ?> For $<?php echo $dogObj->getPrice(true); ?></p>-->
 		                    </div>
 		                </div>
-		                <?php /*foreach ($galleryFiles as $file) {
-		                    $fv = $file->getApprovedVersion();
-		                    $desc = $fv->getDescription();
-		                    ?>
-		                    <img src="<?php echo $image->getThumbnail($file, 600, 400, false)->src; ?>" class="thumbnail" style="margin: 0 auto">
-		                    <span class="caption"><?php echo $desc ?></span>
-		
-		                <?php }*/ ?>
 		            </div>
 		            <div class="small-12 medium-7 columns">
 		                <div class="dog-desc">
@@ -60,10 +53,18 @@
 						</div>
 						<div class="reserve">
 							<hr class="divide o-gray"/>
-							<!--<p>Reserve <?php echo $dogObj->getName(); ?> For $<?php echo $dogObj->getPrice(true); ?></p>-->
+							<?php  ?>
+							
 							<!--
 							<?php 
 							
+								foreach ($galleryFiles as $file) {
+				                    $fv = $file->getApprovedVersion();
+				                    $desc = $fv->getDescription();
+				                    echo '<img src="'.$image->getThumbnail($file, 600, 400, false)->src.'" class="thumbnail" style="margin: 0 auto">';
+				
+				                }
+								echo '------------';
 								$fs = FileSet::getByID($dogObj->mediaSetID);
 								$fileList = new FileList();
 								$fileList->filterBySet($fs);

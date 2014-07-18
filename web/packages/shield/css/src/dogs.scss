@@ -1,14 +1,25 @@
+@import "settings";
 /* =============================================================================
 DOGS
 ============================================================================= */
+.our_dogs{
+	.main{
+		@include rem(padding-bottom, 4rem);
+	}
+	.testimonials{
+		background:url("#{$imagePath}bg-dog-knots.jpg") 50% no-repeat;
+	}
+}
 .dog-item{
 	@include rem(padding, 1.5rem, !important);
 	img{
 		@include rem(margin, 0 0 0.5rem);
-		@include rem(padding-top, 2rem);
 		border:1px solid #DDD;
 	}
-	hr{@include rem(margin, 0.5rem 0 0);}
+	hr{
+		@include rem(margin, 0.5rem auto 0);
+		background-image:url("#{$imagePath}divide-x-gray.gif");
+	}
 	.name{
 		@include rem(font-size, 21px);			
 		font-weight: 300;

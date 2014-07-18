@@ -42,6 +42,7 @@
 						<div class="row">
 		                    <div class="small-12 columns">
 		                        <a href="<?php echo $this->url('/our_dogs'); ?>" class="btn btn-full gray">See Other Dogs</a>
+		                        <a href="/privateclient/contact/" class="btn btn-full blue">Contact Us</a>
 		                    </div>
 		                </div>
 		                <?php /*foreach ($galleryFiles as $file) {
@@ -60,7 +61,18 @@
 						<div class="reserve">
 							<hr class="divide o-gray"/>
 							<!--<p>Reserve <?php echo $dogObj->getName(); ?> For $<?php echo $dogObj->getPrice(true); ?></p>-->
-							<a href="/privateclient/contact/" class="btn btn-bordered btn-md blue on-lite uppercase align-center">Contact Us</a>
+							<!--
+							<?php 
+							
+								$fs = FileSet::getByID($dogObj->mediaSetID);
+								$fileList = new FileList();
+								$fileList->filterBySet($fs);
+								$fileList->filterByType(FileType::T_IMAGE);   
+								$files = $fileList->get(100,0); //limit it to 100 pictures
+								print_r($files);
+								?>
+							
+							-->
 						</div>
 		            </div>
 		        </div>

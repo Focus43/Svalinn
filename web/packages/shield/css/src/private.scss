@@ -48,7 +48,7 @@ LANDING PAGE
 				padding-bottom:0;
 				.tabs-content{
 					margin-bottom:0;
-					background-image:url("#{$imagePath}bg-dog-knots.jpg") 50% no-repeat;
+					background:url("#{$imagePath}bg-dog-knots.jpg") 50% no-repeat;
 					p{@include rem(font-size, 14px);}
 				}
 			}

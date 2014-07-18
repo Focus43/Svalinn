@@ -6,7 +6,7 @@
 		
 		
 		protected $autoSortColumns 	= array('createdUTC', 'modifiedUTC', 'name', 'breed', 'protection_level'),
-				  $itemsPerPage		= 10;
+				  $itemsPerPage		= 30;
 		
 		
 		public function filterByKeywords($keywords) {

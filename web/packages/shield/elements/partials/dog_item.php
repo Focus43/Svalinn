@@ -17,3 +17,6 @@
     <div class="small-6 columns level"><?php echo $dogObj->getProtectionHandle(true); ?> Protection</div>
     <div class="small-6 columns dob"><!--Born: March 12, 2008-->{{DOB}}</div>
 </div>
+<!--
+<?php print_r($dogObj); ?>
+-->

@@ -3,7 +3,7 @@
 DOGS
 ============================================================================= */
 .our_dogs{
-	li.dog-item{
+	.dog-item{
 		hr{height:1px;width:100%;color:$lite-gray;background-image:none;background-color:$lite-gray;}
 	}
 	&.details{
@@ -16,6 +16,13 @@ DOGS
 	}
 	.testimonials{
 		background:url("#{$imagePath}bg-dog-knots.jpg") 50% no-repeat;
+	}
+	.gallery{
+		li{
+			@include rem(margin-bottom, 1rem);
+			list-style: none;
+			img{border:1px solid #DDD;}
+		}
 	}
 }
 .dog-item{

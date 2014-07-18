@@ -60,7 +60,6 @@
 									$fileList->filterBySet($fs);
 									$fileList->filterByType(FileType::T_IMAGE);   
 									$files = $fileList->get(100,0); //limit it to 100 pictures
-									print_r($files);
 									foreach($files as $f) {
 										echo '<li><img src="'.$f->getURL().'"></li>';
 									}

@@ -54,14 +54,15 @@
 							<div class="gallery">
 								<ul>
 								<?php 
-	
+									$imageHelper = Loader::helper('image');
 									$fs = FileSet::getByID($dogObj->mediaSetID);
 									$fileList = new FileList();
 									$fileList->filterBySet($fs);
 									$fileList->filterByType(FileType::T_IMAGE);   
 									$files = $fileList->get(100,0); //limit it to 100 pictures
 									foreach($files as $f) {
-										echo '<li><img src="'.$f->getURL().'"></li>';
+										// getThumbnail($fileObj, maxWidth, maxHeight, {crop?true|false})
+										echo '<li><img src="'.$imageHelper->getThumbnail($f, 750, 600, true)->src.'" /></li>';
 									}
 								?>
 								</ul>

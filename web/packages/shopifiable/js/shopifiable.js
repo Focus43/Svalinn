@@ -38,7 +38,7 @@ $(function(){
     function cartHandler( cartObj ){
         var $element = $('<div />', {
             id   :   'shopifiable-cart',
-            html : '<div class="inner"><div class="quick-view"><span>'+cartObj.item_count+'</span> Items | <span>$' + (+(cartObj.total_price)/100).toFixed(2) + '</span> | <a href="'+storeURL+'/cart">Checkout</a></div><div class="item-list"></div></div>'
+            html : '<div class="inner"><div class="quick-view"><span>'+cartObj.item_count+'</span> Items | <span>$' + (+(cartObj.total_price)/100).toFixed(2) + '</span> | <a href="'+storeURL+'cart">Checkout</a></div><div class="item-list"></div></div>'
         }).appendTo('body');
 
         $element.on('click', '.quick-view', function(event){
@@ -68,7 +68,7 @@ $(function(){
      * Query the cart API
      */
     $.ajax({
-        url: '_url/cart.json'.replace('_url', storeURL),
+        url: storeURL + 'cart.json',
         dataType: 'jsonp',
         crossDomain: true,
         type: 'GET',

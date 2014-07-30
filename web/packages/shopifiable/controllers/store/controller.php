@@ -5,7 +5,7 @@
         protected $supportsPageCache = true;
 
         public function on_start(){
-            $this->addHeaderItem('<meta name="shopifiable-store" value="https://svalinn.myshopify.com" />');
+            $this->addHeaderItem('<meta name="shopifiable-store" value="'.ShopifiablePackage::STORE_URL.'" />');
             $this->addHeaderItem(Loader::helper('html')->css('store.css', 'shopifiable'));
             $this->addFooterItem(Loader::helper('html')->javascript('components/imagesloaded.min.js', 'shopifiable'));
             $this->addFooterItem(Loader::helper('html')->javascript('components/masonry.min.js', 'shopifiable'));

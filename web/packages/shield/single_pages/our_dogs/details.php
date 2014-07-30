@@ -39,8 +39,11 @@
             <div class="row">
                 <div class="small-12 columns">
                     <a href="<?php echo $this->url('/our_dogs'); ?>" class="btn btn-full gray" style="background:#aaa;">See Other Dogs</a><br/>
-                    <a href="/privateclient/contact/" class="btn btn-lg" style="background:#aaa;">Contact Us</a>
-                    <!--<p>Reserve <?php echo $dogObj->getName(); ?> For $<?php echo $dogObj->getPrice(true); ?></p>-->
+                    <!--<a href="/privateclient/contact/" class="btn btn-lg" style="background:#aaa;">Contact Us</a>-->
+                    <form method="post" action="<?php echo ShopifiablePackage::STORE_URL; ?>cart/add">
+                        <input type="hidden" name="id" value="<?php echo $variantID; ?>" />
+                        <button type="submit" class="btn btn-lg btn-full">Reserve <?php echo $dogObj->getName(); ?></button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -34,7 +34,7 @@
             </div>
 
             <div class="column medium-7">
-                <form class="product-detail" method="post" action="http://svalinn.myshopify.com/cart/add">
+                <form class="product-detail" method="post" action="<?php echo ShopifiablePackage::STORE_URL; ?>cart/add">
                     <h3><?php echo $productObj->title; ?></h3>
                     <h4>Price: $<?php echo $productObj->variants[0]->price; ?></h4>
                     <p><?php echo $productObj->body_html; ?></p>

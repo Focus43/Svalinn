@@ -5,7 +5,8 @@
         // Shopify credentials; can hard-code in if preferred
         const API_KEY   = '3791e5dce66c68ed8166de3d21b0a18f',
               PASSWORD  = 'eb2d8d90aadd6cc44de31abe1e6c5c9d',
-              HOST_NAME = 'svalinn.myshopify.com';
+              HOST_NAME = 'svalinn.myshopify.com', //'shop.svalinn.com',
+              STORE_URL = '//shop.svalinn.com/';
 
 
 	    protected $pkgHandle 			= 'shopifiable';

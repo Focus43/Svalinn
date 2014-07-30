@@ -17,6 +17,21 @@
             // Dog found OK; render view
             $this->set('dogObj', $dogObj);
             $this->set('imageHelper', Loader::helper('image'));
+
+            $variant = $this->getDogProductVariation($dogObj->getName());
+            if( is_object($variant) ){
+                $this->set('variantID', $variant->id);
+            }
+        }
+
+
+        protected function getDogProductVariation( $name ){
+            $productObj = Shopifiable::getProductByID(329962243);
+            foreach($productObj->variants AS $variantObj){
+                if( $variantObj->title == $name ){
+                    return $variantObj;
+                }
+            }
         }
 		
 	}

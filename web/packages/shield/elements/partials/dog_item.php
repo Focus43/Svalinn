@@ -1,11 +1,13 @@
 <?php /** @var $dogObj ShieldDog */ ?>
 <div class="row">
     <div class="small-12 columns">
-        <?php if( $dogObj->getPictureFileObj()->getFileID() >= 1 ): ?>
-            <img src="<?php echo $imageHelper->getThumbnail($dogObj->getPictureFileObj(), 400, 245, true)->src; ?>" />
-        <?php else: ?>
-            <img src="<?php echo SHIELD_IMAGES_URL; ?>dog-placeholder.jpg"/>
-        <?php endif; ?>
+        <a href="<?php echo $this->action('details', $dogObj->getDogID()); ?>">
+            <?php if( $dogObj->getPictureFileObj()->getFileID() >= 1 ): ?>
+                <img src="<?php echo $imageHelper->getThumbnail($dogObj->getPictureFileObj(), 400, 245, true)->src; ?>" />
+            <?php else: ?>
+                <img src="<?php echo SHIELD_IMAGES_URL; ?>dog-placeholder.jpg"/>
+            <?php endif; ?>
+        </a>
     </div>
 </div>
 <div class="row">

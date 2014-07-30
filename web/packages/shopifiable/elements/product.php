@@ -1,7 +1,7 @@
 <?php /** @var $productObj stdClass */ ?>
 
 <div class="pr-node" data-id="<?php echo $productObj->id; ?>" data-tags="<?php echo $productObj->tags; ?>">
-    <form method="post" action="http://svalinn.myshopify.com/cart/add">
+    <form method="post" action="<?php echo ShopifiablePackage::STORE_URL; ?>cart/add">
         <h3><?php echo $productObj->title; ?></h3>
         <a href="<?php echo $this->action('product', $productObj->id); ?>">
             <?php if( !empty($productObj->image->src) ): ?>

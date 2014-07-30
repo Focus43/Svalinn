@@ -81,12 +81,12 @@
 
             // include live reload for for grunt watch!
             if(isset($_SERVER['VAGRANT_VM']) && ((bool) $_SERVER['VAGRANT_VM'] === true)){
-                $this->addFooterItem('<script src="http://localhost:35729/livereload.js"></script>');
+                $pageController->addFooterItem('<script src="http://localhost:35729/livereload.js"></script>');
             }
 
             // if edit mode...
-            if( $this->getCollectionObject()->isEditMode() ){
-                $this->addHeaderItem('<style type="text/css">body.edit-mode {position:static !important;}</style>');
+            if( $pageController->getCollectionObject()->isEditMode() ){
+                $pageController->addHeaderItem('<style type="text/css">body.edit-mode {position:static !important;}</style>');
             }
         }
 

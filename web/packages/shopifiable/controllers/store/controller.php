@@ -2,9 +2,12 @@
 
     class StoreController extends Controller {
 
+        protected $supportsPageCache = true;
+
         public function on_start(){
             $this->addHeaderItem('<meta name="shopifiable-store" value="https://svalinn.myshopify.com" />');
             $this->addHeaderItem(Loader::helper('html')->css('store.css', 'shopifiable'));
+            $this->addFooterItem(Loader::helper('html')->javascript('components/imagesloaded.min.js', 'shopifiable'));
             $this->addFooterItem(Loader::helper('html')->javascript('components/masonry.min.js', 'shopifiable'));
             $this->addFooterItem(Loader::helper('html')->javascript('shopifiable.js', 'shopifiable'));
 
@@ -15,15 +18,24 @@
 
 
         public function view(){
-            $this->set('productList', Shopifiable::getProducts());
+            $this->set('productList', Shopifiable::getProducts(array(
+                'published_status'  => 'published',
+                'limit'             => 100
+            )));
 
         }
 
 
+        /**
+         * If a specific collection (ie. "filter by men") is requested.
+         * @param null $id
+         */
         public function collection( $id = null ){
             $this->set('activeCollectionID', $id);
             $this->set('productList', Shopifiable::getProducts(array(
-                'collection_id' => $id
+                'collection_id'     => $id,
+                'published_status'  => 'published',
+                'limit'             => 100
             )));
         }
 

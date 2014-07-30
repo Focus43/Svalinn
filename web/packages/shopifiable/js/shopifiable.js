@@ -25,7 +25,9 @@ $(function(){
      * @param cartObj
      */
     if( $grid.length ){
-        $grid.masonry({itemSelector: '.pr-node'});
+        $grid.imagesLoaded(function(){
+            $grid.masonry({itemSelector: '.pr-node'});
+        });
     }
 
 
@@ -33,10 +35,10 @@ $(function(){
      * Handler for the cart view
      * @param cartObj
      */
-    function cartHandler( cartObj ){ console.log(cartObj);
+    function cartHandler( cartObj ){
         var $element = $('<div />', {
             id   :   'shopifiable-cart',
-            html : '<div class="inner"><div class="quick-view">Items In Cart: <span>'+cartObj.item_count+'</span> | <a href="'+storeURL+'/cart" target="_blank">Checkout</a></div><div class="item-list"></div></div>'
+            html : '<div class="inner"><div class="quick-view"><span>'+cartObj.item_count+'</span> Items | <span>$' + (+(cartObj.total_price)/100).toFixed(2) + '</span> | <a href="'+storeURL+'/cart">Checkout</a></div><div class="item-list"></div></div>'
         }).appendTo('body');
 
         $element.on('click', '.quick-view', function(event){

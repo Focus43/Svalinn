@@ -2,6 +2,8 @@
 
     class StoreProductController extends Controller {
 
+        protected $supportsPageCache = false;
+
         public function on_start(){
             $this->addHeaderItem('<meta name="shopifiable-store" value="https://svalinn.myshopify.com" />');
             $this->addHeaderItem(Loader::helper('html')->css('store.css', 'shopifiable'));

@@ -22,23 +22,20 @@ if( !($this->controller instanceof ShieldPageController) ){
     <div class="inner-wrap">
         <div class="main-wrap">
             <!-- BEGIN HEADER -->
-            <?php Loader::packageElement('theme_header', 'shield', array(
+            <?php /*Loader::packageElement('theme_header', 'shield', array(
                 'navigationSettings' => array(
                     'displayPages'   => 'top'
                 )
-            )); ?>
+            ));*/ ?>
             <!-- END HEADER   -->
 
             <!-- BEGIN .masthead -->
-            <?php Loader::packageElement('blue_masthead', 'shield', array('pageObj' => Page::getCurrentPage())); ?>
+            <?php //Loader::packageElement('blue_masthead', 'shield', array('pageObj' => Page::getCurrentPage())); ?>
             <!-- END .masthead -->
 
             <!-- BEGIN .content -->
-            <article class="container main">
-                <div class="row" style="max-width:100%;">
-                    <?php print $innerContent; ?>
-                </div>
-            </article>
+            <?php print $innerContent; ?>
+
             <!-- END .content -->
             <!-- BEGIN .footer -->
             <?php Loader::packageElement('theme_footer', 'shield'); ?>

@@ -10,7 +10,7 @@
 
 	    protected $pkgHandle 			= 'shopifiable';
 	    protected $appVersionRequired 	= '5.6.1.2';
-	    protected $pkgVersion 			= '0.02';
+	    protected $pkgVersion 			= '0.05';
 	
 		
 		/**
@@ -35,9 +35,12 @@
         public function on_start(){
             define('SHOPIFIABLE_PACKAGE_DIR', $this->packageObject()->getRelativePath());
             define('SHOPIFIABLE_TOOLS_URL', BASE_URL . REL_DIR_FILES_TOOLS_PACKAGES . '/' . $this->pkgHandle . '/');
+            define('SHOPIFIABLE_IMAGE_CACHE_DIR', DIR_FILES_CACHE . '/shopifiable/');
+            define('SHOPIFIABLE_IMAGE_CACHE_URL', REL_DIR_FILES_CACHE . '/shopifiable/');
 
             Loader::registerAutoload(array(
-                'Shopifiable' => array('library', 'shopifiable', $this->pkgHandle)
+                'Shopifiable' => array('library', 'shopifiable', $this->pkgHandle),
+                'ShopifiableImage' => array('library', 'shopifiable_image', $this->pkgHandle)
             ));
         }
 
@@ -53,12 +56,21 @@
 				
 			}catch(Exception $e){ /* FAIL GRACEFULLY */ }
 	    }
+
+
+        private function checkDependencies(){
+            $redisPackage = Package::getByHandle('concrete_redis');
+            if( !($redisPackage instanceof Package) || !($redisPackage->isPackageInstalled()) ){
+                throw new Exception(sprintf('%s requires the ConcreteRedis package', $this->getPackageName()));
+            }
+        }
 	    
 		
 		/**
 		 * @return void
 		 */
 	    public function upgrade(){
+            $this->checkDependencies();
 			parent::upgrade();
 			$this->installAndUpdate();
 	    }
@@ -68,6 +80,7 @@
 		 * @return void
 		 */
 		public function install() {
+            $this->checkDependencies();
 	    	$this->_packageObj = parent::install(); 
 			$this->installAndUpdate();
 	    }
@@ -78,12 +91,13 @@
 		 * @return void
 		 */
 		private function installAndUpdate(){
-			$this->setupSinglePages();
+			$this->setupSinglePages()
+                 ->setupJobs();
 		}
 
 
 		/**
-		 * @return SuperBlocksPackage
+		 * @return ShopifiablePackage
 		 */
 		private function setupSinglePages(){
             SinglePage::add('/store', $this->packageObject());
@@ -91,6 +105,17 @@
 			
 			return $this;
 		}
+
+
+        /**
+         * @return ShopifiablePackage
+         */
+        private function setupJobs(){
+            Loader::model('job');
+            Job::installByPackage('shopifiable_image_import', $this->packageObject());
+
+            return $this;
+        }
 
 
         /**

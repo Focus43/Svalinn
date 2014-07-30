@@ -1,4 +1,4 @@
-<?php
+<?php defined('C5_EXECUTE') or die("Access Denied.");
 
     /**
      * @class Shopifiable
@@ -7,12 +7,15 @@
      */
     class Shopifiable {
 
-
         const RESOURCE_PRODUCTS             = '/admin/products.json',
               RESOURCE_PRODUCT_BY_ID        = '/admin/products/%s.json',
               RESOURCE_CUSTOM_COLLECTIONS   = '/admin/custom_collections.json',
               RESOURCE_SMART_COLLECTIONS    = '/admin/smart_collections.json';
 
+        const REDIS_HASH_PRODUCT_ID         = 'shopifiable_product',
+              REDIS_HASH_PRODUCTS           = 'shopifiable_product_list';
+
+        const CACHE_EXP_TIME                = 21600; // 6 hours, as seconds
 
         protected $_baseUrl,
                   $_jsonHelper;
@@ -40,12 +43,27 @@
 
 
         /**
-         * Get list of products, optionally passing in filter parameters.
+         * Get list of products, optionally passing in filter parameters. Caching is determined
+         * by md5'ing the $parameters passed in; so we can efficiently cache different result
+         * sets based on what's being requested.
          * @param array $parameters Query parameters
          * @return stdClass
          */
         public static function getProducts( array $parameters = array() ){
-            return self::_instance()->apiCall(self::RESOURCE_PRODUCTS, $parameters);
+            $queryMD5 = md5(serialize($parameters));
+
+            // Check to see if the response is cached
+            $cached = ConcreteRedis::db()->hget(self::REDIS_HASH_PRODUCTS, $queryMD5);
+            if( $cached ){
+                return (object) unserialize($cached);
+            }
+
+            // If we get here, load data from the API and cache that shit.
+            $apiResponse = self::_instance()->apiCall(self::RESOURCE_PRODUCTS, $parameters);
+            if( is_object($apiResponse) ){
+                ConcreteRedis::db()->hset(self::REDIS_HASH_PRODUCTS, $queryMD5, serialize($apiResponse));
+                return $apiResponse;
+            }
         }
 
 
@@ -55,9 +73,23 @@
          * @return stdClass
          */
         public static function getProductByID( $productID ){
+            // Check to see if the response is cached
+            $cached = ConcreteRedis::db()->hget(self::REDIS_HASH_PRODUCT_ID, $productID);
+            if( $cached ){
+                $object = unserialize($cached);
+                if( is_object($object) && (time() - $object->_cacheTimestamp <= self::CACHE_EXP_TIME) ){
+                    return $object->product;
+                }
+            }
+
+            // If we get here, load data from the API and cache it
             $apiResponse = self::_instance()->apiCall(sprintf(self::RESOURCE_PRODUCT_BY_ID, $productID));
-            // Return just the product object property
             if( is_object($apiResponse) && property_exists($apiResponse, 'product') ){
+                // Set the time object was cached
+                $apiResponse->_cacheTimestamp = time();
+                // Cache it
+                ConcreteRedis::db()->hset(self::REDIS_HASH_PRODUCT_ID, $productID, serialize($apiResponse));
+                // Return just the product property
                 return $apiResponse->product;
             }
         }
@@ -103,8 +135,8 @@
                 CURLOPT_SSL_VERIFYPEER  => true,
                 CURLOPT_SSL_VERIFYHOST  => 2,
                 CURLOPT_MAXREDIRS       => 3,
-                CURLOPT_CONNECTTIMEOUT  => 3, // 3 seconds
-                CURLOPT_TIMEOUT         => 8  // 8 seconds
+                CURLOPT_CONNECTTIMEOUT  => 6, // 3 seconds
+                CURLOPT_TIMEOUT         => 6  // 8 seconds
             ));
 
             // Exec request and store in $response
@@ -123,7 +155,8 @@
 
                     // Errors?
                     if( is_object($parsed) && property_exists($parsed, 'errors') ){
-                        throw new Exception(sprintf('Shopifiable API errors: %s', print_r($parsed->errors, true)));
+                        //throw new Exception(sprintf('Shopifiable API error: %s', print_r($parsed->errors, true)));
+                        throw new Exception(sprintf("Shopifiable API error:\n (HEADERS)\n %s\n (BODY)\n %s\n", print_r($headers, true), print_r($body, true)));
                     }
 
                     return $parsed;
@@ -155,7 +188,7 @@
                 return true;
             }
 
-            throw new Exception(sprintf('Shopifiable API error; %s', print_r($status[0], true)));
+            throw new Exception(sprintf("Shopifiable Response Headers Error:\n %s", print_r($httpHeaders, true)));
         }
 
     }

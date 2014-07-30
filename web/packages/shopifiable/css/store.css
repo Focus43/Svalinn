@@ -17,15 +17,20 @@ ul.collection-list li:hover a {background:#e1e1e1;}
 .pr-node {float:left;max-width:calc(100%/3);padding:10px;}
 .pr-node form {background:#e1e1e1;padding:15px;text-align:center;}
 .pr-node form h3 {margin:-15px -15px 15px;background:#d1d1d1;padding:10px;line-height:1.1em;}
-.pr-node form img {height:auto !important;width:auto !important;max-width:100%;margin:0 auto 15px;}
+.pr-node form a {display:block;}
+.pr-node form img {height:auto !important;width:auto !important;max-width:100%;}
+.pr-node form span.image-pending {display:block;padding:1em;background:#eee;}
 .pr-node form p.descr {margin:0 0 15px;font-size:.875em;line-height:1.2em;text-align:left;}
 .pr-node form .btn {width:49%;font-size:16px;margin:0;line-height:1;padding:12px 8px;text-align:center;display:inline-block;letter-spacing:0;font-weight:100 !important;}
 .pr-node form .btn.green {background:#5c6a38;}
 
 /* Product Detail page */
-.product-image-main {}
+.product-image-main {margin-bottom:5px;}
 .product-image-main img {height:auto;max-width:100%;}
 .product-image-opts {position:relative;margin:0 -5px;}
 .product-image-opts a {max-width:calc(100%/3);display:inline-block;position:relative;padding:5px;float:left;}
 .product-image-opts img {height:auto;width:auto;max-width:100%;max-height:100%;}
 .product-detail .btn {font-size:16px;margin:0;line-height:1;padding:12px 8px;text-align:center;display:inline-block;letter-spacing:0;font-weight:100 !important;}
+
+.product-detail-back {margin-top:-2em;padding:2rem;color:#fff;text-align:center;font-size:1.5rem;background:url('/packages/shield/img/home/bg-professional.jpg') repeat;}
+.product-detail-back a {color:inherit;}

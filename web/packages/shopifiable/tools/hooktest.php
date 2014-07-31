@@ -18,3 +18,6 @@ if( is_callable('headers_list') ){
     echo "<br/><br/>";
 }
 
+echo "SERVER variable:<br/><br/>";
+print_r($_SERVER);
+

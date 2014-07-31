@@ -1,5 +1,14 @@
 <?php defined('C5_EXECUTE') or die(_("Access Denied."));
 
+    /**
+     * Class ShopifiableWebhookProducts
+     * This class doesn't handle any image processing or anything else; all it does is
+     * take the data passed by Shopify's webhook (a product) and serializes it in a tmp
+     * directory for later processing by a Job.
+     *
+     * @todo: bust existing page caches and cached objects in Redis
+     * @todo:
+     */
     class ShopifiableWebhookProducts {
 
         const QUEUE_TMP_DIR = 'product_queue';
@@ -22,9 +31,13 @@
                 @chmod($tmpQueued, DIRECTORY_PERMISSIONS_MODE);
             }
 
-            if( ! is_file("{$tmpQueued}/{$fileName}") ){
-                $fileHelper->append("{$tmpQueued}/{$fileName}", serialize($data));
+            // If a file already exists, delete the existing one first (always want latest)
+            if( is_file("{$tmpQueued}/{$fileName}") ){
+                unlink("{$tmpQueued}/{$fileName}");
             }
+
+            // Create the new file
+            $fileHelper->append("{$tmpQueued}/{$fileName}", serialize($data));
         }
 
 

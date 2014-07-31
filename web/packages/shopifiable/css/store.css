@@ -20,7 +20,7 @@ ul.collection-list li:hover a {background:#e1e1e1;}
 .pr-node form a {display:block;}
 .pr-node form img {height:auto !important;width:auto !important;max-width:100%;}
 .pr-node form span.image-pending {display:block;padding:1em;background:#eee;}
-.pr-node form p.descr {margin:0 0 15px;font-size:.875em;line-height:1.2em;text-align:left;}
+.pr-node form p.descr {margin:0;padding:.675em 0;font-size:100%;line-height:1.2em;text-align:left;}
 .pr-node form .btn {width:49%;font-size:16px;margin:0;line-height:1;padding:12px 8px;text-align:center;display:inline-block;letter-spacing:0;font-weight:100 !important;}
 .pr-node form .btn.green {background:#5c6a38;}
 

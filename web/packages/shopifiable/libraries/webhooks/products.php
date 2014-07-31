@@ -7,7 +7,6 @@
      * directory for later processing by a Job.
      *
      * @todo: bust existing page caches and cached objects in Redis
-     * @todo:
      */
     class ShopifiableWebhookProducts {
 
@@ -42,6 +41,19 @@
 
 
         /**
+         * Purge both the /store page from the page cache, and any cached data in Redis.
+         */
+        protected static function purgeCaches(){
+            // Unset the /store page from the full page cache
+            $cache = PageCache::getLibrary();
+            $cache->purge(Page::getByPath('/store'));
+            // Purge redis data
+            ConcreteRedis::db()->del(Shopifiable::REDIS_HASH_PRODUCTS);
+            ConcreteRedis::db()->del(Shopifiable::REDIS_HASH_PRODUCT_ID);
+        }
+
+
+        /**
          * Handle the "create" webhook.
          * @param stdClass $postBody Product JSON from the webhook.
          * @return void
@@ -49,7 +61,8 @@
         public static function create( $postBody = null ){
             $fileName = md5($postBody->id);
             self::putToTmpDir($fileName, $postBody);
-            Log::addEntry(print_r($postBody,true));
+            self::purgeCaches();
+            Log::addEntry("New product created: <br/>\n" . print_r($postBody,true));
         }
 
 
@@ -61,6 +74,7 @@
         public static function update( $postBody = null ){
             $fileName = md5($postBody->id);
             self::putToTmpDir($fileName, $postBody);
+            self::purgeCaches();
             Log::addEntry("Updated product {$postBody->handle}");
         }
 

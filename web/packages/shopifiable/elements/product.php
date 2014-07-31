@@ -10,7 +10,7 @@
                 <span class="image-pending">Image Unavailable :{</span>
             <?php endif; ?>
         </a>
-        <p class="descr"><?php echo $productObj->body_html; ?></p>
+        <p class="descr"><?php echo strip_tags($productObj->body_html); ?></p>
 
         <?php $options = array(); if(!empty($productObj->variants)){ foreach($productObj->variants as $variantObj){
             $options[$variantObj->id] = $variantObj->title;

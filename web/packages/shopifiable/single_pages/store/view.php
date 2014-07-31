@@ -18,12 +18,9 @@
     <div class="row" style="max-width:100%;">
         <div class="column medium-12 large-12">
             <ul class="collection-list">
-                <li class="<?php echo (!isset($activeCollectionID)) ? 'active' : ''; ?>">
-                    <a href="<?php echo View::url($this->controller->getCollectionObject()->getCollectionPath()); ?>">All</a>
-                </li>
                 <?php foreach($collectionList->smart_collections AS $collectionObj){ ?>
                     <li class="<?php echo ($collectionObj->id == $activeCollectionID) ? 'active' : ''; ?>">
-                        <a href="<?php echo $this->action('collection', $collectionObj->id); ?>"><?php echo $collectionObj->title; ?></a>
+                        <a href="<?php echo $collectionObj->handle == 'all' ? View::url(Page::getCurrentPage()->getCollectionPath()) : $this->action('collection', $collectionObj->id); ?>"><?php echo $collectionObj->title; ?></a>
                     </li>
                 <?php } ?>
             </ul>

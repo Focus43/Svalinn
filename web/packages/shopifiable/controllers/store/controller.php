@@ -12,13 +12,20 @@
             $this->addFooterItem(Loader::helper('html')->javascript('shopifiable.js', 'shopifiable'));
 
             // Always load
-            $this->set('collectionList', Shopifiable::getSmartCollections());
+            $this->_collectionList = Shopifiable::getSmartCollections();
+            $this->set('collectionList', $this->_collectionList);
             $this->set('formHelper', Loader::helper('form'));
         }
 
 
         public function view(){
+            // From the collection list, get the 'All' collection
+            $collectionObjAll = array_filter($this->_collectionList->smart_collections, function($collObj){
+                return (bool)($collObj->handle == 'all');
+            });
+
             $this->set('productList', Shopifiable::getProducts(array(
+                'collection_id'     => $collectionObjAll[0]->id,
                 'published_status'  => 'published',
                 'limit'             => 100
             )));

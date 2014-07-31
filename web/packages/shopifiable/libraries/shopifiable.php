@@ -13,7 +13,8 @@
               RESOURCE_SMART_COLLECTIONS    = '/admin/smart_collections.json';
 
         const REDIS_HASH_PRODUCT_ID         = 'shopifiable_product',
-              REDIS_HASH_PRODUCTS           = 'shopifiable_product_list';
+              REDIS_HASH_PRODUCTS           = 'shopifiable_product_list',
+              REDIS_SMART_COLLECTIONS       = 'shopifiable_smart_collections';
 
         const CACHE_EXP_TIME                = 21600; // 6 hours, as seconds
 
@@ -100,9 +101,9 @@
          * @param array $parameters Query parameters
          * @return stdClass
          */
-        public static function getCustomCollections( array $parameters = array() ){
-            return self::_instance()->apiCall(self::RESOURCE_CUSTOM_COLLECTIONS, $parameters);
-        }
+//        public static function getCustomCollections( array $parameters = array() ){
+//            return self::_instance()->apiCall(self::RESOURCE_CUSTOM_COLLECTIONS, $parameters);
+//        }
 
 
         /**
@@ -111,7 +112,14 @@
          * @return stdClass
          */
         public static function getSmartCollections( array $parameters = array() ){
-            return self::_instance()->apiCall(self::RESOURCE_SMART_COLLECTIONS, $parameters);
+            $cached = ConcreteRedis::db()->get(self::REDIS_SMART_COLLECTIONS);
+            if( $cached ){
+                return unserialize($cached);
+            }
+
+            $apiResponse = self::_instance()->apiCall(self::RESOURCE_SMART_COLLECTIONS, $parameters);
+            ConcreteRedis::db()->set(self::REDIS_SMART_COLLECTIONS, serialize($apiResponse));
+            return $apiResponse;
         }
 
 

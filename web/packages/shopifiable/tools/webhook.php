@@ -4,8 +4,9 @@
      * Add authorization of some sort...
      */
     try {
-        $requestHeaders = is_callable('getallheaders') ? getallheaders() : apache_response_headers();
-        $webhookTasks   = explode('/', $requestHeaders['X-Shopify-Topic']);
+        // getallheaders() is unreliable across environments (ie. w/ FastCGI in prod), so
+        // use the standard $_SERVER variable here
+        $webhookTasks   = explode('/', $_SERVER['HTTP_X_SHOPIFY_TOPIC']);
         $webhookClass   = 'ShopifiableWebhook' . ucfirst($webhookTasks[0]);
         $webhookMethod  = $webhookTasks[1];
         $postBody       = json_decode(file_get_contents('php://input'));
@@ -22,6 +23,9 @@
 
         // Call ShopifiableWebhook{$webhookClass}::$webhookMethod} w/ $postBody as parameter
         call_user_func_array(array($webhookClass, $webhookMethod), array($postBody));
+
+        // This doesn't matter; Shopify's webhooks only look for HTTP 201 header response
+        print_r($webhookTasks);
     }catch(Exception $e){
         Log::addEntry(sprintf(
             "Failed webhook - Exception: %s\n\nHeaders:%s\n\nBody:%s\n",

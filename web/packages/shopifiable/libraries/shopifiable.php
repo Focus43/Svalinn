@@ -97,16 +97,6 @@
 
 
         /**
-         * Get a list of custom collections, optionally passing in filter parameters.
-         * @param array $parameters Query parameters
-         * @return stdClass
-         */
-//        public static function getCustomCollections( array $parameters = array() ){
-//            return self::_instance()->apiCall(self::RESOURCE_CUSTOM_COLLECTIONS, $parameters);
-//        }
-
-
-        /**
          * Get list of smart collections, optionally passing in filter parameters.
          * @param array $parameters Query parameters
          * @return stdClass

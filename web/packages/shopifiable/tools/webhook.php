@@ -34,10 +34,6 @@
 
         // Call ShopifiableWebhook{$webhookClass}::$webhookMethod} w/ $postBody as parameter
         call_user_func_array(array($webhookClass, $webhookMethod), array($postBody));
-
-        // This doesn't matter; Shopify's webhooks only look for HTTP 201 header response
-        print_r($webhookTasks);
-        print_r($httpRequestHeaders);
     }catch(Exception $e){
         Log::addEntry(sprintf(
             "Failed webhook - Exception: %s\n\nHeaders:%s\n\nBody:%s\n",

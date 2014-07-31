@@ -4,7 +4,7 @@
      * Add authorization of some sort...
      */
     try {
-        $requestHeaders = getallheaders();
+        $requestHeaders = is_callable('getallheaders') ? getallheaders() : apache_response_headers();
         $webhookTasks   = explode('/', $requestHeaders['X-Shopify-Topic']);
         $webhookClass   = 'ShopifiableWebhook' . ucfirst($webhookTasks[0]);
         $webhookMethod  = $webhookTasks[1];

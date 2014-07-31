@@ -1,12 +1,23 @@
 <?php defined('C5_EXECUTE') or die(_("Access Denied."));
 
     /**
-     * Add authorization of some sort...
+     * getallheaders() is unreliable across environments (eg. w/ FastCGI in production on
+     * Pagodabox, unless its running PHP 5.4.x, it fails) - so to better parse the
+     * incoming HTTP request headers, use the $_SERVER variable here...
+    */
+    $httpKeys = array_filter(array_keys($_SERVER), function($k){
+        return (bool) (strpos($k,'HTTP',0) !== false);
+    });
+    $httpRequestHeaders = array_intersect_key($_SERVER, array_flip($httpKeys));
+
+
+    /**
+     * @todo: Add authorization of some sort...
      */
     try {
         // getallheaders() is unreliable across environments (ie. w/ FastCGI in prod), so
         // use the standard $_SERVER variable here
-        $webhookTasks   = explode('/', $_SERVER['HTTP_X_SHOPIFY_TOPIC']);
+        $webhookTasks   = explode('/', $httpRequestHeaders['HTTP_X_SHOPIFY_TOPIC']);
         $webhookClass   = 'ShopifiableWebhook' . ucfirst($webhookTasks[0]);
         $webhookMethod  = $webhookTasks[1];
         $postBody       = json_decode(file_get_contents('php://input'));
@@ -26,11 +37,12 @@
 
         // This doesn't matter; Shopify's webhooks only look for HTTP 201 header response
         print_r($webhookTasks);
+        print_r($httpRequestHeaders);
     }catch(Exception $e){
         Log::addEntry(sprintf(
             "Failed webhook - Exception: %s\n\nHeaders:%s\n\nBody:%s\n",
             $e->getMessage(),
-            print_r(getallheaders(), true),
+            print_r($httpRequestHeaders, true),
             print_r(file_get_contents('php://input'), true)
         ));
     }

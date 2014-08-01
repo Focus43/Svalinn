@@ -4,6 +4,19 @@ ul.collection-list li a {display:block;padding:8px 15px;}
 ul.collection-list li.active a,
 ul.collection-list li:hover a {background:#e1e1e1;}
 
+#shopifiable-grid {margin:0 -2em;}
+.pr-node {float:left;max-width:33.33%;padding:10px;}
+.pr-node form {background-color:#e1e1e1;padding:15px;text-align:center;-webkit-transition:all 0.35s ease;-moz-transition:all 0.35s ease;transition:all 0.35s ease;}
+.pr-node form h3 {margin:-15px -15px 15px;background-color:#d1d1d1;padding:10px;line-height:1.1em;-webkit-transition:all 0.35s ease;-moz-transition:all 0.35s ease;transition:all 0.35s ease;}
+.pr-node form a {display:block;}
+.pr-node form img {height:auto !important;width:auto !important;max-width:100%;}
+.pr-node form span.image-pending {display:block;padding:1em;background:#eee;}
+.pr-node form p.descr {margin:0;padding:.675em 0;font-size:100%;line-height:1.2em;text-align:left;}
+.pr-node form .btn {width:49%;font-size:16px;margin:0;line-height:1;padding:12px 8px;text-align:center;display:inline-block;letter-spacing:0;font-weight:100 !important;}
+.pr-node form .btn.green {background:#5c6a38;}
+.pr-node:hover form {background-color:#d1d1d1;}
+.pr-node:hover form h3 {background-color:#c1c1c1;}
+
 #shopifiable-cart {position:fixed;top:100%;left:0;width:100%;height:200px;background:rgba(0,0,0,0.9);transition:all 0.25s ease;}
 #shopifiable-cart .inner {position:relative;width:100%;height:100%;padding:10px;}
 #shopifiable-cart .inner .quick-view {color:#e1e1e1;display:inline-block;padding:8px 12px;background:rgba(0,0,0,0.9);position:absolute;right:10px;bottom:100%;cursor:pointer;}
@@ -13,16 +26,6 @@ ul.collection-list li:hover a {background:#e1e1e1;}
 #shopifiable-cart .inner .item-list .item img {max-width:100%;max-height:115px;padding:8px;}
 #shopifiable-cart .inner .item-list .item span {display:block;}
 #shopifiable-cart.open {margin-top:-200px;}
-
-.pr-node {float:left;max-width:calc(100%/3);padding:10px;}
-.pr-node form {background:#e1e1e1;padding:15px;text-align:center;}
-.pr-node form h3 {margin:-15px -15px 15px;background:#d1d1d1;padding:10px;line-height:1.1em;}
-.pr-node form a {display:block;}
-.pr-node form img {height:auto !important;width:auto !important;max-width:100%;}
-.pr-node form span.image-pending {display:block;padding:1em;background:#eee;}
-.pr-node form p.descr {margin:0;padding:.675em 0;font-size:100%;line-height:1.2em;text-align:left;}
-.pr-node form .btn {width:49%;font-size:16px;margin:0;line-height:1;padding:12px 8px;text-align:center;display:inline-block;letter-spacing:0;font-weight:100 !important;}
-.pr-node form .btn.green {background:#5c6a38;}
 
 /* Product Detail page */
 .product-image-main {margin-bottom:5px;}
@@ -34,3 +37,12 @@ ul.collection-list li:hover a {background:#e1e1e1;}
 
 .product-detail-back {margin-top:-2em;padding:2rem;color:#fff;text-align:center;font-size:1.5rem;background:url('/packages/shield/img/home/bg-professional.jpg') repeat;}
 .product-detail-back a {color:inherit;}
+
+@media screen and (max-width:870px){
+    #shopifiable-grid {margin:0 -1em;}
+    .pr-node {max-width:50%;}
+}
+
+@media screen and (max-width:576px){
+    .pr-node {max-width:100%;}
+}

@@ -104,7 +104,7 @@
 	define('SITEMAPXML_FILE', 'files/sitemap.xml');
 
     // Outgoing emails
-    define('OUTGOING_MAIL_ISSUER_ADDRESS', 'site@svalinn.com');
+    define('OUTGOING_MAIL_ISSUER_ADDRESS', 'administrator@snakeriverk9.com');
     define('EMAIL_DEFAULT_FROM_ADDRESS', OUTGOING_MAIL_ISSUER_ADDRESS);
     define('EMAIL_ADDRESS_FORGOT_PASSWORD', OUTGOING_MAIL_ISSUER_ADDRESS);
     define('EMAIL_DEFAULT_FROM_NAME', 'Svalinn.com Website');

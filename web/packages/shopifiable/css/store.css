@@ -5,7 +5,7 @@ ul.collection-list li.active a,
 ul.collection-list li:hover a {background:#e1e1e1;}
 
 #shopifiable-grid {margin:0 -2em;}
-.pr-node {float:left;max-width:33.33%;padding:10px;}
+.pr-node {float:left;width:100%;max-width:33.33%;padding:10px;}
 .pr-node form {background-color:#e1e1e1;padding:15px;text-align:center;-webkit-transition:all 0.35s ease;-moz-transition:all 0.35s ease;transition:all 0.35s ease;}
 .pr-node form h3 {margin:-15px -15px 15px;background-color:#d1d1d1;padding:10px;line-height:1.1em;-webkit-transition:all 0.35s ease;-moz-transition:all 0.35s ease;transition:all 0.35s ease;}
 .pr-node form a {display:block;}

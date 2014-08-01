@@ -14,13 +14,13 @@
 <?php Loader::packageElement('blue_masthead', 'shield', array('pageObj' => Page::getCurrentPage())); ?>
 <!-- END .masthead -->
 
-<article class="container main">
+<article id="product-area" class="container main">
     <div class="row" style="max-width:100%;">
         <div class="column medium-12 large-12">
             <ul class="collection-list">
                 <?php foreach($collectionList->smart_collections AS $collectionObj){ ?>
                     <li class="<?php echo ($collectionObj->id == $activeCollectionID) ? 'active' : ''; ?>">
-                        <a href="<?php echo $collectionObj->handle == 'all' ? View::url(Page::getCurrentPage()->getCollectionPath()) : $this->action('collection', $collectionObj->id); ?>"><?php echo $collectionObj->title; ?></a>
+                        <a href="<?php echo $collectionObj->handle == 'all' ? View::url(Page::getCurrentPage()->getCollectionPath()) . '#product-area' : $this->action('collection', $collectionObj->id) . '#product-area'; ?>"><?php echo $collectionObj->title; ?></a>
                     </li>
                 <?php } ?>
             </ul>

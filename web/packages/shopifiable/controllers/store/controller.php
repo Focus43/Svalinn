@@ -24,6 +24,7 @@
                 return (bool)($collObj->handle == 'all');
             });
 
+            $this->set('activeCollectionID', $collectionObjAll[0]->id);
             $this->set('productList', Shopifiable::getProducts(array(
                 'collection_id'     => $collectionObjAll[0]->id,
                 'published_status'  => 'published',

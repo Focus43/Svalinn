@@ -172,7 +172,7 @@ HEADER BAR
 						@include rem(font-size, 1rem);
 						font-weight: 400;
 						text-transform: uppercase;
-						padding: 0 12px;
+						padding: 0 17px !important;
 						line-height: 75px;
 						height:$header-height;
 						.home &, .our_dogs &, .contact &, .privateclient &{

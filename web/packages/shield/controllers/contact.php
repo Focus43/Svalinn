@@ -41,7 +41,7 @@
 
         private function issueEmail(){
             $mailerObj = $this->getHelper('mail');
-            $mailerObj->to('kim@snakeriverk9.com');
+            $mailerObj->to('webforms@snakeriverk9.com');
             $mailerObj->from(OUTGOING_MAIL_ISSUER_ADDRESS);
             $mailerObj->addParameter('formData', (object)$_REQUEST);
             $mailerObj->load('contact_form', self::PACKAGE_HANDLE);

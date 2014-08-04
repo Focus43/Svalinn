@@ -62,7 +62,7 @@
                         $files = $fileList->get(100,0); //limit it to 100 pictures
                         foreach($files as $f) {
                             // getThumbnail($fileObj, maxWidth, maxHeight, {crop?true|false})
-                            echo '<li><img src="'.$imageHelper->getThumbnail($f, 750, 600, true)->src.'" /></li>';
+                            echo '<li><img src="'.$imageHelper->getThumbnail($f, 750, 1000, false)->src.'" /></li>';
                         }
                         ?>
                     </ul>

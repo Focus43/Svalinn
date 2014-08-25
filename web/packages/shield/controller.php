@@ -4,7 +4,7 @@
 
         protected $pkgHandle 			= 'shield';
         protected $appVersionRequired 	= '5.6.1';
-        protected $pkgVersion 			= '0.55';
+        protected $pkgVersion 			= '0.56';
 
 
         /**

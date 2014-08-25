@@ -37,6 +37,11 @@
             self::RESERVED_YES  => 'Reserved',
             self::RESERVED_NO   => 'Available'
         );
+
+        public static $sexes = array(
+            'Male'   => 'Male',
+            'Female' => 'Female'
+        );
 		
 		
 		/**
@@ -78,6 +83,20 @@
         public function getYoutubeVideo2(){ return $this->youtubeVideo2; }
         /** @return string Get youtube video 3 */
         public function getYoutubeVideo3(){ return $this->youtubeVideo3; }
+        /** @return string Get height */
+        public function getHeight(){ return $this->height; }
+        /** @return string Get weight */
+        public function getWeight(){ return $this->weight; }
+        /** @return string Get sex */
+        public function getSex(){ return $this->sex; }
+        /** @return string Get birthdate */
+        public function getBirthdate( $format = false ){
+            if( is_string($format) ){
+                $dateObj = new DateTime($this->birthdate, new DateTimeZone('UTC'));
+                return $dateObj->format($format);
+            }
+            return $this->birthdate;
+        }
         
         
         /**
@@ -166,7 +185,7 @@
 		
 		
 		protected function persistable(){
-			return array('name', 'shortDescription', 'picID', 'longDescription', 'breedHandle', 'protectionHandle', 'mediaSetID', 'price', 'reservedStatus', 'youtubeVideo1', 'youtubeVideo2', 'youtubeVideo3');
+			return array('name', 'shortDescription', 'picID', 'longDescription', 'breedHandle', 'protectionHandle', 'mediaSetID', 'price', 'reservedStatus', 'youtubeVideo1', 'youtubeVideo2', 'youtubeVideo3', 'height', 'weight', 'sex', 'birthdate');
 		}
 		
 		

@@ -36,6 +36,12 @@
         <field name="youtubeVideo1" type="C" size="255" />
         <field name="youtubeVideo2" type="C" size="255" />
         <field name="youtubeVideo3" type="C" size="255" />
+        <field name="height" type="C" size="255" />
+        <field name="weight" type="C" size="255" />
+        <field name="sex" type="C" size="255" />
+        <field name="birthdate" type="T">
+            <NOTNULL/>
+        </field>
         <!-- indices -->
         <index name="name">
             <col>name</col>

@@ -1,5 +1,6 @@
 <?php Loader::element('editor_config');
 	$formHelper = Loader::helper('form');
+    $dateHelper = Loader::helper('form/date_time');
 	$assetLibrary = Loader::helper('concrete/asset_library');
 ?>
 			
@@ -63,9 +64,21 @@
                         <td colspan="2">Youtube Video 3</td>
 					</tr>
 					<tr>
-                        <td style="width:33%;"><?php echo $formHelper->text('youtubeVideo1', $dogObj->getYoutubeVideo1(), array('input-block-level')); ?></td>
-                        <td style="width:33%;"><?php echo $formHelper->text('youtubeVideo2', $dogObj->getYoutubeVideo2(), array('input-block-level')); ?></td>
-                        <td colspan="2"><?php echo $formHelper->text('youtubeVideo3', $dogObj->getYoutubeVideo3(), array('input-block-level')); ?></td>
+                        <td style="width:33%;"><?php echo $formHelper->text('youtubeVideo1', $dogObj->getYoutubeVideo1(), array('class' => 'input-block-level')); ?></td>
+                        <td style="width:33%;"><?php echo $formHelper->text('youtubeVideo2', $dogObj->getYoutubeVideo2(), array('class' => 'input-block-level')); ?></td>
+                        <td colspan="2"><?php echo $formHelper->text('youtubeVideo3', $dogObj->getYoutubeVideo3(), array('class' => 'input-block-level')); ?></td>
+                    </tr>
+                    <tr>
+                        <td>Height</td>
+                        <td>Weight</td>
+                        <td>Sex</td>
+                        <td>Birthdate</td>
+                    </tr>
+                    <tr>
+                        <td><?php echo $formHelper->text('height', $dogObj->getHeight(), array('class' => 'input-block-level')); ?></td>
+                        <td><?php echo $formHelper->text('weight', $dogObj->getHeight(), array('class' => 'input-block-level')); ?></td>
+                        <td><?php echo $formHelper->select('sex', ShieldDog::$sexes, $dogObj->getSex(), array('class' => 'input-block-level')); ?></td>
+                        <td><?php echo $dateHelper->date('birthdate', $dogObj->getBirthdate()); ?></td>
                     </tr>
 					<tr>
 						<td colspan="4">Short Description</td>

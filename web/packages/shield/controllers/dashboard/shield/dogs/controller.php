@@ -20,6 +20,8 @@
 		
 		public function save( $id = null ) {
 			$dogObj = ShieldDog::getByID($id);
+            $birthDate = new DateTime($_POST['birthdate'], new DateTimeZone('UTC'));
+            $_POST['birthdate'] = $birthDate->format('Y-m-d H:i:s');
             $dogObj->setPropertiesFromArray($_POST);
             $dogObj->save();
 			$this->redirect('/dashboard/shield/dogs/search');

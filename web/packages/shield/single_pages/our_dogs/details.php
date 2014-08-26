@@ -31,7 +31,7 @@
 <!-- BEGIN .content -->
 <article class="container main bg-gray dog-details">
     <div class="row">
-        <div class="small-12 medium-4 columns dog-item">
+        <div class="small-12 medium-4 columns dog-item  hide-for-print">
             <?php Loader::packageElement('partials/dog_item', 'shield', array(
                 'dogObj'      => $dogObj,
                 'imageHelper' => $imageHelper
@@ -49,22 +49,22 @@
         </div>
         <div class="small-12 medium-7 columns">
             <div class="dog-desc">
-            	<div class="print-7">
+            	<div class="print-col-1">
 	            	<div class="bio">
 		                <?php echo $dogObj->getLongDescription(); ?>
 	            	</div>
-	            	<div class="stats show-for-print">
+	            	<div class="stats print-only">
 						<h3>Dog Information</h3>
 						<p><span class="label">Level:</span><span class="value"><?php echo $dogObj->getProtectionHandle(true); ?> Protection</span></p>
 						<p><span class="label">Breed:</span><span class="value"><?php echo $dogObj->getBreedHandle(true); ?></span></p>
 						<p><span class="label">Sex:</span><span class="value"><?php echo $dogObj->getSex(); ?> </span></p>
-						<p><span class="label">D.O.B:</span><span class="value"><?php echo $dogObj->getBirthdate('M d, Y'); ?> </span></p>
+						<p><span class="label">D.O.B:</span><span class="value"><?php echo $dogObj->getBirthdate('M d, Y'); ?></span></p>
 						<p><span class="label">Height:</span><span class="value"><?php echo $dogObj->getHeight(); ?> inches</span></p>
 						<p><span class="label">Weight:</span><span class="value"><?php echo $dogObj->getWeight(); ?> lbs</span></p>
 					</div>
             	</div>
                 <hr />
-                <div class="print-5">
+                <div class="print-col-2">
 	                <div class="gallery">
 	                    <ul>
 	                        <?php

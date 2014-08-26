@@ -17,5 +17,5 @@
 <hr/>
 <div class="row">
     <div class="small-6 columns level"><?php echo $dogObj->getProtectionHandle(true); ?> Protection</div>
-    <div class="small-6 columns dob"><!--Born: March 12, 2008-->{{DOB}}</div>
+    <div class="small-6 columns dob"><?php echo $dogObj->getBirthdate('M d, Y'); ?></div>
 </div>

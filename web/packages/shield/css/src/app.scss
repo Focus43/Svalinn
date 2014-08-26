@@ -3,15 +3,8 @@
 @import "foundation";
 @import "global";
 @import "print";
-.alert-box{
-	padding:50px 20%;
-	font-size:18px;
-	line-height:24px;
-	text-align: center;
-	a{color:#ffe8d1;text-decoration:underline;}
-	.close{display:none;}
-}
-/* === V.2.5 === */
+
+/* === V.2.8 === */
 body{
 	.privateclient &{background:$black-blue;}
 }
@@ -25,7 +18,14 @@ body{
 		box-shadow: 1px 10px 0 1px $lite-green, 1px 16px 0 1px $lite-green, 1px 22px 0 1px $lite-green;
 	}
 }
-
+.alert-box{
+	padding:50px 20%;
+	font-size:18px;
+	line-height:24px;
+	text-align: center;
+	a{color:#ffe8d1;text-decoration:underline;}
+	.close{display:none;}
+}
 @mixin metalic{
 	background: url("/packages/shield/img/professional/bg-title-mask.jpg") no-repeat;
 	-webkit-background-clip: text;

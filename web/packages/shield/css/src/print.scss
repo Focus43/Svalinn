@@ -69,7 +69,7 @@
 		border-top:1px solid #005581;
 		border-bottom:1px solid #005581;
 	}
-	.print-col-1{float:left;width:4.1in;margin-right:.30in;}
+	.print-col-1{float:left;width:4.1in;margin-right:.30in;
 		.bio p{font-size:8pt;line-height:14pt;}
 		.stats{
 			margin:1in 0.6in 0;
@@ -89,7 +89,7 @@
 				background:#FFF;
 				-webkit-print-color-adjust: exact;
 			}
-			 p{
+			p{
 				margin:3pt 0;
 				padding:5pt 10pt 3pt;
 				font-size:8pt;
@@ -136,11 +136,12 @@
 			}
 		}	
 	}
-		
+			
 		
 	h1{margin-top:0.05in;}
 	h1,h2,h3,h4{page-break-after: avoid;}
 	p,ul,li{page-break-inside : avoid;}
 	a:link, a:visited {display:block;margin:0 0 0.1in;padding:0;border:0;text-align:left;background: transparent; color:#333; text-decoration:none;}
 	a {color:#000;} 
+
 }

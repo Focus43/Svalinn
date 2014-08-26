@@ -49,23 +49,45 @@
         </div>
         <div class="small-12 medium-7 columns">
             <div class="dog-desc">
-                <?php echo $dogObj->getLongDescription(); ?>
+            	<div class="print-7">
+	            	<div class="bio">
+		                <?php echo $dogObj->getLongDescription(); ?>
+	            	</div>
+	            	<div class="stats show-for-print">
+						<h3>Dog Information</h3>
+						<p><span class="label">Level:</span><span class="value"><?php echo $dogObj->getProtectionHandle(true); ?> Protection</span></p>
+						<p><span class="label">Breed:</span><span class="value"><?php echo $dogObj->getBreedHandle(true); ?></span></p>
+						<p><span class="label">Sex:</span><span class="value"><?php echo $dogObj->getSex(); ?> </span></p>
+						<p><span class="label">D.O.B:</span><span class="value"><?php echo $dogObj->getBirthdate('M d, Y'); ?> </span></p>
+						<p><span class="label">Height:</span><span class="value"><?php echo $dogObj->getHeight(); ?> inches</span></p>
+						<p><span class="label">Weight:</span><span class="value"><?php echo $dogObj->getWeight(); ?> lbs</span></p>
+					</div>
+            	</div>
                 <hr />
-                <div class="gallery">
-                    <ul>
-                        <?php
-                        $imageHelper = Loader::helper('image');
-                        $fs = FileSet::getByID($dogObj->mediaSetID);
-                        $fileList = new FileList();
-                        $fileList->filterBySet($fs);
-                        $fileList->filterByType(FileType::T_IMAGE);
-                        $files = $fileList->get(100,0); //limit it to 100 pictures
-                        foreach($files as $f) {
-                            // getThumbnail($fileObj, maxWidth, maxHeight, {crop?true|false})
-                            echo '<li><img src="'.$imageHelper->getThumbnail($f, 750, 1000, false)->src.'" /></li>';
-                        }
-                        ?>
-                    </ul>
+                <div class="print-5">
+	                <div class="gallery">
+	                    <ul>
+	                        <?php
+	                        $imageHelper = Loader::helper('image');
+	                        $fs = FileSet::getByID($dogObj->mediaSetID);
+	                        $fileList = new FileList();
+	                        $fileList->filterBySet($fs);
+	                        $fileList->filterByType(FileType::T_IMAGE);
+	                        $files = $fileList->get(100,0); //limit it to 100 pictures
+	                        $print_count = 0;
+	                        foreach($files as $f) {
+	                        	$print_count++;
+	                        	if( count($print_count) < 4 ){
+		                        	$img_class = 'show-for-print';
+	                        	}else{
+		                        	$img_class = 'hide-for-print';
+	                        	}
+	                            // getThumbnail($fileObj, maxWidth, maxHeight, {crop?true|false})
+	                            echo '<li class="'.$img_class.'"><img src="'.$imageHelper->getThumbnail($f, 750, 1000, false)->src.'" /></li>';
+	                        }
+	                        ?>
+	                    </ul>
+	                </div>
                 </div>
             </div>
         </div>

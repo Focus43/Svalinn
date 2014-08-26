@@ -1,0 +1,134 @@
+/*
+PAGE
+-------------------------------------------------- */
+@page {
+	size:8.5in 11in;
+	margin: 0;
+	orphans:4;
+	widows:2;
+}
+
+/*
+CONTENT
+-------------------------------------------------- */
+*, *:before, *:after {
+	-webkit-print-color-adjust: exact;
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+html,body,.main{background:none !important;}
+body {
+	margin:0;
+	padding:0;
+	color:#414141;
+	font-size:12px;
+	line-height: 1.5em;
+	word-spacing:1px;
+	letter-spacing:0.2px;
+	font-family:"Proxima Nova","Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+}
+.header #professional,
+.top-bar-section,
+.masthead hr,
+.dog-item,
+.dog-desc hr,
+.testimonials,
+.footer,
+.right-off-canvas-menu{display:none;}
+.off-canvas-wrap .inner-wrap .main-wrap{margin:0;padding:0;border:0;background:none;box-shadow:none;}
+.main,.row,.column,.columns{margin:0;padding:0;width:100% !important;border:0;box-shadow:none;}
+
+.off-canvas-wrap .inner-wrap .main-wrap{
+	height:11in;
+	width:8.5in;
+	max-width:auto;
+	padding:1.25in 0.75in 1in;
+	background-image: url("bg.jpg");
+	background-position:0 0;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+h1, h2, h3, p{letter-spacing: 0.03em;}
+p{
+	font-weight:300;
+	margin:0 0 1.25rem;
+	padding:0;
+}
+.header #privateclient{text-align:center;}
+.masthead h1{
+	margin:0 0 20pt;
+	padding:2pt 0 3pt;
+	color:#005581;
+	font-family:"Quadon","Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+	font-size:12pt;
+	font-style:italic;
+	font-weight:400;
+	text-align:center;
+	text-transform:uppercase;
+	border-top:1px solid #005581;
+	border-bottom:1px solid #005581;
+}
+.print-col-1{float:left;width:4.1in;margin-right:.30in;}
+	.print-col-1 .bio p{font-size:8pt;line-height:14pt;}
+	.print-col-1 .stats{
+		margin:1in 0.6in 0;
+		padding:0 0.15in 0.1in 0.15in;
+		border:1pt solid #cbc9c6;
+	}
+	.print-col-1 .stats h3{
+		margin:-7pt auto 0.10in;
+		width:1.5in;
+		color:#005581;
+		font-family:"Quadon","Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+		font-size:8pt;
+		font-style:italic;
+		font-weight:400;
+		letter-spacing:0.5pt;
+		text-align:center;
+		text-transform:uppercase;
+		background:#FFF;
+		-webkit-print-color-adjust: exact;
+	}
+	.print-col-1 .stats p{
+		margin:3pt 0;
+		padding:5pt 10pt 3pt;
+		font-size:8pt;
+		background-color:#f1f1f1;
+	}
+	.print-col-1 .stats p .label{
+		line-height: 1;
+		white-space: nowrap;
+		display: inline-block;
+		position: relative;
+		color:#005581;
+		width:.75in;
+		font-family:"Quadon","Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+		font-size:8pt;
+		font-style:normal;
+		font-weight:600;
+		text-align:left;
+		text-transform:uppercase;
+		background:none;
+		
+	}
+	.print-col-1 .stats p .value{
+		color:#222;
+		font-family:"Proxima Nova","Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+		font-size:9pt;
+		font-style:normal;
+		font-weight:400;
+		background:none;
+	}
+.print-col-2{float:left;width:2.5in;}
+	.gallery ul{margin:0;padding:0;}
+	.gallery li{margin:0 0 5pt !important;padding:0;list-style:none;}
+	.gallery li.hide-for-print{display:none !important;}
+	.gallery img{max-width:100%;}
+	
+	
+h1{margin-top:0.05in;}
+h1,h2,h3,h4{page-break-after: avoid;}
+p,ul,li{page-break-inside : avoid;}
+a:link, a:visited {display:block;margin:0 0 0.1in;padding:0;border:0;text-align:left;background: transparent; color:#333; text-decoration:none;}
+
+a {color:#000;} 

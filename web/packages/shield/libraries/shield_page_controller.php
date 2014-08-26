@@ -73,7 +73,9 @@
         public function includeAssets( Controller $pageController ){
             // header and CSS items
             $pageController->addHeaderItem( '<meta name="shield-tools-path" value="'.SHIELD_TOOLS_URL.'" />' );
-            $pageController->addHeaderItem( $this->getHelper('html')->css('application.css', self::PACKAGE_HANDLE) );
+            $pageController->addHeaderItem( '<link rel="stylesheet" type="text/css" media="screen" href="/packages/shield/css/application.css" />');
+            $pageController->addHeaderItem( '<link rel="stylesheet" type="text/css" media="print" href="/packages/shield/css/print.css" />');
+            //$pageController->addHeaderItem( $this->getHelper('html')->css('application.css', self::PACKAGE_HANDLE) );
             $pageController->addHeaderItem( $this->getHelper('html')->javascript('modernizr.js', self::PACKAGE_HANDLE) );
             
             // footer stuff (usually javascript)

@@ -83,7 +83,7 @@
 		                        	$img_class = 'hide-for-print';
 	                        	}
 	                            // getThumbnail($fileObj, maxWidth, maxHeight, {crop?true|false})
-	                            echo '<li class="'.$img_class.'"><img src="'.$imageHelper->getThumbnail($f, 750, 1000, false)->src.'" /></li>';
+	                            echo '<li class="'.$img_class.' count-'.$print_count.'"><img src="'.$imageHelper->getThumbnail($f, 750, 1000, false)->src.'" /></li>';
 	                        }
 	                        ?>
 	                    </ul>

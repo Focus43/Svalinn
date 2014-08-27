@@ -76,8 +76,8 @@
 	                        $files = $fileList->get(100,0); //limit it to 100 pictures
 	                        $print_count = 0;
 	                        foreach($files as $f) {
-	                        	$print_count++;
-	                        	if( count($print_count) < 4 ){
+	                        	$print_count = $print_count+1;
+	                        	if( count($print_count) <= 3 ){
 		                        	$img_class = 'show-for-print';
 	                        	}else{
 		                        	$img_class = 'hide-for-print';

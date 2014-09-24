@@ -2,7 +2,7 @@
 @import "normalize";
 @import "foundation";
 @import "global";
-/* === V.2.8 === */
+/* === V.2.9 === */
 body{
 	.privateclient &{background:$black-blue;}
 }
@@ -260,8 +260,8 @@ MASTHEAD
 				color:$brand-blue;
 				text-align: center;
 				@media #{$small-only}{
-					@include rem(font-size, 32px);
-					@include rem(line-height, 34px);
+					@include rem(font-size, 1.25rem);
+					@include rem(line-height, 1.7rem);
 				}
 			}
 			hr{
@@ -280,11 +280,13 @@ MASTHEAD
 					@include rem(font-size, 1rem);
 					@include rem(line-height, 2rem);
 					text-align: center;
+					
 				}
 			}
 			p{
 				@media #{$small-only}{
 					@include rem(font-size, 14px);
+					@include rem(line-height, 1.5rem);
 				}
 			}
 			p.lead{
@@ -449,7 +451,7 @@ MAIN
 	&.main-2,&.main-3{padding-top:0;}
 	&.main-1{
 		@media #{$small-only}{
-			@include rem(padding, 1rem);
+			@include rem(padding, 3rem 1rem 1rem);
 		}
 		h1{
 			@include rem(margin-bottom, 36px);

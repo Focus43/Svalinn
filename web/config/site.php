@@ -10,8 +10,8 @@
 		
 		// needed for successful installation on Pagodabox. see issue
 		// http://www.concrete5.org/developers/bugs/5-6-0-2/install-fails-with-mysql-auto-increment-offset-set/
-		define('REGISTERED_GROUP_ID', '5');
-		define('ADMIN_GROUP_ID', '9');
+		//define('REGISTERED_GROUP_ID', '5');
+		//define('ADMIN_GROUP_ID', '9');
 		
 		// connect to Redis cache
 		define('REDIS_CONNECTION_HANDLE', 'tunnel.pagodabox.com:6379');

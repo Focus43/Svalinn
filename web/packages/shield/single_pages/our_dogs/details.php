@@ -107,5 +107,5 @@
     </div>
 </div>
 <!-- BEGIN .footer -->
-<?php Loader::packageElement('theme_footer', 'shield'); ?>
+<?php //Loader::packageElement('theme_footer', 'shield'); ?>
 <!-- END .footer -->

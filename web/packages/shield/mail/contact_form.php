@@ -32,11 +32,11 @@ $template = <<< heredoc
 													<p class="p"><strong>Name:</strong> {$formData->name}</p>
 													<p class="p"><strong>Email:</strong> {$formData->email}</p>
 													<p class="p"><strong>Phone:</strong> {$formData->phone}</p>
-													<p class="p"><strong>City:</strong> &#36;{$formData->city}</p>
+													<p class="p"><strong>Location:</strong> {$formData->location}</p>
 													<hr>
 													<p class="p"><strong>Client Type:</strong> {$formData->client_type}</p>
 													<hr>
-													<p class="p"><strong>Client Type:</strong> {$formData->other_pets}</p>
+													<p class="p"><strong>Other Pets:</strong> {$formData->other_pets}</p>
 													<hr>
 													<p class="p"><strong>About Yourself:</strong> {$formData->about_yourself}</p>
 													<hr>

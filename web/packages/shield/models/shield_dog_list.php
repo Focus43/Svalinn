@@ -36,6 +36,10 @@
             $this->filter('dogs.protectionHandle', $protectionLevel, '=');
         }
 
+        public function filterByActiveStatus( $status ){
+            $this->filter('dogs.activeStatus', $status, '=');
+        }
+
 		public function sortByName(){
             $this->sortBy('dogs.name', 'asc');
 		}
@@ -80,6 +84,7 @@
 			$this->addColumn(new DatabaseItemListColumn('breed', t('Breed'), array('ShieldDogColumnSet', 'getBreed')));
 			$this->addColumn(new DatabaseItemListColumn('protectionLevel', t('Protection Level'), array('ShieldDogColumnSet', 'getProtectionLevel')));
             $this->addColumn(new DatabaseItemListColumn('reservedStatus', t('Status'), array('ShieldDogColumnSet', 'getReservedStatus')));
+            $this->addColumn(new DatabaseItemListColumn('activeStatus', t('Visibility'), array('ShieldDogColumnSet', 'getActiveStatus')));
 		}
 		
 		public function getNameAsLast( ShieldDog $dogObj ){
@@ -97,6 +102,10 @@
 
         public function getReservedStatus( ShieldDog $dogObj ){
             return $dogObj->getReservedStatus(true);
+        }
+
+        public function getActiveStatus( ShieldDog $dogObj ){
+            return ShieldDog::$activeStatusList[$dogObj->getActiveStatus()];
         }
 		
 		public function getCurrent(){

@@ -43,6 +43,7 @@
         public function dogListObj(){
             if( $this->_dogListObj === null ){
                 $this->_dogListObj = new ShieldDogList();
+                $this->_dogListObj->filterByActiveStatus(ShieldDog::STATUS_ACTIVE);
                 $this->_dogListObj->sortByName();
             }
             return $this->_dogListObj;

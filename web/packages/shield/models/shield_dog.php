@@ -11,7 +11,9 @@
               PROTECTION_LEVEL_III  = 3,
               RESERVED_NO           = 0,
               RESERVED_YES          = 1,
-              RESERVED_SOLD         = 2;
+              RESERVED_SOLD         = 2,
+              STATUS_ACTIVE         = 1,
+              STATUS_INACTIVE       = 0;
 
 		
 		protected $tableName,
@@ -33,16 +35,20 @@
         );
 
         public static $reservedOptions = array(
-            self::RESERVED_SOLD => 'Sold',
+            self::RESERVED_NO   => 'Available',
             self::RESERVED_YES  => 'Reserved',
-            self::RESERVED_NO   => 'Available'
+            self::RESERVED_SOLD => 'Sold'
         );
 
         public static $sexes = array(
             'Male'   => 'Male',
             'Female' => 'Female'
         );
-		
+
+        public static $activeStatusList = array(
+            self::STATUS_ACTIVE     => 'Show',
+            self::STATUS_INACTIVE   => 'Hide'
+        );
 		
 		/**
 		 * @param array $properties Set object property values with key => value array
@@ -89,6 +95,9 @@
         public function getWeight(){ return $this->weight; }
         /** @return string Get sex */
         public function getSex(){ return $this->sex; }
+        /** @return int Get active status for the dog */
+        public function getActiveStatus(){ return $this->activeStatus; }
+
         /** @return string Get birthdate */
         public function getBirthdate( $format = false ){
             if( is_string($format) ){
@@ -153,7 +162,7 @@
             return $this->protectionHandle;
         }
 
-        /** @return string Get price */
+        /** @return float Get price */
         public function getPrice($formatted = false){
             if( $formatted === true ){
                 setlocale(LC_MONETARY, 'en_US.UTF-8');
@@ -162,7 +171,8 @@
 
             return $this->price;
         }
-		
+
+        /** @return File */
 		public function getPictureFileObj(){
 			if( $this->_fileObj === null ){
 				$this->_fileObj = File::getByID( $this->picID );
@@ -170,11 +180,18 @@
 			return $this->_fileObj;
 		}
 
-
+        /** @return string Get reserved until date */
+        public function getReservedUntil( $format = false ){
+            if( is_string($format) ){
+                $dateObj = new DateTime($this->reservedUntil, new DateTimeZone('UTC'));
+                return $dateObj->format($format);
+            }
+            return $this->reservedUntil; // is_null($this->reservedUntil) ? null : $this->reservedUntil;
+        }
 		
 		/**
 		 * Set properties of the current instance
-		 * @param array $arr Pass in an array of key => values to set object properties
+		 * @param array $properties Pass in an array of key => values to set object properties
 		 * @return void
 		 */
 		public function setPropertiesFromArray( array $properties = array() ) {
@@ -182,14 +199,22 @@
 				$this->{$key} = $prop;
 			}
 		}
-		
-		
-		protected function persistable(){
-			return array('name', 'shortDescription', 'picID', 'longDescription', 'breedHandle', 'protectionHandle', 'mediaSetID', 'price', 'reservedStatus', 'youtubeVideo1', 'youtubeVideo2', 'youtubeVideo3', 'height', 'weight', 'sex', 'birthdate');
+
+
+        /**
+         * Which properties can be persisted?
+         * @return array
+         */
+        protected function persistable(){
+			return array('name', 'shortDescription', 'picID', 'longDescription', 'breedHandle', 'protectionHandle', 'mediaSetID', 'price', 'reservedStatus', 'youtubeVideo1', 'youtubeVideo2', 'youtubeVideo3', 'height', 'weight', 'sex', 'birthdate', 'reservedUntil', 'activeStatus');
 		}
-		
-		
-		public function save(){
+
+
+        /**
+         * Persist an instance
+         * @return ShieldDog
+         */
+        public function save(){
 			if( $this->id >= 1 ){
 				$fields		= $this->persistable();
 				$updateStr  = 'modifiedUTC = UTC_TIMESTAMP()';
@@ -215,9 +240,13 @@
 			
 			return self::getByID( $this->id );
 		}
-		
-		
-		public static function getByID( $id ){
+
+
+        /**
+         * @param $id
+         * @return ShieldDog
+         */
+        public static function getByID( $id ){
 			$self = new self();
 			$row = Loader::db()->GetRow("SELECT * FROM {$self->tableName} WHERE id = ?", array( (int)$id ));
 			$self->setPropertiesFromArray($row);

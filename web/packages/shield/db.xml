@@ -33,6 +33,7 @@
         <field name="reservedStatus" type="I" size="11" >
             <default value="0"/>
         </field>
+        <field name="reservedUntil" type="T"></field>
         <field name="youtubeVideo1" type="C" size="255" />
         <field name="youtubeVideo2" type="C" size="255" />
         <field name="youtubeVideo3" type="C" size="255" />
@@ -42,6 +43,10 @@
         <field name="birthdate" type="T">
             <NOTNULL/>
         </field>
+        <field name="activeStatus" type="I1" size="1">
+            <DEFAULT value="1"/>
+        </field>
+
         <!-- indices -->
         <index name="name">
             <col>name</col>

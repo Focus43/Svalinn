@@ -53,8 +53,8 @@
                         </label>
                     </div>
                     <div class="large-6 columns" data-field="city">
-                        <label>City
-                            <input name="city" type="text" placeholder="Your City">
+                        <label>Your Location (City/State)
+                            <input name="location" type="text" placeholder="Location">
                         </label>
                     </div>
                 </div>

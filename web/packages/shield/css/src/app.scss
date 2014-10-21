@@ -1126,7 +1126,11 @@ FOOTER
 @mixin footer($type) {
 	@include rem(padding-top, 3rem);
 	color:#FFF;
-	.contact{@include rem(margin-top,0.3333334rem);}
+	.contact{text-align:center;@include rem(margin-top,0.3333334rem);}
+    @media #{$medium-up} {
+      .contact {text-align:right;}
+    }
+
 	.or{
 		position: relative;
 		display: inline-block;
@@ -1145,8 +1149,19 @@ FOOTER
 			margin: 0 35%;
 		}
 	}
+
+    .socialize-list {list-style:none;font-size:0;line-height:0;text-align:inherit;position:relative;
+      li {display:inline-block;font-size:1rem;line-height:1;opacity:0.6;-webkit-transition:all 0.25s ease;-moz-transition:all 0.25s ease;-ms-transition:all 0.25s ease;transition:all 0.25s ease;
+        &:hover {opacity:1;}
+        a {display:block;margin:1rem 0.5rem;}
+      }
+    }
+
+    @media #{$medium-up}{
+      .socialize-list {right:-1rem;}
+    }
 	
-	.copyright{@include rem(margin-top,6rem);@include rem(padding-top,3rem);}
+	.copyright{@include rem(margin-top,1rem);@include rem(padding-top,1rem);}
 	
 	@media only screen and (max-width: 40em){
 		.or{display: none;}
@@ -1175,6 +1190,7 @@ FOOTER
 	.privateclient.sublanding &{
 		border-top:24px solid #dbdcd5;
 	}
+
 	@if $type == privateclient {
 		background:$black-blue;
 		

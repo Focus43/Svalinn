@@ -1,11 +1,17 @@
 <?php /** @var $dogObj ShieldDog */ ?>
 <div class="row">
     <div class="small-12 columns">
-        <a href="<?php echo $this->action('details', $dogObj->getDogID()); ?>">
+        <a class="pic" href="<?php echo $this->action('details', $dogObj->getDogID()); ?>">
             <?php if( $dogObj->getPictureFileObj()->getFileID() >= 1 ): ?>
                 <img src="<?php echo $imageHelper->getThumbnail($dogObj->getPictureFileObj(), 400, 245, true)->src; ?>" />
             <?php else: ?>
                 <img src="<?php echo SHIELD_IMAGES_URL; ?>dog-placeholder.jpg"/>
+            <?php endif; ?>
+
+            <?php if( (int)$dogObj->getReservedStatus() !== ShieldDog::RESERVED_NO ): ?>
+            <span class="ribbon <?php echo strtolower($dogObj->getReservedStatus(true)); ?>">
+                <?php echo ((int)$dogObj->getReservedStatus() === ShieldDog::RESERVED_YES) ? sprintf('Reserved until %s', $dogObj->getReservedUntil('M d, Y')) : $dogObj->getReservedStatus(true); //((int)$this->reservedStatus === self::RESERVED_YES ? sprintf('until %s', $this->getReservedUntil('M d, Y')) : '') ?>
+            </span>
             <?php endif; ?>
         </a>
     </div>

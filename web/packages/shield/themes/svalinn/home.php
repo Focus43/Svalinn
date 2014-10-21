@@ -41,8 +41,7 @@ Your browser is out of date! It looks like you're using an old version of Intern
 						        	<div class="column medium-10 medium-centered">
 							        	<?php $a = new Area('Masthead'); $a->display($c); ?>
 							        	<p><a href="/privateclient" class="btn btn-lg">LEARN MORE ABOUT OUR PRIVATE CLIENT SERVICES</a></p>
-										<p><a href="https://www.facebook.com/SnakeRiverK9" target="_blank" class="btn social">Follow Svalinn Private Client on facebook</a></p>
-
+										<!--<p><a href="https://www.facebook.com/SnakeRiverK9" target="_blank" class="btn social">Follow Svalinn Private Client on facebook</a></p>-->
 						        	</div>
 						        </div>
 							 </div>
@@ -73,8 +72,7 @@ Your browser is out of date! It looks like you're using an old version of Intern
 							<hr/>
 							<p>In addition to personal protection, Svalinn has advanced the art<br class="show-for-large-up"/>and ability of the military working dog.</p>
 							<p><a href="/professional" class="btn btn-lg">LEARN MORE ABOUT OUR PROFESSIONAL SERVICES</a></p>
-							<p><a href="https://www.facebook.com/pages/Svalinn/451171018338883" target="_blank" class="btn social">Follow Svalinn Professional on facebook</a></p>
-	                        
+							<!--<p><a href="https://www.facebook.com/pages/Svalinn/451171018338883" target="_blank" class="btn social">Follow Svalinn Professional on facebook</a></p>-->
 						</div>
 					</div>
 				</article>
@@ -83,7 +81,7 @@ Your browser is out of date! It looks like you're using an old version of Intern
 					<div class="source">
 						<ul id="instagram_feed"></ul>
 					</div>
-					<p><a href="http://instagram.com/svalinn_private" target="_blank" class="btn social">Follow Svalinn on Instagram</a></p>
+					<!--<p><a href="http://instagram.com/svalinn_private" target="_blank" class="btn social">Follow Svalinn on Instagram</a></p>-->
 				</div>
 				<!-- BEGIN .footer -->
 	            <?php Loader::packageElement('theme_footer', 'shield'); ?>

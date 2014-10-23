@@ -1154,6 +1154,7 @@ FOOTER
       li {display:inline-block;font-size:1rem;line-height:1;opacity:0.6;-webkit-transition:all 0.25s ease;-moz-transition:all 0.25s ease;-ms-transition:all 0.25s ease;transition:all 0.25s ease;
         &:hover {opacity:1;}
         a {display:block;margin:1rem 0.5rem;}
+        img {max-width:50px;}
       }
     }
 

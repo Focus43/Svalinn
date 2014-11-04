@@ -46,7 +46,8 @@ module.exports = function( grunt, _configs ){
             compass : true
         },
         files : [
-            {src: [pkgPath('css/src/app.scss')], dest: pkgPath('css/application.css')}
+            {src: [pkgPath('css/src/app.scss')], dest: pkgPath('css/application.css')},
+            {src: [pkgPath('css/src/homepage.scss')], dest: pkgPath('css/homepage.css')}
         ]
     };
 

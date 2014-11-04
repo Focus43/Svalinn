@@ -10,7 +10,10 @@
 Loader::packageElement('html_head', 'shield');
 Loader::element('header_required'); // REQUIRED BY C5 //
 ?>
-<link rel="stylesheet" href="http://fisherphx.net/svalinn.css" />
+<link rel="stylesheet" href="/packages/shield/css/homepage.css" />
+<script type="text/javascript" src="/packages/shield/js/jquery.easing.js"></script>
+<script type="text/javascript" src="/packages/shield/js/jquery.viewport.js"></script>
+<script type="text/javascript" src="/packages/shield/js/homepage.js"></script>
 </head>
 
 <body class="antialiased<?php echo $bodyClasses; ?> home">
@@ -29,60 +32,83 @@ Your browser is out of date! It looks like you're using an old version of Intern
 	                )
 	            )); ?>
 				<!-- END HEADER   -->
-				
-				<!-- BEGIN .private-section -->
-				<article class="container masthead private-section">
-				    <div class="row">
-				        <div class="column medium-11 medium-centered intro">
-							<div class="intro-inner">
-					            <h1>Bred to Love. <br class="show-for-medium-up"/>Trained to Protect.</h1>
-								<hr/>
-								<div class="intro-content row">
-						        	<div class="column medium-10 medium-centered">
-							        	<?php $a = new Area('Masthead'); $a->display($c); ?>
-							        	<p><a href="/privateclient" class="btn btn-lg">LEARN MORE ABOUT OUR PRIVATE CLIENT SERVICES</a></p>
-										<!--<p><a href="https://www.facebook.com/SnakeRiverK9" target="_blank" class="btn social">Follow Svalinn Private Client on facebook</a></p>-->
-						        	</div>
-						        </div>
-							 </div>
-				        </div>
-				    </div>
-				</article>
-				<!-- END .private-section -->
-				
-				<!-- BEGIN .name-section -->
-				<article class="container name-section">
-					<div class="row">
-						<div class="column medium-12 large-12">
-							<div class="intro">
-								<h1>THE SVALINN NAME</h1>
-								<p>In Norse mythology Svalinn is the name of a legendary shield given by the gods. Svalinn protects Alsvin and Avakar, two steeds that pull the sun across the sky and Earth, from the sun’s full power. Svalinn is a timeless symbol of strength and ardent vigilance. It’s a name that appropriately portrays the ever-present companionship and protection that our highly trained dogs provide.</p>
-								<p><em>Bottom line, Svalinn means peace of mind.</em></p>
-
+				<div class="scroll-down down-only">
+				    <a href="#" class="down" data-int="1"><img src="/packages/shield/img/home/arrow-down.png"/></a><a href="#" class="up" data-int="1"><img src="/packages/shield/img/home/arrow-up.png"/></a>
+			    </div>
+				<!-- BEGIN .articles -->
+				<div class="articles">
+					<article data-int="0" class="full">
+						<div class="bg-image" style="background-image: url(/packages/shield/img/home/home-1.jpg);background-position:50%;"></div>
+						<div class="container">
+							<div class="text-center-tight full">
+								<div class="inner">
+									<div class="intro">
+										<h1 class="text-center">Bred to Love. Trained to Protect.</h1>
+										<p class="text-center">Simply put, Svalinn breeds, raises and trains world-class protection dogs. With a focus on the dual role as both friend and protector, our dogs possess an unparalleled level of sociability and vigilance. Located in Jackson, Wyoming, we likely are training your perfect protection companion right now.</p>
+									</div>
+								</div>
 							</div>
 						</div>
-				</article>
-				<!-- END .name-section -->
-				
-				<!-- BEGIN .pro-section -->
-				<article class="container pro-section">
-					<div class="row">
-						<div class="column medium-11 medium-centered">
-							<h1>A Legacy Of Vigilance.</h1>
-							<hr/>
-							<p>In addition to personal protection, Svalinn has advanced the art<br class="show-for-large-up"/>and ability of the military working dog.</p>
-							<p><a href="/professional" class="btn btn-lg">LEARN MORE ABOUT OUR PROFESSIONAL SERVICES</a></p>
-							<!--<p><a href="https://www.facebook.com/pages/Svalinn/451171018338883" target="_blank" class="btn social">Follow Svalinn Professional on facebook</a></p>-->
+					</article>
+					<article data-int="1" class="full">
+						<div class="bg-image" style="background-image: url(/packages/shield/img/home/home-2.jpg);background-position:0 50%;"></div>
+						<div class="container">
+							<div class="text-center-tight full">
+								<div class="inner">
+									<div class="block">
+										<h2>Best Friend</h2>
+										<p>The bond between humans and canines is one of the most powerful in the world. Our curriculum is built upon our understanding and appreciation of the special relationship between man and dog.</p>
+									</div>
+								</div>
+							</div>
 						</div>
-					</div>
-				</article>
-				<!-- END .pro-section -->
-				<div class="container instagram-section">
-					<div class="source">
-						<ul id="instagram_feed"></ul>
-					</div>
-					<!--<p><a href="http://instagram.com/svalinn_private" target="_blank" class="btn social">Follow Svalinn on Instagram</a></p>-->
+					</article>
+					<article data-int="2" class="full">
+						<div class="bg-image" style="background-image: url(/packages/shield/img/home/home-3.jpg);background-position:100% 50%;"></div>
+						<div class="container">
+							<div class="text-center-tight full">
+								<div class="inner">
+									<div class="block right">
+										<h2>Best Protection.</h2>
+										<p>Our focus is developing loving and faithful companion dogs that are also exceptional deterrents to any threat, and instant protectors should you or your family ever be in imminent danger.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</article>
+					<article  data-int="3" class="full">
+						<div class="bg-image" style="background-image: url(/packages/shield/img/home/home-4.jpg);background-position:0 50%;"></div>
+						<div class="container">
+							<div class="text-center-tight full">
+								<div class="inner">
+									<div class="block">
+										<h2>Best Option.</h2>
+										<p>It’s our unique training and breeding techniques—along with our own real-world security expertise—that allows us to raise Svalinn dogs to the highest standards possible.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</article>
+					<blockquote data-int="4" class="full">
+						<div class="bg-image" style="background-image: url(/packages/shield/img/bg/quote.jpg);background-position:0 50%;"></div>
+						<div class="container">
+							<div class="text-center-tight full">
+								<div class="inner">
+									<div class="quote_gallery">
+										<ul>
+											<li>
+												<p class="text-center quote">As I watch bandit protect me during our training scenarios, the ultimate act of humbleness takes place. I now see that I am willing to allow someone to stand between me and a threat against those I love.</p>
+												<p class="text-center signature">- tony, father of 2 -</p>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					    <div class="dummy"></div>
+					</blockquote>
 				</div>
+				<!-- END .articles -->
 				<!-- BEGIN .footer -->
 	            <?php Loader::packageElement('theme_footer', 'shield'); ?>
 				<!-- END .footer -->

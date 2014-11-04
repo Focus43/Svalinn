@@ -46,15 +46,13 @@ Your browser is out of date! It looks like you're using an old version of Intern
 				<!-- END .submast -->
 				
 				<!-- BEGIN .content -->
-				<article class="container main main-1">
-					<div class="row">
+				<article class="container main">
+					<div class="row section-1">
 						<div class="column medium-12 large-10 medium-centered">
 							<?php $a = new Area('Main'); $a->display($c); ?>
 						</div>
 					</div>
-				</article>
-				<article class="container main main-2">
-					<div class="row section">
+					<div class="row section-2">
 						<div class="small-12 medium-6 large-5 large-offset-1 columns left-col">
 	                        <?php $a = new Area('Main-2'); $a->display($c); ?>
 						</div>
@@ -64,16 +62,13 @@ Your browser is out of date! It looks like you're using an old version of Intern
 							</div>
 						</div>
 					</div>
-				</article>
-				<article class="container main main-3">
-					<div class="row">
+					<div class="row section-3">
 						<div class="column medium-12 large-10 medium-centered">
 	                        <?php $a = new Area('Main-4'); $a->display($c); ?>
 						</div>
 					</div>
 				</article>
 				<!-- END .content -->
-				<div class="footer-img"></div>
 				<!-- BEGIN .footer -->
 	            <?php Loader::packageElement('theme_footer', 'shield'); ?>
 				<!-- END .footer -->

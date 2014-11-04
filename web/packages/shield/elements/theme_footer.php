@@ -1,3 +1,31 @@
+<!-- BEGIN .tabs -->
+<div data-int="5"  class="footer-nav">
+	<ul>
+		<li><a href="#" data-target="training" class="training">Training</a></li>
+		<li><a href="#" data-target="professional" class="professional">Professional</a></li>
+	</ul>
+	<div class="callouts closed">
+		<div class="callout" id="callout-professional" style="background:#000;">
+			<div class="row collapse">
+				<div class="column medium-6 photo"></div>
+				<div class="column medium-6 details">
+					<p class="text-center">The Svalinn K9 program has developed breeding, tactical conditioning and training techniques that have proven far superior to conventional working dog kennels.</p>
+					<p class="text-center"><a href="/professional" class="btn">Click here to Learn More</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="callout" id="callout-training" style="background:#333;">
+			<div class="row">
+				<div class="column medium-6 photo"></div>
+				<div class="column medium-6 details">
+					<p class="text-center">At Svalinn, our dogs possess a level of sociability and obedience unparalleled in the industry. We would like to share this training approach and expertise with you and your dog.</p>
+					<p class="text-center"><a href="/training" class="btn">Click here to Learn More</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END .tabs -->
 <footer class="container footer" role="contentinfo">
     <div class="row">
         <div class="column medium-4 large-5 message">
@@ -7,12 +35,14 @@
             <a href="mailto:info@svalinn.com" class="btn btn-lg btn-contact btn-arrow uppercase">Email Us</a>
             <div class="or fwsb">OR</div>
             <a href="tel:1-307-200-1223" class="btn btn-lg btn-disabled uppercase">307.200.1223</a>
+            <!--
             <ul class="socialize-list">
                 <li><a href="https://www.facebook.com/pages/Svalinn/451171018338883" target="_blank"><img src="<?php echo SHIELD_IMAGES_URL; ?>svg-icons/facebook_gray.svg" /></a></li>
                 <li><a href="http://instagram.com/svalinn_private" target="_blank"><img src="<?php echo SHIELD_IMAGES_URL; ?>svg-icons/instagram_gray.svg" /></a></li>
                 <li><a href="https://twitter.com/svalinn_private" target="_blank"><img src="<?php echo SHIELD_IMAGES_URL; ?>svg-icons/twitter_gray.svg" /></a></li>
                 <li><a href="http://svalinn-private.tumblr.com/" target="_blank"><img src="<?php echo SHIELD_IMAGES_URL; ?>svg-icons/tumblr_gray.svg" /></a></li>
             </ul>
+            -->
         </div>
     </div>
     <div class="row copyright">

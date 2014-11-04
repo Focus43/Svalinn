@@ -72,19 +72,20 @@ body{background:$dark-white;}
 		}
 	}
 }
-
+.main-wrap{min-width:100%;}
 /* =============================================================================
 HEADER BAR
 ============================================================================= */
 .header {
 	@include clearfix;
-	position: relative;
+	position: fixed;
 	height:$header-height;
-	background: #FFF;
 	width: 100%;
 	z-index: 1;
 	z-index:999;
-	.professional &{background:#000;}
+	@media (max-width:71.25rem){
+		position:relative;
+	}
 	.primary-nav-container{
 		position: relative;
 		max-width: $row-width;
@@ -92,7 +93,14 @@ HEADER BAR
 		width:100%;
 		margin: 0 auto;
 		margin-bottom: 0;
-		
+		background: rgba(20, 42, 56, 0.75);
+		-webkit-transition: background 500ms;
+		-ms-transition: background 500ms;
+		-moz-transition: background 500ms;
+		transition: background 500ms;
+		@media (max-width:71.25rem){
+			background: rgb(20, 42, 56);
+		}
 		.name{
 			position:relative;
 			z-index:999;
@@ -100,20 +108,10 @@ HEADER BAR
 			padding:0;
 			line-height:1;
 			text-align: center;
-			.professional & {
-				#privateclient{display:none;}
-				#professional{}
-			}
-			.privateclient &, .home &, .our_dogs &, .contact &{
-				#professional{display:none;}
-				#privateclient{}
-			}
 			a{
 				display:block;
 				height:$header-height;
 				width:225px;
-				background: #FFF;
-				.professional &{background:#000;}
 			}
 			@media (min-width:1020px) and (max-width:1100px){
 				margin-left: -17px;
@@ -123,8 +121,6 @@ HEADER BAR
 			@media #{$small-only} {
 				width:225px;
 				text-align: left;
-				background:#fff;
-				.professional &{background:#000;}
 				img{
 					margin-left:-20px;
 				}
@@ -138,34 +134,12 @@ HEADER BAR
 			
 			ul {
 				height:$header-height !important;
+				background: transparent !important;
 				li {
 					list-style: none;
-					background: #FFF;
+					background: transparent;
 					.lt-ie9 &{float:left;width:150px;}
-					.professional &{background:#000;}
 					&:last-child {border:0;}
-					&:hover,&.nav-path-selected {
-						.home &, .our_dogs &, .contact &, .privateclient &{
-							a{
-								color: $medium-gray;
-								background: #FFF !important;
-								&:hover {
-									color: $medium-gray;
-									background: #FFF !important;
-								}
-							}
-						}
-						.professional &{
-							a{
-								color: #FFF;
-								background: #000 !important;
-								&:hover {
-									color: $lite-gray;
-									background: #000 !important;
-								}
-							}
-						}
-					}
 					a{
 						@include rem(font-size, 1rem);
 						font-weight: 400;
@@ -173,13 +147,11 @@ HEADER BAR
 						padding: 0 17px !important;
 						line-height: 75px;
 						height:$header-height;
-						.home &, .our_dogs &, .contact &, .privateclient &{
-							color: $brand-blue;
-							background: #FFF !important;
-						}
-						.professional &{
-							color: #FFF;
-							background: #000 !important;
+						color: #FFF;
+						background: transparent !important;
+						&:hover{
+							color:#ddd;
+							background: transparent !important;
 						}
 						@media #{$xlarge-up}{
 							padding: 0 17px !important;
@@ -198,8 +170,7 @@ HEADER BAR
 							&:last-child{@include rem(padding-bottom, 1rem);}
 							&.nav-selected{
 								a{
-									color: $medium-gray; 
-									.professional &{color:$medium-gray;}
+									color: $medium-gray;
 								}
 							}
 							a{
@@ -230,223 +201,79 @@ HEADER BAR
 MASTHEAD
 ============================================================================= */
 .masthead{
-	height:auto;
-	background-color:$medium-tan;
-	background-position:50% 0;
-	background-repeat: no-repeat;
-	.intro{
-		border:2px solid $lite-tan;
-		padding:4px;
-		@include rem(margin-top, 1.5rem);
-		@include rem(margin-bottom, 1.5rem);
+	position:relative;
+	padding-top:33.3333%;
+	box-shadow: 0 5px 40px rgba(0, 0, 0, 0.3);
+	background-position: 50% 0;
+	background-size: cover;
+	background-repeat:no-repeat;
+	background-image:url("#{$imagePath}masthead/philosophy-approach.jpg");
+	.company-history &{background-image:url("#{$imagePath}masthead/company-history.jpg");}
+	.leadership-team &{background-image:url("#{$imagePath}masthead/leadership-team.jpg");}
+	.working-dogs &{background-image:url("#{$imagePath}masthead/working-dogs.jpg");}
+	.philosophy-approach &{background-image:url("#{$imagePath}masthead/philosophy-approach.jpg");}
+	.training-levels &{background-image:url("#{$imagePath}masthead/training-levels");}
+	.guarantee &{background-image:url("#{$imagePath}masthead/guarantee.jpg");}
+	.breed-specifications &{background-image:url("#{$imagePath}masthead/breed-specifications.jpg");}
+	.testimonials &{background-image:url("#{$imagePath}masthead/testimonials.jpg");}
+	.peace-mind &{background-image:url("#{$imagePath}masthead/peace-mind.jpg");}
+	.family &{background-image:url("#{$imagePath}masthead/family.jpg");}
+	.individual &{background-image:url("#{$imagePath}masthead/individual.jpg");}
+	.executive &{background-image:url("#{$imagePath}masthead/executive.jpg");}
+	.selection-process &{background-image:url("#{$imagePath}masthead/selection-process.jpg");}
+	.securing-your-dog &{background-image:url("#{$imagePath}masthead/securing-your-dog.jpg");}
+	.handler-training &{background-image:url("#{$imagePath}masthead/handler-training.jpg");}
+	.our-dogs &{background-image:url("#{$imagePath}masthead/our-dogs.jpg");}
+	.contact &{background-image:url("#{$imagePath}masthead/contact.jpg");}
+	.inner{
+		position: absolute;
+		bottom: -9px;
+		width: 100%;
+		text-align: center;
+		span{
+			padding:0.5625rem 1.125rem;
+			color:#FFF;
+			font-size:1.125rem;
+			letter-spacing: 0.2rem;
+			text-align: center;
+			text-transform: uppercase;
+			background: rgba(20, 42, 56, 0.75); 
+			&:before,&:after{
+				position: relative;
+				display: inline-block;
+				content:"";
+				height:1px;
+				margin:0 12px 5px;
+				width:60px;
+				background: #FFF;
+			}
+			
+		}
 		@media #{$small-only}{
-			margin-top:0;
-			margin-bottom:0;
-		}
-		.intro-inner{
-			height: 175px;
-			padding: 28px 0 18px;
-			background:$lite-tan;
-			background:rgba(247,245,237,0.9);
-			@media #{$small-only}{
-				height:auto;
-			}
-			h1{
-				margin:0;
-				padding:0;
-				font-size:50px;
-				font-weight: 400;
-				line-height: 50px;
-				color:$brand-blue;
-				text-align: center;
-				@media #{$small-only}{
-					@include rem(font-size, 1.25rem);
-					@include rem(line-height, 1.7rem);
-				}
-			}
-			hr{
-				margin:6px auto 8px;
-				width:480px;
-				background-image:url("#{$imagePath}divide-x-gray.gif");
-				@media #{$small-only}{
-					width:80%;
-				}
-			}
-			.intro-content{
-				p{
-					margin:0;
-					padding:0;
-					color:$medium-gray;
-					@include rem(font-size, 1rem);
-					@include rem(line-height, 2rem);
-					text-align: center;
-					
-				}
-			}
-			p{
-				@media #{$small-only}{
-					@include rem(font-size, 14px);
-					@include rem(line-height, 1.5rem);
-				}
-			}
-			p.lead{
-				
+			bottom: -36px;
+			background: rgb(20, 42, 56); 
+			span{
+				display:block;
+				width:100%;
+				&:before,&:after{display: none;}
 			}
 		}
 	}
-	.sublanding &, .home &{height:auto;}
-	.privateclient.sublanding &{
-		background-image:url("#{$imagePath}private/masthead/bg-sublanding.jpg");
-		.intro{
-			@include rem(margin-top, 3rem);
-			@include rem(margin-bottom, 3rem);
-			.intro-inner{
-				height:auto;
-				@include rem(padding, 4rem);
-				hr{
-					@include rem(margin, 24px auto 24px);
-					
-				}
-			}
-		}
-	}
-	.privateclient.about-us &{
-		background-image:url("#{$imagePath}private/masthead/bg-about.jpg");
-	}
-	.privateclient.svalinn-difference &{
-		background-image:url("#{$imagePath}private/masthead/bg-svalinn-difference.jpg");	
-	}
-	.privateclient.protection &{
-		background-image:url("#{$imagePath}private/masthead/bg-protection.jpg");
-	}
-	.privateclient.purchase-process &{
-		background-image:url("#{$imagePath}private/masthead/bg-purchase-process.jpg");
-	}
-	.contact &{
-		background-image:url("#{$imagePath}private/masthead/bg-contact.jpg");
-	}
-	.our_dogs &{
-		background-image:url("#{$imagePath}private/masthead/bg-our-dogs.jpg");
-	}
-	.professional &{
-		background:url("#{$imagePath}professional/masthead/bg-knot-drk.jpg") 50% 0 no-repeat;
-		.intro{
-			@include rem(margin-top, 3rem);
-			@include rem(margin-bottom, 5.5rem);
-			border:0;
-			background:transparent;
-			.intro-inner{
-				background: transparent;
-				h1{
-					text-shadow: 0 0 40px rgba(0,0,0,0.5);
-					 font-weight: 300;
-					span{
-						@include metalic;
-						@include rem(font-size, 65px);
-					}
-				}
-				p.lead{
-					color:#FFF;
-					@include rem(font-size, 22px);
-					letter-spacing:0.1em;
-					@include rem(line-height, 32px);
-				}
-				hr{
-					@include rem(margin, 0.75rem auto);
-					height:8px;
-					background-image:url("#{$imagePath}divide-x-green.gif")
-				}
-			}
-		}
-	.masthead{
-			.intro{
-				h1{
-					span{
-						@include rem(font-size, 57px);
-					}
-				}
-			}
-		}
-	}
-	.professional.sublanding &{
-		background:url("#{$imagePath}professional/masthead/bg-landing.jpg") 50% 0 no-repeat;
-		@media #{$small-only}{background-position:50% 0;}
-		.intro{
-			@include rem(margin-top, 7rem);
-			@include rem(margin-bottom, 7rem);
-			@media #{$small-only}{
-				@include rem(margin-top, 3rem);
-				@include rem(margin-bottom, 5rem);
-			}
-			.intro-inner{
-				background: transparent;
-				.maskTitle{
-					position:relative;
-					margin:0 auto;
-					height: 50px;
-					width: 750px;
-					@media #{$small-only}{
-						height:70px;
-						width:100%;
-					}
-					h1,span {
-						position: absolute;
-						top:0;
-						left:0;
-						font-family: $quadon;
-						@include rem(font-size, 57px);
-						font-weight: 300;
-						text-align:center;
-						-webkit-text-fill-color:transparent;
-						@media #{$small-only}{
-							@include rem(font-size, 32px);
-							@include rem(line-height, 34px);
-						}
-					}
-					h1 {
-						-webkit-background-clip:none;
-						background:transparent;
-						text-shadow: 0 5px 20px rgb(0,0,0);
-						z-index:5;
-					}
-					span {
-						@include metalic;
-						z-index:10;
-					}
-					span:after {
-						content: attr(title);
-					}
-				}
-				
-				p{
-					color:#FFF;
-					@include rem(font-size, 24px);
-					@include rem(line-height, 32px);
-					font-weight:400;
-					text-align: center;
-					text-transform: uppercase;
-				}
-				@media #{$small-only}{
-					hr{@include rem(margin, 1.5rem auto);width:70%;}
-					p{
-						@include rem(font-size, 12px);
-						@include rem(line-height, 18px);
-					}
-				}
-			}
-		}
-	}
-	.professional.k9-teams &{
-		background:url("#{$imagePath}professional/masthead/bg-k9-teams.jpg") 50% 0 no-repeat;
+	@media #{$small-only}{
+		padding-top:60%;
+		padding-bottom:36px;
 	}
 }
 /* =============================================================================
 MAIN
 ============================================================================= */
 .main{
-	background:#FFF;
-	@include rem(padding, 3rem 2.5rem);
-	border-bottom:24px solid #dbdcd5;
+	background:#888888;
+	padding: 0;
+	.row{
+		@include rem(padding, 4rem 2.5rem);
+		background-color:#e4e2e2;
+	}
 	&.main-1,&.main-2,&.main-3{border-bottom:0;}
 	&.main-2,&.main-3{padding-top:0;}
 	&.main-1{
@@ -609,6 +436,8 @@ MAIN
 .img-span{
 	background-color:$medium-tan;
 }
+
+
 
 /* =============================================================================
 PAGE ELEMENTS
@@ -1073,64 +902,122 @@ CONTACT PAGE
 @import "contact";
 
 /* =============================================================================
-FOOTER
+FOOTER NAV - CALLOUTS
 ============================================================================= */
-.footer-img{
-	height:255px;
-	background-position: 50%;
-	background-repeat: no-repeat;
-	@media #{$medium-only}{
-		height:200px;
-		background-position: 50% 0;
-		-webkit-background-size: 100% auto;
-		-moz-background-size: 100% auto;
-		-o-background-size: 100% auto;
-		background-size: 100% auto;
-	}
-	.professional.sublanding &{
-		height:280px;
-		background-image:url("#{$imagePath}professional/footer/bg-landing.jpg");
-		@media #{$medium-only}{
-			height:230px;
+.footer-nav {
+	position: fixed;
+	margin-top: -35px;
+	z-index: 3;
+	bottom: 0;
+	width: 100%;
+	ul {
+		margin: 0 1rem 0 0;
+		padding: 0;
+		height: 35px;
+		li {
+			float: right;
+			list-style: none;
+			a {
+				display: block;
+				margin-left: 1rem;
+				padding: 0 1.5rem;
+				height: 35px;
+				line-height: 35px;
+				color: #FFF;
+				background: #004668;
+				font-size: 16px;
+				text-transform: uppercase;
+				&.training {
+					background: #606060;
+				}
+			}
 		}
 	}
-	.professional &, .professional.about-us &{
-		height:340px;
-		background-image:url("#{$imagePath}professional/footer/bg-about-us.jpg");
-		@media #{$medium-only}{
-			height:260px;
+	
+	.row {
+		max-width: 100%;
+	}
+	.callouts {
+		position: relative;
+		height: 400px;
+		overflow: hidden;
+		-webkit-transition: height 500ms  ease-in-out;
+		background: #1f1f1f;
+		&.closed {
+			height: 0;
 		}
 	}
-	.professional.k9s &{
-		height:280px;
-		background-image:url("#{$imagePath}professional/footer/bg-k9s.jpg");
-		@media #{$medium-only}{
-			height:230px;
+	.callout {
+		position: absolute;
+		display: block !important;
+		opacity: 1;
+		transition: opacity 1000ms ease-in-out;
+		z-index: 1;
+		width: 100%;
+		&.hide {
+			opacity: 0;
+			z-index: 0;
 		}
-	}
-	.professional.k9-teams &{
-		height:340px;
-		background-image:url("#{$imagePath}professional/footer/bg-k9-teams.jpg");
-		@media #{$medium-only}{
-			height:260px;
-		}
-	}
-	.professional.technical-services &{
-		height:280px;
-		background-image:url("#{$imagePath}professional/footer/bg-technical-services.jpg");
-		@media #{$medium-only}{
-			height:230px;
+		.details{
+			@include rem(padding, 21px);
+			p{
+				@include rem(font-size, 21px);
+				@include rem(line-height, 48px);
+				color:#FFF;
+				font-family: $quadon;
+			}
+		
 		}
 	}
 }
-@mixin footer($type) {
+
+#callout-professional .photo {
+  height: 100vh;
+  background-size: cover;
+  background: url("#{$imagePath}callouts/callout-professional.jpg") 0 0 no-repeat;
+}
+
+#callout-training .photo {
+  height: 100vh;
+  background-size: cover;
+  background: url("#{$imagePath}callouts/callout-training.jpg") 0 0 no-repeat;
+}
+
+#callout-professional .details {
+  height: 100vh;
+  background-size: cover;
+  background: url("#{$imagePath}callouts/callout-professional-bg.jpg") 0 0 no-repeat;
+}
+
+#callout-training .details {
+  height: 100vh;
+  background-size: cover;
+  background: url("#{$imagePath}callouts/callout-training-bg.jpg") 0 0 no-repeat;
+}
+
+@media screen and (max-width: 1100px) {
+  .footer-nav {
+    position: relative;
+    margin-top: -35px;
+  }
+}
+
+
+/* =============================================================================
+FOOTER
+============================================================================= */
+.footer{
 	@include rem(padding-top, 3rem);
 	color:#FFF;
-	.contact{text-align:center;@include rem(margin-top,0.3333334rem);}
-    @media #{$medium-up} {
-      .contact {text-align:right;}
-    }
-
+	background:$black-blue;
+	.contact{
+		text-align:center;
+		@include rem(margin-top,0.3333334rem);
+		@media #{$medium-up} {
+	      text-align:right;
+	    }
+	}
+  
 	.or{
 		position: relative;
 		display: inline-block;
@@ -1148,27 +1035,56 @@ FOOTER
 			width: 30%;
 			margin: 0 35%;
 		}
+		@media only screen and (max-width: 40em){
+			display: none;
+		}
+		@media only screen and (max-width: 56.888888889em){
+			@include rem(width, 3rem);
+		}
 	}
 
-    .socialize-list {list-style:none;font-size:0;line-height:0;text-align:inherit;position:relative;
-      li {display:inline-block;font-size:1rem;line-height:1;opacity:0.6;-webkit-transition:all 0.25s ease;-moz-transition:all 0.25s ease;-ms-transition:all 0.25s ease;transition:all 0.25s ease;
-        &:hover {opacity:1;}
-        a {display:block;margin:1rem 0.5rem;}
-      }
+    .socialize-list {
+    	list-style:none;
+    	font-size:0;
+    	line-height:0;
+    	text-align:inherit;
+    	position:relative;
+		li {
+			display:inline-block;
+			font-size:1rem;
+			line-height:1;
+			opacity:0.6;
+			-webkit-transition:all 0.25s ease;
+			-moz-transition:all 0.25s ease;
+			-ms-transition:all 0.25s ease;
+			transition:all 0.25s ease;
+			&:hover {opacity:1;}
+		}
+		a {
+			display:block;
+			margin:1rem 0.5rem;
+		}
+		@media #{$medium-up}{
+			right:-1rem;
+		}
     }
-
-    @media #{$medium-up}{
-      .socialize-list {right:-1rem;}
-    }
-	
-	.copyright{@include rem(margin-top,1rem);@include rem(padding-top,1rem);}
-	
-	@media only screen and (max-width: 40em){
-		.or{display: none;}
-		.btn, .footer .or{@include rem(margin, 0.3333334rem 0);width:100%;}
+	.copyright{
+		@include rem(margin-top,1rem);
+		@include rem(padding-top,1rem);
+		color:$medium-blue;
 	}
-	@media only screen and (max-width: 56.888888889em){
-		.or{@include rem(width, 3rem);}
+	.btn{
+		@media only screen and (max-width: 40em){
+			@include rem(margin, 0.3333334rem 0);width:100%;
+		}
+	}
+	.btn-contact{
+		color:#FFF;
+		background: $lite-blue;
+		&:hover{background:#006ca1;}
+		&.btn-arrow:after{
+			border-left:4px solid #003149;
+		}
 	}
 	.message p{
 		margin:0;
@@ -1184,44 +1100,6 @@ FOOTER
 			@include rem(margin, 2rem auto);
 			text-align: center;
 			@include rem(line-height, 24px);
-		}
-		
-	}
-	.privateclient.sublanding &{
-		border-top:24px solid #dbdcd5;
-	}
-
-	@if $type == privateclient {
-		background:$black-blue;
-		
-		.copyright{color:$medium-blue;}
-		.btn-contact{
-			color:#FFF;
-			background: $lite-blue;
-		}
-		.btn-contact:hover{background:#006ca1;}
-		.btn-contact.btn-arrow:after{
-			border-left:4px solid #003149;
-		}
-		
-		
-	}
-	@if $type == professional {
-		background:$black-green;
-		
-		.copyright{color:#413f26;}
-		.btn-contact{
-			color:#FFF;
-			background: #606060;
-		}
-		.btn-disabled{background:#606060;}
-		.btn-contact:hover{background:#808080;}
-		.btn-contact.btn-arrow:after{
-			border-left:4px solid #333;
-		}
-		
+		}	
 	}
 }
-
-.footer { @include footer(privateclient); }
-.professional .footer { @include footer(professional); }

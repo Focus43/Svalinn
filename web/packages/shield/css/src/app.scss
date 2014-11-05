@@ -228,10 +228,13 @@ MASTHEAD
 		bottom: -9px;
 		width: 100%;
 		text-align: center;
-		span{
+		h1{
+			display: inline;
 			padding:0.5625rem 1.125rem;
 			color:#FFF;
+			font-family: $proxima;
 			font-size:1.125rem;
+			font-weight: 600;
 			letter-spacing: 0.2rem;
 			text-align: center;
 			text-transform: uppercase;
@@ -265,12 +268,28 @@ MASTHEAD
 /* =============================================================================
 MAIN
 ============================================================================= */
+.leader{
+	background-image:url("#{$imagePath}bg/bg-leader.jpg");
+	background-position: 50% 0;
+	background-repeat: no-repeat;
+	h2{
+		color: $brand-blue;
+		font-family: $quadon;
+		font-size:3.25vw;
+		@include rem(font-size, 38px);
+		font-weight:300;
+		text-align: center;
+	}
+}
 .main{
 	background:#888888;
 	padding: 0;
 	.row{
 		@include rem(padding, 4rem 2.5rem);
 		background-color:#e4e2e2;
+		@media #{$small-only}{
+			@include rem(padding, 1rem 1rem);
+		}
 	}
 	&.main-1,&.main-2,&.main-3{border-bottom:0;}
 	&.main-2,&.main-3{padding-top:0;}

@@ -72,7 +72,7 @@ Your browser is out of date! It looks like you're using an old version of Intern
 								<div class="inner">
 									<div class="block right">
 										<h2>Best Protection.</h2>
-										<p>Our focus is developing loving and faithful companion dogs that are also exceptional deterrents to any threat, and instant protectors should you or your family ever be in imminent danger.</p>
+										<p>Our focus is developing loving and faithful dogs that are also exceptional deterrents to any threat, and instant protectors should you or your family ever be in imminent danger.</p>
 										<p class="show-for-medium-only text-center"><a href="#" class="down" data-int="3"><img src="/packages/shield/img/home/arrow-down.png"/></a></p>
 									</div>
 								</div>

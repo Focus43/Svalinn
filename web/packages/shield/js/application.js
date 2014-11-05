@@ -157,7 +157,7 @@ var callout_target = '';
 				}
 				
 			});
-			if( !WURFL.is_mobile && !WURFL.is_tablet ){
+			if( !WURFL.is_mobile ){
 				$(window).bind('scroll',this.scrollListener);
 			}
 		},

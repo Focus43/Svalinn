@@ -9,8 +9,8 @@
 			<div class="row">
 				<div class="column medium-12 large-6 photo"></div>
 				<div class="column medium-12 large-6 details">
-					<h3 class="text-center">Professional</h3>
-					<p class="text-center show-for-small-only">The Svalinn K9 program has developed breeding, tactical conditioning and training techniques that have proven far superior to conventional working dog kennels.</p>
+					<h3 class="text-center show-for-small-only">Professional</h3>
+					<p class="text-center">The Svalinn K9 program has developed breeding, tactical conditioning and training techniques that have proven far superior to conventional working dog kennels.</p>
 					<p class="text-center"><a href="/professional" class="btn">Click here to Learn More</a></p>
 				</div>
 			</div>

@@ -144,7 +144,11 @@ article .inner, blockquote .inner {
 	}
 	h2{
 		font-family:$quadon;
-		@media #{small-only}{
+		@media #{$medium-down}{
+			font-size:6.5vw;
+			font-weight:300;
+		}
+		@media #{$small-only}{
 			@include rem(font-size, 24px);
 			font-weight: 500;
 		}

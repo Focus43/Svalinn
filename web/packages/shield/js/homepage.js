@@ -43,7 +43,7 @@ $(document).ready(function(){
 			});
 	
 		});
-		if( !WURFL.is_mobile && !WURFL.is_tablet ){
+		if( !WURFL.is_mobile ){
 			//CONTROLS
 			if(scrollInt > 0){
 				$('.scroll-down').removeClass('down-only');
@@ -127,7 +127,7 @@ $(document).ready(function(){
 			scrollMoving = false;
 		});
 	});
-	if( WURFL.is_tablet ){
+	if( WURFL.is_mobile && WURFL.form_factor == "Tablet" ){
 		$('article .bg-image').height( ($(window).height()*0.6)+60 );
 		$('article .block').height( ($(window).height()*0.4)+60);
 		$('article .bg-image').css({'background-position':'50% 0'});

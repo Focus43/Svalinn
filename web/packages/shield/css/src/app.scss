@@ -83,9 +83,10 @@ HEADER BAR
 	width: 100%;
 	z-index: 1;
 	z-index:999;
-	@media (max-width:71.25rem){
+	@media #{$medium-down}{
 		position:relative;
 	}
+	
 	.primary-nav-container{
 		position: relative;
 		max-width: $row-width;
@@ -119,11 +120,8 @@ HEADER BAR
 		}
 		.name, .name a{
 			@media #{$small-only} {
-				width:225px;
+				width:180px;
 				text-align: left;
-				img{
-					margin-left:-20px;
-				}
 			}
 		}
 		.primary-nav-section {
@@ -926,6 +924,7 @@ FOOTER NAV - CALLOUTS
 				color: #FFF;
 				background: #004668;
 				font-size: 16px;
+				text-align: center;
 				text-transform: uppercase;
 				&.training {
 					background: #606060;
@@ -942,7 +941,7 @@ FOOTER NAV - CALLOUTS
 		height: 400px;
 		overflow: hidden;
 		-webkit-transition: height 500ms  ease-in-out;
-		background: #1f1f1f;
+		background:$black-blue;
 		&.closed {
 			height: 0;
 		}
@@ -958,8 +957,18 @@ FOOTER NAV - CALLOUTS
 			opacity: 0;
 			z-index: 0;
 		}
+		.photo{
+			height: 100vh;
+			background-size: cover;
+			background-position:0 0;
+			background-repeat:no-repeat;
+		}
 		.details{
 			@include rem(padding, 21px);
+			height: 100vh;
+			background-size: cover;
+			background-position:0 0;
+			background-repeat:no-repeat;
 			p{
 				@include rem(font-size, 21px);
 				@include rem(line-height, 48px);
@@ -969,30 +978,66 @@ FOOTER NAV - CALLOUTS
 		
 		}
 	}
+	@media #{$medium-down}{
+		position:relative;
+		ul{
+			margin:0;
+			li{
+				float:left;
+				width:50%;
+				a{
+					margin:0;
+					width:100%;
+				}
+			}
+		}
+		.callouts{height:750px;}
+		.callout {
+			.photo{height:auto !important;padding-top:52%;}
+			.details{
+				height:auto !important;
+				@include rem(padding, 4rem 6rem 0);
+			}
+		}
+	}
+	@media #{$small-only}{
+		ul{display: none;}
+		.callouts.closed{height:auto !important;}
+		.callout{position:relative;}
+		.hide{display: block !important;opacity:1 !important;}
+		.callout {
+			.photo{height:auto !important;padding-top:52%;}
+			.details{
+				height:auto !important;
+				@include rem(padding, 2rem 1rem 1rem);
+				h3{
+					font-family: $quadon;
+					color:#FFF;
+				}
+				p{
+					font-family: $proxima;
+					@include rem(font-size, 16px);
+					@include rem(line-height, 21px);
+				}
+			}
+		}
+	}
 }
 
 #callout-professional .photo {
-  height: 100vh;
-  background-size: cover;
-  background: url("#{$imagePath}callouts/callout-professional.jpg") 0 0 no-repeat;
+  background-image: url("#{$imagePath}callouts/callout-professional.jpg");
 }
 
 #callout-training .photo {
-  height: 100vh;
-  background-size: cover;
-  background: url("#{$imagePath}callouts/callout-training.jpg") 0 0 no-repeat;
+  background-image: url("#{$imagePath}callouts/callout-training.jpg");
 }
 
 #callout-professional .details {
-  height: 100vh;
-  background-size: cover;
-  background: url("#{$imagePath}callouts/callout-professional-bg.jpg") 0 0 no-repeat;
+  background-image: url("#{$imagePath}callouts/callout-professional-bg.jpg");
 }
 
 #callout-training .details {
-  height: 100vh;
-  background-size: cover;
-  background: url("#{$imagePath}callouts/callout-training-bg.jpg") 0 0 no-repeat;
+  background-image: url("#{$imagePath}callouts/callout-training-bg.jpg");
 }
 
 @media screen and (max-width: 1100px) {
@@ -1015,6 +1060,9 @@ FOOTER
 		@include rem(margin-top,0.3333334rem);
 		@media #{$medium-up} {
 	      text-align:right;
+	    }
+	    @media #{$medium-down} {
+	      text-align:center;
 	    }
 	}
   
@@ -1091,14 +1139,10 @@ FOOTER
 		@include rem(font-size, 18px);
 		@include rem(line-height, 32px);
 		color:#FFF;
-		@media only screen and (max-width: 56.888888889em){
-			text-align: left;
-			@include rem(font-size, 14px);
-			@include rem(line-height, 18px);
-		}
-		@media #{$small-only}{
+		@media #{$medium-down} {
 			@include rem(margin, 2rem auto);
 			text-align: center;
+			@include rem(font-size, 18px);
 			@include rem(line-height, 24px);
 		}	
 	}

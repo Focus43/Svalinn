@@ -5,19 +5,21 @@
 		<li><a href="#" data-target="professional" class="professional">Professional</a></li>
 	</ul>
 	<div class="callouts closed">
-		<div class="callout" id="callout-professional" style="background:#000;">
-			<div class="row collapse">
-				<div class="column medium-6 photo"></div>
-				<div class="column medium-6 details">
-					<p class="text-center">The Svalinn K9 program has developed breeding, tactical conditioning and training techniques that have proven far superior to conventional working dog kennels.</p>
+		<div class="callout" id="callout-professional">
+			<div class="row">
+				<div class="column medium-12 large-6 photo"></div>
+				<div class="column medium-12 large-6 details">
+					<h3 class="text-center">Professional</h3>
+					<p class="text-center show-for-small-only">The Svalinn K9 program has developed breeding, tactical conditioning and training techniques that have proven far superior to conventional working dog kennels.</p>
 					<p class="text-center"><a href="/professional" class="btn">Click here to Learn More</a></p>
 				</div>
 			</div>
 		</div>
-		<div class="callout" id="callout-training" style="background:#333;">
+		<div class="callout" id="callout-training">
 			<div class="row">
-				<div class="column medium-6 photo"></div>
-				<div class="column medium-6 details">
+				<div class="column medium-12 large-6 photo"></div>
+				<div class="column medium-12 large-6 details">
+					<h3 class="text-center show-for-small-only">Training</h3>
 					<p class="text-center">At Svalinn, our dogs possess a level of sociability and obedience unparalleled in the industry. We would like to share this training approach and expertise with you and your dog.</p>
 					<p class="text-center"><a href="/training" class="btn">Click here to Learn More</a></p>
 				</div>
@@ -28,10 +30,10 @@
 <!-- END .tabs -->
 <footer class="container footer" role="contentinfo">
     <div class="row">
-        <div class="column medium-4 large-5 message">
+        <div class="column medium-12 large-5 message">
             <p>For more information about Svalinn <br class="show-for-large-up"/>and our services please get in touch.</p>
         </div>
-        <div class="column medium-8 large-7 contact">
+        <div class="column medium-12 large-7 contact">
             <a href="mailto:info@svalinn.com" class="btn btn-lg btn-contact btn-arrow uppercase">Email Us</a>
             <div class="or fwsb">OR</div>
             <a href="tel:1-307-200-1223" class="btn btn-lg btn-disabled uppercase">307.200.1223</a>

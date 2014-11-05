@@ -1,13 +1,12 @@
 $(document).ready(function(){
 	var scrollInt = 0;
+	var scrollTotal = 5;
+	var scrollMoving = false;
 	
 
 	/*********************************************
 	HOMEPAGE SCROLL
 	*********************************************/
-	var scrollInt = 0;
-	var scrollTotal = 5;
-	var scrollMoving = false;
 	//CLICK
 	$('.scroll-down a').click(function(e){
 		e.preventDefault();
@@ -44,18 +43,14 @@ $(document).ready(function(){
 			});
 	
 		});
-		
-		//CONTROLS
-		if(scrollInt > 0){
-			$('.scroll-down').removeClass('down-only');
+		if( !WURFL.is_mobile && !WURFL.is_tablet ){
+			//CONTROLS
+			if(scrollInt > 0){
+				$('.scroll-down').removeClass('down-only');
+			}
+			scrollReposition();
 		}
-		scrollReposition();
-		
 	}
-	if($(window).width() > 1025){
-		$(window).bind('scroll', trackScroll);
-	}
-	
 	//REPOSITION
 	function scrollReposition(){
 		if(scrollMoving == false){
@@ -89,15 +84,10 @@ $(document).ready(function(){
 		$("html, body").animate({ scrollTop: scrollInt*new_top}, 500);
 	}, 6000);
 	*/
+	
 	/*********************************************
 	HOMEPAGE RESIZE
 	*********************************************/
-	setFull();
-	
-	$(window).resize(function(){
-		setFull();
-		scrollReposition();
-	});
 	function setFull(){
 		if( $(window).width() > 1100 ){
 			$('.full').height( $(window).height() );
@@ -109,8 +99,41 @@ $(document).ready(function(){
 		
 	}
 	
+	/*********************************************
+	INITALIZE
+	*********************************************/
+	//IMPLEMENT SCROLLER
+	$(window).bind('scroll', trackScroll);
+	//IMPLEMENT FULL HEIGHT
+	setFull();
+	//IMPLEMENT RESIZE
+	if( !WURFL.is_mobile && !WURFL.is_tablet ){
+		$(window).resize(function(){
+			setFull();
+			scrollReposition();
+		});
+	}
 	
 	
-	
+	/*********************************************
+	MOBILE/TABLET EXPERIENCE
+	*********************************************/
+	$('.inner a.down').click(function(e){
+		e.preventDefault();
+		var new_top = $(window).height() + $('.header').height();
+		newInt = $(this).data('int');
+		scrollMoving = true;
+		$("html, body").animate({ scrollTop: newInt*new_top},750,'easeOutCirc',function(){
+			scrollMoving = false;
+		});
+	});
+	if( WURFL.is_tablet ){
+		$('article .bg-image').height( ($(window).height()*0.6)+60 );
+		$('article .block').height( ($(window).height()*0.4)+60);
+		$('article .bg-image').css({'background-position':'50% 0'});
+		$('blockquote, blockquote .bg-image,blockquote .quote_gallery').height( $(window).height() - $('.footer').height() );
+		//ADJUST INTRO FOR NAV HEIGHT
+		$('.article-0 .bg-image').height( ($(window).height()*0.6) - $('.header').height() );
+	}
 
 });

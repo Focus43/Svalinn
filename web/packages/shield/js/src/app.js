@@ -62,7 +62,7 @@ var callout_target = '';
 		init: function(){
 			log('HOME INIT');		
 			//INSTAGRAM FEED
-		    feed.run();
+		    //feed.run();
 	    
 		}
 		
@@ -100,7 +100,9 @@ var callout_target = '';
 				}
 				
 			});
-			$(window).bind('scroll',this.scrollListener);
+			if( !WURFL.is_mobile && !WURFL.is_tablet ){
+				$(window).bind('scroll',this.scrollListener);
+			}
 		},
 		openCallout: function(callout_target){
 			$('.callouts').removeClass('closed');
@@ -152,6 +154,7 @@ var callout_target = '';
 }(window.site = window.site || {}, jQuery));
 site.ready.init();
 
+
 /*********************************************
 EXTENDED HELP FUNCTIONS
 *********************************************/
@@ -171,6 +174,5 @@ $(document).ready(function(){
 	   	}
 	});
 });
-	
 
 	

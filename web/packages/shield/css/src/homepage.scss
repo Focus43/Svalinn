@@ -1,11 +1,21 @@
+@import "settings";
+@import "normalize";
+@import "foundation";
+@import "global";
 
 article, blockquote {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+	position: relative;
+	height: 100vh;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	a.down{
+		img{max-width: 24px;}
+	}
+	@media #{$small-only}{
+		overflow: visible;
+	}
 }
 
 article .container, blockquote .container {
@@ -82,38 +92,69 @@ article .inner, blockquote .inner {
 }
 
 .intro {
-  h1, p {
-    color: #FFF;
-  }
-  h1{
-  	font-size:4.2vw;
-  	font-weight:300;
-  }
-  p{
-  	max-width:71.25rem;
-  	margin-left:auto;
-  	margin-right:auto;
-  	padding: 0 5%;
-  	font-size:1.5vw;
-  	line-height:160%;
-  	@media screen and (max-width: 1100px) {
-  		font-size:16px;
-  	}
-  }
+	@media #{$small-only}{
+		@include rem(padding, 1rem);
+	}
+	h1, p {
+		color: #FFF;
+	}
+	h1{
+		font-size:4.2vw;
+		font-weight:300;
+		font-family:$quadon;
+		@media #{$medium-down}{
+			font-size:6.5vw;
+		}
+		@media #{$small-only}{
+			@include rem(font-size, 24px);
+			font-weight: 500;
+		}
+	}
+	p{
+		max-width:71.25rem;
+		margin-left:auto;
+		margin-right:auto;
+		padding: 0 5%;
+		font-size:1.5vw;
+		line-height:160%;
+		@media screen and (max-width: 1100px) {
+			@include rem(font-size, 18px);
+		}
+		@media #{$small-only}{
+			@include rem(font-size, 16px);
+			@include rem(line-height, 24px);
+		}
+	}
 }
 
 .block {
-  margin-top: 15%;
-  padding: 2rem;
-  width: 450px;
-  background: rgba(16, 36, 46, 0.55);
-  &.right {
-    float: right;
-  }
-  h2, p {
-    color: #FFF;
-    text-align: center;
-  }
+	margin-top: 15%;
+	@include rem(padding, 2rem);
+	width: 450px;
+	background: rgba(16, 36, 46, 0.55);
+	@media #{$small-only}{
+		@include rem(padding, 1rem);
+	}
+	&.right {
+		float: right;
+	}
+	h2, p {
+		color: #FFF;
+		text-align: center;
+	}
+	h2{
+		font-family:$quadon;
+		@media #{small-only}{
+			@include rem(font-size, 24px);
+			font-weight: 500;
+		}
+	}
+	p{
+		@media #{$small-only}{
+			@include rem(font-size, 16px);
+			@include rem(line-height, 24px);
+		}
+	}
 }
 
 @media screen and (max-width: 1100px) {
@@ -146,4 +187,28 @@ article .inner, blockquote .inner {
   .dummy {
     padding-top: 60%;
   }
+}
+@media #{$medium-down}{
+	
+	article {
+		height:100vh;	
+		.bg-image {
+	  		height:60vh;
+	  	}
+	  	.container{
+	  		height:40vh;
+	  	}
+	}
+}
+@media #{$small-only}{
+	article {
+		height:100vh;	
+		.bg-image {
+	  		height:auto;
+	  		padding-top:60%;
+	  	}
+	  	.container{
+	  		height:auto;
+	  	}
+	}
 }

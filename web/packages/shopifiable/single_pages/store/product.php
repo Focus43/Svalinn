@@ -1,13 +1,19 @@
 <!-- BEGIN HEADER -->
 <?php Loader::packageElement('theme_header', 'shield', array(
     'navigationSettings' => array(
-        'displayPages'   => 'top'
+        'displayPages'   => 'top',
+        'displaySubPages' => 'all',
+        'displaySubPageLevels' => 'custom',
+        'displaySubPageLevelsNum' => 1
     )
 )); ?>
 <!-- END HEADER   -->
 
 <!-- BEGIN .masthead -->
-<?php Loader::packageElement('blue_masthead', 'shield', array('pageObj' => Page::getCurrentPage())); ?>
+<?php Loader::packageElement('blue_masthead', 'shield', array(
+    'pageObj'       => Page::getCurrentPage(),
+    'hideSubtitle'  => true
+)); ?>
 <!-- END .masthead -->
 
 <article class="container main">

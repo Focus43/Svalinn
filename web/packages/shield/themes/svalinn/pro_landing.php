@@ -24,7 +24,7 @@ Your browser is out of date! It looks like you're using an old version of Intern
 			<div class="main-wrap">
             <?php Loader::packageElement('theme_header', 'shield', array(
                 'navigationSettings' => array(
-                    'displayPages'   => 'second_level',
+                    'displayPages'   => 'top',
                     'displaySubPages' => 'all',
                     'displaySubPageLevels' => 'custom',
                     'displaySubPageLevelsNum' => 1

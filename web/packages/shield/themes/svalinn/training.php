@@ -24,12 +24,12 @@ Your browser is out of date! It looks like you're using an old version of Intern
 			<div class="main-wrap">
 				<!-- BEGIN HEADER -->
 	            <?php Loader::packageElement('theme_header', 'shield', array(
-	                'navigationSettings' => array(
-	                    'displayPages'   => 'second_level',
-	                    'displaySubPages' => 'all',
-	                    'displaySubPageLevels' => 'custom',
-	                    'displaySubPageLevelsNum' => 1
-	                )
+                    'navigationSettings' => array(
+                        'displayPages'   => 'top',
+                        'displaySubPages' => 'all',
+                        'displaySubPageLevels' => 'custom',
+                        'displaySubPageLevelsNum' => 1
+                    )
 	            )); ?>
 				<!-- END HEADER   -->
 				

@@ -25,10 +25,10 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 				<!-- BEGIN HEADER -->
 	            <?php Loader::packageElement('theme_header', 'shield', array(
 	                'navigationSettings' => array(
-	                    'displayPages'   => 'second_level',
-	                    'displaySubPages' => 'all',
-	                    'displaySubPageLevels' => 'custom',
-	                    'displaySubPageLevelsNum' => 1
+                        'displayPages'   => 'top',
+                        'displaySubPages' => 'all',
+                        'displaySubPageLevels' => 'custom',
+                        'displaySubPageLevelsNum' => 1
 	                )
 	            )); ?>
 				<!-- END HEADER   -->

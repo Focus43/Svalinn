@@ -186,6 +186,18 @@
                 CollectionType::add(array('ctHandle' => 'guarantee', 'ctName' => 'Guarantee'), $this->packageObject());
             }
 
+            if( !is_object($this->pageType('testimonials')) ){
+                CollectionType::add(array('ctHandle' => 'testimonials', 'ctName' => 'Testimonials'), $this->packageObject());
+            }
+
+            if( !is_object($this->pageType('handler_training')) ){
+                CollectionType::add(array('ctHandle' => 'handler_training', 'ctName' => 'Handler Training'), $this->packageObject());
+            }
+
+            if( !is_object($this->pageType('training_classes')) ){
+                CollectionType::add(array('ctHandle' => 'training_classes', 'ctName' => 'Training Classes'), $this->packageObject());
+            }
+
             return $this;
         }
 

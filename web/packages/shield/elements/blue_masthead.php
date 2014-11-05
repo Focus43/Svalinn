@@ -1,4 +1,7 @@
 <?php /** @var $pageObj Page : injected by packageElement loader */ ?>
-<article class="container masthead">
-	<div class="inner"><span><?php echo ($customTitle) ? $customTitle : $pageObj->getAttribute('meta_title'); ?></span></div>
-</article>
+<div class="container masthead">
+	<div class="inner"><h1><?php echo ($customTitle) ? $customTitle : $pageObj->getAttribute('meta_title'); ?></h1></div>
+</div>
+<div class="container leader">
+	<div class="inner"><h2><?php echo ($customTitle) ? $customTitle : $pageObj->getAttribute('meta_description'); ?></h2></div>
+</div>

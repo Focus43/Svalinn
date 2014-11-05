@@ -40,14 +40,15 @@ Your browser is out of date! It looks like you're using an old version of Intern
 			    </div>
 				<!-- BEGIN .articles -->
 				<div class="articles">
-					<article data-int="0" class="full">
+					<article data-int="0" class="full article-0">
 						<div class="bg-image" style="background-image: url(/packages/shield/img/home/home-1.jpg);background-position:50%;"></div>
 						<div class="container">
 							<div class="text-center-tight full">
 								<div class="inner">
 									<div class="intro">
-										<h1 class="text-center">Bred to Love. Trained to Protect.</h1>
+										<h1 class="text-center">Bred to Love. <br class="medium-down"/>Trained to Protect.</h1>
 										<p class="text-center">Simply put, Svalinn breeds, raises and trains world-class protection dogs. With a focus on the dual role as both friend and protector, our dogs possess an unparalleled level of sociability and vigilance. Located in Jackson, Wyoming, we likely are training your perfect protection companion right now.</p>
+										<p class="show-for-medium-only text-center"><a href="#" class="down" data-int="1"><img src="/packages/shield/img/home/arrow-down.png"/></a></p>
 									</div>
 								</div>
 							</div>
@@ -61,6 +62,7 @@ Your browser is out of date! It looks like you're using an old version of Intern
 									<div class="block">
 										<h2>Best Friend</h2>
 										<p>The bond between humans and canines is one of the most powerful in the world. Our curriculum is built upon our understanding and appreciation of the special relationship between man and dog.</p>
+										<p class="show-for-medium-only text-center"><a href="#" class="down" data-int="2"><img src="/packages/shield/img/home/arrow-down.png"/></a></p>
 									</div>
 								</div>
 							</div>
@@ -73,7 +75,8 @@ Your browser is out of date! It looks like you're using an old version of Intern
 								<div class="inner">
 									<div class="block right">
 										<h2>Best Protection.</h2>
-										<p>Our focus is developing loving and faithful companion dogs that are also exceptional deterrents to any threat, and instant protectors should you or your family ever be in imminent danger.</p>
+										<p>Our focus is developing loving and faithful dogs that are also exceptional deterrents to any threat, and instant protectors should you or your family ever be in imminent danger.</p>
+										<p class="show-for-medium-only text-center"><a href="#" class="down" data-int="3"><img src="/packages/shield/img/home/arrow-down.png"/></a></p>
 									</div>
 								</div>
 							</div>
@@ -87,6 +90,7 @@ Your browser is out of date! It looks like you're using an old version of Intern
 									<div class="block">
 										<h2>Best Option.</h2>
 										<p>It’s our unique training and breeding techniques—along with our own real-world security expertise—that allows us to raise Svalinn dogs to the highest standards possible.</p>
+										<p class="show-for-medium-only text-center"><a href="#" class="down" data-int="4"><img src="/packages/shield/img/home/arrow-down.png"/></a></p>
 									</div>
 								</div>
 							</div>

@@ -40,7 +40,7 @@ Your browser is out of date! It looks like you're using an old version of Intern
 				<!-- BEGIN .submast -->
 				<article class="container tab-nav bg-knot-gray-lg">
 					<div class="row">
-						<div class="column medium-10 medium-centered"></div>
+						<div class="column medium-12 medium-centered"></div>
 					</div>
 				</article>
 				<!-- END .submast -->
@@ -48,22 +48,20 @@ Your browser is out of date! It looks like you're using an old version of Intern
 				<!-- BEGIN .content -->
 				<article class="container main">
 					<div class="row section-1">
-						<div class="column medium-12 large-10 medium-centered">
+						<div class="column medium-12 large-12 medium-centered">
 							<?php $a = new Area('Main'); $a->display($c); ?>
 						</div>
 					</div>
 					<div class="row section-2">
-						<div class="small-12 medium-6 large-5 large-offset-1 columns left-col">
+						<div class="small-12 medium-6 large-6 columns left-col">
 	                        <?php $a = new Area('Main-2'); $a->display($c); ?>
 						</div>
-						<div class="small-12 medium-6 large-5 end columns right-col">
-							<div class="vertical-middle">
-	                            <?php $a = new Area('Main-3'); $a->display($c); ?>
-							</div>
+						<div class="small-12 medium-6 large-6 end columns right-col">
+	                        <?php $a = new Area('Main-3'); $a->display($c); ?>
 						</div>
 					</div>
 					<div class="row section-3">
-						<div class="column medium-12 large-10 medium-centered">
+						<div class="column medium-12 large-12 medium-centered">
 	                        <?php $a = new Area('Main-4'); $a->display($c); ?>
 						</div>
 					</div>

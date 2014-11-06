@@ -54,14 +54,6 @@ Your browser is out of date! It looks like you're using an old version of Intern
 				</article>
 				<!-- END .masthead -->
 				
-				<!-- BEGIN .submast -->
-				<article class="container bg-knot-masthead">
-					<div class="row">
-						<div class="column medium-12 large-10 medium-centered"></div>
-					</div>
-				</article>
-				<!-- END .submast -->
-				
 				<!-- BEGIN .content -->
 				<article class="container main">
 					<div class="row">
@@ -132,20 +124,6 @@ Your browser is out of date! It looks like you're using an old version of Intern
 					</div>
 				</article>
 				<!-- END .content -->
-				<div class="footer-img"></div>
-				<div class="testimonials">
-					<div class="row">
-						<div class="column medium-10 large-10 medium-centered">
-	                        <h3 class="text-center">From Our Clients</h3>
-	                        <?php
-	                            $quoteStack = Stack::getByName('Testimonial Quotes')->getBlocks();
-	                            if( !empty($quoteStack) ){
-	                                $quoteStack[array_rand($quoteStack)]->display();
-	                            }
-	                        ?>
-						</div>
-					</div>
-				</div>
 				<!-- BEGIN .footer -->
 	            <?php Loader::packageElement('theme_footer', 'shield'); ?>
 				<!-- END .footer -->
@@ -154,7 +132,7 @@ Your browser is out of date! It looks like you're using an old version of Intern
 			<!-- BEGIN .right-off-canvas-menu -->
             <?php Loader::packageElement('responsive_sidebar', 'shield', array(
                 'navigationSettings' => array(
-                    'displayPages'   => 'second_level',
+                    'displayPages'   => 'all',
                     'displaySubPages' => 'all',
                     'displaySubPageLevels' => 'custom',
                     'displaySubPageLevelsNum' => 1

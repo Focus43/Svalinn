@@ -46,36 +46,27 @@ Your browser is out of date! It looks like you're using an old version of Intern
 				<!-- END .submast -->
 				
 				<!-- BEGIN .content -->
-				<article class="container main bg-gray">
-					<div class="row">
-						<div class="column medium-12 large-10 medium-centered">
+				<article class="container main">
+					<div class="row section-1">
+						<div class="medium-12 columns">
 							<?php $a = new Area('Main'); $a->display($c); ?>
 						</div>
 					</div>
-					<div class="row section">
-						<div class="small-12 medium-5 columns">
-	                        <?php $a = new Area('Main-2'); $a->display($c); ?>
+					<div class="row section-2">
+						<div class="column medium-6">
+							<?php $a = new Area('Main-2'); $a->display($c); ?>
 						</div>
-						<div class="small-12 medium-7 columns">
-							<div class="vertical-middle">
-								<!--<br/><br/><br/><br/>
-								<blockquote class="caption">The dual role as both friend and protector.</blockquote>-->
-	                            <?php $a = new Area('Main-3'); $a->display($c); ?>
-							</div>
+						<div class="columns medium-6">
+	                        <?php $a = new Area('Main-3'); $a->display($c); ?>
 						</div>
 					</div>
-					<div class="row">
-						<div class="column medium-12 large-10 medium-centered">
-							<!--<p>Our training curriculum is built upon a deep understanding and appreciation of the special relationship between man and dog. This foundation allows us to deliver the world’s best and most stable protection dogs. Consistent training geared towards a dual role as both friend and protector gives our dogs a level of sociability and vigilance unparalleled in the industry. Our methodology and techniques are based on our experience in non-permissive environments, real-world threats and defined performance criteria. It’s a distinction that makes all the difference.</p>
-							<p>Another key Svalinn difference is the genetic quality of our animals. Svalinn can trace the bloodlines of our three breeds back 80 years. From a health, temperament and characteristics standpoint, being able to follow our dogs’ lineage is a boon to both us a breeders and our clients as handlers. As well as being incredibly safe and reliable around children (which we will get into later), all Svalinn canines also come socialized to other animals, not just other dogs, as we know that clients have a wide range of pets and animals in their lives.</p>
-							<hr class="divide o-gray nomargin-top" />
-							<a href="/privateclient/the-svalinn-difference" class="btn btn-bordered btn-md blue cta on-lite uppercase align-center">More about our Dogs</a>-->
-	                        <?php $a = new Area('Main-4'); $a->display($c); ?>
+					<div class="row section-1">
+						<div class="columns medium-12">
+							<?php $a = new Area('Main-4'); $a->display($c); ?>
 						</div>
 					</div>
 				</article>
 				<!-- END .content -->
-				<div class="footer-img"></div>
 				<!-- BEGIN .footer -->
 	            <?php Loader::packageElement('theme_footer', 'shield'); ?>
 				<!-- END .footer -->
@@ -84,7 +75,7 @@ Your browser is out of date! It looks like you're using an old version of Intern
 			<!-- BEGIN .right-off-canvas-menu -->
             <?php Loader::packageElement('responsive_sidebar', 'shield', array(
                 'navigationSettings' => array(
-                    'displayPages'   => 'second_level',
+                    'displayPages'   => 'all',
                     'displaySubPages' => 'all',
                     'displaySubPageLevels' => 'custom',
                     'displaySubPageLevelsNum' => 1

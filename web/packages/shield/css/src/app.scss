@@ -209,7 +209,7 @@ MASTHEAD
 	.leadership-team &{background-image:url("#{$imagePath}masthead/leadership-team.jpg");}
 	.working-dogs &{background-image:url("#{$imagePath}masthead/working-dogs.jpg");}
 	.philosophy-approach &{background-image:url("#{$imagePath}masthead/philosophy-approach.jpg");}
-	.training-levels &{background-image:url("#{$imagePath}masthead/training-levels");}
+	.training-levels &{background-image:url("#{$imagePath}masthead/training-levels.jpg");}
 	.guarantee &{background-image:url("#{$imagePath}masthead/guarantee.jpg");}
 	.breed-specifications &{background-image:url("#{$imagePath}masthead/breed-specifications.jpg");}
 	.testimonials &{background-image:url("#{$imagePath}masthead/testimonials.jpg");}
@@ -252,7 +252,7 @@ MASTHEAD
 		@media #{$small-only}{
 			bottom: -36px;
 			background: rgb(20, 42, 56); 
-			span{
+			h1{
 				display:block;
 				width:100%;
 				&:before,&:after{display: none;}
@@ -283,6 +283,10 @@ MAIN
 			@include rem(font-size, 38px);
 			font-weight:300;
 			text-align: center;
+			@media #{$small-only}{
+				@include rem(padding,5rem 2rem 0);
+				@include rem(font-size, 21px);
+			}
 		}
 	}
 }
@@ -415,6 +419,11 @@ MAIN
 		}
 		&:before{background-image:url("#{$imagePath}hr-blockquote-top.png");}
 		&:after{background-image:url("#{$imagePath}hr-blockquote-bottom.png");}
+		@media #{$small-only}{
+			p{font-weight: 500;}
+			&:before{background-size:120%;}
+			&:after{background-size:120%;}
+		}
 	}
 	.lead{
 		margin:2rem 0;
@@ -775,14 +784,39 @@ PAGE ELEMENTS
 	
 }
 .tabs-content{
-	.content{padding:0;}
-	.philosophy-approach & .content .row{background: transparent;}
-	.philosophy-approach & .content>.row{
-		@include rem(padding-top,3rem);
-		@include rem(padding-bottom,3rem);
-		background: #d2dce4;
+	margin-bottom:0;
+	.content{
+		padding:0;
+		@media #{$small-only}{
+			float:none;
+			display: block;
+			background: #d2dce4;
+			@include rem(padding,0 1rem);
+			.title{
+				padding:0;
+				background-image: url("/packages/shield/img/bg/bg-leader-blue.jpg");
+				background-position: 50% 0;
+				background-repeat: no-repeat;
+				h3{
+					font-family: $quadon;
+					@include rem(font-size,32px);
+				}
+				hr{
+					height:1px;
+					color:$medium-gray;
+					background-color:$medium-gray;
+				}
+			}
+		}
 	}
-	
+	.content .row{background: transparent;}
+	.content>.row{
+		@include rem(padding,3rem 0);
+		background: #d2dce4;
+		@media #{$small-only}{
+			@include rem(padding,0);
+		}
+	}
 	.breeds &{
 		margin-bottom: 0;
 		@media #{$large-up}{

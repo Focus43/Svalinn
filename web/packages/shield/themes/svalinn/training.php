@@ -40,32 +40,16 @@ Your browser is out of date! It looks like you're using an old version of Intern
 				<!-- END .masthead -->
 				
 				<!-- BEGIN .intro -->
-				<article class="container main main-1">
-					<div class="row">
+				
+				<!-- END .intro -->
+				<!-- BEGIN .content -->
+				<article class="container main">
+					<div class="row section-1">
 						<div class="column medium-10 medium-centered">
 							<?php $a = new Area('Main'); $a->display($c); ?>
 						</div>
 					</div>
-				</article>
-				<!-- END .intro -->
-				
-				<!-- BEGIN .submast -->
-				<article class="container tab-nav">
-					<div class="row collapse">
-						<div class="column medium-12 large-10 medium-centered">
-							<dl class="tabs centered" data-tab>
-								<dd class="active"><a href="#level1">Level I</a></dd>
-								<dd><a href="#level2">Level II</a></dd>
-								<dd><a href="#level3">Level III</a></dd>
-							</dl>
-						</div>
-					</div>
-				</article>
-				<!-- END .submast -->
-				
-				<!-- BEGIN .content -->
-				<article class="container main">
-					<div class="row section-1">
+					<div class="row section-2">
 						<div class="column medium-12">
 							<div class="row collapse outdent-both">
 								<div class="column medium-12">

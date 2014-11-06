@@ -100,125 +100,120 @@ SVALINN DIFFERENCE
 		}
 	}
 }
+/*  GUARANTEE  */
+.guarantee{
+	.leader .row{
+		background-color:#e4e2e2;
+		background-image: url("/packages/shield/img/hr-gradient.png");
+		background-position: 50% 100%;
+		background-repeat: no-repeat;
+	}
+	.section-2{
+		@include rem(padding-top, 3rem);
+		background-color: #E4E2E2;
+		background-image: url("/packages/shield/img/bg/bg-leader.jpg");
+		background-position: 50% 0;
+		background-repeat: no-repeat;
+	}
+}
 /*  BREED SPECIFICATION  */
 .breed-specifications{
-	.main-1{
-		h2{
-			@media #{$small-only}{
-				@include rem(font-size, 18px);
-				@include rem(line-height, 24px);
+	.leader .row{
+		background-color:#e4e2e2;
+		background-image: url("/packages/shield/img/hr-gradient.png");
+		background-position: 50% 100%;
+		background-repeat: no-repeat;
+	}
+	.main{
+		.row:last-child{padding-bottom:0 !important;}
+		.section-3 .column{padding:0;}
+	}
+	.section-1{
+		@include rem(padding-top, 3rem);
+		@include rem(padding-bottom, 2rem);
+		background-color: #E4E2E2;
+		background-image: url("/packages/shield/img/bg/bg-leader.jpg");
+		background-position: 50% 0;
+		background-repeat: no-repeat;
+		p{
+			@media #{$large-up}{
+				@include rem(margin-left,5rem);
+				@include rem(margin-right,5rem);
 			}
+			color:#000;
 		}
 	}
-	.tabs-content{
+	.section-2{
 		.content{
-			@media #{$small-only}{
-				-webkit-background-size: contain;
-				-moz-background-size: contain;
-				-o-background-size: contain;
-				background-size: contain;
-				background-repeat:no-repeat;
-				padding-top:280px;
+			.row{
+				padding-top:0;
+				padding-bottom:0;
+				.left-col{
+					@include rem(padding,2rem 2rem 1rem);
+					@media #{$medium-down}{
+						@include rem(padding-bottom,3rem);
+					}
+					h3{
+						color:#000;
+						font-family:$quadon;
+						@include rem(font-size,24px);
+						text-align: center;
+						text-transform: none;
+					}
+					p{color:#000;text-align: center;}
+					.framed{
+						p{@include rem(font-size,14px);}
+						@media #{$medium-down}{
+							@include rem(font-size,18px);
+						}
+					}
+				}
+				.right-col{
+					padding:0;
+					.row{padding:0;}
+				}
 			}
+			
 		}
 	}
-	.desc{
-		@include rem(padding, 4rem 2rem 0);
-		@media #{$small-only}{
-			@include rem(padding, 1rem 0.75rem 0);
-		}
-		h2{
-			@include rem(margin, 0 0 2rem);
-			color:#FFF;
-			@include rem(font-size, 24px);
-			font-style: italic;
-			font-weight: 600;
-			text-align: center;
-			@media #{$small-only}{
-				margin:0 0 1rem;
-				@include rem(font-size, 18px);
-				@include rem(line-height, 24px);
+}
+.testimonials{
+	.leader,.section-2,.section-3{display: none;}
+	.testimonial{
+		blockquote{
+			&:before,&:after{
+				display:block;
+				margin:0 auto;
+				content:"";
+				height:34px;
+				width:34px;
+				background-size:contain;
+				background-position: 50%;
 			}
+			&:before{background-image: url("/packages/shield/img/blockquote-before.png");}
+			&:after{background-image: url("/packages/shield/img/blockquote-after.png");}
 		}
-		p{
-			color:#FFF;
-			@include rem(margin-bottom, 2rem);
-			text-align: center;
-			@media #{$small-only}{
-				@include rem(font-size, 14px);
-				@include rem(line-height, 18px);
-			}
-		}
-		@media #{$small-only}{
-			h2,p{color:#000;}
-		}
-	}
-	.char{
-		h3{
-			margin:0 0 6px;
-			color:#FFF;
-			@include rem(font-size, 15px);
-			font-weight: 600;
-			text-align: center;
-			text-transform: uppercase;
-		}
-		p{
-			color:#FFF;
-			@include rem(font-size, 16px);
-			font-style: italic;
-			@include rem(line-height, 18px);
-			text-align: center;
-			a{
-				@include btn();
-				@include btn-md();
-				@include rem(margin-top, 1rem);
-				color:$brand-blue;
-				font-style: normal;
-				font-weight: 400;
-				background: #FFF;
-			}
-		}
-		@media #{$small-only}{
-			h3,p{color:#000;}
-		}
-
-	}
-	
-}
-#german-shepherd{
-	background-image:url("#{$imagePath}private/bg-german-shepherd.jpg");
-}
-#dutch-sheperd{
-	.desc,.char{
-		h2,h3,p{color:#000;}
-	}
-	background-image:url("#{$imagePath}private/bg-dutch-shepherd.jpg");
-}
-#belgian-malinois{
-	background-image:url("#{$imagePath}private/bg-belgian-malinois.jpg");
-}
-/*  TRAINING  */
-.training-levels{
-	.main-2{
-		background:#FFF url("#{$imagePath}bg-dog-knots.jpg") 50% 0 no-repeat;
 		
 	}
 }
-
-/*  GUARANTEE  */
-.guarantee{
-	.main-2{
-		background:#fbfbf9 url("#{$imagePath}private/bg-guarantee-section.jpg") 50% 0 no-repeat;
-		.guarantee-col{
-			p{
-				@include rem(font-size, 14px);
-				@include rem(line-height, 22px);
-			}
-			text-align: center;
-			hr{background-image:url("#{$imagePath}divide-knot-gray.gif");}
-		}
+/* =============================================================================
+PROTECTION
+============================================================================= */
+/*  PEACE OF MIND  */
+.peace-mind, .family, .individual, .executive{
+	.leader .row{
+		background-color:#e4e2e2;
+		background-image: url("/packages/shield/img/hr-gradient.png");
+		background-position: 50% 100%;
+		background-repeat: no-repeat;
 	}
-	.main-3{border:0;}
+	.section-2{
+		@include rem(padding-top, 3rem);
+		background-color: #E4E2E2;
+		background-image: url("/packages/shield/img/bg/bg-leader.jpg");
+		background-position: 50% 0;
+		background-repeat: no-repeat;
+	}
 }
 
 /* =============================================================================

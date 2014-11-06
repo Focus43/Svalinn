@@ -13,7 +13,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 <link rel="stylesheet" href="http://fisherphx.net/svalinn.css" />
 </head>
 
-<body class="antialiased<?php echo $bodyClasses; ?> default default-2-equal-column">
+<body class="antialiased<?php echo $bodyClasses; ?> default">
 	<!--[if lte IE 8]>
         <div data-alert class="alert-box warning chromeframe">
 Your browser is out of date! It looks like you're using an old version of Internet Explorer.<br/>For the best experience, <a href="http://browsehappy.com/">please update your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a>.
@@ -37,32 +37,24 @@ Your browser is out of date! It looks like you're using an old version of Intern
 	            <?php Loader::packageElement('blue_masthead', 'shield', array('pageObj' => Page::getCurrentPage())); ?>
 				<!-- END .masthead -->
 				
-				<!-- BEGIN .submast -->
-				<article class="container tab-nav bg-knot-gray-lg">
-					<div class="row">
-						<div class="column medium-12 medium-centered"></div>
-					</div>
-				</article>
-				<!-- END .submast -->
-				
 				<!-- BEGIN .content -->
 				<article class="container main">
 					<div class="row section-1">
-						<div class="column medium-12 large-12 medium-centered">
+						<div class="column medium-10 medium-centered">
 							<?php $a = new Area('Main'); $a->display($c); ?>
 						</div>
 					</div>
 					<div class="row section-2">
-						<div class="small-12 medium-6 large-6 columns left-col">
-	                        <?php $a = new Area('Main-2'); $a->display($c); ?>
+						<div class="column medium-6">
+							<?php $a = new Area('Main-2'); $a->display($c); ?>
 						</div>
-						<div class="small-12 medium-6 large-6 end columns right-col">
+						<div class="columns medium-6">
 	                        <?php $a = new Area('Main-3'); $a->display($c); ?>
 						</div>
 					</div>
-					<div class="row section-3">
-						<div class="column medium-12 large-12 medium-centered">
-	                        <?php $a = new Area('Main-4'); $a->display($c); ?>
+					<div class="row section-3 outdent-both">
+						<div class="column medium-12">
+							<?php $a = new Area('Main-4'); $a->display($c); ?>
 						</div>
 					</div>
 				</article>
@@ -71,7 +63,7 @@ Your browser is out of date! It looks like you're using an old version of Intern
 	            <?php Loader::packageElement('theme_footer', 'shield'); ?>
 				<!-- END .footer -->
 			</div><!-- END .main-wrap -->
-						
+			
 			<!-- BEGIN .right-off-canvas-menu -->
             <?php Loader::packageElement('responsive_sidebar', 'shield', array(
                 'navigationSettings' => array(

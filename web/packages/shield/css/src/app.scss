@@ -275,7 +275,7 @@ MAIN
 		background-position: 50% 0;
 		background-repeat: no-repeat;
 		h2{
-			@include rem(padding,52px 0);
+			@include rem(padding,52px 4rem);
 			margin:0;
 			color: $brand-blue;
 			font-family: $quadon;
@@ -300,7 +300,7 @@ MAIN
 			@include rem(padding, 1rem 1rem);
 		}
 		.outdent-left{
-			margin-left:-5rem;
+			margin-left:-3.4rem;
 			padding-left:0;
 			padding-right:0;
 			&.small-6,&.medium-6,&.large-6{
@@ -334,6 +334,11 @@ MAIN
 	}
 		/*ELEMENTS*/
 	h2{
+		&.lead{
+			@include rem(font-size, 28px);
+			@include rem(line-height, 34px);
+			font-style: italic;
+		}
 		@media #{$small-only}{
 			@include rem(font-size, 18px);
 			@include rem(line-height, 24px);
@@ -573,6 +578,7 @@ PAGE ELEMENTS
 			width:100%;
 		}
 	}
+	&:before,&:after{display:none;}
 	dd{
 		background: none;
 		text-align: right;
@@ -621,7 +627,10 @@ PAGE ELEMENTS
 				@include rem(height, 3rem);
 				@include rem(font-size, 21px);
 				@include rem(line-height, 3rem);
-				@include rem(padding, 0 4rem);
+				padding: 0;
+				@media #{$medium-down}{
+					@include rem(font-size, 18px);
+				}
 				font-family: $quadon;
 				text-align: center;
 				color:$lite-gray;
@@ -704,7 +713,7 @@ PAGE ELEMENTS
 				background-repeat: no-repeat;
 				h3{
 					font-family: $quadon;
-					@include rem(font-size,32px);
+					@include rem(font-size,26px);
 				}
 				hr{
 					height:1px;

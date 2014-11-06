@@ -51,7 +51,7 @@ Your browser is out of date! It looks like you're using an old version of Intern
 					</div>
 					<div class="row section-2">
 						<div class="column medium-12">
-							<div class="row collapse outdent-both">
+							<div class="row collapse outdent-both hide-for-small-only">
 								<div class="column medium-12">
 									<dl class="tabs centered" data-tab>
 										<dd class="active"><a href="#level1">Level I</a></dd>
@@ -63,32 +63,30 @@ Your browser is out of date! It looks like you're using an old version of Intern
 							<div class="row outdent-both">
 								<div class="column medium-12">
 									<div class="tabs-content">
-										<div id="breeding" class="content active">
+										<div id="level1" class="content active">
 											<?php $a = new Area('Level 1-Left'); $a->display($c); ?>
-											<?php $a = new Area('Level 1-Right'); $a->display($c); ?>
+											<?php /* $a = new Area('Level 1-Right'); $a->display($c); */ ?>
 										</div>
-										<div id="raising" class="content">
+										<div id="level2" class="content">
 											<?php $a = new Area('Level 2-Left'); $a->display($c); ?>
-											<?php $a = new Area('Level 2-Right'); $a->display($c); ?>
+											<?php /* $a = new Area('Level 2-Right'); $a->display($c); */ ?>
 										</div>
-										<div id="training" class="content">
+										<div id="level3" class="content">
 										<div class="row">
 										<div class="column medium-12">
-											<?php $a = new Area('Level 2-Left'); $a->display($c); ?>
-											<?php $a = new Area('Level 2-Right'); $a->display($c); ?>										
+											<?php $a = new Area('Level 3-Left'); $a->display($c); ?>
+											<?php /* $a = new Area('Level 3-Right'); $a->display($c); */ ?>										
 										</div>
 									</div>
 								</div>
 							</div>						
 						</div>
 					</div>
-					<?php /*
-					<div class="row section-2">
+					<div class="row section-3 outdent-both">
 						<div class="column medium-12">
 							<?php $a = new Area('Main-2'); $a->display($c); ?>
 						</div>
 					</div>
-					*/ ?>
 				</article>
 				<!-- END .content -->
 				<!-- BEGIN .footer -->

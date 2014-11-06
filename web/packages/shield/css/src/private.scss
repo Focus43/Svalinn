@@ -62,7 +62,9 @@ ABOUT
 	.masthead{
 		background-position: 0 0;
 	}
-	
+	.main{
+		.row:last-child{padding-bottom:0 !important;}
+	}
 }
 
 /* =============================================================================
@@ -81,8 +83,22 @@ SVALINN DIFFERENCE
 		background-image: url("/packages/shield/img/bg/bg-leader.jpg");
 		background-position: 50% 0;
 		background-repeat: no-repeat;
+		p{	
+			@include rem(margin, 3rem 0);
+			color:#000;
+			@include rem(font-size, 21px);
+			text-align: center;
+		}
 	}
-	.main{}
+	.main{
+		.row:last-child{padding-bottom:0 !important;}
+		.section-3 .column{padding:0;}
+	}
+	.tabs-content{
+		.content{
+			li{color:#000;}
+		}
+	}
 }
 /*  BREED SPECIFICATION  */
 .breed-specifications{

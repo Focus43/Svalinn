@@ -44,7 +44,6 @@ h1, h2, h3, h4, p{
 p{@include rem(margin-bottom,1.25rem);}
 .ie7,.ie8,.ie9,
 .lt-ie8,.lt-ie9{
-	
 	.right-off-canvas-menu, .exit-off-canvas{display:none !important;}
 	.home .pro-section h1{background: none !important;}
 	.maskTitle{
@@ -129,13 +128,13 @@ HEADER BAR
 			@media (min-width:1020px) and (max-width:1100px){
 				margin-left: 200px;
 			}
-			
 			ul {
 				height:$header-height !important;
 				background: transparent !important;
 				li {
 					list-style: none;
 					background: transparent;
+					&.has-dropdown>a:after{display:none;}
 					.lt-ie9 &{float:left;width:150px;}
 					&:last-child {border:0;}
 					a{
@@ -308,6 +307,15 @@ MAIN
 			margin-right:-3.4rem;
 			text-align: right;
 		}
+		.outdent-both{
+			margin-left:-3.45rem;
+			margin-right:-3.45rem;
+			padding-left:0;
+			padding-right:0;
+		}
+		&:last-child{
+			@include rem(padding-bottom, 3rem);
+		}
 	}
 	
 	
@@ -384,8 +392,8 @@ MAIN
 		}
 	}
 	blockquote{
-		@include rem(margin, 0 0 36px);
-		@include rem(padding, 0 0 36px);
+		@include rem(margin, 0);
+		@include rem(padding, 0);
 		color:#5d5d5d;
 		@include rem(font-size, 24px);
 		@include rem(line-height, 42px);
@@ -640,7 +648,10 @@ PAGE ELEMENTS
 	background:$lite-tan;
 }
 .tabs{
+	width:100%;
 	@include rem(margin-top, 5.2rem);
+	z-index: 2;
+	position: relative;
 	&.vertical{
 		width:28%;
 		@media #{$small-only}{
@@ -651,7 +662,6 @@ PAGE ELEMENTS
 	dd{
 		background: none;
 		text-align: right;
-		@include rem(font-size, 1rem);
 		@media #{$small-only}{
 			text-align: center;
 		}
@@ -668,8 +678,7 @@ PAGE ELEMENTS
 				padding-left:0;padding-right:0;
 			}
 			&:hover{
-				color:#6c6c6c;
-				background:none;
+				opacity:0.9;
 			}
 		}
 		&.active{
@@ -682,30 +691,83 @@ PAGE ELEMENTS
 	&.centered{
 		display: table;
 		margin: 0 auto;
+		width:100%;
 		@media #{$small-only}{
 			margin-left: -15px;
 			margin-right: -15px;			
 		}
 		dd{
+			display: table-cell;
+			float:none;
 			top:0 !important;
-			margin-right:1px;
 			@media #{$small-only}{
 				width:100%;
 			}
 			a{
-				@include rem(height, 2.5rem);
-				@include rem(line-height, 2.5rem);
+				@include rem(height, 3rem);
+				@include rem(font-size, 21px);
+				@include rem(line-height, 3rem);
 				@include rem(padding, 0 4rem);
+				font-family: $quadon;
 				text-align: center;
-				color:#FFF;
+				color:$lite-gray;
 				text-transform: uppercase;
 				background:$brand-blue;
+				&:hover{
+					&:after{
+						top: 100%;
+						left: 50%;
+						border: solid transparent;
+						content: " ";
+						height: 0;
+						width: 0;
+						position: absolute;
+						pointer-events: none;
+						border-width: 11px;
+						margin-left: -11px;
+					}
+				}
 			}
 			&.active{
 				a{
-					color:$medium-blue;
+					color:#FFF;
 					font-weight:400;
-					background: #FFF;
+					&:after{
+						top: 100%;
+						left: 50%;
+						border: solid transparent;
+						content: " ";
+						height: 0;
+						width: 0;
+						position: absolute;
+						pointer-events: none;
+						border-width: 11px;
+						margin-left: -11px;
+					}
+				}
+			}
+			&:nth-child(1){
+				a{
+					background:$lite-blue;
+					&:after{border-top-color: $lite-blue;}
+				}
+			}
+			&:nth-child(2){
+				a{
+					background:$brand-blue;
+					&:after{border-top-color: $brand-blue;}
+				}
+			}
+			&:nth-child(3){
+				a{
+					background:$medium-blue;
+					&:after{border-top-color: $medium-blue;}
+				}
+			}
+			&:nth-child(4){
+				a{
+					background:$dark-blue;
+					&:after{border-top-color: $dark-blue;}
 				}
 			}
 		}
@@ -713,6 +775,14 @@ PAGE ELEMENTS
 	
 }
 .tabs-content{
+	.content{padding:0;}
+	.philosophy-approach & .content .row{background: transparent;}
+	.philosophy-approach & .content>.row{
+		@include rem(padding-top,3rem);
+		@include rem(padding-bottom,3rem);
+		background: #d2dce4;
+	}
+	
 	.breeds &{
 		margin-bottom: 0;
 		@media #{$large-up}{
@@ -953,7 +1023,7 @@ FOOTER NAV - CALLOUTS
 	bottom: 0;
 	width: 100%;
 	ul {
-		margin: 0 1rem 0 0;
+		margin:0 0.25rem 0 0;
 		padding: 0;
 		height: 35px;
 		li {
@@ -961,7 +1031,7 @@ FOOTER NAV - CALLOUTS
 			list-style: none;
 			a {
 				display: block;
-				margin-left: 1rem;
+				margin-left: 0.25rem;
 				padding: 0 1.5rem;
 				height: 35px;
 				line-height: 35px;
@@ -976,10 +1046,10 @@ FOOTER NAV - CALLOUTS
 			}
 		}
 	}
-	
 	.row {
 		max-width: 100%;
 	}
+	.footer-tabs{margin:0 auto;max-width:71.25rem;}
 	.callouts {
 		position: relative;
 		height: 400px;
@@ -1024,7 +1094,9 @@ FOOTER NAV - CALLOUTS
 	}
 	@media #{$medium-down}{
 		position:relative;
+		margin-top: 0;
 		ul{
+			
 			margin:0;
 			li{
 				float:left;
@@ -1096,9 +1168,12 @@ FOOTER NAV - CALLOUTS
 FOOTER
 ============================================================================= */
 .footer{
-	@include rem(padding-top, 3rem);
 	color:#FFF;
-	background:$black-blue;
+	background:#888;
+	.row{
+		@include rem(padding-top, 3rem);
+		background:$black-blue;
+	}
 	.contact{
 		text-align:center;
 		@include rem(margin-top,0.3333334rem);
@@ -1161,8 +1236,7 @@ FOOTER
 		}
     }
 	.copyright{
-		@include rem(margin-top,1rem);
-		@include rem(padding-top,1rem);
+		@include rem(padding-top,2rem);
 		color:$medium-blue;
 	}
 	.btn{

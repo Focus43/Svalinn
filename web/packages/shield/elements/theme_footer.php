@@ -1,9 +1,11 @@
 <!-- BEGIN .tabs -->
-<div data-int="5"  class="footer-nav">
-	<ul>
-		<li><a href="#" data-target="training" class="training">Training</a></li>
-		<li><a href="#" data-target="professional" class="professional">Professional</a></li>
-	</ul>
+<div data-int="5" class="container footer-nav">
+	<div class="footer-tabs">
+		<ul>
+			<li><a href="#" data-target="training" class="training">Training</a></li>
+			<li><a href="#" data-target="professional" class="professional">Professional</a></li>
+		</ul>
+	</div>
 	<div class="callouts closed">
 		<div class="callout" id="callout-professional">
 			<div class="row">

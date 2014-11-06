@@ -41,7 +41,7 @@ Your browser is out of date! It looks like you're using an old version of Intern
 				<article class="container main main-1">
 					<div class="row">
 						<div class="column medium-12 large-10 medium-centered">
-							<?php $a = new Area('Main'); $a->display($c); ?>
+							<?php $a = new Area('Main'); $a->setBlockWrapperStart('<div class="testimonials">'); $a->setBlockWrapperEnd('</div>'); $a->display($c); ?>
 						</div>
 					</div>
 				</article>

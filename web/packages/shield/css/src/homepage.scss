@@ -182,6 +182,9 @@ article .inner, blockquote .inner {
 		height:100vh;
 		width:100vw;
 		line-height: 100vh;
+		blockquote{
+			height:auto !important;
+		}
 	}
 	
 }

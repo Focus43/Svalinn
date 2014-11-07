@@ -13,7 +13,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 <link rel="stylesheet" href="http://fisherphx.net/svalinn.css" />
 </head>
 
-<body class="antialiased<?php echo $bodyClasses; ?> default">
+<body class="antialiased<?php echo $bodyClasses; ?> training">
 	<!--[if lte IE 8]>
         <div data-alert class="alert-box warning chromeframe">
 Your browser is out of date! It looks like you're using an old version of Internet Explorer.<br/>For the best experience, <a href="http://browsehappy.com/">please update your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a>.
@@ -34,25 +34,56 @@ Your browser is out of date! It looks like you're using an old version of Intern
 				<!-- END HEADER   -->
 				
 				<!-- BEGIN .masthead -->
-				<?php Loader::packageElement('blue_masthead', 'shield', array('pageObj' => Page::getCurrentPage())); ?>
+	            <?php Loader::packageElement('blue_masthead', 'shield', array(
+	                'pageObj' => Page::getCurrentPage()
+	            )); ?>
 				<!-- END .masthead -->
 				
+				<!-- BEGIN .intro -->
+				
+				<!-- END .intro -->
 				<!-- BEGIN .content -->
 				<article class="container main">
 					<div class="row section-1">
-						<div class="column medium-12">
+						<div class="column medium-10 medium-centered">
 							<?php $a = new Area('Main'); $a->display($c); ?>
 						</div>
 					</div>
 					<div class="row section-2">
 						<div class="column medium-12">
-							<?php $a = new Area('Main-2'); $a->display($c); ?>
+							<div class="row collapse outdent-both hide-for-small-only">
+								<div class="column medium-12">
+									<dl class="tabs centered" data-tab>
+										<dd class="active"><a href="#individual">Individual Training</a></dd>
+										<dd><a href="#group">Group Training</a></dd>
+										<dd><a href="#seminars">Seminars</a></dd>
+										<dd><a href="#residental">Residental</a></dd>
+									</dl>
+								</div>
+							</div>
+							<div class="row outdent-both">
+								<div class="column medium-12">
+									<div class="tabs-content">
+										<div id="individual" class="content active">
+											<?php $a = new Area('Main-1'); $a->display($c); ?>
+										</div>
+										<div id="group" class="content">
+											<?php $a = new Area('Main-2'); $a->display($c); ?>
+										</div>
+										<div id="seminars" class="content">
+											<?php $a = new Area('Main-3'); $a->display($c); ?>
+										</div>
+										<div id="residental" class="content">
+											<?php $a = new Area('Main-4'); $a->display($c); ?>
+										</div>
+
+									</div>
+								</div>
+							</div>						
 						</div>
 					</div>
 					<div class="row section-3">
-						<div class="column medium-12">
-							<?php $a = new Area('Main-3'); $a->display($c); ?>
-						</div>
+						<img src="/packages/shield/img/bg/bg-training-classes.jpg"/>
 					</div>
 				</article>
 				<!-- END .content -->
@@ -71,8 +102,6 @@ Your browser is out of date! It looks like you're using an old version of Intern
                 )
             )); ?>
 			<!-- END .right-off-canvas-menu -->
-			
-			
 			
 		</div><!-- END .inner-wrap -->
 	</div><!-- END .off-canvas-wrap -->

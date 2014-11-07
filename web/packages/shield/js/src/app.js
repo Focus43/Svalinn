@@ -117,7 +117,7 @@ var callout_target = '';
 	site.footer_nav = {
 		init: function(){
 			$('.footer-nav .callout').addClass('hide');
-			$('.footer-nav a').click(function(e){
+			$('.footer-tabs a').click(function(e){
 				e.preventDefault();
 				log('click');
 				callout_target = '#callout-'+$(this).data('target');

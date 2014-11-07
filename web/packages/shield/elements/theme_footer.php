@@ -23,7 +23,7 @@
 				<div class="column medium-12 large-6 details">
 					<h3 class="text-center show-for-small-only">Training</h3>
 					<p class="text-center">At Svalinn, our dogs possess a level of sociability and obedience unparalleled in the industry. We would like to share this training approach and expertise with you and your dog.</p>
-					<p class="text-center"><a href="/training" class="btn">Click here to Learn More</a></p>
+					<p class="text-center"><a href="/training-classes" class="btn">Click here to Learn More</a></p>
 				</div>
 			</div>
 		</div>

@@ -1200,7 +1200,7 @@ FOOTER
 	.professional &{background:#171717;}
 	.row{
 		@include rem(padding-top, 3rem);
-		background:#212121;
+		.professional &{background:#212121;}
 	}
 	.contact{
 		text-align:center;

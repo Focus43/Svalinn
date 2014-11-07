@@ -4,6 +4,7 @@ $(document).ready(function(){
 	var scrollMoving = false;
 	
 
+	
 	/*********************************************
 	HOMEPAGE SCROLL
 	*********************************************/
@@ -121,7 +122,7 @@ $(document).ready(function(){
 	/*********************************************
 	MOBILE/TABLET EXPERIENCE
 	*********************************************/
-	$('.inner a.down').click(function(e){
+	$('article .inner a.down').click(function(e){
 		e.preventDefault();
 		var new_top = $(window).height() + $('.header').height();
 		newInt = $(this).data('int');

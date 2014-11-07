@@ -171,6 +171,15 @@ SVALINN DIFFERENCE
 		}
 	}
 }
+.training-classes{
+	.section-1{
+		@include rem(padding-top,1rem);
+		@include rem(padding-bottom,2rem);
+	}
+	.section-3{
+		padding:0;
+	}
+}
 /* =============================================================================
 PROTECTION
 ============================================================================= */

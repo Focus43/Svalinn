@@ -72,8 +72,6 @@ Your browser is out of date! It looks like you're using an old version of Intern
 											<?php /* $a = new Area('Level 2-Right'); $a->display($c); */ ?>
 										</div>
 										<div id="level3" class="content">
-										<div class="row">
-										<div class="column medium-12">
 											<?php $a = new Area('Level 3-Left'); $a->display($c); ?>
 											<?php /* $a = new Area('Level 3-Right'); $a->display($c); */ ?>										
 										</div>

@@ -14,7 +14,7 @@ module.exports = function( grunt, _configs ){
         pkgPath('js/src/foundation.min.js'), // @todo: modularize to only in-use components
         pkgPath('js/src/plugins.js'),
         //pkgPath('js/src/instafeed.min.js'),
-        pkgPath('js/src/jquery.cycle.lite.js'),
+        pkgPath('js/src/jquery.cycle.js'),
         pkgPath('js/src/app.js')
     ];
 

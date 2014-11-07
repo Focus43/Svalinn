@@ -7,14 +7,8 @@ body{
 	.privateclient &{background:$black-blue;}
 }
 .menu-icon span {
-	-webkit-box-shadow: 1px 10px 0 1px #185775, 1px 16px 0 1px #185775, 1px 22px 0 1px #185775;
-	box-shadow: 1px 10px 0 1px #185775, 1px 16px 0 1px #185775, 1px 22px 0 1px #185775;
-}
-.professional {
-	.menu-icon span {
-		-webkit-box-shadow: 1px 10px 0 1px $lite-green, 1px 16px 0 1px $lite-green, 1px 22px 0 1px $lite-green;
-		box-shadow: 1px 10px 0 1px $lite-green, 1px 16px 0 1px $lite-green, 1px 22px 0 1px $lite-green;
-	}
+	-webkit-box-shadow: 1px 10px 0 1px #FFF, 1px 16px 0 1px #FFF, 1px 22px 0 1px #FFF;
+	box-shadow: 1px 10px 0 1px #FFF, 1px 16px 0 1px #FFF, 1px 22px 0 1px #FFF;
 }
 .alert-box{
 	padding:50px 20%;
@@ -462,20 +456,37 @@ MAIN
 /* =============================================================================
 PAGE ELEMENTS
 ============================================================================= */
+.off-canvas-wrap .inner-wrap .main-wrap{
+	box-shadow: none !important;
+}
+.off-canvas-wrap, .inner-wrap {
+    min-height: 100%;
+}
+.off-canvas-wrap{  
+height: 100%;
+overflow-y: auto;
+}
+.move-left .mainSection{height:100% !important; overflow:hidden;}
+.move-left .inner-wrap{max-height:100%;}
+.move-left{overflow-y:hidden}
 /*  OFF CANVAS NAV  */
 .right-off-canvas-menu{
-	background:#333;
+	background:#E4E2E2;
+	overflow-y:auto;
+	height:auto;
 	a{text-align: left;}
 	.primary-nav,.utility-nav{@include rem(margin, 0 20px);}
 	.primary-nav{
-		@include rem(padding-bottom, 30px);
+		@include rem(padding-bottom, 3rem);
 		li{
+			@include rem(margin,1rem 1rem 2rem);
 			@include rem(padding-top, 0 20px);
 			&.has-dropdown{}
 			a{
 				padding-left:0;
 				padding-right:0;
-				color:#FFF;
+				color:#888;
+				font-family: $quadon;
 				@include rem(font-size, 1rem);
 				@include rem(line-height, 1.5rem);
 				text-decoration: none;
@@ -486,36 +497,39 @@ PAGE ELEMENTS
 			ul{
 				@include clearfix;
 				display:block;
-				margin:0;
+				@include rem(margin,1rem 0 2rem);
 				padding:0;
 			}
 			ul>li{
 				margin:0;
 				padding:0;
-				display: table-cell;
-				text-align: center;
+				display: block;
+				text-align: left;
+				float:none;
 				list-style: none;
-				float:left;
-				width:50%;
-				
+				width:100%;
 				a{
+					color:$brand-blue;
 					padding-left:0;
 					padding-right:0;
 					border: 0;
 					display: block;
-					@include rem(font-size, 11px);
-					@include rem(line-height, 12px);
+					font-family: $proxima;
+					@include rem(font-size, 14px);
+					@include rem(line-height, 18px);
 				}
 			}
 		}
 	}
 	.utility-nav{
 		@include rem(margin-top, 30px);
+		@include rem(padding-bottom, 6rem);
 		.btn{
 			@include rem(margin, 10px);
+			color:$brand-blue;
 			width:auto;
 			text-align: center;
-			border: 2px solid #FFF;
+			border: 2px solid $brand-blue;
 		}
 	}
 }

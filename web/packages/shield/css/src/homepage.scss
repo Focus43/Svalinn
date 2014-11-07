@@ -218,3 +218,78 @@ article .inner, blockquote .inner {
 	  	}
 	}
 }
+/* =============================================================================
+PAGE ELEMENTS
+============================================================================= */
+.off-canvas-wrap, .inner-wrap {
+    min-height: 100%;
+}
+
+.off-canvas-wrap{  
+height: 100%;
+overflow-y: auto;
+}
+/*  OFF CANVAS NAV  */
+.right-off-canvas-menu{
+	background:#E4E2E2;
+	overflow-y:auto;
+	height:auto;
+	a{text-align: left;}
+	.primary-nav,.utility-nav{@include rem(margin, 0 20px);}
+	.primary-nav{
+		@include rem(padding-bottom, 30px);
+		li{
+			@include rem(margin,1rem 1rem 2rem);
+			@include rem(padding-top, 0 20px);
+			&.has-dropdown{}
+			a{
+				padding-left:0;
+				padding-right:0;
+				color:#888;
+				font-family: $quadon;
+				@include rem(font-size, 1rem);
+				@include rem(line-height, 1.5rem);
+				text-decoration: none;
+				text-transform: uppercase;
+				border-bottom:1px solid #ccc;
+			}
+			
+			ul{
+				@include clearfix;
+				display:block;
+				@include rem(margin,1rem 0 2rem);
+				padding:0;
+			}
+			ul>li{
+				margin:0;
+				padding:0;
+				display: block;
+				text-align: left;
+				float:none;
+				list-style: none;
+				width:100%;
+				a{
+					color:$brand-blue;
+					padding-left:0;
+					padding-right:0;
+					border: 0;
+					display: block;
+					font-family: $proxima;
+					@include rem(font-size, 14px);
+					@include rem(line-height, 18px);
+				}
+			}
+		}
+	}
+	.utility-nav{
+		@include rem(margin-top, 30px);
+		.btn{
+			@include rem(margin, 10px);
+			color:$brand-blue;
+			width:auto;
+			text-align: center;
+			border: 2px solid $brand-blue;
+		}
+	}
+}
+.right-off-canvas-toggle{position: absolute;top:16px;right:0;}

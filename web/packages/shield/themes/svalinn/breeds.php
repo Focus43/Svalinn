@@ -74,7 +74,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 											</div>
 										</div>
 									</div>
-									<div class="content" id="dutch-sheperd">
+									<div class="content" id="dutch-shepherd">
 										<div class="row">
 											<div class="column large-6 right-col large-push-6">
 			                                    <?php $a = new Area('Level 2-Left'); $a->display($c); ?>

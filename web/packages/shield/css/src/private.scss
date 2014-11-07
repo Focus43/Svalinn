@@ -97,7 +97,7 @@ SVALINN DIFFERENCE
 	.tabs-content{
 		.content{
 			li{color:#000;}
-			.framed{@include rem(margin-bottom,3rem);}
+			.framed{@include rem(margin-bottom,5rem);}
 		}
 	}
 }
@@ -201,7 +201,7 @@ SVALINN DIFFERENCE
 PROTECTION
 ============================================================================= */
 /*  PEACE OF MIND  */
-.peace-mind, .family, .individual, .executive{
+.peace-mind, .individual, .executive{
 	.leader .row{
 		background-color:#e4e2e2;
 		background-image: url("/packages/shield/img/hr-gradient.png");
@@ -216,7 +216,7 @@ PROTECTION
 		background-repeat: no-repeat;
 	}
 }
-.selection-process, .securing-your-dog, .handler-training{
+.family, .selection-process, .securing-your-dog, .handler-training{
 	.leader .row{
 		background-color:#e4e2e2;
 		background-image: url("/packages/shield/img/hr-gradient.png");

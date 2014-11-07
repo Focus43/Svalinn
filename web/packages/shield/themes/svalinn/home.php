@@ -102,12 +102,14 @@ Your browser is out of date! It looks like you're using an old version of Intern
 							<div class="text-center-tight full">
 								<div class="inner">
 									<div class="quote_gallery">
+										<!--
 										<ul>
 											<li>
 												<p class="text-center quote">As I watch bandit protect me during our training scenarios, the ultimate act of humbleness takes place. I now see that I am willing to allow someone to stand between me and a threat against those I love.</p>
 												<p class="text-center signature">- tony, father of 2 -</p>
 											</li>
 										</ul>
+										-->
 									</div>
 								</div>
 							</div>

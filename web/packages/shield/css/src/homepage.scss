@@ -53,36 +53,37 @@ article .inner, blockquote .inner {
 .scroll-down {
   position: fixed;
   left: 50%;
-  margin-left: -80px;
+  margin-left: -100px;
   margin-top: 90vh;
   color: #FFF;
   font-size: 1.25em;
-  width: 80px;
-  height: 32px;
-  line-height: 32px;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
   text-align: center;
   z-index: 10;
   overflow: hidden;
   -webkit-transition: all 150ms;
   &.down-only {
-    margin-left: -40px;
-    width: 40px;
+    margin-left: -50px;
+    width: 50px;
     .up {
       opacity: 0;
     }
   }
   a {
     display: inline-block;
-    width: 40px;
+    width: 50px;
     img {
+      width: 30px;	
       -webkit-transition: all 150ms;
       margin-top: 0px;
     }
-    &.down:hover img {
-      margin-top: 4px;
+    &.down:hover {
+      opacity:0.7;
     }
-    &.up:hover img {
-      margin-top: -4px;
+    &.up:hover {
+      opacity:0.7;
     }
   }
 }

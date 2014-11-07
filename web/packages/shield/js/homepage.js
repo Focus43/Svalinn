@@ -45,10 +45,13 @@ $(document).ready(function(){
 		});
 		if( !WURFL.is_mobile ){
 			//CONTROLS
-			if(scrollInt > 0){
+			console.log($(window).scrollTop() +'>'+ $(window).height());
+			if($(window).scrollTop() > 100){
 				$('.scroll-down').removeClass('down-only');
+			}else{
+				$('.scroll-down').addClass('down-only');
 			}
-			scrollReposition();
+			//scrollReposition();
 		}
 	}
 	//REPOSITION
@@ -110,7 +113,7 @@ $(document).ready(function(){
 	if( !WURFL.is_mobile && !WURFL.is_tablet ){
 		$(window).resize(function(){
 			setFull();
-			scrollReposition();
+			//scrollReposition();
 		});
 	}
 	

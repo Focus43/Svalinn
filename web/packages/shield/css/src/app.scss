@@ -161,28 +161,19 @@ HEADER BAR
 						li{
 							@include rem(padding-left, 1rem);
 							@include rem(padding-right, 1rem);
-							background: #FFF;
-							.professional &{background:#000;}
-							&:first-child{@include rem(padding-top, 1rem);}
-							&:last-child{@include rem(padding-bottom, 1rem);}
+							background: rgba(20, 42, 56, 0.75);
 							&.nav-selected{
 								a{
-									color: $medium-gray;
+									color: #FFF;
 								}
+								background: rgba(20, 42, 56, 1);
+							}
+							&:hover{
+								background: rgba(20, 42, 56, 1);
 							}
 							a{
-								color:$brand-blue;
 								@include rem(line-height, 3rem);
 								@include rem(height, 3rem);
-								&:hover {
-									color: $medium-gray;
-								}
-								.professional &{
-									color: #FFF;
-									&:hover {
-										color: $medium-gray;
-									}
-								}
 							}
 						}
 						
@@ -1027,13 +1018,14 @@ FOOTER NAV - CALLOUTS
 			z-index: 0;
 		}
 		.photo{
-			height: 100vh;
+			height: auto;
+			padding-top:28%;
 			background-size: cover;
 			background-position:0 0;
 			background-repeat:no-repeat;
 		}
 		.details{
-			@include rem(padding, 21px);
+			@include rem(padding, 4rem 21px 21px);
 			height: 100vh;
 			background-size: cover;
 			background-position:0 0;
@@ -1044,7 +1036,10 @@ FOOTER NAV - CALLOUTS
 				color:#FFF;
 				font-family: $quadon;
 			}
-		
+			a{
+				@include rem(padding,0.5rem 2rem);
+				background: $lite-blue;
+			}
 		}
 	}
 	@media #{$medium-down}{

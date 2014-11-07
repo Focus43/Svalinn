@@ -65,7 +65,7 @@ Your browser is out of date! It looks like you're using an old version of Intern
 								<div class="column medium-12">
 									<div class="tabs-content">
 										<div id="individual" class="content active">
-											<?php $a = new Area('Main-1'); $a->display($c); ?>
+											<?php $a = new Area('Main'); $a->display($c); ?>
 										</div>
 										<div id="group" class="content">
 											<?php $a = new Area('Main-2'); $a->display($c); ?>

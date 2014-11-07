@@ -17,7 +17,7 @@ $(document).ready(function(){
 		if( $(this).hasClass('up') ){
 			newInt = scrollInt-1;
 		}
-		console.log( 'CLICK TO INT: '+scrollInt );
+		log( 'CLICK TO INT: '+scrollInt );
 		scrollMoving = true;
 		$("html, body").animate({ scrollTop: newInt*new_top},750,'easeOutCirc',function(){
 			scrollMoving = false;
@@ -25,10 +25,9 @@ $(document).ready(function(){
 	});
 	//TRACK
 	function trackScroll(){
-		console.log('track');
 		$('article:in-viewport, blockquote:in-viewport').each(function() {
 			scrollInt = $(this).data('int');
-			//console.log( 'INT: '+scrollInt );
+			//log( 'INT: '+scrollInt );
 			$(this).find('.bg-image').css({
 				'-webkit-transform':'translate3d(0px, 0px, 0px) scale(1.05,1.05)',
 				'-webkit-transition-delay': '2000ms',
@@ -46,7 +45,8 @@ $(document).ready(function(){
 		});
 		if( !WURFL.is_mobile ){
 			//CONTROLS
-			if($('.off-canvas-wrap').scrollTop() > 100){
+			log($(window).scrollTop() +'>'+ $(window).height());
+			if($(window).scrollTop() > 100){
 				$('.scroll-down').removeClass('down-only');
 			}else{
 				$('.scroll-down').addClass('down-only');
@@ -68,7 +68,7 @@ $(document).ready(function(){
 			        750,
 			        'easeOutCirc',
 			        function(){
-				        console.log('end:'+Math.random());
+				        log('end:'+Math.random());
 				        scrollMoving == false;
 			        }
 		        );
@@ -83,7 +83,7 @@ $(document).ready(function(){
 		scrollInt++;
 		current_top = $(document).scrollTop();
 		new_top = $(window).height();
-		console.log(current_top+'/'+new_top);
+		log(current_top+'/'+new_top);
 		$("html, body").animate({ scrollTop: scrollInt*new_top}, 500);
 	}, 6000);
 	*/
@@ -106,7 +106,7 @@ $(document).ready(function(){
 	INITALIZE
 	*********************************************/
 	//IMPLEMENT SCROLLER
-	$('.off-canvas-wrap').bind('scroll', trackScroll);
+	$(window).bind('scroll', trackScroll);
 	//IMPLEMENT FULL HEIGHT
 	setFull();
 	//IMPLEMENT RESIZE

@@ -64,6 +64,11 @@ SVALINN DIFFERENCE
 		background-position: 50% 0;
 		background-repeat: no-repeat;
 	}
+	.section-3{
+		padding:0;
+		.column{padding:0;}
+	}
+	.main .row:last-child{padding-bottom:0;}
 }
 /*  BREED SPECIFICATION  */
 .breed-specifications{
@@ -184,9 +189,9 @@ PURCHASING
 ============================================================================= */
 .handler-training{
 	.section-2{
-		.outdent-both>.column{padding-left:0;padding-right:0;}
-		.main .row:last-child{padding-bottom:0;}
+		.outdent-both:first-child>.column{padding-left:0;padding-right:0;}
 	}
+	.main .row:last-child{padding-bottom:0;}
 	.section-3{display: none;}
 }
 /* =============================================================================

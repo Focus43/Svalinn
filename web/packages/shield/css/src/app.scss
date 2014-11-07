@@ -209,7 +209,7 @@ MASTHEAD
 	.contact &{background-image:url("#{$imagePath}masthead/contact.jpg");}
 	.inner{
 		position: absolute;
-		bottom: -9px;
+		bottom: -13px;
 		width: 100%;
 		text-align: center;
 		h1{
@@ -456,19 +456,21 @@ MAIN
 /* =============================================================================
 PAGE ELEMENTS
 ============================================================================= */
-.off-canvas-wrap .inner-wrap .main-wrap{
-	box-shadow: none !important;
+@media #{$medium-down}{
+	.off-canvas-wrap .inner-wrap .main-wrap{
+		box-shadow: none !important;
+	}
+	.off-canvas-wrap, .inner-wrap {
+	    min-height: 100%;
+	}
+	.off-canvas-wrap{  
+	height: 100%;
+	overflow-y: auto;
+	}
+	.move-left .mainSection{height:100% !important; overflow:hidden;}
+	.move-left .inner-wrap{max-height:100%;}
+	.move-left{overflow-y:hidden}
 }
-.off-canvas-wrap, .inner-wrap {
-    min-height: 100%;
-}
-.off-canvas-wrap{  
-height: 100%;
-overflow-y: auto;
-}
-.move-left .mainSection{height:100% !important; overflow:hidden;}
-.move-left .inner-wrap{max-height:100%;}
-.move-left{overflow-y:hidden}
 /*  OFF CANVAS NAV  */
 .right-off-canvas-menu{
 	background:#E4E2E2;
@@ -1012,13 +1014,17 @@ FOOTER NAV - CALLOUTS
 	.footer-tabs{margin:0 auto;max-width:71.25rem;}
 	.callouts {
 		position: relative;
-		height: 400px;
+		height: 300px;
 		overflow: hidden;
 		-webkit-transition: height 500ms  ease-in-out;
-		background:$black-blue;
+		background:#888;
 		&.closed {
 			height: 0;
 		}
+	}
+	.callout>.row{
+		margin:0 auto;
+		max-width: 71.25rem;
 	}
 	.callout {
 		position: absolute;
@@ -1026,7 +1032,7 @@ FOOTER NAV - CALLOUTS
 		opacity: 1;
 		transition: opacity 1000ms ease-in-out;
 		z-index: 1;
-		width: 100%;
+		width:100%;
 		&.hide {
 			opacity: 0;
 			z-index: 0;
@@ -1045,8 +1051,8 @@ FOOTER NAV - CALLOUTS
 			background-position:0 0;
 			background-repeat:no-repeat;
 			p{
-				@include rem(font-size, 21px);
-				@include rem(line-height, 48px);
+				@include rem(font-size, 18px);
+				@include rem(line-height, 34px);
 				color:#FFF;
 				font-family: $quadon;
 			}

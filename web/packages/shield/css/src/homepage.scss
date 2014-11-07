@@ -2,7 +2,22 @@
 @import "normalize";
 @import "foundation";
 @import "global";
-
+.footer-nav {
+	.callouts {
+		position: relative;
+		height: 400px;
+		overflow: hidden;
+		-webkit-transition: height 500ms  ease-in-out;
+		background:$dark-blue;
+		&.closed {
+			height: 0;
+		}
+	}
+	.callout>.row{
+		width:100%;
+		max-width: 100% !important;
+	}
+}
 article, blockquote {
 	position: relative;
 	height: 100vh;

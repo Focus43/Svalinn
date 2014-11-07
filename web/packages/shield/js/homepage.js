@@ -25,6 +25,7 @@ $(document).ready(function(){
 	});
 	//TRACK
 	function trackScroll(){
+		console.log('track');
 		$('article:in-viewport, blockquote:in-viewport').each(function() {
 			scrollInt = $(this).data('int');
 			//console.log( 'INT: '+scrollInt );
@@ -45,8 +46,7 @@ $(document).ready(function(){
 		});
 		if( !WURFL.is_mobile ){
 			//CONTROLS
-			console.log($(window).scrollTop() +'>'+ $(window).height());
-			if($(window).scrollTop() > 100){
+			if($('.off-canvas-wrap').scrollTop() > 100){
 				$('.scroll-down').removeClass('down-only');
 			}else{
 				$('.scroll-down').addClass('down-only');
@@ -106,11 +106,11 @@ $(document).ready(function(){
 	INITALIZE
 	*********************************************/
 	//IMPLEMENT SCROLLER
-	$(window).bind('scroll', trackScroll);
+	$('.off-canvas-wrap').bind('scroll', trackScroll);
 	//IMPLEMENT FULL HEIGHT
 	setFull();
 	//IMPLEMENT RESIZE
-	if( !WURFL.is_mobile && !WURFL.is_tablet ){
+	if( !WURFL.is_mobile ){
 		$(window).resize(function(){
 			setFull();
 			//scrollReposition();

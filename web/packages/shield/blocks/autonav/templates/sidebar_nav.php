@@ -81,7 +81,9 @@ foreach ($navItems as $ni) {
 	if ($ni->hasSubmenu) {
 		//class for items that have dropdown sub-menus
 		$classes[] = 'has-dropdown';
-	}
+	}else{
+        $classes[] = 'sans-dropdown';
+    }
 
 
 	/*

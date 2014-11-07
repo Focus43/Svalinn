@@ -133,8 +133,23 @@ SVALINN DIFFERENCE
 }
 .testimonials{
 	.leader,.section-2,.section-3{display: none;}
+	.section-1{
+		padding:0 !important;
+		.column{padding:0;}
+	}
 	.testimonial{
+		@include rem(padding,2rem 3rem);
+		background-size: cover;
+		background-position: 50% 100%;
+		background-repeat: no-repeat;
+		&:nth-child(odd){background-image: url("/packages/shield/img/bg/bg-testimonial-blue.jpg");}
+		&:nth-child(even){background-image: url("/packages/shield/img/bg/bg-testimonial-gray.jpg");}
 		blockquote{
+			margin:0;
+			padding:0;
+			@include rem(font-size,26px);
+			@include rem(line-height,42px);
+			font-weight: 600;
 			&:before,&:after{
 				display:block;
 				margin:0 auto;
@@ -144,10 +159,16 @@ SVALINN DIFFERENCE
 				background-size:contain;
 				background-position: 50%;
 			}
-			&:before{background-image: url("/packages/shield/img/blockquote-before.png");}
-			&:after{background-image: url("/packages/shield/img/blockquote-after.png");}
+			&:before{margin-bottom:16px;background-image: url("/packages/shield/img/blockquote-before.png");}
+			&:after{margin-top:16px;background-image: url("/packages/shield/img/blockquote-after.png");}
 		}
-		
+		p{
+			@include rem(margin,3rem 0 0);
+			padding:0;
+			font-weight: 500;
+			text-align: center;
+			text-transform: uppercase;
+		}
 	}
 }
 /* =============================================================================
@@ -169,7 +190,7 @@ PROTECTION
 		background-repeat: no-repeat;
 	}
 }
-.family, .selection-process, .securing-your-dog, .handler-training{
+.family, .selection-process, .securing-your-dog, .handler-training, .training-classes{
 	.leader .row{
 		background-color:#e4e2e2;
 		background-image: url("/packages/shield/img/hr-gradient.png");
@@ -184,6 +205,10 @@ PROTECTION
 		background-repeat: no-repeat;
 	}
 }
+.frequently-asked-questions{
+	h3{color:$medium-gray;}
+}
+
 /* =============================================================================
 PURCHASING
 ============================================================================= */

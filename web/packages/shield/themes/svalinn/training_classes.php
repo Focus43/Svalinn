@@ -38,27 +38,19 @@ Your browser is out of date! It looks like you're using an old version of Intern
 				<!-- END .masthead -->
 				
 				<!-- BEGIN .content -->
-				<article class="container main main-1">
-					<div class="row">
-						<div class="column medium-12 large-10 medium-centered">
+				<article class="container main">
+					<div class="row section-1">
+						<div class="column medium-12">
 							<?php $a = new Area('Main'); $a->display($c); ?>
 						</div>
 					</div>
-				</article>
-				<!-- END .content -->
-				<!-- BEGIN .content -->
-				<article class="container main main-2">
-					<div class="row">
-						<div class="column medium-12 large-10 medium-centered">
+					<div class="row section-2">
+						<div class="column medium-12">
 							<?php $a = new Area('Main-2'); $a->display($c); ?>
 						</div>
 					</div>
-				</article>
-				<!-- END .content -->
-				<!-- BEGIN .content -->
-				<article class="container main main-3">
-					<div class="row">
-						<div class="column medium-12 large-10 medium-centered">
+					<div class="row section-3">
+						<div class="column medium-12">
 							<?php $a = new Area('Main-3'); $a->display($c); ?>
 						</div>
 					</div>

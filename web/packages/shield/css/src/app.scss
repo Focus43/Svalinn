@@ -213,12 +213,14 @@ MASTHEAD
 	.our-dogs &{background-image:url("#{$imagePath}masthead/our-dogs.jpg");}
 	.contact &{background-image:url("#{$imagePath}masthead/contact.jpg");}
 	.professional &{background-image:url("#{$imagePath}masthead/professional.jpg");}
+	.training-classes &{background-image:url("#{$imagePath}masthead/training-classes.jpg");}
 	.inner{
 		position: absolute;
 		bottom: -13px;
 		width: 100%;
 		text-align: center;
 		h1{
+			position: relative;
 			display: inline;
 			padding:0.5625rem 1.125rem;
 			color:#FFF;
@@ -228,7 +230,8 @@ MASTHEAD
 			letter-spacing: 0.2rem;
 			text-align: center;
 			text-transform: uppercase;
-			background: rgba(20, 42, 56, 0.75); 
+			background: rgba(20, 42, 56, 0.75);
+			z-index: 10;
 			.professional &{background: rgba(17,17,17,0.75);}
 			&:before,&:after{
 				position: relative;

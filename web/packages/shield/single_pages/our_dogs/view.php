@@ -25,31 +25,24 @@
 <!-- BEGIN .content -->
 <article class="container main bg-gray">
     <div class="row">
-        <div class="small-12 medium-3 columns">
-            <ul class="side-nav">
-                <li class="divider">BY BREED</li>
-                <li class="<?php if($filteredBy === ShieldDog::BREED_GERMAN_SHEPHERD){echo 'active';} ?>">
-                    <a href="<?php echo $this->action('breed', ShieldDog::BREED_GERMAN_SHEPHERD); ?>">German Shepherd</a>
-                </li>
-                <li class="<?php if($filteredBy === ShieldDog::BREED_DUTCH_SHEPHERD){echo 'active';} ?>">
-                    <a href="<?php echo $this->action('breed', ShieldDog::BREED_DUTCH_SHEPHERD); ?>">Dutch Shepherd</a>
-                </li>
-                <li class="<?php if($filteredBy === ShieldDog::BREED_MALINOIS){echo 'active';} ?>">
-                    <a href="<?php echo $this->action('breed', ShieldDog::BREED_MALINOIS); ?>">Belgian Malinois</a>
-                </li>
-                <li class="divider">BY PROTECTION LEVEL</li>
-                <li class="<?php if($filteredBy === ShieldDog::PROTECTION_LEVEL_I){echo 'active';} ?>">
-                    <a href="<?php echo $this->action('protection_level', ShieldDog::PROTECTION_LEVEL_I); ?>">Level I</a>
-                </li>
-                <li class="<?php if($filteredBy === ShieldDog::PROTECTION_LEVEL_II){echo 'active';} ?>">
-                    <a href="<?php echo $this->action('protection_level', ShieldDog::PROTECTION_LEVEL_II); ?>">Level II</a>
-                </li>
-                <li class="<?php if($filteredBy === ShieldDog::PROTECTION_LEVEL_III){echo 'active';} ?>">
-                    <a href="<?php echo $this->action('protection_level', ShieldDog::PROTECTION_LEVEL_III); ?>">Level III</a>
-                </li>
-            </ul>
-        </div>
-        <div class="small-12 medium-9 columns">
+        <div class="small-12 columns">
+        	
+            <div class="row collapse outdent-both hide-for-small-only">
+				<div class="column medium-12">
+					<dl class="tabs centered" data-tab>
+						<dd class="<?php if($filteredBy === ShieldDog::BREED_GERMAN_SHEPHERD){echo 'active';} ?>">
+		                    <a href="<?php echo $this->action('breed', ShieldDog::BREED_GERMAN_SHEPHERD); ?>">German Shepherd</a>
+		                </dd>
+		                <dd class="<?php if($filteredBy === ShieldDog::BREED_DUTCH_SHEPHERD){echo 'active';} ?>">
+		                    <a href="<?php echo $this->action('breed', ShieldDog::BREED_DUTCH_SHEPHERD); ?>">Dutch Shepherd</a>
+		                </dd>
+		                <dd class="<?php if($filteredBy === ShieldDog::BREED_MALINOIS){echo 'active';} ?>">
+		                    <a href="<?php echo $this->action('breed', ShieldDog::BREED_MALINOIS); ?>">Belgian Malinois</a>
+		                </dd>
+					</dl>
+				</div>
+			</div>
+			<div class="row collapse outdent-both">
             <?php if(!empty($listResults)): ?>
                 <ul class="small-block-grid-2 medium-block-grid-2 dog-grid">
                     <?php foreach($listResults AS $dogObj): ?>
@@ -73,15 +66,3 @@
     </div>
 </article>
 <!-- END .content -->
-<div class="footer-img"></div>
-<div class="testimonials">
-    <div class="column medium-10 large-10 medium-centered">
-        <h3 class="text-center">From Our Clients</h3>
-        <?php
-        $quoteStack = Stack::getByName('Testimonial Quotes')->getBlocks();
-        if( !empty($quoteStack) ){
-            $quoteStack[array_rand($quoteStack)]->display();
-        }
-        ?>
-    </div>
-</div>

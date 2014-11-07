@@ -1,61 +1,5 @@
 @import "settings";
 /* =============================================================================
-LANDING PAGE
-============================================================================= */
-.privateclient{
-	&.sublanding{
-		.btn-divide{display:none;}
-		.masthead{
-			@media #{$medium-only}{
-				-webkit-background-size: cover;
-				-moz-background-size: cover;
-				-o-background-size: cover;
-				background-size: cover;
-			}
-			.intro{
-				@media #{$small-only}{
-					margin:0;
-				}
-				.intro-inner{
-					@media #{$small-only}{
-						padding:2rem 1rem;
-						@include rem(padding, 42px);
-					}
-					h1{
-						@include rem(font-size, 42px);
-						span{
-							display: block;
-							@include rem(font-size, 24px);
-							color: #333;
-							font-style: italic;
-						}
-						@media #{$small-only}{
-							@include rem(font-size, 28px);
-							@include rem(line-height, 22px);
-							span{
-								@include rem(font-size, 14px);
-							}
-						}
-					}
-					hr{width:80%;}
-					p{@include rem(font-size, 14px);}
-				}
-			}
-		}
-		.main{
-			@media #{$small-only}{
-				margin-bottom:0;
-				padding-bottom:0;
-				.tabs-content{
-					margin-bottom:0;
-					background:url("#{$imagePath}bg-dog-knots.jpg") 50% no-repeat;
-					p{@include rem(font-size, 14px);}
-				}
-			}
-		}
-	}
-}
-/* =============================================================================
 ABOUT
 ============================================================================= */
 .philosophy-approach{
@@ -65,8 +9,12 @@ ABOUT
 	.main{
 		.row:last-child{padding-bottom:0 !important;}
 	}
+	.tabs-content{
+		.content>.row>.column{
+			@include rem(padding-bottom,4rem);
+		}
+	}
 }
-
 /* =============================================================================
 SVALINN DIFFERENCE
 ============================================================================= */

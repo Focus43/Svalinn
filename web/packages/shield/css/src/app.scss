@@ -360,7 +360,7 @@ MAIN
 		}
 		&:before{background-image:url("#{$imagePath}hr-blockquote-top.png");}
 		&:after{background-image:url("#{$imagePath}hr-blockquote-bottom.png");}
-		@media #{$small-only}{
+		@media #{$medium-down}{
 			p{font-weight: 500;}
 			&:before{background-size:120%;}
 			&:after{background-size:120%;}
@@ -963,8 +963,8 @@ CONTACT PAGE
 FOOTER NAV - CALLOUTS
 ============================================================================= */
 .footer-nav {
-	position: fixed;
-	margin-top: -35px;
+	position:relative;
+	margin-top: 0;
 	z-index: 3;
 	bottom: 0;
 	width: 100%;
@@ -1042,9 +1042,11 @@ FOOTER NAV - CALLOUTS
 			}
 		}
 	}
+	@media #{$large-up}{
+		position: fixed;
+		margin-top: -35px;
+	}
 	@media #{$medium-down}{
-		position:relative;
-		margin-top: 0;
 		ul{
 			
 			margin:0;

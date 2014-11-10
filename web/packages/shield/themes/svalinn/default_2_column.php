@@ -60,7 +60,7 @@ Your browser is out of date! It looks like you're using an old version of Intern
 	                        <?php $a = new Area('Main-3'); $a->display($c); ?>
 						</div>
 					</div>
-					<div class="row section-1">
+					<div class="row section-3">
 						<div class="columns medium-12">
 							<?php $a = new Area('Main-4'); $a->display($c); ?>
 						</div>

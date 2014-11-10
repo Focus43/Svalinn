@@ -3,6 +3,22 @@
 @import "foundation";
 @import "global";
 
+.footer-nav {
+	.callouts {
+		position: relative;
+		height: 400px;
+		overflow: hidden;
+		-webkit-transition: height 500ms  ease-in-out;
+		background:$dark-blue;
+		&.closed {
+			height: 0;
+		}
+	}
+	.callout>.row{
+		width:100%;
+		max-width: 100% !important;
+	}
+}
 article, blockquote {
 	position: relative;
 	height: 100vh;
@@ -53,36 +69,37 @@ article .inner, blockquote .inner {
 .scroll-down {
   position: fixed;
   left: 50%;
-  margin-left: -80px;
+  margin-left: -100px;
   margin-top: 90vh;
   color: #FFF;
   font-size: 1.25em;
-  width: 80px;
-  height: 32px;
-  line-height: 32px;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
   text-align: center;
   z-index: 10;
   overflow: hidden;
   -webkit-transition: all 150ms;
   &.down-only {
-    margin-left: -40px;
-    width: 40px;
+    margin-left: -50px;
+    width: 50px;
     .up {
       opacity: 0;
     }
   }
   a {
     display: inline-block;
-    width: 40px;
+    width: 50px;
     img {
+      width: 30px;	
       -webkit-transition: all 150ms;
       margin-top: 0px;
     }
-    &.down:hover img {
-      margin-top: 4px;
+    &.down:hover {
+      opacity:0.7;
     }
-    &.up:hover img {
-      margin-top: -4px;
+    &.up:hover {
+      opacity:0.7;
     }
   }
 }
@@ -160,7 +177,17 @@ article .inner, blockquote .inner {
 		}
 	}
 }
-
+.quote-gallery{
+	.quote{
+		height:100vh;
+		width:100vw;
+		line-height: 100vh;
+		blockquote{
+			height:auto !important;
+		}
+	}
+	
+}
 @media screen and (max-width: 1100px) {
   article, blockquote {
     height: auto;
@@ -192,6 +219,7 @@ article .inner, blockquote .inner {
     padding-top: 60%;
   }
 }
+.footer{background:$black-blue;}
 @media #{$medium-down}{
 	
 	article {
@@ -216,3 +244,85 @@ article .inner, blockquote .inner {
 	  	}
 	}
 }
+/* =============================================================================
+PAGE ELEMENTS
+============================================================================= */
+@media #{$medium-down}{
+	.off-canvas-wrap .inner-wrap .main-wrap{
+		box-shadow: none !important;
+	}
+	.off-canvas-wrap, .inner-wrap {
+	    min-height: 100%;
+	}
+	.off-canvas-wrap{  
+	height: 100%;
+	overflow-y: auto;
+	}
+	.move-left .mainSection{height:100% !important; overflow:hidden;}
+	.move-left .inner-wrap{max-height:100%;}
+	.move-left{overflow-y:hidden}
+}
+/*  OFF CANVAS NAV  */
+.right-off-canvas-menu{
+	background:#E4E2E2;
+	overflow-y:auto;
+	height:auto;
+	a{text-align: left;}
+	.primary-nav,.utility-nav{@include rem(margin, 0 20px);}
+	.primary-nav{
+		@include rem(padding-bottom, 30px);
+		li{
+			@include rem(margin,1rem 1rem 2rem);
+			@include rem(padding-top, 0 20px);
+			&.has-dropdown{}
+			a{
+				padding-left:0;
+				padding-right:0;
+				color:#888;
+				font-family: $quadon;
+				@include rem(font-size, 1rem);
+				@include rem(line-height, 1.5rem);
+				text-decoration: none;
+				text-transform: uppercase;
+				border-bottom:1px solid #ccc;
+			}
+			
+			ul{
+				@include clearfix;
+				display:block;
+				@include rem(margin,1rem 0 2rem);
+				padding:0;
+			}
+			ul>li{
+				margin:0;
+				padding:0;
+				display: block;
+				text-align: left;
+				float:none;
+				list-style: none;
+				width:100%;
+				a{
+					color:$brand-blue;
+					padding-left:0;
+					padding-right:0;
+					border: 0;
+					display: block;
+					font-family: $proxima;
+					@include rem(font-size, 14px);
+					@include rem(line-height, 18px);
+				}
+			}
+		}
+	}
+	.utility-nav{
+		@include rem(margin-top, 30px);
+		.btn{
+			@include rem(margin, 10px);
+			color:$brand-blue;
+			width:auto;
+			text-align: center;
+			border: 2px solid $brand-blue;
+		}
+	}
+}
+.right-off-canvas-toggle{position: absolute;top:16px;right:0;}

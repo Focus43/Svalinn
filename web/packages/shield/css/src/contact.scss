@@ -9,6 +9,7 @@ body.contact {
 		@include rem(padding, 1.875rem 1.875rem 0.9375rem);
 		
 	}
+	.row{background: #f1f1f1 !important;}
     // hidden by default
     small.error {display:none;}
     // if container .columns has class error...

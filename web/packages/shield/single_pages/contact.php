@@ -10,14 +10,6 @@
 <?php Loader::packageElement('blue_masthead', 'shield', array('pageObj' => Page::getCurrentPage())); ?>
 <!-- END .masthead -->
 
-<!-- BEGIN .submast -->
-<article class="container bg-knot-gray-lg">
-    <div class="row">
-        <div class="column medium-10 medium-centered"></div>
-    </div>
-</article>
-<!-- END .submast -->
-
 <!-- BEGIN .content -->
 <article class="container main bg-gray">
     <div class="row">
@@ -99,15 +91,3 @@
     </div>
 </article>
 <!-- END .content -->
-<div class="footer-img"></div>
-<div class="testimonials">
-    <div class="column medium-10 large-10 medium-centered">
-        <h3 class="text-center">From Our Clients</h3>
-        <?php
-        $quoteStack = Stack::getByName('Testimonial Quotes')->getBlocks();
-        if( !empty($quoteStack) ){
-            $quoteStack[array_rand($quoteStack)]->display();
-        }
-        ?>
-    </div>
-</div>

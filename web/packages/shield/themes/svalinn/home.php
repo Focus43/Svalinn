@@ -14,6 +14,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 <script type="text/javascript" src="/packages/shield/js/jquery.easing.js"></script>
 <script type="text/javascript" src="/packages/shield/js/jquery.viewport.js"></script>
 <script type="text/javascript" src="/packages/shield/js/homepage.js"></script>
+<script type="text/javascript" src="/packages/shield/js/homepage.js"></script>
 </head>
 
 <body class="antialiased<?php echo $bodyClasses; ?> home">
@@ -101,15 +102,32 @@ Your browser is out of date! It looks like you're using an old version of Intern
 						<div class="container">
 							<div class="text-center-tight full">
 								<div class="inner">
-									<div class="quote_gallery">
-										<!--
-										<ul>
-											<li>
-												<p class="text-center quote">As I watch bandit protect me during our training scenarios, the ultimate act of humbleness takes place. I now see that I am willing to allow someone to stand between me and a threat against those I love.</p>
-												<p class="text-center signature">- tony, father of 2 -</p>
-											</li>
+									<div class="quote-gallery">
+										
+										<div id="slider" class="cycle-slideshow" data-cycle-fx="scrollHorz" data-cycle-timeout="0">
+											
+											<a href="#" class="cycle-prev">PREV</a>
+										<a href="#" class="cycle-next">NEXT</a>
+										  <div class="slide">
+										      <div class="quote">
+											      <?php $a = new Area('Quote-1'); $a->display($c); ?>
+										      </div>
+										  </div>
+										  <div class="slide">
+										  	<div class="quote">
+											      <blockquote>2 Sabuk and I have been a team for a little over 5 months. &nbsp;I could not have imagined in the beginning how much freedom and peace of mind he would give me, or how much I would simply enjoy his presence. &nbsp;I no longer wonder before I go to sleep at night what I would do if I awoke to find someone in my house. &nbsp; I look forward to long hikes with my hiking buddy by my side rather than questioning if I should hike alone…and I always have someone excited to see me.</blockquote>
+<p>- Suzanne, Owner of Sabuk -</p>
+											    <?php $a = new Area('Quote-2'); $a->display($c); ?>
+										    </div>
+										  </div>
+										  <div class="slide">
+										    <div class="quote">
+										    	<blockquote>3 Sabuk and I have been a team for a little over 5 months. &nbsp;I could not have imagined in the beginning how much freedom and peace of mind he would give me, or how much I would simply enjoy his presence. &nbsp;I no longer wonder before I go to sleep at night what I would do if I awoke to find someone in my house. &nbsp; I look forward to long hikes with my hiking buddy by my side rather than questioning if I should hike alone…and I always have someone excited to see me.</blockquote>
+<p>- Suzanne, Owner of Sabuk -</p>
+											    <?php $a = new Area('Quote-3'); $a->display($c); ?>
+										    </div>
+										  </div>
 										</ul>
-										-->
 									</div>
 								</div>
 							</div>

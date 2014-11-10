@@ -1,8 +1,7 @@
 <!-- BEGIN HEADER -->
 <?php Loader::packageElement('theme_header', 'shield', array(
     'navigationSettings' => array(
-        'displayPages' => 'custom',
-        'displayPagesCID' => Page::getByPath('/privateclient')->getCollectionID(),
+        'displayPages'   => 'top',
         'displaySubPages' => 'all',
         'displaySubPageLevels' => 'custom',
         'displaySubPageLevelsNum' => 1

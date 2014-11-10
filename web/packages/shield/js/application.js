@@ -123,6 +123,7 @@ var callout_target = '';
 			
 			//LOAD HOMEPAGE
 			if( $('body').hasClass('home') ) site.home.init();
+			if( $('body').hasClass('our_dogs') ) site.our_dogs.init();
 			
 			//FINALIZE PAGE
 			this.finalize();
@@ -158,6 +159,12 @@ var callout_target = '';
 		}
 		
 	},
+	site.our_dogs={
+		init: function(){
+			$('.tabs a').unbind("click");
+		}
+		
+	}
 	site.navigation = {
 		init: function(){
 			if( !$('body').hasClass('home') && $(window).width() > 1025){

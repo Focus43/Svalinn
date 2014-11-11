@@ -18,7 +18,7 @@ $(document).ready(function(){
 		if( $(this).hasClass('up') ){
 			newInt = scrollInt-1;
 		}
-		log( 'CLICK TO INT: '+scrollInt );
+		//log( 'CLICK TO INT: '+scrollInt );
 		scrollMoving = true;
 		$("html, body").animate({ scrollTop: newInt*new_top},750,'easeOutCirc',function(){
 			scrollMoving = false;
@@ -46,7 +46,7 @@ $(document).ready(function(){
 		});
 		if( !WURFL.is_mobile ){
 			//CONTROLS
-			log($(window).scrollTop() +'>'+ $(window).height());
+			//log($(window).scrollTop() +'>'+ $(window).height());
 			if($(window).scrollTop() > 100){
 				$('.scroll-down').removeClass('down-only');
 			}else{
@@ -69,7 +69,7 @@ $(document).ready(function(){
 			        750,
 			        'easeOutCirc',
 			        function(){
-				        log('end:'+Math.random());
+				        //log('end:'+Math.random());
 				        scrollMoving == false;
 			        }
 		        );

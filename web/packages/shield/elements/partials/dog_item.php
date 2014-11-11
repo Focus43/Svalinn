@@ -18,7 +18,7 @@
 </div>
 <div class="row">
     <div class="small-6 columns name"><?php echo $dogObj->getName(); ?></div>
-    <div class="small-6 columns breed"><?php echo $dogObj->getBreedHandle(true); ?></div>
+    <div class="small-6 columns breed text-right"><?php echo $dogObj->getBreedHandle(true); ?></div>
 </div>
 <div class="row">
 	<div class="column">

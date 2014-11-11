@@ -88,7 +88,7 @@ DOGS
 	.level,.dob{@include rem(font-size, 14px);}
 	.dob{display:none;}
 	.btn{
-		@include rem(margin, 0.5rem 0 0);
+		@include rem(margin, 0.5rem -0.9375rem 0);
 		@include rem(font-size, 16px);
 		display: block;
 		background: $brand-blue;

@@ -69,7 +69,7 @@ var callout_target = '';
 			    for(var i = 0; i < l; i++) {
 			        if(imgs[i].src.match(svgExtension)) {
 			            imgs[i].src = imgs[i].src.slice(0, -3) + 'png';
-			            log(imgs[i].src);
+			            //log(imgs[i].src);
 			        }
 			    }
 			}
@@ -90,6 +90,7 @@ var callout_target = '';
 	},
 	site.our_dogs={
 		init: function(){
+			log('Our Dogs INIT');
 			$('.tabs a').unbind("click");
 		}
 		
@@ -189,4 +190,4 @@ var callout_target = '';
 	}	
 	
 }(window.site = window.site || {}, jQuery));
-site.ready.init();v
+site.ready.init();

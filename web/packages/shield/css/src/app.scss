@@ -1239,6 +1239,7 @@ FOOTER
 	}
 
     .socialize-list {
+    	margin-left:-10px;
     	list-style:none;
     	font-size:0;
     	line-height:0;
@@ -1258,9 +1259,6 @@ FOOTER
 		a {
 			display:block;
 			margin:1rem 0.5rem;
-		}
-		@media #{$medium-up}{
-			right:-1rem;
 		}
     }
 	.copyright{

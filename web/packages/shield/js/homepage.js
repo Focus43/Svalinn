@@ -3,7 +3,6 @@ $(document).ready(function(){
 	var scrollTotal = 5;
 	var scrollMoving = false;
 	
-
 	$('#slider').cycle({
 	    speed: 1000,
 	    manualSpeed: 1000,
@@ -58,11 +57,17 @@ $(document).ready(function(){
 		});
 		if( !WURFL.is_mobile ){
 			//CONTROLS
-			//log($(window).scrollTop() +'>'+ $(window).height());
-			if($(window).scrollTop() > 100){
-				$('.scroll-down').removeClass('down-only');
+			log($(window).scrollTop() +'<'+ ($(window).height() * 3));
+			if( $(window).scrollTop() > ($(window).height() * 3) ){
+				$('.scroll-down').css({'opacity':0});
 			}else{
-				$('.scroll-down').addClass('down-only');
+				$('.scroll-down').css({'opacity':1});
+				if($(window).scrollTop() > 100){
+					$('.scroll-down').removeClass('down-only');
+				}else if( $(window).scrollTop() > 100){
+					$('.scroll-down').addClass('down-only');
+					
+				}
 			}
 			//scrollReposition();
 		}

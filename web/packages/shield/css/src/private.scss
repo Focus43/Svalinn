@@ -182,7 +182,7 @@ SVALINN DIFFERENCE
 		}
 	}
 	&:last-child{
-		@include rem(paddin-bottom,5rem);
+		@include rem(padding-bottom,5rem);
 	}
 }
 .training-classes{

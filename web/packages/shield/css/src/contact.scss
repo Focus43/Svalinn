@@ -5,11 +5,11 @@ CONTACT FORM
 body.contact {
   form {
   	&.contact-form{
-		background:#f1f1f1;
+		background:#D2DCE4;
 		@include rem(padding, 1.875rem 1.875rem 0.9375rem);
 		
 	}
-	.row{background: #f1f1f1 !important;}
+	.row{background: #D2DCE4 !important;}
     // hidden by default
     small.error {display:none;}
     // if container .columns has class error...

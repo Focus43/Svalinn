@@ -1,7 +1,10 @@
 <!-- BEGIN HEADER -->
 <?php Loader::packageElement('theme_header', 'shield', array(
     'navigationSettings' => array(
-        'displayPages'   => 'top'
+        'displayPages'   => 'top',
+        'displaySubPages' => 'all',
+        'displaySubPageLevels' => 'custom',
+        'displaySubPageLevelsNum' => 1
     )
 )); ?>
 <!-- END HEADER   -->

@@ -28,7 +28,7 @@
         	
             <div class="row collapse outdent-both hide-for-small-only">
 				<div class="column medium-12">
-					<dl class="tabs centered" data-tab>
+					<dl class="tabs centered">
 						<dd class="<?php if($filteredBy === ShieldDog::BREED_GERMAN_SHEPHERD){echo 'active';} ?>">
 		                    <a href="<?php echo $this->action('breed', ShieldDog::BREED_GERMAN_SHEPHERD); ?>">German Shepherd</a>
 		                </dd>

@@ -209,7 +209,7 @@ MASTHEAD
 	.executive &{background-image:url("#{$imagePath}masthead/executive.jpg");}
 	.selection-process &{background-image:url("#{$imagePath}masthead/selection-process.jpg");}
 	.securing-your-dog &{background-image:url("#{$imagePath}masthead/securing-your-dog.jpg");}
-	.handler-training &{background-image:url("#{$imagePath}masthead/handler-training.jpg");}
+	.included-training &{background-image:url("#{$imagePath}masthead/included-training.jpg");}
 	.our-dogs &{background-image:url("#{$imagePath}masthead/our-dogs.jpg");}
 	.contact &{background-image:url("#{$imagePath}masthead/contact.jpg");}
 	.professional &{background-image:url("#{$imagePath}masthead/professional.jpg");}
@@ -286,7 +286,7 @@ MAIN
 			font-weight:300;
 			text-align: center;
 			@media #{$small-only}{
-				@include rem(padding,5rem 2rem 3rem);
+				@include rem(padding,5rem 2rem 0);
 				@include rem(font-size, 21px);
 			}
 		}
@@ -370,6 +370,9 @@ MAIN
 			width: 100%;
 			background-position: 50%;
 			background-repeat: no-repeat;
+			@media #{$medium-down}{
+				margin:0;
+			}
 		}
 		&:before{background-image:url("#{$imagePath}hr-blockquote-top.png");}
 		&:after{background-image:url("#{$imagePath}hr-blockquote-bottom.png");}
@@ -509,7 +512,11 @@ MAIN
 .img-span{
 	background-color:$medium-tan;
 }
-
+.section-3{
+	.testimonial{
+		@include rem(margin,0 -3.45rem -3rem -3.4rem);
+	}
+}
 
 
 /* =============================================================================
@@ -555,6 +562,21 @@ PAGE ELEMENTS
 				border-bottom:1px solid #ccc;
 			}
 			
+			&.sans-dropdown{
+				.sans-dropdown{
+					a{
+						@include rem(margin, 10px);
+						color:$brand-blue;
+						font-family: $proxima;
+						@include rem(font-size, 14px);
+						@include rem(line-height, 18px);
+						width:auto;
+						text-align: center;
+						border: 2px solid $brand-blue;
+					}
+				}
+			}
+			
 			ul{
 				@include clearfix;
 				display:block;
@@ -585,13 +607,7 @@ PAGE ELEMENTS
 	.utility-nav{
 		@include rem(margin-top, 30px);
 		@include rem(padding-bottom, 6rem);
-		.btn{
-			@include rem(margin, 10px);
-			color:$brand-blue;
-			width:auto;
-			text-align: center;
-			border: 2px solid $brand-blue;
-		}
+		
 	}
 }
 .right-off-canvas-toggle{position: absolute;top:16px;right:0;}
@@ -1199,7 +1215,8 @@ FOOTER
 	background:#888;
 	.professional &{background:#171717;}
 	.row{
-		@include rem(padding-top, 3rem);
+		@include rem(padding, 3rem 4rem 1rem);
+		background: $black-blue;
 		.professional &{background:#212121;}
 	}
 	.contact{
@@ -1245,6 +1262,10 @@ FOOTER
     	line-height:0;
     	text-align:inherit;
     	position:relative;
+    	@media #{$medium-down}{
+	    	margin:0 auto;
+	    	
+    	}
 		li {
 			display:inline-block;
 			font-size:1rem;

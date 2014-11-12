@@ -4,7 +4,19 @@ $(document).ready(function(){
 	var scrollMoving = false;
 	
 
-	
+	$('#slider').cycle({
+	    speed: 1000,
+	    manualSpeed: 1000,
+	    slides: '.slide',
+	    swipe: true,
+	    fx: 'scrollHorz',
+	    manualfx: 'scrollHorz',
+	    swipefx: 'scrollHorz',
+	    random: true,
+	    delay: 4000,
+	    next: '.quotes .cycle-next',
+	    prev: '.quotes .cycle-prev'
+	});
 	/*********************************************
 	HOMEPAGE SCROLL
 	*********************************************/

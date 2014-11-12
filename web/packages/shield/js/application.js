@@ -116,11 +116,9 @@ var callout_target = '';
 //INIT SITE
 (function (site, $) {
 	'use strict';
-
 	site.config = {};
 	site.ready = {
 		init: function(){
-			
 			//LOAD HOMEPAGE
 			if( $('body').hasClass('home') ) site.home.init();
 			if( $('body').hasClass('our_dogs') ) site.our_dogs.init();

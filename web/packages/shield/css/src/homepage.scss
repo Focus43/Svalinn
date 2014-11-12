@@ -33,7 +33,7 @@ article, blockquote {
 		overflow: visible;
 	}
 }
-
+blockquote.quotes{vertical-align: top;}
 article .container, blockquote .container {
   position: relative;
   display: block;
@@ -69,7 +69,7 @@ article .inner, blockquote .inner {
 .scroll-down {
   position: fixed;
   left: 50%;
-  margin-left: -100px;
+  margin-left: -50px;
   margin-top: 90vh;
   color: #FFF;
   font-size: 1.25em;
@@ -177,16 +177,78 @@ article .inner, blockquote .inner {
 		}
 	}
 }
-.quote-gallery{
-	.quote{
-		height:100vh;
-		width:100vw;
-		line-height: 100vh;
-		blockquote{
-			height:auto !important;
+
+blockquote.quotes{
+	.cycle-prev,.cycle-next{
+		position:absolute;
+		top:50%;
+		margin-top:-25px;
+		height:30px;
+		width:23px;
+		z-index: 101;
+		background-size: 23px 30px;
+		background-repeat: no-repeat;
+		text-indent: -999em;
+	}
+	.cycle-next{
+		right:25px;
+		background-image: url("#{$imagePath}home/arrow-right.png");
+		background-position: 100% 0;
+	}
+	.cycle-prev{
+		left:25px;
+		background-image: url("#{$imagePath}home/arrow-left.png");
+		background-position: 0 0;
+	}
+	.quote-gallery{
+		margin-top:-15%;
+		position: relative;
+		#slider{
+			position: absolute;
+			
+			.slide{
+				height:100vh;
+				width:100vw;
+				line-height: 100vh;
+				padding:0 15%;
+				.quote{
+					height:100vh;
+					width:100%;
+					line-height: 100vh;
+					vertical-align: middle;
+					blockquote{
+						color:#414042;
+						height:auto !important;
+						font-weight: 700;
+						&:before,&:after{
+							display: block;
+							content:"";
+							height:45px;
+							width:45px;
+							margin:24px auto;
+							@media #{$small-only}{
+								height:25px;
+								width:25px;
+								margin:15px auto;
+							}
+						}
+						&:before{
+							background: url("#{$imagePath}blockquote-before.png");
+							background-size: contain;
+						}
+						&:after{
+							background: url("#{$imagePath}blockquote-after.png");
+							background-size: contain;
+						}
+					}
+					p{
+						color:#414042;
+						font-weight: 700;
+					}
+				}
+			}
 		}
 	}
-	
 }
 @media screen and (max-width: 1100px) {
   article, blockquote {
@@ -196,6 +258,7 @@ article .inner, blockquote .inner {
     }
   }
   article {
+  	background-color: rgb(16, 36, 46);
     .text-center-tight {
       position: relative;
     }
@@ -210,7 +273,9 @@ article .inner, blockquote .inner {
     padding-top: 3rem;
     padding-bottom: 3rem;
     width: 100%;
-    background: rgb(16, 36, 46);
+    background-image:url("#{$imagePath}/home/bg-block.jpg");
+    background-position: 50% 0;
+    background-size: cover;
   }
   .scroll-down {
     display: none;
@@ -218,6 +283,43 @@ article .inner, blockquote .inner {
   .dummy {
     padding-top: 60%;
   }
+  blockquote.quotes{
+  		@media #{$small-only}{
+			min-height: 450px;  		
+  		}
+		.cycle-prev,.cycle-next{
+			top:50%;
+		}
+		.quote-gallery{
+			margin-top:0;
+			#slider{
+				.slide{
+					height:auto;
+					line-height: auto;
+					padding:0;
+					.quote{
+						padding:0 10%;
+						height:auto;
+						line-height: auto;
+						vertical-align: top;
+						blockquote{
+							font-size:3vw;
+							line-height: 110%;
+							@media #{$small-only}{
+								font-size:4vw;
+								line-height: 160%;
+							}
+						}
+						p{
+							@media #{$small-only}{
+								@include rem(font-size,0.75rem);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
 .footer{background:$black-blue;}
 @media #{$medium-down}{
@@ -243,6 +345,7 @@ article .inner, blockquote .inner {
 	  		height:auto;
 	  	}
 	}
+	.cycle-prev,.cycle-next{display:none;}
 }
 /* =============================================================================
 PAGE ELEMENTS

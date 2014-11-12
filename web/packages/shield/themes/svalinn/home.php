@@ -110,28 +110,24 @@ Your browser is out of date! It looks like you're using an old version of Intern
 												<div class="quote">
 													<blockquote>Muninn doesn’t just bring light to my life; her obedience, talent and loving affection keeps me safe and brings peace to others she meets. Svalinn not only provided me with an amazing companion, they provided me with my life again. </blockquote>
 													<p>- Cody, Veteran and Owner of Muninn -</p>
-													<?php $a = new Area('Quote-1'); //$a->display($c); ?>
 												</div>
 											</div>
 											<div class="slide">
 												<div class="quote">
 													<blockquote>I wanted to make sure that we had a dog that would give me peace of mind and security, but also a dog that would be good with our son.  Crow has become another member of our family.  My son sings to him, plays with him and loves playing hide and seek with him.  We couldn't have picked a better fit for our family - but then again, it was that smiling dog that chose us to be a part of his family.</blockquote>
 													<p>- Jen, Owner of Crow -</p>
-													<?php $a = new Area('Quote-2'); //$a->display($c); ?>
 												</div>
 											</div>
 											<div class="slide">
 												<div class="quote">
 													<blockquote>As I watch Tattoo protect me during our training scenarios, the ultimate act of humbleness takes place. I now see that I am willing to allow someone to stand between me and a threat against those that I love.  Svalinn dogs change people’s lives and protect the most precious asset that a father has in his life, HIS FAMILY!</blockquote>
 													<p>- Tony, Owner of Tattoo -</p>
-													<?php $a = new Area('Quote-3'); //$a->display($c); ?>
 												</div>
 											</div>
 											<div class="slide">
 												<div class="quote">
 													<blockquote>We are really amazed that such a vigilant dog knows how to behave himself with guests in our home and our three year-old daughter while consistently performing his job. His abilities are truly remarkable and he has made an incredible addition to the family. Thank you so much!</blockquote>
 													<p>- Patrick & Linda, Owners of Bolt -</p>
-													<?php $a = new Area('Quote-4'); //$a->display($c); ?>
 												</div>
 											</div>
 										</div>

@@ -561,22 +561,6 @@ PAGE ELEMENTS
 				text-transform: uppercase;
 				border-bottom:1px solid #ccc;
 			}
-			
-			&.sans-dropdown{
-				.sans-dropdown{
-					a{
-						@include rem(margin, 10px);
-						color:$brand-blue;
-						font-family: $proxima;
-						@include rem(font-size, 14px);
-						@include rem(line-height, 18px);
-						width:auto;
-						text-align: center;
-						border: 2px solid $brand-blue;
-					}
-				}
-			}
-			
 			ul{
 				@include clearfix;
 				display:block;
@@ -603,6 +587,21 @@ PAGE ELEMENTS
 				}
 			}
 		}
+		>.sans-dropdown{
+			margin-left:0;
+			margin-right:0;
+			> a{
+				@include rem(margin, 10px);
+				color:$brand-blue;
+				font-family: $proxima;
+				@include rem(font-size, 14px);
+				@include rem(line-height, 18px);
+				width:auto;
+				text-align: center;
+				border: 2px solid $brand-blue;
+			}
+		}
+			
 	}
 	.utility-nav{
 		@include rem(margin-top, 30px);
@@ -615,34 +614,6 @@ PAGE ELEMENTS
 /*  CALL TO ACTION ROW  */
 .cta .btn{@include rem(margin, 0 0 3rem);}
 
-/*  COLUMNS - HIGHLIGHTS  */
-.options{
-	.column{
-		@include rem(padding-left, 30px);
-		@include rem(padding-right, 30px);
-		background:url("#{$imagePath}divide-vert-gray.gif") 0 3rem no-repeat;
-		@media #{$small-only}{
-			padding:20px 15px 0;
-			background: none;
-			border-top:1px solid #ddd;
-		}
-		&:first-child{border:0;background:none;}
-		h3,p{text-align: center;}
-		h3{
-			@include rem(margin, 0 0 24px);
-			color:$medium-blue;
-			font-family: $quadon;
-			@include rem(font-size, 21px);
-			font-weight: 400;
-			@include rem(line-height, 21px);
-		}
-		p{
-			color: $medium-gray;
-			@include rem(font-size, 16px);
-			@include rem(line-height, 19px);
-		}
-	}
-}
 
 /*  TABS  */
 .tab-nav{
@@ -905,136 +876,10 @@ PAGE ELEMENTS
 	}
 }
 
-/*  GALLERY  */
-.orbit-container{
-	.orbit-timer, .orbit-progress,.orbit-slide-number{display:none;}
-	.orbit-slides-container{
-		height:350px;
-		&:before {
-			position: absolute;
-			top: 0;
-			left: 0;
-			content: "";
-			height: 100%;
-			width: 100%;
-			background: url("#{$imagePath}orbit-gallery-overlay.png") 0 0 no-repeat;
-			background-size: cover;
-			z-index: 9;
-		}
-		li{margin:0;}
-		img{width:100%;}
-	}
-	.orbit-prev,.orbit-next{
-		top: 50%;
-		margin-top: -11px;
-		@include rem(width, 21px);
-		@include rem(height, 24px);
-		@include rem(line-height, 24px);
-		
-		span{display:none;}
-	}
-	.orbit-prev{
-		left:5px;
-		background: url("#{$imagePath}orbit-gallery-left-arrow.png") 50% no-repeat;
-		&:hover{
-			background-image:url("#{$imagePath}orbit-gallery-left-arrow-hover.png");
-			background-color:transparent;
-		}
-	}
-	.orbit-next{
-		right:5px;
-		background: url("#{$imagePath}orbit-gallery-right-arrow.png") 50% no-repeat;
-		&:hover{
-			background-image:url("#{$imagePath}orbit-gallery-right-arrow-hover.png");
-			background-color:transparent;
-		}
-	}
-	.orbit-bullets-container{
-		margin-top:-50px;
-	}
-}
-
-/*  DOUBLE BORDER BOX  */
-
-.boxed{
-	@include rem(padding, 2rem);
-	box-shadow: 0 0 0 1px #999, 0px 0px 0 5px #FFF, 0px 0px 0 6px #999;
-	background: #FFF;	
-	h3{
-		@include rem(margin-bottom, 1rem);
-		font-family: $proxima;
-		color:$dark-gray;
-		@include rem(font-size, 21px);
-		font-weight: 300;
-		text-align: center;
-		text-transform: uppercase;
-	}
-	p{
-		@include rem(font-size, 1rem);
-		font-style: italic;
-		font-weight: 300;
-		letter-spacing: 0.06em;
-		@include rem(line-height, 21px);
-		text-align: center;
-	}
-}
-.tabs-content{
-	.boxed{
-		@include rem(margin-top, 1rem);
-	}
-	.desc{@include rem(margin-top, 2rem);}
-}
-.breeds{
-	.boxed{
-		margin-top:6px;
-		.box{min-height: 320px;}
-		h3,p{text-align: left;}
-	}
-}
-
-/* =============================================================================
-HOMEPAGE
-============================================================================= */
-@import "home";
-.simply-scroll { 
-	width: 100%;
-	height: auto;
-	@include rem(margin, 0);
-	&.simply-scroll-container { 
-		position: relative;
-	}
-	.simply-scroll-clip {
-		position: relative;
-		overflow: hidden;
-		width: 100%;
-		.simply-scroll-list { 
-			overflow: hidden;
-			margin: 0 0 0 -150px;
-			padding: 0;
-			list-style: none;
-			height: 306px;
-			li {
-				@include rem(padding, 0 0 0.5rem);
-				list-style: none;
-				float: left;
-				width: 306px;
-				height: 306px;
-				text-align: center;
-				img {
-					border: none;
-					display: inline-block;
-					width: 306px;
-					height: 306px;
-				}
-			}
-		}
-	}
-}
 /* =============================================================================
 PRIVATE
 ============================================================================= */
 @import "private";
-
 
 /* =============================================================================
 DOGS

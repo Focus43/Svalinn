@@ -18,7 +18,7 @@
 </div>
 <div class="row">
     <div class="medium-6 columns name"><?php echo $dogObj->getName(); ?></div>
-    <div class="medium-6 columns breed text-right"><?php echo $dogObj->getBreedHandle(true); ?></div>
+    <div class="medium-6 columns breed text-left"><?php echo $dogObj->getBreedHandle(true); ?></div>
 </div>
 <div class="row">
     <div class="medium-6 columns dob"><?php echo $dogObj->getBirthdate('M d, Y'); ?></div>

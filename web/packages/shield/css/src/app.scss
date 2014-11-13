@@ -1010,16 +1010,19 @@ FOOTER NAV - CALLOUTS
 			}
 		}
 	}
+	
 	@media #{$small-only}{
+		/*
 		ul{display: none;}
 		.callouts.closed{height:auto !important;}
 		.callout{position:relative;}
 		.hide{display: block !important;opacity:1 !important;}
+		*/
 		.callout {
 			.photo{height:auto !important;padding-top:52%;}
 			.details{
 				height:auto !important;
-				@include rem(padding, 2rem 1rem 1rem);
+				@include rem(padding, 1rem 1rem 2rem);
 				h3{
 					font-family: $quadon;
 					color:#FFF;
@@ -1032,6 +1035,7 @@ FOOTER NAV - CALLOUTS
 			}
 		}
 	}
+	
 }
 
 #callout-professional .photo {
@@ -1042,12 +1046,24 @@ FOOTER NAV - CALLOUTS
   background-image: url("#{$imagePath}callouts/callout-training.jpg");
 }
 
-#callout-professional .details {
-  background-image: url("#{$imagePath}callouts/callout-professional-bg.jpg");
+#callout-professional {
+	.details {
+  		background-image: url("#{$imagePath}callouts/callout-professional-bg.jpg");
+  	}
+  	@media #{$small-only}{
+		background-image: url("#{$imagePath}callouts/callout-professional-bg.jpg");
+		.details{background: none;}
+	}
 }
 
 #callout-training .details {
-  background-image: url("#{$imagePath}callouts/callout-training-bg.jpg");
+  	.details {
+  		background-image: url("#{$imagePath}callouts/callout-training-bg.jpg");
+  	}
+  	@media #{$small-only}{
+		background-image: url("#{$imagePath}callouts/callout-training-bg.jpg");
+		.details{background: none;}
+	}
 }
 
 @media screen and (max-width: 1100px) {

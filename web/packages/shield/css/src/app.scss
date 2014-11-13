@@ -389,8 +389,13 @@ MAIN
 		@include rem(padding,1rem);
 		@media #{$small-only}{
 			@include rem(margin-top,2rem);
-			@include rem(margin-left,1rem);
-			@include rem(margin-right,1rem);
+			@include rem(margin-left,-0.5rem);
+			@include rem(margin-right,-0.5rem);
+			.btn{
+				@include rem(padding-left,1em);
+				@include rem(padding-right,1em);
+				min-width:0 !important;
+			}
 		}
 		h4{
 			color:#000;
@@ -1064,6 +1069,9 @@ FOOTER
 		@include rem(padding, 3rem 4rem 1rem);
 		background: $black-blue;
 		.professional &{background:#212121;}
+		@media #{$small-only} {
+	      @include rem(padding, 1rem 0.5rem 1rem);
+	    }
 	}
 	.contact{
 		text-align:center;
@@ -1108,10 +1116,6 @@ FOOTER
     	line-height:0;
     	text-align:inherit;
     	position:relative;
-    	@media #{$medium-down}{
-	    	margin:0 auto;
-	    	
-    	}
 		li {
 			display:inline-block;
 			font-size:1rem;
@@ -1127,14 +1131,30 @@ FOOTER
 			display:block;
 			margin:1rem 0.5rem;
 		}
+		@media #{$medium-down}{
+	    	margin:0 auto 36px;
+	    	li{
+	    		display: block;
+	    		float:left;
+		    	width:25%;
+		    	text-align: center;
+	    	}
+    	}
     }
 	.copyright{
 		@include rem(padding-top,2rem);
 		color:$medium-blue;
+		@media #{$small-only}{
+			p{font-size:12px;}
+		}
 	}
 	.btn{
 		@media only screen and (max-width: 40em){
-			@include rem(margin, 0.3333334rem 0);width:100%;
+			@include rem(margin, 0.3333334rem 0);
+			width:100%;
+		}
+		@media #{$small-only} {
+			width:60%
 		}
 	}
 	.btn-contact{

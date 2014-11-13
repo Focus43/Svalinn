@@ -43,7 +43,7 @@
 			</div>
 			<div class="row collapse outdent-both">
             <?php if(!empty($listResults)): ?>
-                <ul class="small-block-grid-2 medium-block-grid-2 dog-grid">
+                <ul class="small-block-grid-1 medium-block-grid-2 dog-grid">
                     <?php foreach($listResults AS $dogObj): ?>
                         <li class="dog-item">
                             <?php Loader::packageElement('partials/dog_item', 'shield', array(

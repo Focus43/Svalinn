@@ -3,7 +3,7 @@
 ABOUT
 ============================================================================= */
 .company-history{
-	.main .row .outdent-right{@include rem(margin-right,2rem, !important);}
+	.main .row .outdent-right{@include rem(margin-right,-2rem, !important);}
 }
 .philosophy-approach{
 	.main{

@@ -12,7 +12,7 @@ $(document).ready(function(){
 	    manualfx: 'scrollHorz',
 	    swipefx: 'scrollHorz',
 	    random: true,
-	    timeout: 7000,
+	    timeout: 12000,
 	    next: '.quotes .cycle-next',
 	    prev: '.quotes .cycle-prev'
 	});

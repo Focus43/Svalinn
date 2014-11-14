@@ -255,8 +255,8 @@ $mastheadOffset: 75px;
 			text-align: center;
 			text-transform: uppercase;
 			background: rgba(20, 42, 56, 0.75);
-			z-index: 10;
 			.professional &{background: rgba(17,17,17,0.75);}
+			z-index: 10;
 			&:before,&:after{
 				position: relative;
 				display: inline-block;
@@ -273,7 +273,8 @@ $mastheadOffset: 75px;
 		}
 		@media #{$small-only}{
 			bottom: -36px;
-			background: rgb(20, 42, 56); 
+			background: rgb(20, 42, 56);
+			.professional &{background: rgb(17,17,17);}
 			h1{
 				display:block;
 				width:100%;

@@ -116,14 +116,11 @@ var callout_target = '';
 //INIT SITE
 (function (site, $) {
 	'use strict';
-
 	site.config = {};
 	site.ready = {
 		init: function(){
-			
 			//LOAD HOMEPAGE
 			if( $('body').hasClass('home') ) site.home.init();
-			if( $('body').hasClass('our_dogs') ) site.our_dogs.init();
 			
 			//FINALIZE PAGE
 			this.finalize();
@@ -140,7 +137,7 @@ var callout_target = '';
 			    for(var i = 0; i < l; i++) {
 			        if(imgs[i].src.match(svgExtension)) {
 			            imgs[i].src = imgs[i].src.slice(0, -3) + 'png';
-			            log(imgs[i].src);
+			            //log(imgs[i].src);
 			        }
 			    }
 			}
@@ -159,12 +156,6 @@ var callout_target = '';
 		}
 		
 	},
-	site.our_dogs={
-		init: function(){
-			$('.tabs a').unbind("click");
-		}
-		
-	}
 	site.navigation = {
 		init: function(){
 			if( !$('body').hasClass('home') && $(window).width() > 1025){
@@ -260,4 +251,4 @@ var callout_target = '';
 	}	
 	
 }(window.site = window.site || {}, jQuery));
-site.ready.init();v
+site.ready.init();

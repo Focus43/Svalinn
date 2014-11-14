@@ -49,7 +49,7 @@ if( !($this->controller instanceof ShieldPageController) ){
         <!-- BEGIN .right-off-canvas-menu -->
         <?php Loader::packageElement('responsive_sidebar', 'shield', array(
             'navigationSettings' => array(
-                'displayPages'   => 'second_level',
+                'displayPages'   => 'top',
                 'displaySubPages' => 'all',
                 'displaySubPageLevels' => 'custom',
                 'displaySubPageLevelsNum' => 1

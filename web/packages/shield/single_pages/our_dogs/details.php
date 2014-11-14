@@ -3,8 +3,7 @@
 <!-- BEGIN HEADER -->
 <?php Loader::packageElement('theme_header', 'shield', array(
     'navigationSettings' => array(
-        'displayPages' => 'custom',
-        'displayPagesCID' => Page::getByPath('/privateclient')->getCollectionID(),
+        'displayPages'   => 'top',
         'displaySubPages' => 'all',
         'displaySubPageLevels' => 'custom',
         'displaySubPageLevelsNum' => 1
@@ -94,18 +93,8 @@
     </div>
 </article>
 <!-- END .content -->
-<div class="footer-img"></div>
-<div class="testimonials">
-    <div class="column medium-10 large-10 medium-centered">
-        <h3 class="text-center">From Our Clients</h3>
-        <?php
-        $quoteStack = Stack::getByName('Testimonial Quotes')->getBlocks();
-        if( !empty($quoteStack) ){
-            $quoteStack[array_rand($quoteStack)]->display();
-        }
-        ?>
-    </div>
-</div>
+
+
 <!-- BEGIN .footer -->
 <?php //Loader::packageElement('theme_footer', 'shield'); ?>
 <!-- END .footer -->

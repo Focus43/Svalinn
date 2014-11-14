@@ -2,10 +2,7 @@
 /* =============================================================================
 ABOUT
 ============================================================================= */
-.philosophy-approach{
-	.masthead{
-		background-position: 0 0;
-	}
+.philosophy-approach{x
 	.main{
 		.row:last-child{padding-bottom:0 !important;}
 	}
@@ -137,38 +134,52 @@ SVALINN DIFFERENCE
 		padding:0 !important;
 		.column{padding:0;}
 	}
-	.testimonial{
-		@include rem(padding,2rem 3rem);
-		background-size: cover;
-		background-position: 50% 100%;
-		background-repeat: no-repeat;
-		&:nth-child(odd){background-image: url("/packages/shield/img/bg/bg-testimonial-blue.jpg");}
-		&:nth-child(even){background-image: url("/packages/shield/img/bg/bg-testimonial-gray.jpg");}
-		blockquote{
-			margin:0;
-			padding:0;
-			@include rem(font-size,26px);
-			@include rem(line-height,42px);
-			font-weight: 600;
-			&:before,&:after{
-				display:block;
-				margin:0 auto;
-				content:"";
-				height:34px;
-				width:34px;
-				background-size:contain;
-				background-position: 50%;
-			}
-			&:before{margin-bottom:16px;background-image: url("/packages/shield/img/blockquote-before.png");}
-			&:after{margin-top:16px;background-image: url("/packages/shield/img/blockquote-after.png");}
+}
+.testimonial{
+	@include rem(padding,2rem 3rem);
+	background-size: cover;
+	background-position: 50% 100%;
+	background-repeat: no-repeat;
+	&:nth-child(odd){background-image: url("/packages/shield/img/bg/bg-testimonial-blue.jpg");}
+	&:nth-child(even){background-image: url("/packages/shield/img/bg/bg-testimonial-gray.jpg");}
+	blockquote{
+		margin:0;
+		padding:0;
+		@include rem(font-size,26px);
+		@include rem(line-height,42px);
+		@media #{$medium-down}{
+			@include rem(font-size,21px);
+			@include rem(line-height,28px);
 		}
-		p{
-			@include rem(margin,3rem 0 0);
-			padding:0;
-			font-weight: 500;
-			text-align: center;
-			text-transform: uppercase;
+		@media #{$small-only}{
+			font-size:4vw;
+			line-height: 160%;
 		}
+		font-weight: 600;
+		&:before,&:after{
+			display:block;
+			margin:0 auto;
+			content:"";
+			height:34px;
+			width:34px;
+			background-size:contain;
+			background-position: 50%;
+		}
+		&:before{margin-bottom:16px;background-image: url("/packages/shield/img/blockquote-before.png");}
+		&:after{margin-top:16px;background-image: url("/packages/shield/img/blockquote-after.png");}
+	}
+	p{
+		@include rem(margin,3rem 0 0);
+		padding:0;
+		font-weight: 500;
+		text-align: center;
+		text-transform: uppercase;
+		@media #{$small-only}{
+			@include rem(font-size,0.75rem);
+		}
+	}
+	&:last-child{
+		@include rem(padding-bottom,5rem);
 	}
 }
 .training-classes{
@@ -186,10 +197,12 @@ PROTECTION
 /*  PEACE OF MIND  */
 .peace-mind, .individual, .executive{
 	.leader .row{
+		@include rem(padding-bottom, 2rem);
 		background-color:#e4e2e2;
 		background-image: url("/packages/shield/img/hr-gradient.png");
 		background-position: 50% 100%;
 		background-repeat: no-repeat;
+		background-size:90%;
 	}
 	.section-2{
 		@include rem(padding-top, 3rem);
@@ -199,8 +212,9 @@ PROTECTION
 		background-repeat: no-repeat;
 	}
 }
-.family, .selection-process, .securing-your-dog, .handler-training, .training-classes{
+.training, .family, .selection-process, .securing-your-dog, .included-training, .training-classes{
 	.leader .row{
+		@include rem(padding-bottom, 2rem);
 		background-color:#e4e2e2;
 		background-image: url("/packages/shield/img/hr-gradient.png");
 		background-position: 50% 100%;
@@ -221,90 +235,10 @@ PROTECTION
 /* =============================================================================
 PURCHASING
 ============================================================================= */
-.handler-training{
+.included-training{
 	.section-2{
 		.outdent-both:first-child>.column{padding-left:0;padding-right:0;}
 	}
 	.main .row:last-child{padding-bottom:0;}
 	.section-3{display: none;}
-}
-/* =============================================================================
-FOOTER
-============================================================================= */
-.footer-img{
-	@media #{$small-only}{
-		display:none;
-	}
-	.privateclient &{
-		background-image:url("#{$imagePath}private/footer/bg-sublanding.jpg");
-	}
-	.privateclient.sublanding &{
-	}
-	.company-history &{	
-		height:320px;
-		background-image:url("#{$imagePath}private/footer/bg-company.jpg");
-		@media #{$medium-only}{
-			height:185px;
-		}
-	}
-	.leadership-team &{
-		height:420px;
-		background-image:url("#{$imagePath}private/footer/bg-leadership-team.jpg");
-		@media #{$medium-only}{
-			height:250px;
-		}
-	}
-	.training &{
-		height:420px;
-		background-image:url("#{$imagePath}private/footer/bg-training.jpg");
-		@media #{$medium-only}{
-			height:250px;
-		}
-	}
-	.securing-your-dog &, .working-dogs &, .our_dogs &{
-		display:none;
-	}
-	.guarantee &{
-		height:450px;
-		background-image:url("#{$imagePath}private/footer/bg-guarantee.jpg");
-		@media #{$medium-only}{
-			height:260px;
-		}
-	}
-	.handler-training &{
-		height:450px;
-		background-image:url("#{$imagePath}private/footer/bg-handler-training.jpg");
-		@media #{$medium-only}{
-			height:260px;
-		}
-	}
-	.peace-mind &{
-		height:550px;
-		background-image:url("#{$imagePath}private/footer/bg-peace-mind.jpg");
-		@media #{$medium-only}{
-			height:300px;
-		}
-	}
-	.family &{background-image:url("#{$imagePath}private/footer/bg-protection-family.jpg");}
-	.individual &{
-		height:420px;
-		background-image:url("#{$imagePath}private/footer/bg-individual.jpg");
-		@media #{$medium-only}{
-			height:250px;
-		}
-	}
-	.executive &{
-		height:420px;
-		background-image:url("#{$imagePath}private/footer/bg-executive.jpg");
-		@media #{$medium-only}{
-			height:250px;
-		}
-	}
-	.selection-process &{
-		height:380px;
-		background-image:url("#{$imagePath}private/footer/bg-selection.jpg");
-		@media #{$medium-only}{
-			height:215px;
-		}
-	}
 }

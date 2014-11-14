@@ -3,8 +3,19 @@ $(document).ready(function(){
 	var scrollTotal = 5;
 	var scrollMoving = false;
 	
-
-	
+	$('#slider').cycle({
+	    speed: 1000,
+	    manualSpeed: 1000,
+	    slides: '.slide',
+	    swipe: true,
+	    fx: 'scrollHorz',
+	    manualfx: 'scrollHorz',
+	    swipefx: 'scrollHorz',
+	    random: true,
+	    timeout: 12000,
+	    next: '.quotes .cycle-next',
+	    prev: '.quotes .cycle-prev'
+	});
 	/*********************************************
 	HOMEPAGE SCROLL
 	*********************************************/
@@ -18,7 +29,7 @@ $(document).ready(function(){
 		if( $(this).hasClass('up') ){
 			newInt = scrollInt-1;
 		}
-		log( 'CLICK TO INT: '+scrollInt );
+		//log( 'CLICK TO INT: '+scrollInt );
 		scrollMoving = true;
 		$("html, body").animate({ scrollTop: newInt*new_top},750,'easeOutCirc',function(){
 			scrollMoving = false;
@@ -46,11 +57,17 @@ $(document).ready(function(){
 		});
 		if( !WURFL.is_mobile ){
 			//CONTROLS
-			log($(window).scrollTop() +'>'+ $(window).height());
-			if($(window).scrollTop() > 100){
-				$('.scroll-down').removeClass('down-only');
+			log($(window).scrollTop() +'<'+ ($(window).height() * 3));
+			if( $(window).scrollTop() > ($(window).height() * 3) ){
+				$('.scroll-down').css({'opacity':0});
 			}else{
-				$('.scroll-down').addClass('down-only');
+				$('.scroll-down').css({'opacity':1});
+				if($(window).scrollTop() > 100){
+					$('.scroll-down').removeClass('down-only');
+				}else if( $(window).scrollTop() > 100){
+					$('.scroll-down').addClass('down-only');
+					
+				}
 			}
 			//scrollReposition();
 		}
@@ -69,7 +86,7 @@ $(document).ready(function(){
 			        750,
 			        'easeOutCirc',
 			        function(){
-				        log('end:'+Math.random());
+				        //log('end:'+Math.random());
 				        scrollMoving == false;
 			        }
 		        );

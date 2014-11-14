@@ -76,10 +76,6 @@ HEADER BAR
 	width: 100%;
 	z-index: 1;
 	z-index:999;
-	@media #{$medium-down}{
-		position:relative;
-	}
-	
 	.primary-nav-container{
 		position: relative;
 		max-width: $row-width;
@@ -187,6 +183,7 @@ HEADER BAR
 /* =============================================================================
 MASTHEAD
 ============================================================================= */
+$mastheadOffset: 75px;
 .masthead{
 	position:relative;
 	padding-top:33.3333%;
@@ -195,25 +192,52 @@ MASTHEAD
 	background-size: cover;
 	background-repeat:no-repeat;
 	background-image:url("#{$imagePath}masthead/philosophy-approach.jpg");
+	@media #{$small-only}{
+		padding-top:65%;
+		padding-bottom:36px;
+		background-size: 150%;
+		background-position:50% $mastheadOffset;
+	}
 	.company-history &{background-image:url("#{$imagePath}masthead/company-history.jpg");}
-	.leadership-team &{background-image:url("#{$imagePath}masthead/leadership-team.jpg");}
+	.leadership-team &{
+		background-image:url("#{$imagePath}masthead/leadership-team.jpg");
+		@media #{$small-only}{
+			background-position:0 $mastheadOffset;
+		}
+	}
 	.working-dogs &{background-image:url("#{$imagePath}masthead/working-dogs.jpg");}
-	.philosophy-approach &{background-image:url("#{$imagePath}masthead/philosophy-approach.jpg");}
+	.philosophy-approach &{
+		background-image:url("#{$imagePath}masthead/philosophy-approach.jpg");
+		@media #{$small-only}{
+			background-position:0 $mastheadOffset;
+		}
+	}
 	.training-levels &{background-image:url("#{$imagePath}masthead/training-levels.jpg");}
 	.guarantee &{background-image:url("#{$imagePath}masthead/guarantee.jpg");}
 	.breed-specifications &{background-image:url("#{$imagePath}masthead/breed-specifications.jpg");}
 	.testimonials &{background-image:url("#{$imagePath}masthead/testimonials.jpg");}
-	.peace-mind &{background-image:url("#{$imagePath}masthead/peace-mind.jpg");}
-	.family &{background-image:url("#{$imagePath}masthead/family.jpg");}
+	.peace-mind &{
+		background-image:url("#{$imagePath}masthead/peace-mind.jpg");
+		@media #{$small-only}{
+			background-position:0 $mastheadOffset;
+		}
+	}
+	.family &{
+		background-image:url("#{$imagePath}masthead/family.jpg");
+		@media #{$small-only}{
+			background-position:0 $mastheadOffset;
+		}
+	}
 	.individual &{background-image:url("#{$imagePath}masthead/individual.jpg");}
 	.executive &{background-image:url("#{$imagePath}masthead/executive.jpg");}
 	.selection-process &{background-image:url("#{$imagePath}masthead/selection-process.jpg");}
 	.securing-your-dog &{background-image:url("#{$imagePath}masthead/securing-your-dog.jpg");}
-	.handler-training &{background-image:url("#{$imagePath}masthead/handler-training.jpg");}
-	.our-dogs &{background-image:url("#{$imagePath}masthead/our-dogs.jpg");}
+	.included-training &{background-image:url("#{$imagePath}masthead/included-training.jpg");}
+	.our_dogs &{background-image:url("#{$imagePath}masthead/our-dogs.jpg");}
 	.contact &{background-image:url("#{$imagePath}masthead/contact.jpg");}
 	.professional &{background-image:url("#{$imagePath}masthead/professional.jpg");}
 	.training-classes &{background-image:url("#{$imagePath}masthead/training-classes.jpg");}
+	.frequently-asked-questions &{background-image:url("#{$imagePath}masthead/faqs.jpg");}
 	.inner{
 		position: absolute;
 		bottom: -13px;
@@ -242,7 +266,10 @@ MASTHEAD
 				width:60px;
 				background: #FFF;
 			}
-			
+			@media #{$small-only}{
+				background: rgb(20, 42, 56);
+				.professional &{background: rgb(17,17,17);}
+			}
 		}
 		@media #{$small-only}{
 			bottom: -36px;
@@ -254,10 +281,7 @@ MASTHEAD
 			}
 		}
 	}
-	@media #{$small-only}{
-		padding-top:60%;
-		padding-bottom:36px;
-	}
+	
 }
 /* =============================================================================
 MAIN
@@ -286,7 +310,7 @@ MAIN
 			font-weight:300;
 			text-align: center;
 			@media #{$small-only}{
-				@include rem(padding,5rem 2rem 3rem);
+				@include rem(padding,5rem 2rem 0);
 				@include rem(font-size, 21px);
 			}
 		}
@@ -370,6 +394,9 @@ MAIN
 			width: 100%;
 			background-position: 50%;
 			background-repeat: no-repeat;
+			@media #{$medium-down}{
+				margin:0;
+			}
 		}
 		&:before{background-image:url("#{$imagePath}hr-blockquote-top.png");}
 		&:after{background-image:url("#{$imagePath}hr-blockquote-bottom.png");}
@@ -385,8 +412,13 @@ MAIN
 		@include rem(padding,1rem);
 		@media #{$small-only}{
 			@include rem(margin-top,2rem);
-			@include rem(margin-left,1rem);
-			@include rem(margin-right,1rem);
+			@include rem(margin-left,-0.5rem);
+			@include rem(margin-right,-0.5rem);
+			.btn{
+				@include rem(padding-left,1em);
+				@include rem(padding-right,1em);
+				min-width:0 !important;
+			}
 		}
 		h4{
 			color:#000;
@@ -509,7 +541,11 @@ MAIN
 .img-span{
 	background-color:$medium-tan;
 }
-
+.section-3{
+	.testimonial{
+		@include rem(margin,0 -3.45rem -3rem -3.4rem);
+	}
+}
 
 
 /* =============================================================================
@@ -554,7 +590,6 @@ PAGE ELEMENTS
 				text-transform: uppercase;
 				border-bottom:1px solid #ccc;
 			}
-			
 			ul{
 				@include clearfix;
 				display:block;
@@ -581,17 +616,26 @@ PAGE ELEMENTS
 				}
 			}
 		}
+		>.sans-dropdown{
+			margin-left:0;
+			margin-right:0;
+			> a{
+				@include rem(margin, 10px);
+				color:$brand-blue;
+				font-family: $proxima;
+				@include rem(font-size, 14px);
+				@include rem(line-height, 18px);
+				width:auto;
+				text-align: center;
+				border: 2px solid $brand-blue;
+			}
+		}
+			
 	}
 	.utility-nav{
 		@include rem(margin-top, 30px);
 		@include rem(padding-bottom, 6rem);
-		.btn{
-			@include rem(margin, 10px);
-			color:$brand-blue;
-			width:auto;
-			text-align: center;
-			border: 2px solid $brand-blue;
-		}
+		
 	}
 }
 .right-off-canvas-toggle{position: absolute;top:16px;right:0;}
@@ -599,34 +643,6 @@ PAGE ELEMENTS
 /*  CALL TO ACTION ROW  */
 .cta .btn{@include rem(margin, 0 0 3rem);}
 
-/*  COLUMNS - HIGHLIGHTS  */
-.options{
-	.column{
-		@include rem(padding-left, 30px);
-		@include rem(padding-right, 30px);
-		background:url("#{$imagePath}divide-vert-gray.gif") 0 3rem no-repeat;
-		@media #{$small-only}{
-			padding:20px 15px 0;
-			background: none;
-			border-top:1px solid #ddd;
-		}
-		&:first-child{border:0;background:none;}
-		h3,p{text-align: center;}
-		h3{
-			@include rem(margin, 0 0 24px);
-			color:$medium-blue;
-			font-family: $quadon;
-			@include rem(font-size, 21px);
-			font-weight: 400;
-			@include rem(line-height, 21px);
-		}
-		p{
-			color: $medium-gray;
-			@include rem(font-size, 16px);
-			@include rem(line-height, 19px);
-		}
-	}
-}
 
 /*  TABS  */
 .tab-nav{
@@ -889,136 +905,10 @@ PAGE ELEMENTS
 	}
 }
 
-/*  GALLERY  */
-.orbit-container{
-	.orbit-timer, .orbit-progress,.orbit-slide-number{display:none;}
-	.orbit-slides-container{
-		height:350px;
-		&:before {
-			position: absolute;
-			top: 0;
-			left: 0;
-			content: "";
-			height: 100%;
-			width: 100%;
-			background: url("#{$imagePath}orbit-gallery-overlay.png") 0 0 no-repeat;
-			background-size: cover;
-			z-index: 9;
-		}
-		li{margin:0;}
-		img{width:100%;}
-	}
-	.orbit-prev,.orbit-next{
-		top: 50%;
-		margin-top: -11px;
-		@include rem(width, 21px);
-		@include rem(height, 24px);
-		@include rem(line-height, 24px);
-		
-		span{display:none;}
-	}
-	.orbit-prev{
-		left:5px;
-		background: url("#{$imagePath}orbit-gallery-left-arrow.png") 50% no-repeat;
-		&:hover{
-			background-image:url("#{$imagePath}orbit-gallery-left-arrow-hover.png");
-			background-color:transparent;
-		}
-	}
-	.orbit-next{
-		right:5px;
-		background: url("#{$imagePath}orbit-gallery-right-arrow.png") 50% no-repeat;
-		&:hover{
-			background-image:url("#{$imagePath}orbit-gallery-right-arrow-hover.png");
-			background-color:transparent;
-		}
-	}
-	.orbit-bullets-container{
-		margin-top:-50px;
-	}
-}
-
-/*  DOUBLE BORDER BOX  */
-
-.boxed{
-	@include rem(padding, 2rem);
-	box-shadow: 0 0 0 1px #999, 0px 0px 0 5px #FFF, 0px 0px 0 6px #999;
-	background: #FFF;	
-	h3{
-		@include rem(margin-bottom, 1rem);
-		font-family: $proxima;
-		color:$dark-gray;
-		@include rem(font-size, 21px);
-		font-weight: 300;
-		text-align: center;
-		text-transform: uppercase;
-	}
-	p{
-		@include rem(font-size, 1rem);
-		font-style: italic;
-		font-weight: 300;
-		letter-spacing: 0.06em;
-		@include rem(line-height, 21px);
-		text-align: center;
-	}
-}
-.tabs-content{
-	.boxed{
-		@include rem(margin-top, 1rem);
-	}
-	.desc{@include rem(margin-top, 2rem);}
-}
-.breeds{
-	.boxed{
-		margin-top:6px;
-		.box{min-height: 320px;}
-		h3,p{text-align: left;}
-	}
-}
-
-/* =============================================================================
-HOMEPAGE
-============================================================================= */
-@import "home";
-.simply-scroll { 
-	width: 100%;
-	height: auto;
-	@include rem(margin, 0);
-	&.simply-scroll-container { 
-		position: relative;
-	}
-	.simply-scroll-clip {
-		position: relative;
-		overflow: hidden;
-		width: 100%;
-		.simply-scroll-list { 
-			overflow: hidden;
-			margin: 0 0 0 -150px;
-			padding: 0;
-			list-style: none;
-			height: 306px;
-			li {
-				@include rem(padding, 0 0 0.5rem);
-				list-style: none;
-				float: left;
-				width: 306px;
-				height: 306px;
-				text-align: center;
-				img {
-					border: none;
-					display: inline-block;
-					width: 306px;
-					height: 306px;
-				}
-			}
-		}
-	}
-}
 /* =============================================================================
 PRIVATE
 ============================================================================= */
 @import "private";
-
 
 /* =============================================================================
 DOGS
@@ -1143,16 +1033,19 @@ FOOTER NAV - CALLOUTS
 			}
 		}
 	}
+	
 	@media #{$small-only}{
+		/*
 		ul{display: none;}
 		.callouts.closed{height:auto !important;}
 		.callout{position:relative;}
 		.hide{display: block !important;opacity:1 !important;}
+		*/
 		.callout {
 			.photo{height:auto !important;padding-top:52%;}
 			.details{
 				height:auto !important;
-				@include rem(padding, 2rem 1rem 1rem);
+				@include rem(padding, 1rem 1rem 2rem);
 				h3{
 					font-family: $quadon;
 					color:#FFF;
@@ -1165,6 +1058,7 @@ FOOTER NAV - CALLOUTS
 			}
 		}
 	}
+	
 }
 
 #callout-professional .photo {
@@ -1175,12 +1069,24 @@ FOOTER NAV - CALLOUTS
   background-image: url("#{$imagePath}callouts/callout-training.jpg");
 }
 
-#callout-professional .details {
-  background-image: url("#{$imagePath}callouts/callout-professional-bg.jpg");
+#callout-professional {
+	.details {
+  		background-image: url("#{$imagePath}callouts/callout-professional-bg.jpg");
+  	}
+  	@media #{$small-only}{
+		background-image: url("#{$imagePath}callouts/callout-professional-bg.jpg");
+		.details{background: none;}
+	}
 }
 
 #callout-training .details {
-  background-image: url("#{$imagePath}callouts/callout-training-bg.jpg");
+  	.details {
+  		background-image: url("#{$imagePath}callouts/callout-training-bg.jpg");
+  	}
+  	@media #{$small-only}{
+		background-image: url("#{$imagePath}callouts/callout-training-bg.jpg");
+		.details{background: none;}
+	}
 }
 
 @media screen and (max-width: 1100px) {
@@ -1199,8 +1105,12 @@ FOOTER
 	background:#888;
 	.professional &{background:#171717;}
 	.row{
-		@include rem(padding-top, 3rem);
+		@include rem(padding, 3rem 4rem 1rem);
+		background: $black-blue;
 		.professional &{background:#212121;}
+		@media #{$small-only} {
+	      @include rem(padding, 1rem 0.5rem 1rem);
+	    }
 	}
 	.contact{
 		text-align:center;
@@ -1239,6 +1149,7 @@ FOOTER
 	}
 
     .socialize-list {
+    	margin-left:-10px;
     	list-style:none;
     	font-size:0;
     	line-height:0;
@@ -1259,17 +1170,30 @@ FOOTER
 			display:block;
 			margin:1rem 0.5rem;
 		}
-		@media #{$medium-up}{
-			right:-1rem;
-		}
+		@media #{$medium-down}{
+	    	margin:0 auto 36px;
+	    	li{
+	    		display: block;
+	    		float:left;
+		    	width:25%;
+		    	text-align: center;
+	    	}
+    	}
     }
 	.copyright{
 		@include rem(padding-top,2rem);
 		color:$medium-blue;
+		@media #{$small-only}{
+			p{font-size:12px;}
+		}
 	}
 	.btn{
 		@media only screen and (max-width: 40em){
-			@include rem(margin, 0.3333334rem 0);width:100%;
+			@include rem(margin, 0.3333334rem 0);
+			width:100%;
+		}
+		@media #{$small-only} {
+			width:60%
 		}
 	}
 	.btn-contact{

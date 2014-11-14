@@ -2,7 +2,10 @@
 /* =============================================================================
 ABOUT
 ============================================================================= */
-.philosophy-approach{x
+.company-history{
+	.main .row .outdent-right{@include rem(margin-right,2rem, !important);}
+}
+.philosophy-approach{
 	.main{
 		.row:last-child{padding-bottom:0 !important;}
 	}

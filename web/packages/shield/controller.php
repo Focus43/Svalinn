@@ -4,7 +4,7 @@
 
         protected $pkgHandle 			= 'shield';
         protected $appVersionRequired 	= '5.6.1';
-        protected $pkgVersion 			= '0.61';
+        protected $pkgVersion 			= '0.62';
 
 
         /**
@@ -80,6 +80,7 @@
             $pkgObj  = Package::getByHandle($this->pkgHandle);
             $version = ($pkgObj instanceof Package) ? $pkgObj->getPackageVersion() : '';
             $this->runUpgradeTasks($version)
+                ->setupCollectionAttributes()
                 ->setupUserAttributes()
                 ->setupBlocks()
                 ->setupPageTypes()
@@ -126,6 +127,13 @@
          * @return ShieldPackage
          */
         private function setupCollectionAttributes(){
+            if( ! is_object(CollectionAttributeKey::getByHandle('nav_item_class')) ){
+                CollectionAttributeKey::add($this->attributeType('text'), array(
+                    'akHandle'  => 'nav_item_class',
+                    'akName'    => 'Nav Class'
+                ), $this->packageObject());
+            }
+
             return $this;
         }
 

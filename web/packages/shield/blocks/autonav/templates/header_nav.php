@@ -84,12 +84,10 @@ foreach ($navItems as $ni) {
 	}
 
 
-	/*
 	if (!empty($ni->attrClass)) {
 		//class that can be set by end-user via the 'nav_item_class' custom page attribute
 		$classes[] = $ni->attrClass;
 	}
-	*/
 
 	/*
 	if ($ni->isHome) {

@@ -43,11 +43,11 @@
         </div>
         <div class="column medium-12 large-7 contact">
             <?php if(Page::getCurrentPage()->getCollectionHandle() === 'professional'): ?>
-                <a href="mailto:info@svalinn.com" class="btn btn-lg btn-contact btn-arrow uppercase">Email Us</a>
+                <a href="mailto:jeff@svalinn.com" class="btn btn-lg btn-contact btn-arrow uppercase">Email Us</a>
                 <div class="or fwsb">OR</div>
-                <a href="tel:1-307-200-1223" class="btn btn-lg btn-disabled uppercase">307.200.1223</a>
+                <a href="tel:1-202-355-5895" class="btn btn-lg btn-disabled uppercase">202.355.5895</a>
             <?php else: ?>
-                <a href="mailto:info@svalinn.com" class="btn btn-lg btn-contact btn-arrow uppercase">Email Us</a>
+                <a href="/contact" class="btn btn-lg btn-contact btn-arrow uppercase">Email Us</a>
                 <div class="or fwsb">OR</div>
                 <a href="tel:1-307-200-1223" class="btn btn-lg btn-disabled uppercase">307.200.1223</a>
             <?php endif; ?>

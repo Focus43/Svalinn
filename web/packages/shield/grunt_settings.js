@@ -13,7 +13,8 @@ module.exports = function( grunt, _configs ){
     _configs.concat.shield.files[ pkgPath('js/application.js') ] = [
         pkgPath('js/src/foundation.min.js'), // @todo: modularize to only in-use components
         pkgPath('js/src/plugins.js'),
-        pkgPath('js/src/instafeed.min.js'),
+        //pkgPath('js/src/instafeed.min.js'),
+        pkgPath('js/src/jquery.cycle.js'),
         pkgPath('js/src/app.js')
     ];
 
@@ -46,7 +47,8 @@ module.exports = function( grunt, _configs ){
             compass : true
         },
         files : [
-            {src: [pkgPath('css/src/app.scss')], dest: pkgPath('css/application.css')}
+            {src: [pkgPath('css/src/app.scss')], dest: pkgPath('css/application.css')},
+            {src: [pkgPath('css/src/homepage.scss')], dest: pkgPath('css/homepage.css')}
         ]
     };
 

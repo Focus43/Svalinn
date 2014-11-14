@@ -81,15 +81,15 @@ foreach ($navItems as $ni) {
 	if ($ni->hasSubmenu) {
 		//class for items that have dropdown sub-menus
 		$classes[] = 'has-dropdown';
-	}
+	}else{
+        $classes[] = 'sans-dropdown';
+    }
 
 
-	/*
 	if (!empty($ni->attrClass)) {
 		//class that can be set by end-user via the 'nav_item_class' custom page attribute
 		$classes[] = $ni->attrClass;
 	}
-	*/
 
 	/*
 	if ($ni->isHome) {
@@ -117,7 +117,7 @@ foreach ($navItems as $ni) {
 	echo '<li class="' . $ni->classes . '">'; //opens a nav item
 
 	//echo '<a href="' . $ni->url . '" target="' . $ni->target . '" class="' . $ni->classes . '">' . $ni->name . '</a>';
-    echo '<a href="' . $ni->url . '" target="' . $ni->target . '">' . $ni->name . '</a>';
+    echo '<a ' . ($ni->hasSubmenu ? '' : sprintf('href="%s"', $ni->url)) . ' target="' . $ni->target . '">' . $ni->name . '</a>';
 
 	if ($ni->hasSubmenu) {
 		echo '<ul class="dropdown">'; //opens a dropdown sub-menu

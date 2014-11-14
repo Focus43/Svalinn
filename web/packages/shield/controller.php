@@ -4,7 +4,7 @@
 
         protected $pkgHandle 			= 'shield';
         protected $appVersionRequired 	= '5.6.1';
-        protected $pkgVersion 			= '0.59';
+        protected $pkgVersion 			= '0.62';
 
 
         /**
@@ -80,6 +80,7 @@
             $pkgObj  = Package::getByHandle($this->pkgHandle);
             $version = ($pkgObj instanceof Package) ? $pkgObj->getPackageVersion() : '';
             $this->runUpgradeTasks($version)
+                ->setupCollectionAttributes()
                 ->setupUserAttributes()
                 ->setupBlocks()
                 ->setupPageTypes()
@@ -126,6 +127,13 @@
          * @return ShieldPackage
          */
         private function setupCollectionAttributes(){
+            if( ! is_object(CollectionAttributeKey::getByHandle('nav_item_class')) ){
+                CollectionAttributeKey::add($this->attributeType('text'), array(
+                    'akHandle'  => 'nav_item_class',
+                    'akName'    => 'Nav Class'
+                ), $this->packageObject());
+            }
+
             return $this;
         }
 
@@ -184,6 +192,18 @@
 
             if( !is_object($this->pageType('guarantee')) ){
                 CollectionType::add(array('ctHandle' => 'guarantee', 'ctName' => 'Guarantee'), $this->packageObject());
+            }
+
+            if( !is_object($this->pageType('testimonials')) ){
+                CollectionType::add(array('ctHandle' => 'testimonials', 'ctName' => 'Testimonials'), $this->packageObject());
+            }
+
+            if( !is_object($this->pageType('handler_training')) ){
+                CollectionType::add(array('ctHandle' => 'handler_training', 'ctName' => 'Handler Training'), $this->packageObject());
+            }
+
+            if( !is_object($this->pageType('training_classes')) ){
+                CollectionType::add(array('ctHandle' => 'training_classes', 'ctName' => 'Training Classes'), $this->packageObject());
             }
 
             return $this;

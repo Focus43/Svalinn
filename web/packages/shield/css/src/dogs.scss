@@ -5,6 +5,9 @@ DOGS
 .our_dogs{
 	.dog-item{
 		hr{height:1px;width:100%;color:$lite-gray;background-image:none;background-color:$lite-gray;}
+		.row{
+			@include rem(padding,0 1rem);
+		}
 	}
 	&.details{
 		.dog-desc{
@@ -18,15 +21,24 @@ DOGS
 		background:url("#{$imagePath}bg-dog-knots.jpg") 50% no-repeat;
 	}
 	.gallery{
+		@media #{$small-only}{
+			ul{margin:0;}
+		}
 		li{
-			@include rem(margin-bottom, 1rem);
+			@include rem(margin, 1rem 2rem);
 			list-style: none;
 			img{border:1px solid #DDD;}
+			@media #{$small-only}{
+				@include rem(margin, 1rem 0);
+			}
 		}
 	}
 }
 .dog-item{
 	@include rem(padding, 1.5rem, !important);
+	@media #{$small-only}{
+		@include rem(padding, 0, !important);
+	}
 	img{
 		border:1px solid #DDD;
 	}
@@ -36,10 +48,38 @@ DOGS
     a {
       display:block;
     }
-    .pic {position:relative;@include rem(margin, 0 0 0.5rem);
-      .ribbon {display:block;position:absolute;top:15px;right:-9px;line-height:1;padding:7px 8px 6px;font-size:12px;color:#fff;background:$brand-blue;-webkit-box-shadow:-2px 4px 5px rgba(0,0,0,0.4);-moz-box-shadow:-2px 4px 5px rgba(0,0,0,0.4);box-shadow:-2px 4px 5px rgba(0,0,0,0.4);
-        &:after {position:absolute;right:0;top:100%;content:'';display:block;width:0;height:0;border-bottom:10px solid transparent;border-right:10px solid transparent;border-top:6px solid #111;}
-      }
+    .pic {
+    	position:relative;
+    	@include rem(margin, 0 0 0.5rem);
+    	img{
+	    	min-width: 100%;
+    	}
+		.ribbon {
+			display:block;
+			position:absolute;
+			top:15px;
+			right:-9px;
+			line-height:1;
+			padding:7px 8px 6px;
+			font-size:12px;
+			color:lighten($brand-blue,38%);
+			background:$brand-blue;
+			-webkit-box-shadow:-2px 4px 5px rgba(0,0,0,0.4);
+			-moz-box-shadow:-2px 4px 5px rgba(0,0,0,0.4);
+			box-shadow:-2px 4px 5px rgba(0,0,0,0.4);
+			&:after {
+				position:absolute;
+				right:0;top:100%;
+				content:'';
+				display:block;
+				width:0;
+				height:0;
+				border-bottom:10px solid transparent;
+				border-right:10px solid transparent;
+				border-top:6px solid #111;
+			    
+			}
+		}
     }
 	.name{
 		@include rem(font-size, 21px);			
@@ -56,9 +96,14 @@ DOGS
 	.level,.dob{@include rem(font-size, 14px);}
 	.dob{display:none;}
 	.btn{
-		@include rem(margin, 0.5rem 0 0);
+		@include rem(margin, 0.5rem -0.9375rem 0);
 		@include rem(font-size, 16px);
 		display: block;
+		background: $brand-blue;
+		@media #{$small-only}{
+			@include rem(margin, 0.5rem 0 0);
+			width:100%;
+		}
 	}
 }
 .image-grid{@include rem(margin-top, 1.25rem, !important);}

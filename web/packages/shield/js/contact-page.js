@@ -1,2 +1,28 @@
-/*! Build: v0.0.01; Author: Focus43 */
-!function(a){a(document).on("submit","#frm-contact",function(b){b.preventDefault();var c=a(this),d=c.attr("action"),e=c.serializeArray();a.post(d,e,function(b){return a(".columns.error",c).removeClass("error"),1!==b.code?void a.each(b.messages,function(b,d){a('[data-field="'+d+'"]',c).addClass("error")}):void c.addClass("form-sent")},"json")})}(jQuery);
+;(function( $ ){
+
+    /**
+     * Handler for submitting the form via ajax.
+     */
+    $(document).on('submit', '#frm-contact', function( _event ){
+        _event.preventDefault();
+
+        var $form    = $(this),
+            _handler = $form.attr('action'),
+            _data    = $form.serializeArray();
+
+        $.post(_handler, _data, function( _response ){
+            // First, *always* remove any previously set error classes
+            $('.columns.error', $form).removeClass('error');
+            // If invalid; show errors
+            if( !(_response.code === 1) ){
+                $.each(_response.messages, function(index, val){
+                    $('[data-field="'+val+'"]', $form).addClass('error');
+                });
+                return;
+            }
+            // Valid, show response message
+            $form.addClass('form-sent');
+        }, 'json');
+    });
+
+})( jQuery );

@@ -1,8 +1,8 @@
-ul.collection-list {list-style:none;margin:-15px 0 0;padding:0;text-align:center;}
+ul.collection-list {list-style:none;margin:15px 0 0;padding:0;text-align:center;}
 ul.collection-list li {display:inline-block;}
 ul.collection-list li a {display:block;padding:8px 15px;}
 ul.collection-list li.active a,
-ul.collection-list li:hover a {background:#e1e1e1;}
+ul.collection-list li:hover a {background:#e1e1e1;font-weight:bold;}
 
 #shopifiable-grid {margin:0 -2em;}
 .pr-node {float:left;width:100%;max-width:33.33%;padding:10px;}

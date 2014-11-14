@@ -2,10 +2,7 @@
 /* =============================================================================
 ABOUT
 ============================================================================= */
-.philosophy-approach{
-	.masthead{
-		background-position: 0 0;
-	}
+.philosophy-approach{x
 	.main{
 		.row:last-child{padding-bottom:0 !important;}
 	}
@@ -200,10 +197,12 @@ PROTECTION
 /*  PEACE OF MIND  */
 .peace-mind, .individual, .executive{
 	.leader .row{
+		@include rem(padding-bottom, 2rem);
 		background-color:#e4e2e2;
 		background-image: url("/packages/shield/img/hr-gradient.png");
 		background-position: 50% 100%;
 		background-repeat: no-repeat;
+		background-size:90%;
 	}
 	.section-2{
 		@include rem(padding-top, 3rem);
@@ -213,8 +212,9 @@ PROTECTION
 		background-repeat: no-repeat;
 	}
 }
-.family, .selection-process, .securing-your-dog, .included-training, .training-classes{
+.training, .family, .selection-process, .securing-your-dog, .included-training, .training-classes{
 	.leader .row{
+		@include rem(padding-bottom, 2rem);
 		background-color:#e4e2e2;
 		background-image: url("/packages/shield/img/hr-gradient.png");
 		background-position: 50% 100%;

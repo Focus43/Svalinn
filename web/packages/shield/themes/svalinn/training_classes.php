@@ -57,7 +57,7 @@ Your browser is out of date! It looks like you're using an old version of Intern
 										<dd class="active"><a href="#individual">Individual Training</a></dd>
 										<dd><a href="#group">Group Training</a></dd>
 										<dd><a href="#seminars">Seminars</a></dd>
-										<dd><a href="#residental">Residental</a></dd>
+										<dd><a href="#residential">Residential</a></dd>
 									</dl>
 								</div>
 							</div>
@@ -73,7 +73,7 @@ Your browser is out of date! It looks like you're using an old version of Intern
 										<div id="seminars" class="content">
 											<?php $a = new Area('Main-3'); $a->display($c); ?>
 										</div>
-										<div id="residental" class="content">
+										<div id="residential" class="content">
 											<?php $a = new Area('Main-4'); $a->display($c); ?>
 										</div>
 
@@ -95,7 +95,7 @@ Your browser is out of date! It looks like you're using an old version of Intern
 			<!-- BEGIN .right-off-canvas-menu -->
             <?php Loader::packageElement('responsive_sidebar', 'shield', array(
                 'navigationSettings' => array(
-                    'displayPages'   => 'all',
+                    'displayPages'   => 'top',
                     'displaySubPages' => 'all',
                     'displaySubPageLevels' => 'custom',
                     'displaySubPageLevelsNum' => 1

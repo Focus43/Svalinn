@@ -76,10 +76,6 @@ HEADER BAR
 	width: 100%;
 	z-index: 1;
 	z-index:999;
-	@media #{$medium-down}{
-		position:relative;
-	}
-	
 	.primary-nav-container{
 		position: relative;
 		max-width: $row-width;
@@ -187,6 +183,7 @@ HEADER BAR
 /* =============================================================================
 MASTHEAD
 ============================================================================= */
+$mastheadOffset: 75px;
 .masthead{
 	position:relative;
 	padding-top:33.3333%;
@@ -195,16 +192,42 @@ MASTHEAD
 	background-size: cover;
 	background-repeat:no-repeat;
 	background-image:url("#{$imagePath}masthead/philosophy-approach.jpg");
+	@media #{$small-only}{
+		padding-top:65%;
+		padding-bottom:36px;
+		background-size: 150%;
+		background-position:50% $mastheadOffset;
+	}
 	.company-history &{background-image:url("#{$imagePath}masthead/company-history.jpg");}
-	.leadership-team &{background-image:url("#{$imagePath}masthead/leadership-team.jpg");}
+	.leadership-team &{
+		background-image:url("#{$imagePath}masthead/leadership-team.jpg");
+		@media #{$small-only}{
+			background-position:0 $mastheadOffset;
+		}
+	}
 	.working-dogs &{background-image:url("#{$imagePath}masthead/working-dogs.jpg");}
-	.philosophy-approach &{background-image:url("#{$imagePath}masthead/philosophy-approach.jpg");}
+	.philosophy-approach &{
+		background-image:url("#{$imagePath}masthead/philosophy-approach.jpg");
+		@media #{$small-only}{
+			background-position:0 $mastheadOffset;
+		}
+	}
 	.training-levels &{background-image:url("#{$imagePath}masthead/training-levels.jpg");}
 	.guarantee &{background-image:url("#{$imagePath}masthead/guarantee.jpg");}
 	.breed-specifications &{background-image:url("#{$imagePath}masthead/breed-specifications.jpg");}
 	.testimonials &{background-image:url("#{$imagePath}masthead/testimonials.jpg");}
-	.peace-mind &{background-image:url("#{$imagePath}masthead/peace-mind.jpg");}
-	.family &{background-image:url("#{$imagePath}masthead/family.jpg");}
+	.peace-mind &{
+		background-image:url("#{$imagePath}masthead/peace-mind.jpg");
+		@media #{$small-only}{
+			background-position:0 $mastheadOffset;
+		}
+	}
+	.family &{
+		background-image:url("#{$imagePath}masthead/family.jpg");
+		@media #{$small-only}{
+			background-position:0 $mastheadOffset;
+		}
+	}
 	.individual &{background-image:url("#{$imagePath}masthead/individual.jpg");}
 	.executive &{background-image:url("#{$imagePath}masthead/executive.jpg");}
 	.selection-process &{background-image:url("#{$imagePath}masthead/selection-process.jpg");}
@@ -243,7 +266,10 @@ MASTHEAD
 				width:60px;
 				background: #FFF;
 			}
-			
+			@media #{$small-only}{
+				background: rgb(20, 42, 56);
+				.professional &{background: rgb(17,17,17);}
+			}
 		}
 		@media #{$small-only}{
 			bottom: -36px;
@@ -255,10 +281,7 @@ MASTHEAD
 			}
 		}
 	}
-	@media #{$small-only}{
-		padding-top:60%;
-		padding-bottom:36px;
-	}
+	
 }
 /* =============================================================================
 MAIN

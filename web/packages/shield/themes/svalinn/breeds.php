@@ -126,7 +126,7 @@ Loader::element('header_required'); // REQUIRED BY C5 //
 			<!-- BEGIN .right-off-canvas-menu -->
             <?php Loader::packageElement('responsive_sidebar', 'shield', array(
                 'navigationSettings' => array(
-                    'displayPages'   => 'all',
+                    'displayPages'   => 'top',
                     'displaySubPages' => 'all',
                     'displaySubPageLevels' => 'custom',
                     'displaySubPageLevelsNum' => 1

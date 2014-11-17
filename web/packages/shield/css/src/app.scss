@@ -553,19 +553,18 @@ MAIN
 PAGE ELEMENTS
 ============================================================================= */
 @media #{$medium-down}{
-	.off-canvas-wrap .inner-wrap .main-wrap{
-		box-shadow: none !important;
-	}
-	.off-canvas-wrap, .inner-wrap {
-	    min-height: 100%;
-	}
-	.off-canvas-wrap{  
-	height: 100%;
-	overflow-y: auto;
-	}
-	.move-left .mainSection{height:100% !important; overflow:hidden;}
-	.move-left .inner-wrap{max-height:100%;}
-	.move-left{overflow-y:hidden}
+    .main-section {
+        padding:0 0 0 2.8125rem;
+    }
+    .off-canvas-fixed {
+        width:2.8125rem;
+        height:100%;
+        background:#333333;
+    }
+     section.left-small{
+        border:none;
+        box-shadow:none;
+    }
 }
 /*  OFF CANVAS NAV  */
 .right-off-canvas-menu{
@@ -618,8 +617,7 @@ PAGE ELEMENTS
 			}
 		}
 		>.sans-dropdown{
-			margin-left:0;
-			margin-right:0;
+			@include rem(margin,0.5rem 0);
 			> a{
 				@include rem(margin, 10px);
 				color:$brand-blue;

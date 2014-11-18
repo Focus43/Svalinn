@@ -19,14 +19,6 @@
 )); ?>
 <!-- END .masthead -->
 
-<!-- BEGIN .submast -->
-<article class="container bg-knot-gray-lg">
-    <div class="row">
-        <div class="column medium-10 medium-centered"></div>
-    </div>
-</article>
-<!-- END .submast -->
-
 <!-- BEGIN .content -->
 <article class="container main bg-gray dog-details">
     <div class="row">

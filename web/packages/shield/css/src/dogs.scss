@@ -33,6 +33,12 @@ DOGS
 			}
 		}
 	}
+	.outdent-both{
+		@media #{$small-only}{
+			@include rem(margin-left, -2rem);
+			@include rem(margin-right, -2rem);
+		}
+	}
 }
 .dog-item{
 	@include rem(padding, 1.5rem, !important);

@@ -21,6 +21,7 @@ SVALINN DIFFERENCE
 /*  TRAINING  */
 .training{
 	.leader .row{
+		@include rem(padding-bottom, 2rem);
 		background-color:#e4e2e2;
 		background-image: url("/packages/shield/img/hr-gradient.png");
 		background-position: 50% 100%;
@@ -52,11 +53,13 @@ SVALINN DIFFERENCE
 /*  GUARANTEE  */
 .guarantee{
 	.leader .row{
+		@include rem(padding-bottom, 2rem);
 		background-color:#e4e2e2;
 		background-image: url("/packages/shield/img/hr-gradient.png");
 		background-position: 50% 100%;
 		background-repeat: no-repeat;
 	}
+	.section-1{padding:0 !important;}
 	.section-2{
 		@include rem(padding-top, 3rem);
 		background-color: #E4E2E2;
@@ -73,6 +76,7 @@ SVALINN DIFFERENCE
 /*  BREED SPECIFICATION  */
 .breed-specifications{
 	.leader .row{
+		@include rem(padding-bottom, 2rem);
 		background-color:#e4e2e2;
 		background-image: url("/packages/shield/img/hr-gradient.png");
 		background-position: 50% 100%;

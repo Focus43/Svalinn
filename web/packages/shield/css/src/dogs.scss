@@ -35,8 +35,8 @@ DOGS
 	}
 	.outdent-both{
 		@media #{$small-only}{
-			@include rem(margin-left, -2rem);
-			@include rem(margin-right, -2rem);
+			@include rem(margin-left, -2rem, !important);
+			@include rem(margin-right, -2rem, !important);
 		}
 	}
 }

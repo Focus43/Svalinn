@@ -2,11 +2,6 @@
 @import "normalize";
 @import "foundation";
 @import "global";
-.articles{
-	@media #{$small-only}{
-		/*padding-top:75px;*/
-	}
-}
 .footer-nav {
 	.callouts {
 		position: relative;
@@ -29,12 +24,15 @@ article, blockquote {
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
+	
 	a.down{
 		img{max-width: 24px;}
 	}
 	@media #{$small-only}{
 		overflow: visible;
+	}
+	@media #{$xlarge-up}{
+		overflow: hidden;
 	}
 }
 blockquote.quotes{vertical-align: top;}
@@ -113,19 +111,17 @@ article .inner, blockquote .inner {
 }
 
 .intro {
-	@media #{$small-only}{
-		@include rem(padding, 1rem);
+	@include rem(padding, 1rem);
+	@media #{$large-up}{
+		padding:0;
 	}
 	h1, p {
 		color: #FFF;
 	}
 	h1{
-		font-size:4.2vw;
 		font-weight:300;
 		font-family:$quadon;
-		@media #{$medium-down}{
-			font-size:6.5vw;
-		}
+		font-size:4.2vw;
 		@media #{$small-only}{
 			@include rem(font-size, 24px);
 			font-weight: 500;
@@ -165,10 +161,8 @@ article .inner, blockquote .inner {
 	}
 	h2{
 		font-family:$quadon;
-		@media #{$medium-down}{
-			font-size:6.5vw;
-			font-weight:300;
-		}
+		font-size:4.2vw;
+		font-weight:300;
 		@media #{$small-only}{
 			@include rem(font-size, 24px);
 			font-weight: 500;
@@ -354,30 +348,15 @@ blockquote.quotes{
 /* =============================================================================
 PAGE ELEMENTS
 ============================================================================= */
-@media #{$medium-down}{
-	.off-canvas-wrap .inner-wrap .main-wrap{
-		box-shadow: none !important;
-	}
-	.off-canvas-wrap, .inner-wrap {
-	    min-height: 100%;
-	}
-	.off-canvas-wrap{  
-	height: 100%;
-	overflow-y: auto;
-	}
-	.move-left .mainSection{height:100% !important; overflow:hidden;}
-	.move-left .inner-wrap{max-height:100%;}
-	.move-left{overflow-y:hidden}
-}
 /*  OFF CANVAS NAV  */
 .right-off-canvas-menu{
 	background:#E4E2E2;
-	overflow-y:auto;
-	height:auto;
+	overflow-y:scroll;
+	height:100vh;
 	a{text-align: left;}
 	.primary-nav,.utility-nav{@include rem(margin, 0 20px);}
 	.primary-nav{
-		@include rem(padding-bottom, 30px);
+		@include rem(padding-bottom, 150px);
 		li{
 			@include rem(margin,1rem 1rem 2rem);
 			@include rem(padding-top, 0 20px);

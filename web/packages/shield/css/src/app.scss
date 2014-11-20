@@ -58,10 +58,14 @@ body{background:$dark-white;}
 	.inner-wrap{
 		.main-wrap{
 			margin:0 auto;
+			padding-top:75px;
 			width: 100%;
 			max-width: 1300px;
 			box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
 			background:#FFF;
+			@media #{$xlarge-up}{
+				padding-top:0;
+			}
 		}
 	}
 }
@@ -72,10 +76,16 @@ HEADER BAR
 .header {
 	@include clearfix;
 	position: fixed;
-	@media #{$medium-down}{
-		position:relative;
-	}
 	height:$header-height;
+	/*
+	.move-left &{
+		position: relative;
+	}
+	*/
+	top:0;
+	@media #{$xlarge-up}{
+		top:auto;
+	}
 	width: 100%;
 	z-index: 1;
 	z-index:999;
@@ -199,7 +209,7 @@ $mastheadOffset: 0;
 	background-repeat:no-repeat;
 	background-image:url("#{$imagePath}masthead/philosophy-approach.jpg");
 	@media #{$small-only}{
-		padding-top:55%;
+		padding-top:50%;
 		padding-bottom:0;
 		background-size: 150%;
 		background-position:50% $mastheadOffset;
@@ -558,30 +568,22 @@ MAIN
 /* =============================================================================
 PAGE ELEMENTS
 ============================================================================= */
-@media #{$medium-down}{
-	.off-canvas-wrap .inner-wrap .main-wrap{
-		box-shadow: none !important;
-	}
-	.off-canvas-wrap, .inner-wrap {
-	    min-height: 100%;
-	}
-	.off-canvas-wrap{  
-	height: 100%;
-	overflow-y: auto;
-	}
-	.move-left .mainSection{height:100% !important; overflow:hidden;}
-	.move-left .inner-wrap{max-height:100%;}
-	.move-left{overflow-y:hidden}
+.off-canvas-wrap.move-left {
+  position: fixed;
+  height: 100%;
+  .inner-wrap {
+    height: 100%;
+  }
 }
 /*  OFF CANVAS NAV  */
 .right-off-canvas-menu{
 	background:#E4E2E2;
-	overflow-y:auto;
-	height:auto;
+	overflow-y:scroll;
+	height:100vh;
 	a{text-align: left;}
 	.primary-nav,.utility-nav{@include rem(margin, 0 20px);}
 	.primary-nav{
-		@include rem(padding-bottom, 3rem);
+		@include rem(padding-bottom, 150px);
 		li{
 			@include rem(margin,1rem 1rem 2rem);
 			@include rem(padding-top, 0 20px);

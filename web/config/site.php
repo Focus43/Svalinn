@@ -14,7 +14,7 @@
 		//define('ADMIN_GROUP_ID', '9');
 		
 		// connect to Redis cache
-		define('REDIS_CONNECTION_HANDLE', 'tunnel.pagodabox.com:6379');
+        define('REDIS_CONNECTION_HANDLE', sprintf("%s:%s", $_SERVER['CACHE1_HOST'], $_SERVER['CACHE1_PORT']));
 
 		// the following depend on the constant REDIS_CONNECTION_HANDLE being defined
 		if( defined('REDIS_CONNECTION_HANDLE') ){
@@ -94,10 +94,10 @@
      * Database connection settings are passed as environment variables, from
      * a) Pagodabox; b) Vagrant; c) manually if site.local.php exists
      */
-    define('DB_SERVER',     $_SERVER['DB1_HOST']);
-    define('DB_USERNAME',   $_SERVER['DB1_USER']);
-    define('DB_PASSWORD',   $_SERVER['DB1_PASS']);
-	define('DB_DATABASE',   $_SERVER['DB1_NAME']);
+    define('DB_SERVER',     $_SERVER['DATABASE1_HOST']);
+    define('DB_USERNAME',   $_SERVER['DATABASE1_USER']);
+    define('DB_PASSWORD',   $_SERVER['DATABASE1_PASS']);
+	define('DB_DATABASE',   $_SERVER['DATABASE1_NAME']);
 	define('PASSWORD_SALT', '6NVukfgwAgqaOi3SMlsWwEqURSe4Xh8pBApvhOauP7blC2kx1FKsHxcjGSXMqP3N');
 	
 	// Sitemap.xml file

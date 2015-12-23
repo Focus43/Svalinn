@@ -6,6 +6,9 @@
 @charset "UTF-8";
 
 // Behold, here are all the Foundation components.
+//these imports are not working! Sam pulled all imports into this file as a 
+//band-aid fix (12/23/15)
+
 @import
   "foundation/components/accordion",
   "foundation/components/alert-boxes",
@@ -33,7 +36,7 @@
   "foundation/components/side-nav",
   "foundation/components/split-buttons",
   "foundation/components/sub-nav",
-  "foundation/components/switch",
+  "foundation/components/switches",
   "foundation/components/tables",
   "foundation/components/tabs",
   "foundation/components/thumbs",

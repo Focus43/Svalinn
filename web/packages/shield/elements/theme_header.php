@@ -15,6 +15,6 @@
                 $blockTypeNav->render('templates/header_nav');
             ?>
         </section>
-        <div class="right-off-canvas-toggle menu-icon show-for-medium-down right"><a href="#"><span></span></a></div>
+        <div class="right-off-canvas-toggle menu-icon show-for-medium-down"><a href="#"><span></span></a></div>
     </nav>
 </header>

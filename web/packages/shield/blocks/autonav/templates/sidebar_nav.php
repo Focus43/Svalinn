@@ -110,7 +110,7 @@ foreach ($navItems as $ni) {
 
 //*** Step 2 of 2: Output menu HTML ***/
 
-echo '<div class="primary-nav off-canvas-wrap" data-offcanvas><div class="inner-wrap"><aside class="right-off-canvas-menu"><ul>'; //opens the top-level menu
+echo '<ul class="primary-nav off-canvas-list">'; //opens the top-level menu
 
 foreach ($navItems as $ni) {
 
@@ -127,4 +127,4 @@ foreach ($navItems as $ni) {
 	}
 }
 
-echo '</ul></aside></div></div>'; //closes the top-level menu
+echo '</ul>'; //closes the top-level menu

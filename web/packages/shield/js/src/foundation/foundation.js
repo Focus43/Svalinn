@@ -1,7 +1,7 @@
 /*
  * Foundation Responsive Library
  * http://foundation.zurb.com
- * Copyright 2015, ZURB
+ * Copyright 2014, ZURB
  * Free to use under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
 */
@@ -10,30 +10,28 @@
   'use strict';
 
   var header_helpers = function (class_array) {
+    var i = class_array.length;
     var head = $('head');
-    head.prepend($.map(class_array, function (class_name) {
-      if (head.has('.' + class_name).length === 0) {
-        return '<meta class="' + class_name + '" />';
+
+    while (i--) {
+      if(head.has('.' + class_array[i]).length === 0) {
+        head.append('<meta class="' + class_array[i] + '">');
       }
-    }));
+    }
   };
 
   header_helpers([
     'foundation-mq-small',
-    'foundation-mq-small-only',
     'foundation-mq-medium',
-    'foundation-mq-medium-only',
     'foundation-mq-large',
-    'foundation-mq-large-only',
     'foundation-mq-xlarge',
-    'foundation-mq-xlarge-only',
     'foundation-mq-xxlarge',
     'foundation-data-attribute-namespace']);
 
   // Enable FastClick if present
 
-  $(function () {
-    if (typeof FastClick !== 'undefined') {
+  $(function() {
+    if(typeof FastClick !== 'undefined') {
       // Don't attach to body if undefined
       if (typeof document.body !== 'undefined') {
         FastClick.attach(document.body);
@@ -50,9 +48,6 @@
         var cont;
         if (context.jquery) {
           cont = context[0];
-          if (!cont) {
-            return context;
-          }
         } else {
           cont = context;
         }
@@ -69,15 +64,22 @@
 
   var attr_name = function (init) {
     var arr = [];
-    if (!init) {
-      arr.push('data');
-    }
-    if (this.namespace.length > 0) {
-      arr.push(this.namespace);
-    }
+    if (!init) arr.push('data');
+    if (this.namespace.length > 0) arr.push(this.namespace);
     arr.push(this.name);
 
     return arr.join('-');
+  };
+
+  var header_helpers = function (class_array) {
+    var i = class_array.length;
+    var head = $('head');
+
+    while (i--) {
+      if(head.has('.' + class_array[i]).length === 0) {
+        head.append('<meta class="' + class_array[i] + '">');
+      }
+    }
   };
 
   var add_namespace = function (str) {
@@ -85,7 +87,7 @@
         i = parts.length,
         arr = [];
 
-    while (i--) {
+    while(i--) {
       if (i !== 0) {
         arr.push(parts[i]);
       } else {
@@ -104,26 +106,30 @@
 
   var bindings = function (method, options) {
     var self = this,
-        bind = function(){
-          var $this = S(this),
-              should_bind_events = !S(self).data(self.attr_name(true) + '-init');
-          $this.data(self.attr_name(true) + '-init', $.extend({}, self.settings, (options || method), self.data_options($this)));
+        should_bind_events = !S(this).data(this.attr_name(true));
 
-          if (should_bind_events) {
-            self.events(this);
-          }
-        };
-
-    if (S(this.scope).is('[' + this.attr_name() +']')) {
-      bind.call(this.scope);
-    } else {
-      S('[' + this.attr_name() +']', this.scope).each(bind);
-    }
-    // # Patch to fix #5043 to move this *after* the if/else clause in order for Backbone and similar frameworks to have improved control over event binding and data-options updating.
     if (typeof method === 'string') {
       return this[method].call(this, options);
     }
 
+    if (S(this.scope).is('[' + this.attr_name() +']')) {
+      S(this.scope).data(this.attr_name(true) + '-init', $.extend({}, this.settings, (options || method), this.data_options(S(this.scope))));
+
+      if (should_bind_events) {
+        this.events(this.scope);
+      }
+
+    } else {
+      S('[' + this.attr_name() +']', this.scope).each(function () {
+        var should_bind_events = !S(this).data(self.attr_name(true) + '-init');
+
+        S(this).data(self.attr_name(true) + '-init', $.extend({}, self.settings, (options || method), self.data_options(S(this))));
+
+        if (should_bind_events) {
+          self.events(this);
+        }
+      });
+    }
   };
 
   var single_image_loaded = function (image, callback) {
@@ -153,54 +159,44 @@
     } else {
       bindLoad.call(image);
     }
-  };
+  }
+  
+  /*
+    https://github.com/paulirish/matchMedia.js
+  */
 
-  /*! matchMedia() polyfill - Test a CSS media type/query in JS. Authors & copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas, David Knight. Dual MIT/BSD license */
+  window.matchMedia = window.matchMedia || (function( doc, undefined ) {
 
-  window.matchMedia || (window.matchMedia = function() {
-      "use strict";
+    "use strict";
 
-      // For browsers that support matchMedium api such as IE 9 and webkit
-      var styleMedia = (window.styleMedia || window.media);
+    var bool,
+        docElem = doc.documentElement,
+        refNode = docElem.firstElementChild || docElem.firstChild,
+        // fakeBody required for <FF4 when executed in <head>
+        fakeBody = doc.createElement( "body" ),
+        div = doc.createElement( "div" );
 
-      // For those that don't support matchMedium
-      if (!styleMedia) {
-          var style       = document.createElement('style'),
-              script      = document.getElementsByTagName('script')[0],
-              info        = null;
+    div.id = "mq-test-1";
+    div.style.cssText = "position:absolute;top:-100em";
+    fakeBody.style.background = "none";
+    fakeBody.appendChild(div);
 
-          style.type  = 'text/css';
-          style.id    = 'matchmediajs-test';
+    return function(q){
 
-          script.parentNode.insertBefore(style, script);
+      div.innerHTML = "&shy;<style media=\"" + q + "\"> #mq-test-1 { width: 42px; }</style>";
 
-          // 'style.currentStyle' is used by IE <= 8 and 'window.getComputedStyle' for all other browsers
-          info = ('getComputedStyle' in window) && window.getComputedStyle(style, null) || style.currentStyle;
+      docElem.insertBefore( fakeBody, refNode );
+      bool = div.offsetWidth === 42;
+      docElem.removeChild( fakeBody );
 
-          styleMedia = {
-              matchMedium: function(media) {
-                  var text = '@media ' + media + '{ #matchmediajs-test { width: 1px; } }';
-
-                  // 'style.styleSheet' is used by IE <= 8 and 'style.textContent' for all other browsers
-                  if (style.styleSheet) {
-                      style.styleSheet.cssText = text;
-                  } else {
-                      style.textContent = text;
-                  }
-
-                  // Test if media query is true or false
-                  return info.width === '1px';
-              }
-          };
-      }
-
-      return function(media) {
-          return {
-              matches: styleMedia.matchMedium(media || 'all'),
-              media: media || 'all'
-          };
+      return {
+        matches: bool,
+        media: q
       };
-  }());
+
+    };
+
+  }( document ));
 
   /*
    * jquery.requestAnimationFrame
@@ -211,74 +207,68 @@
    * Licensed under the MIT license.
    */
 
-  (function(jQuery) {
-
+  (function( $ ) {
 
   // requestAnimationFrame polyfill adapted from Erik Möller
   // fixes from Paul Irish and Tino Zijdel
   // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
   // http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
 
-  var animating,
-      lastTime = 0,
-      vendors = ['webkit', 'moz'],
-      requestAnimationFrame = window.requestAnimationFrame,
-      cancelAnimationFrame = window.cancelAnimationFrame,
-      jqueryFxAvailable = 'undefined' !== typeof jQuery.fx;
 
-  for (; lastTime < vendors.length && !requestAnimationFrame; lastTime++) {
-    requestAnimationFrame = window[ vendors[lastTime] + 'RequestAnimationFrame' ];
+  var animating,
+    lastTime = 0,
+    vendors = ['webkit', 'moz'],
+    requestAnimationFrame = window.requestAnimationFrame,
+    cancelAnimationFrame = window.cancelAnimationFrame;
+
+  for(; lastTime < vendors.length && !requestAnimationFrame; lastTime++) {
+    requestAnimationFrame = window[ vendors[lastTime] + "RequestAnimationFrame" ];
     cancelAnimationFrame = cancelAnimationFrame ||
-      window[ vendors[lastTime] + 'CancelAnimationFrame' ] ||
-      window[ vendors[lastTime] + 'CancelRequestAnimationFrame' ];
+      window[ vendors[lastTime] + "CancelAnimationFrame" ] || 
+      window[ vendors[lastTime] + "CancelRequestAnimationFrame" ];
   }
 
   function raf() {
-    if (animating) {
-      requestAnimationFrame(raf);
-
-      if (jqueryFxAvailable) {
-        jQuery.fx.tick();
-      }
+    if ( animating ) {
+      requestAnimationFrame( raf );
+      jQuery.fx.tick();
     }
   }
 
-  if (requestAnimationFrame) {
+  if ( requestAnimationFrame ) {
     // use rAF
     window.requestAnimationFrame = requestAnimationFrame;
     window.cancelAnimationFrame = cancelAnimationFrame;
+    jQuery.fx.timer = function( timer ) {
+      if ( timer() && jQuery.timers.push( timer ) && !animating ) {
+        animating = true;
+        raf();
+      }
+    };
 
-    if (jqueryFxAvailable) {
-      jQuery.fx.timer = function (timer) {
-        if (timer() && jQuery.timers.push(timer) && !animating) {
-          animating = true;
-          raf();
-        }
-      };
-
-      jQuery.fx.stop = function () {
-        animating = false;
-      };
-    }
+    jQuery.fx.stop = function() {
+      animating = false;
+    };
   } else {
     // polyfill
-    window.requestAnimationFrame = function (callback) {
+    window.requestAnimationFrame = function( callback, element ) {
       var currTime = new Date().getTime(),
-        timeToCall = Math.max(0, 16 - (currTime - lastTime)),
-        id = window.setTimeout(function () {
-          callback(currTime + timeToCall);
-        }, timeToCall);
+        timeToCall = Math.max( 0, 16 - ( currTime - lastTime ) ),
+        id = window.setTimeout( function() {
+          callback( currTime + timeToCall );
+        }, timeToCall );
       lastTime = currTime + timeToCall;
       return id;
     };
 
-    window.cancelAnimationFrame = function (id) {
+    window.cancelAnimationFrame = function(id) {
       clearTimeout(id);
     };
-
+      
   }
 
-  }( $ ));
+  }( jQuery ));
+
 
   function removeQuotes (string) {
     if (typeof string === 'string' || string instanceof String) {
@@ -288,40 +278,28 @@
     return string;
   }
 
-  function MediaQuery(selector) {
-    this.selector = selector;
-    this.query = '';
-  }
-
-  MediaQuery.prototype.toString = function () {
-    return this.query || (this.query = S(this.selector).css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''));
-  };
-
   window.Foundation = {
     name : 'Foundation',
 
-    version : '5.5.3',
+    version : '5.1.1',
 
     media_queries : {
-      'small'       : new MediaQuery('.foundation-mq-small'),
-      'small-only'  : new MediaQuery('.foundation-mq-small-only'),
-      'medium'      : new MediaQuery('.foundation-mq-medium'),
-      'medium-only' : new MediaQuery('.foundation-mq-medium-only'),
-      'large'       : new MediaQuery('.foundation-mq-large'),
-      'large-only'  : new MediaQuery('.foundation-mq-large-only'),
-      'xlarge'      : new MediaQuery('.foundation-mq-xlarge'),
-      'xlarge-only' : new MediaQuery('.foundation-mq-xlarge-only'),
-      'xxlarge'     : new MediaQuery('.foundation-mq-xxlarge')
+      small : S('.foundation-mq-small').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+      medium : S('.foundation-mq-medium').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+      large : S('.foundation-mq-large').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+      xlarge: S('.foundation-mq-xlarge').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+      xxlarge: S('.foundation-mq-xxlarge').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, '')
     },
 
     stylesheet : $('<style></style>').appendTo('head')[0].sheet,
 
-    global : {
-      namespace : undefined
+    global: {
+      namespace: ''
     },
 
     init : function (scope, libraries, method, options, response) {
-      var args = [scope, method, options, response],
+      var library_arr,
+          args = [scope, method, options, response],
           responses = [];
 
       // check RTL
@@ -342,18 +320,6 @@
         }
       }
 
-      S(window).load(function () {
-        S(window)
-          .trigger('resize.fndtn.clearing')
-          .trigger('resize.fndtn.dropdown')
-          .trigger('resize.fndtn.equalizer')
-          .trigger('resize.fndtn.interchange')
-          .trigger('resize.fndtn.joyride')
-          .trigger('resize.fndtn.magellan')
-          .trigger('resize.fndtn.topbar')
-          .trigger('resize.fndtn.slider');
-      });
-
       return scope;
     },
 
@@ -362,15 +328,10 @@
         this.patch(this.libs[lib]);
 
         if (args && args.hasOwnProperty(lib)) {
-            if (typeof this.libs[lib].settings !== 'undefined') {
-              $.extend(true, this.libs[lib].settings, args[lib]);
-            } else if (typeof this.libs[lib].defaults !== 'undefined') {
-              $.extend(true, this.libs[lib].defaults, args[lib]);
-            }
           return this.libs[lib].init.apply(this.libs[lib], [this.scope, args[lib]]);
         }
 
-        args = args instanceof Array ? args : new Array(args);
+        args = args instanceof Array ? args : Array(args);    // PATCH: added this line
         return this.libs[lib].init.apply(this.libs[lib], args);
       }
 
@@ -399,26 +360,12 @@
       }
     },
 
-    set_namespace : function () {
+    set_namespace: function () {
+      var namespace = $('.foundation-data-attribute-namespace').css('font-family');
 
-      // Description:
-      //    Don't bother reading the namespace out of the meta tag
-      //    if the namespace has been set globally in javascript
-      //
-      // Example:
-      //    Foundation.global.namespace = 'my-namespace';
-      // or make it an empty string:
-      //    Foundation.global.namespace = '';
-      //
-      //
+      if (/false/i.test(namespace)) return;
 
-      // If the namespace has not been set (is undefined), try to read it out of the meta element.
-      // Otherwise use the globally defined namespace, even if it's empty ('')
-      var namespace = ( this.global.namespace === undefined ) ? $('.foundation-data-attribute-namespace').css('font-family') : this.global.namespace;
-
-      // Finally, if the namsepace is either undefined or false, set it to an empty string.
-      // Otherwise use the namespace value.
-      this.global.namespace = ( namespace === undefined || /false/i.test(namespace) ) ? '' : namespace;
+      this.global.namespace = namespace;
     },
 
     libs : {},
@@ -427,23 +374,23 @@
     utils : {
 
       // Description:
-      //    Fast Selector wrapper returns jQuery object. Only use where getElementById
+      //    Fast Selector wrapper returns jQuery object. Only use where getElementById 
       //    is not available.
       //
       // Arguments:
-      //    Selector (String): CSS selector describing the element(s) to be
+      //    Selector (String): CSS selector describing the element(s) to be 
       //    returned as a jQuery object.
       //
-      //    Scope (String): CSS selector describing the area to be searched. Default
+      //    Scope (String): CSS selector describing the area to be searched. Default 
       //    is document.
       //
       // Returns:
-      //    Element (jQuery Object): jQuery object containing elements matching the
+      //    Element (jQuery Object): jQuery object containing elements matching the 
       //    selector within the scope.
       S : S,
 
       // Description:
-      //    Executes a function a max of once every n milliseconds
+      //    Executes a function a max of once every n milliseconds 
       //
       // Arguments:
       //    Func (Function): Function to be throttled.
@@ -452,18 +399,16 @@
       //
       // Returns:
       //    Lazy_function (Function): Function with throttling applied.
-      throttle : function (func, delay) {
+      throttle : function(func, delay) {
         var timer = null;
 
         return function () {
           var context = this, args = arguments;
 
-          if (timer == null) {
-            timer = setTimeout(function () {
-              func.apply(context, args);
-              timer = null;
-            }, delay);
-          }
+          clearTimeout(timer);
+          timer = setTimeout(function () {
+            func.apply(context, args);
+          }, delay);
         };
       },
 
@@ -475,28 +420,24 @@
       //    Func (Function): Function to be debounced.
       //
       //    Delay (Integer): Function execution threshold in milliseconds.
-      //
-      //    Immediate (Bool): Whether the function should be called at the beginning
+      // 
+      //    Immediate (Bool): Whether the function should be called at the beginning 
       //    of the delay instead of the end. Default is false.
       //
       // Returns:
       //    Lazy_function (Function): Function with debouncing applied.
-      debounce : function (func, delay, immediate) {
+      debounce : function(func, delay, immediate) {
         var timeout, result;
-        return function () {
+        return function() {
           var context = this, args = arguments;
-          var later = function () {
+          var later = function() {
             timeout = null;
-            if (!immediate) {
-              result = func.apply(context, args);
-            }
+            if (!immediate) result = func.apply(context, args);
           };
           var callNow = immediate && !timeout;
           clearTimeout(timeout);
           timeout = setTimeout(later, delay);
-          if (callNow) {
-            result = func.apply(context, args);
-          }
+          if (callNow) result = func.apply(context, args);
           return result;
         };
       },
@@ -508,19 +449,18 @@
       //    El (jQuery Object): Element to be parsed.
       //
       // Returns:
-      //    Options (Javascript Object): Contents of the element's data-options
+      //    Options (Javascript Object): Contents of the element's data-options 
       //    attribute.
-      data_options : function (el, data_attr_name) {
-        data_attr_name = data_attr_name || 'options';
+      data_options : function (el) {
         var opts = {}, ii, p, opts_arr,
             data_options = function (el) {
               var namespace = Foundation.global.namespace;
 
               if (namespace.length > 0) {
-                return el.data(namespace + '-' + data_attr_name);
+                return el.data(namespace + '-options');
               }
 
-              return el.data(data_attr_name);
+              return el.data('options');
             };
 
         var cached_options = data_options(el);
@@ -529,37 +469,24 @@
           return cached_options;
         }
 
-        opts_arr = (cached_options || ':').split(';');
+        opts_arr = (cached_options || ':').split(';'),
         ii = opts_arr.length;
 
         function isNumber (o) {
-          return !isNaN (o - 0) && o !== null && o !== '' && o !== false && o !== true;
+          return ! isNaN (o-0) && o !== null && o !== "" && o !== false && o !== true;
         }
 
-        function trim (str) {
-          if (typeof str === 'string') {
-            return $.trim(str);
-          }
+        function trim(str) {
+          if (typeof str === 'string') return $.trim(str);
           return str;
         }
 
         while (ii--) {
           p = opts_arr[ii].split(':');
-          p = [p[0], p.slice(1).join(':')];
 
-          if (/true/i.test(p[1])) {
-            p[1] = true;
-          }
-          if (/false/i.test(p[1])) {
-            p[1] = false;
-          }
-          if (isNumber(p[1])) {
-            if (p[1].indexOf('.') === -1) {
-              p[1] = parseInt(p[1], 10);
-            } else {
-              p[1] = parseFloat(p[1]);
-            }
-          }
+          if (/true/i.test(p[1])) p[1] = true;
+          if (/false/i.test(p[1])) p[1] = false;
+          if (isNumber(p[1])) p[1] = parseInt(p[1], 10);
 
           if (p.length === 2 && p[0].length > 0) {
             opts[trim(p[0])] = trim(p[1]);
@@ -573,13 +500,13 @@
       //    Adds JS-recognizable media queries
       //
       // Arguments:
-      //    Media (String): Key string for the media query to be stored as in
+      //    Media (String): Key string for the media query to be stored as in 
       //    Foundation.media_queries
       //
       //    Class (String): Class name for the generated <meta> tag
-      register_media : function (media, media_class) {
-        if (Foundation.media_queries[media] === undefined) {
-          $('head').append('<meta class="' + media_class + '"/>');
+      register_media : function(media, media_class) {
+        if(Foundation.media_queries[media] === undefined) {
+          $('head').append('<meta class="' + media_class + '">');
           Foundation.media_queries[media] = removeQuotes($('.' + media_class).css('font-family'));
         }
       },
@@ -590,17 +517,16 @@
       // Arguments:
       //    Rule (String): CSS rule to be appended to the document.
       //
-      //    Media (String): Optional media query string for the CSS rule to be
+      //    Media (String): Optional media query string for the CSS rule to be 
       //    nested under.
-      add_custom_rule : function (rule, media) {
-        if (media === undefined && Foundation.stylesheet) {
+      add_custom_rule : function(rule, media) {
+        if(media === undefined) {
           Foundation.stylesheet.insertRule(rule, Foundation.stylesheet.cssRules.length);
         } else {
           var query = Foundation.media_queries[media];
-
-          if (query !== undefined) {
-            Foundation.stylesheet.insertRule('@media ' +
-              Foundation.media_queries[media] + '{ ' + rule + ' }', Foundation.stylesheet.cssRules.length);
+          if(query !== undefined) {
+            Foundation.stylesheet.insertRule('@media ' + 
+              Foundation.media_queries[media] + '{ ' + rule + ' }');
           }
         }
       },
@@ -611,31 +537,17 @@
       // Arguments:
       //    Image (jQuery Object): Image(s) to check if loaded.
       //
-      //    Callback (Function): Function to execute when image is fully loaded.
+      //    Callback (Function): Fundation to execute when image is fully loaded.
       image_loaded : function (images, callback) {
         var self = this,
             unloaded = images.length;
-
-        function pictures_has_height(images) {
-          var pictures_number = images.length;
-
-          for (var i = pictures_number - 1; i >= 0; i--) {
-            if(images.attr('height') === undefined) {
-              return false;
-            };
-          };
-
-          return true;
+        if(unloaded == 0){
+            callback(images);
         }
-
-        if (unloaded === 0 || pictures_has_height(images)) {
-          callback(images);
-        }
-
-        images.each(function () {
-          single_image_loaded(self.S(this), function () {
-            unloaded -= 1;
-            if (unloaded === 0) {
+        images.each(function(){
+          single_image_loaded(self.S(this),function(){
+            unloaded -= 1; 
+            if(unloaded == 0){
               callback(images);
             }
           });
@@ -646,76 +558,23 @@
       //    Returns a random, alphanumeric string
       //
       // Arguments:
-      //    Length (Integer): Length of string to be generated. Defaults to random
+      //    Length (Integer): Length of string to be generated. Defaults to random 
       //    integer.
       //
       // Returns:
       //    Rand (String): Pseudo-random, alphanumeric string.
-      random_str : function () {
-        if (!this.fidx) {
-          this.fidx = 0;
+      random_str : function (length) {
+        var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+
+        if (!length) {
+          length = Math.floor(Math.random() * chars.length);
         }
-        this.prefix = this.prefix || [(this.name || 'F'), (+new Date).toString(36)].join('-');
 
-        return this.prefix + (this.fidx++).toString(36);
-      },
-
-      // Description:
-      //    Helper for window.matchMedia
-      //
-      // Arguments:
-      //    mq (String): Media query
-      //
-      // Returns:
-      //    (Boolean): Whether the media query passes or not
-      match : function (mq) {
-        return window.matchMedia(mq).matches;
-      },
-
-      // Description:
-      //    Helpers for checking Foundation default media queries with JS
-      //
-      // Returns:
-      //    (Boolean): Whether the media query passes or not
-
-      is_small_up : function () {
-        return this.match(Foundation.media_queries.small);
-      },
-
-      is_medium_up : function () {
-        return this.match(Foundation.media_queries.medium);
-      },
-
-      is_large_up : function () {
-        return this.match(Foundation.media_queries.large);
-      },
-
-      is_xlarge_up : function () {
-        return this.match(Foundation.media_queries.xlarge);
-      },
-
-      is_xxlarge_up : function () {
-        return this.match(Foundation.media_queries.xxlarge);
-      },
-
-      is_small_only : function () {
-        return !this.is_medium_up() && !this.is_large_up() && !this.is_xlarge_up() && !this.is_xxlarge_up();
-      },
-
-      is_medium_only : function () {
-        return this.is_medium_up() && !this.is_large_up() && !this.is_xlarge_up() && !this.is_xxlarge_up();
-      },
-
-      is_large_only : function () {
-        return this.is_medium_up() && this.is_large_up() && !this.is_xlarge_up() && !this.is_xxlarge_up();
-      },
-
-      is_xlarge_only : function () {
-        return this.is_medium_up() && this.is_large_up() && this.is_xlarge_up() && !this.is_xxlarge_up();
-      },
-
-      is_xxlarge_only : function () {
-        return this.is_medium_up() && this.is_large_up() && this.is_xlarge_up() && this.is_xxlarge_up();
+        var str = '';
+        while (length--) {
+          str += chars[Math.floor(Math.random() * chars.length)];
+        }
+        return str;
       }
     }
   };
@@ -729,4 +588,4 @@
     });
   };
 
-}(jQuery, window, window.document));
+}(jQuery, this, this.document));

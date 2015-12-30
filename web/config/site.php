@@ -41,50 +41,16 @@
 	 */
 	}else{
 
-        if( (isset($_SERVER['VAGRANT_VM']) && ((bool) $_SERVER['VAGRANT_VM'] === true)) || in_array('VAGRANT_VM', (array) $argv) ){
-
-            // This only applies when auto-installing through Vagrant provisioner; basically
-            // if the 3rd argument exists, we know we're receiving host, user, pass, and db_name
-            // in that order, and should set the $_SERVER variable here (then apache takes over
-            // for setting server variables when accessed via http
-            if( $argv[2] !== null ){
-                $_SERVER['DB1_HOST'] = $argv[2];
-                $_SERVER['DB1_USER'] = $argv[3];
-                $_SERVER['DB1_PASS'] = $argv[4];
-                $_SERVER['DB1_NAME'] = $argv[5];
-            }
-
-            // enable all url rewriting
-            define('URL_REWRITING_ALL', true);
-            // connect to Redis cache
-            define('REDIS_CONNECTION_HANDLE', '127.0.0.1:6379');
-            // the following depend on the constant REDIS_CONNECTION_HANDLE being defined
-            if( defined('REDIS_CONNECTION_HANDLE') ){
-                // use Redis as the page cache library
-                define('PAGE_CACHE_LIBRARY', 'Redis');
-                // if using the FluidDNS package
-                define('PAGE_TITLE_FORMAT', '%2$s');
-            }
-            // application profiler. disable this for live sites! (just comment out)
-            //define('ENABLE_APPLICATION_PROFILER', true);
-
-        }else{
-
-            require __DIR__ . '/site.local.php';
-
-            /**************************** SAMPLE *****************************
-            $_SERVER['DB1_HOST'] = 'localhost';
-            $_SERVER['DB1_USER'] = 'root';
-            $_SERVER['DB1_PASS'] = '';
-            $_SERVER['DB1_NAME'] = '';
-
-            // enable url rewriting. use locally if you have an Apache VirtualHost setup
-            define('URL_REWRITING_ALL', true);
-
-            // if you have Redis installed on your local machine...
-            define('REDIS_CONNECTION_HANDLE', '127.0.0.1:6379');
-            *****************************************************************/
-
+        // enable all url rewriting
+        define('URL_REWRITING_ALL', true);
+        // connect to Redis cache
+        define('REDIS_CONNECTION_HANDLE', '127.0.0.1:6379');
+        // the following depend on the constant REDIS_CONNECTION_HANDLE being defined
+        if( defined('REDIS_CONNECTION_HANDLE') ){
+            // use Redis as the page cache library
+            define('PAGE_CACHE_LIBRARY', 'Redis');
+            // if using the FluidDNS package
+            define('PAGE_TITLE_FORMAT', '%2$s');
         }
 
 	}

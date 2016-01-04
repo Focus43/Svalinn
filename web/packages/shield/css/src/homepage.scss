@@ -320,7 +320,7 @@ blockquote.quotes{
 	}
 }
 .footer{background:$black-blue;}
-@media #{$medium-down}{
+@media #{$small-only}{
 	
 	article {
 		height:100vh;	
@@ -350,7 +350,6 @@ PAGE ELEMENTS
 ============================================================================= */
 /*  OFF CANVAS NAV  */
 .right-off-canvas-menu{
-	background:#E4E2E2;
 	overflow-y:scroll;
 	height:100vh;
 	a{text-align: left;}
@@ -372,7 +371,6 @@ PAGE ELEMENTS
 				text-transform: uppercase;
 				border-bottom:1px solid #ccc;
 			}
-			
 			ul{
 				@include clearfix;
 				display:block;
@@ -411,4 +409,3 @@ PAGE ELEMENTS
 		}
 	}
 }
-.right-off-canvas-toggle{position: absolute;top:16px;right:0;}

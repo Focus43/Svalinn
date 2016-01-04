@@ -257,7 +257,7 @@ $mastheadOffset: 0;
 	.frequently-asked-questions &{background-image:url("#{$imagePath}masthead/faqs.jpg");}
 	.inner{
 		position: absolute;
-		bottom: -13px;
+		bottom: 7px;
 		width: 100%;
 		text-align: center;
 		h1{
@@ -412,13 +412,13 @@ MAIN
 			width: 100%;
 			background-position: 50%;
 			background-repeat: no-repeat;
-			@media #{$medium-down}{
+			@media #{ $small-only}{
 				margin:0;
 			}
 		}
 		&:before{background-image:url("#{$imagePath}hr-blockquote-top.png");}
 		&:after{background-image:url("#{$imagePath}hr-blockquote-bottom.png");}
-		@media #{$medium-down}{
+		@media #{ $small-only}{
 			p{font-weight: 500;}
 			&:before{background-size:120%;}
 			&:after{background-size:120%;}
@@ -578,7 +578,6 @@ PAGE ELEMENTS
 }
 /*  OFF CANVAS NAV  */
 .right-off-canvas-menu{
-	background:#E4E2E2;
 	overflow-y:scroll;
 	height:100vh;
 	a{text-align: left;}
@@ -647,7 +646,10 @@ PAGE ELEMENTS
 		
 	}
 }
-.right-off-canvas-toggle{position: absolute;top:16px;right:0;}
+.tab-bar {
+	.right-small{height: 100%;border-left: none;}
+	.menu-icon {top: 25px;}
+}
 
 /*  CALL TO ACTION ROW  */
 .cta .btn{@include rem(margin, 0 0 3rem);}
@@ -719,7 +721,7 @@ PAGE ELEMENTS
 				@include rem(font-size, 21px);
 				@include rem(line-height, 3rem);
 				padding: 0;
-				@media #{$medium-down}{
+				@media #{ $small-only}{
 					@include rem(font-size, 18px);
 				}
 				font-family: $quadon;
@@ -1020,7 +1022,7 @@ FOOTER NAV - CALLOUTS
 		position: fixed;
 		margin-top: -35px;
 	}
-	@media #{$medium-down}{
+	@media #{ $small-only}{
 		ul{
 			
 			margin:0;
@@ -1127,7 +1129,7 @@ FOOTER
 		@media #{$medium-up} {
 	      text-align:right;
 	    }
-	    @media #{$medium-down} {
+	    @media #{$small-only} {
 	      text-align:center;
 	    }
 	}
@@ -1179,7 +1181,7 @@ FOOTER
 			display:block;
 			margin:1rem 0.5rem;
 		}
-		@media #{$medium-down}{
+		@media #{ $small-only}{
 	    	margin:0 auto 36px;
 	    	li{
 	    		display: block;
@@ -1223,7 +1225,7 @@ FOOTER
 		@include rem(font-size, 18px);
 		@include rem(line-height, 32px);
 		color:#FFF;
-		@media #{$medium-down} {
+		@media #{ $small-only} {
 			@include rem(margin, 2rem auto);
 			text-align: center;
 			@include rem(font-size, 18px);

@@ -108,7 +108,7 @@ SVALINN DIFFERENCE
 				padding-bottom:0;
 				.left-col{
 					@include rem(padding,2rem 2rem 1rem);
-					@media #{$medium-down}{
+					@media #{$small-only}{
 						@include rem(padding-bottom,3rem);
 					}
 					h3{
@@ -121,7 +121,7 @@ SVALINN DIFFERENCE
 					p{color:#000;text-align: center;}
 					.framed{
 						p{@include rem(font-size,14px);}
-						@media #{$medium-down}{
+						@media #{ $small-only}{
 							@include rem(font-size,18px);
 						}
 					}
@@ -154,7 +154,7 @@ SVALINN DIFFERENCE
 		padding:0;
 		@include rem(font-size,26px);
 		@include rem(line-height,42px);
-		@media #{$medium-down}{
+		@media #{$small-only}{
 			@include rem(font-size,21px);
 			@include rem(line-height,28px);
 		}

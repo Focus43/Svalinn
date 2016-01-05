@@ -2,6 +2,7 @@
 <div data-int="5" class="container footer-nav">
 	<div class="footer-tabs">
 		<ul>
+			<li><a href="#" data-target="private" class="private">Private Access</a></li>
 			<li><a href="#" data-target="training" class="training">Training</a></li>
 			<li><a href="#" data-target="professional" class="professional">Professional</a></li>
 		</ul>
@@ -12,8 +13,8 @@
 				<div class="column medium-12 large-6 photo"></div>
 				<div class="column medium-12 large-6 details">
 					<h3 class="text-center show-for-small-only">Professional</h3>
-					<p class="text-center">The Svalinn K9 program has developed breeding, tactical conditioning and training techniques that have proven far superior to conventional working dog kennels.</p>
-					<p class="text-center"><a href="/professional" class="btn">Click here to Learn More</a></p>
+					<p class="text-center">The Svalinn K9 program has developed breeding, tactical conditioning and training techniques that have proven far superior to conventional working dog kennels.</p>
+					<p class="text-center"><a href="/professional" class="button">Click here to Learn More</a></p>
 				</div>
 			</div>
 		</div>
@@ -23,7 +24,22 @@
 				<div class="column medium-12 large-6 details">
 					<h3 class="text-center show-for-small-only">Training</h3>
 					<p class="text-center">At Svalinn, our dogs possess a level of sociability and obedience unparalleled in the industry. We would like to share this training approach and expertise with you and your dog.</p>
-					<p class="text-center"><a href="/training-classes" class="btn">Click here to Learn More</a></p>
+					<p class="text-center"><a href="/training-classes" class="button">Click here to Learn More</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="callout" id="callout-private">
+			<div class="row">
+				<div class="column medium-12 large-6 photo hide-for-small"></div>
+				<div class="column medium-12 large-6 details">
+					<h3 class="text-center show-for-small-only">Login</h3>
+					
+					<div class="login-area">
+						<?
+							$a = new GlobalArea('login');
+							$a->display($c);
+						?>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -55,7 +71,7 @@
     </div>
     <div class="row copyright">
         <div class="column small-12">
-            <p class="text-center">Copyright &copy; <?php echo date('Y');?> Svalinn • All Rights Reserved</p>
+            <p class="text-center"><a href="#">Privacy Policy</a> | Copyright &copy; <?php echo date('Y');?> Svalinn • All Rights Reserved</p>
         </div>
     </div>
 </footer>

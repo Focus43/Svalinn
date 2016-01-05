@@ -55,7 +55,6 @@ Your browser is out of date! It looks like you're using an old version of Intern
 								<div class="column medium-12">
 									<dl class="tabs centered" data-tab>
 										<dd class="active"><a href="#individual">Individual Training</a></dd>
-										<dd><a href="#group">Group Training</a></dd>
 										<dd><a href="#seminars">Seminars</a></dd>
 										<dd><a href="#residential">Residential</a></dd>
 									</dl>
@@ -66,9 +65,6 @@ Your browser is out of date! It looks like you're using an old version of Intern
 									<div class="tabs-content">
 										<div id="individual" class="content active">
 											<?php $a = new Area('Main-1'); $a->display($c); ?>
-										</div>
-										<div id="group" class="content">
-											<?php $a = new Area('Main-2'); $a->display($c); ?>
 										</div>
 										<div id="seminars" class="content">
 											<?php $a = new Area('Main-3'); $a->display($c); ?>

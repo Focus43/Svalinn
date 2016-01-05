@@ -43,6 +43,7 @@ $medium-tan:#c9c9b8;
 $tan: #D4D4C7;
 $red: #ad1a27;
 $orange: #CF8328;
+$private-gold: #83783d;
 
 $header-height: 75px;
 $header-margin-bottom:0;
@@ -471,7 +472,7 @@ $body-font-color: #22221c;
 // We use these to control button border styles.
 // $button-border-width: 0;
 // $button-border-style: solid;
-// $button-bg-color: $primary-color;
+$button-bg-color: $lite-blue;
 // $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor);
 // $button-border-color: $button-bg-hover;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);

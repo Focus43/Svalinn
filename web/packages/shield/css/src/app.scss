@@ -63,7 +63,7 @@ body{background:$dark-white;}
 			width: 100%;
 			max-width: 1300px;
 			box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
-			background:#FFF;
+			background:$lite-gray;
 			@media #{$xlarge-up}{
 				padding-top:0;
 			}
@@ -150,7 +150,7 @@ HEADER BAR
 						@include rem(font-size, 1rem);
 						font-weight: 400;
 						text-transform: uppercase;
-						padding: 0 17px !important;
+						padding: 0 13px !important;
 						line-height: 75px;
 						height:$header-height;
 						color: #FFF;
@@ -564,8 +564,45 @@ MAIN
 		@include rem(margin,0 -3.45rem -3rem -3.4rem);
 	}
 }
-
-
+/* =============================================================================
+404
+============================================================================= */
+.off-canvas-wrap .inner-wrap .not-found{
+	padding: 0;
+}
+.lost-dog {
+	padding: 50px 50px !important;
+	background: transparent url("/packages/shield/img/bg/obi-dog.jpg")no-repeat;
+	background-size: 100%;
+	h1.error {
+		color: $white;
+		font-size: 2.5em;
+		width: 66.6%;
+		span{
+			font-size: 4.5em;
+		}
+	}
+	.error-message{color: $white !important;}
+	@media #{$medium-only}{
+		padding: 20px !important;
+		h1.error{
+			font-size: 2em;
+			span{
+				font-size: 3em;
+			}
+		}
+	}
+	@media #{$small-only}{
+		padding: 15px !important;
+		h1.error{
+			font-size: 1em;
+			//width: 100%;
+			span{
+				font-size: 1.5em;
+			}
+		}
+	}
+}
 /* =============================================================================
 PAGE ELEMENTS
 ============================================================================= */
@@ -961,6 +998,9 @@ FOOTER NAV - CALLOUTS
 				&.training {
 					background: #606060;
 				}
+				&.private{
+					background-color: $private-gold;
+				}
 			}
 		}
 	}
@@ -968,6 +1008,11 @@ FOOTER NAV - CALLOUTS
 		max-width: 100%;
 	}
 	.footer-tabs{margin:0 auto;max-width:71.25rem;}
+	.login-area {
+		label{
+			color: $white;
+		}
+	}
 	.callouts {
 		position: relative;
 		height: 300px;
@@ -977,6 +1022,9 @@ FOOTER NAV - CALLOUTS
 		&.closed {
 			height: 0;
 		}
+	}
+	#callout-private{
+		background-color: $private-gold;
 	}
 	.callout>.row{
 		margin:0 auto;
@@ -1014,7 +1062,6 @@ FOOTER NAV - CALLOUTS
 			}
 			a{
 				@include rem(padding,0.5rem 2rem);
-				background: $lite-blue;
 			}
 		}
 	}
@@ -1027,11 +1074,12 @@ FOOTER NAV - CALLOUTS
 			
 			margin:0;
 			li{
-				float:left;
-				width:50%;
+				float:right;
+				width:33.33%;
 				a{
 					margin:0;
 					width:100%;
+					font-size: .6em
 				}
 			}
 		}

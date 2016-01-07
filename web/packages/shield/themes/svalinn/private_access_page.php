@@ -1,10 +1,10 @@
 <?php
-/*
+
 if( !($this->controller instanceof ShieldPageController) ){
     $ctrlr = new ShieldPageController;
     $ctrlr->includeAssets( $this->controller );
 }
-*/
+
 ?>
 <!DOCTYPE html>
 <!--[if IEMobile 7 ]> <html dir="ltr" lang="<?php echo LANGUAGE; ?>" class="no-js iem7"> <![endif]-->

@@ -21,7 +21,7 @@ if ($u->isRegistered() && $hideFormUponLogin) { ?>
 		</div>
 	</div>
 <?php   } else { ?>	
-	<p class="text-center">Here is a short description about private/restriced accesss. It can be a few lines long and cover the basics of what happens.</p>
+	<!-- <p class="text-center">A short description for private/restriced accesss.</p> -->
 	<form method="post" id="login_form" action="<?php echo $loginURL?>">
 		<div class="row">
 			<div class="small-10 small-centered columns">

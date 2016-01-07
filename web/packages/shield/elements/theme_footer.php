@@ -71,7 +71,7 @@
     </div>
     <div class="row copyright">
         <div class="column small-12">
-            <p class="text-center"><a href="#">Privacy Policy</a> | Copyright &copy; <?php echo date('Y');?> Svalinn • All Rights Reserved</p>
+            <p class="text-center"><a href="/index.php?cID=160">Privacy Policy</a> | Copyright &copy; <?php echo date('Y');?> Svalinn • All Rights Reserved</p>
         </div>
     </div>
 </footer>

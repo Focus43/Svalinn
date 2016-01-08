@@ -328,7 +328,7 @@ MAIN
 			font-weight:300;
 			text-align: center;
 			@media #{$small-only}{
-				@include rem(padding,5rem 2rem 0);
+				@include rem(padding,2rem 2rem 0);
 				@include rem(font-size, 21px);
 			}
 		}
@@ -952,6 +952,15 @@ PAGE ELEMENTS
 		}
 	}
 }
+.breadcrumbs{
+	margin-bottom: 0;
+	@media #{$small-only}{
+		margin-top: 35px;
+		>*{
+			font-size: rem-calc(10);
+		}
+	}
+}
 .private-nav {
 	li{
 		text-align: center;
@@ -979,19 +988,19 @@ PAGE ELEMENTS
 		&:nth-child(1){
 			a{
 				background:$lite-blue;
-				// background-image: url('#{$imagePath}icons/training-icon.png');
-				// background-repeat: no-repeat;
-				// background-position: center;
+				&:hover{background:darken($lite-blue, 7%);}
 			}
 		}
 		&:nth-child(2){
 			a{
 				background:$brand-blue;
+				&:hover{background:darken($brand-blue, 7%);}
 			}
 		}
 		&:nth-child(3){
 			a{
 				background:$medium-blue;
+				&:hover{background:darken($medium-blue, 7%);}
 			}
 		}
 		a{

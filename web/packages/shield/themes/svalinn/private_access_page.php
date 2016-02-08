@@ -1,11 +1,3 @@
-<?php
-
-if( !($this->controller instanceof ShieldPageController) ){
-    $ctrlr = new ShieldPageController;
-    $ctrlr->includeAssets( $this->controller );
-}
-
-?>
 <!DOCTYPE html>
 <!--[if IEMobile 7 ]> <html dir="ltr" lang="<?php echo LANGUAGE; ?>" class="no-js iem7"> <![endif]-->
 <!--[if lt IE 7 ]> <html dir="ltr" lang="<?php echo LANGUAGE; ?>" class="no-js ie6 lt-ie7 lt-ie8 lt-ie9 oldie"> <![endif]-->

@@ -10,48 +10,19 @@ __MACOSX
 /.settings/
 /.buildpath
 
-
 # ignore error log
 error_log
 .ftpquota
-
-
-# DO NOT ignore site.php, only files in web/config/*.local.php
-/web/config/*.local.php
-
 
 #ignore everything but the index.html
 /web/files/*
 !/web/files/index.html
 
-
 # ignore updates folder
 /web/updates/*
 
-
-# ignore concrete packages folder; *not* web/packages though
-#/web/packages/* ### See documentation for deploying to Pagoda ###
-#/web/concrete/packages/*
-
-
-# more stuff (in default C5 installations, these are not commented out)
-#/web/css/*
-#/web/js/*
-#/web/blocks/*
-#/web/languages/*
-#/web/tools/*
-#/web/controllers/*
-#/web/single_pages/*
-#/web/models/*
-
-
 # ignore sitemap.xml (Symlink is used in Pagodabox)
 /web/sitemap.xml
-
-
-# DO NOT ignore the .htaccess file; track it
-!/web/.htaccess
-
 
 # Since we're not going to be using Concrete5's default Grunt setup in /build, but in the root
 /node_modules

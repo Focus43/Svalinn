@@ -55,15 +55,16 @@
 
 	}
 
-    define('DB_SERVER',     'localhost');
     /**
      * our three (local,staging and prod) db creds
      */
     if (strpos($_SERVER['SERVER_NAME'], 'localhost') !== false) {
+      define('DB_SERVER',     'localhost');
       define('DB_USERNAME',   'dev_user');
       define('DB_PASSWORD',   'dev_pass');
       define('DB_DATABASE',   'dev_site');
     } elseif(strpos($_SERVER['SERVER_NAME'], 'stage01') !== false){
+      define('DB_SERVER',     '127.0.0.1');
       define('DB_USERNAME',   'svalinn_admin');
       define('DB_PASSWORD',   'Focus43#2016');
       define('DB_DATABASE',   'svalinn_stage');

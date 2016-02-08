@@ -63,7 +63,7 @@
       define('DB_USERNAME',   'dev_user');
       define('DB_PASSWORD',   'dev_pass');
       define('DB_DATABASE',   'dev_site');
-    } elseif($_SERVER['SERVER_NAME'], 'stage01') !== false){
+    } elseif(strpos($_SERVER['SERVER_NAME'], 'stage01') !== false){
       define('DB_USERNAME',   'svalinn_admin');
       define('DB_PASSWORD',   'Focus43#2016');
       define('DB_DATABASE',   'svalinn_stage');

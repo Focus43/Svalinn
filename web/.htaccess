@@ -25,7 +25,7 @@
 
         # Redirect all domains to svalinn.com (unless 192... (a local IP), or localhost...)
         RewriteCond %{HTTP_HOST} !=svalinn.com
-        RewriteCond %{HTTP_HOST} !^((svalinn\.com)|(.*)staging(.*)|(192\.(.*))|localhost(.*)|(.*)pagekite(.*))$ [NC]
+        RewriteCond %{HTTP_HOST} !^((svalinn\.com)|(.*)staging(.*)|(192\.(.*))|localhost(.*)|focusfortythree(.*)|(.*)pagekite(.*))$ [NC]
         RewriteRule ^ http://svalinn.com%{REQUEST_URI} [L,R=301]
 
         # Normal concrete URL rewriting

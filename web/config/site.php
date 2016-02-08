@@ -55,15 +55,23 @@
 
 	}
 
-
+    define('DB_SERVER',     'localhost');
     /**
-     * Database connection settings are passed as environment variables, from
-     * a) Pagodabox; b) Vagrant; c) manually if site.local.php exists
+     * our three (local,staging and prod) db creds
      */
-    define('DB_SERVER',     $_SERVER['DATABASE1_HOST']);
-    define('DB_USERNAME',   $_SERVER['DATABASE1_USER']);
-    define('DB_PASSWORD',   $_SERVER['DATABASE1_PASS']);
-	define('DB_DATABASE',   $_SERVER['DATABASE1_NAME']);
+    if (strpos($_SERVER['SERVER_NAME'], 'localhost') !== false) {
+      define('DB_USERNAME',   'dev_user');
+      define('DB_PASSWORD',   'dev_pass');
+      define('DB_DATABASE',   'dev_site');
+    } elseif($_SERVER['SERVER_NAME'], 'stage01') !== false){
+      define('DB_USERNAME',   'svalinn_admin');
+      define('DB_PASSWORD',   'Focus43#2016');
+      define('DB_DATABASE',   'svalinn_stage');
+    } else {
+      define('DB_USERNAME',   'svalinn_admin');
+      define('DB_PASSWORD',   'Focus43#2016');
+      define('DB_DATABASE',   'svalinn_main');
+    }
 	define('PASSWORD_SALT', '6NVukfgwAgqaOi3SMlsWwEqURSe4Xh8pBApvhOauP7blC2kx1FKsHxcjGSXMqP3N');
 	
 	// Sitemap.xml file

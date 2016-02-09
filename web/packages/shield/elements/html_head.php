@@ -12,8 +12,8 @@
 <link rel="apple-touch-startup-image" href="/assets/img/devices/load-ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)" />
 <link rel="apple-touch-startup-image" href="/assets/img/devices/load.png" media="screen and (max-device-width: 320px)" />
 <script type='text/javascript' src="//wurfl.io/wurfl.js"></script>
-<script type="text/javascript" src="//use.typekit.net/lfq1daf.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script src="https://use.typekit.net/wap4mfj.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
 <!--[if lte IE 9]>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
   <script src="http://s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>

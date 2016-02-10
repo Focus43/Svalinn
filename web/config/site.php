@@ -25,6 +25,7 @@
     define('DB_PASSWORD',   'Focus43#2016');
     define('DB_DATABASE',   'svalinn_stage');
   } else {
+    define('DB_SERVER',     '127.0.0.1');
     define('DB_USERNAME',   'svalinn_admin');
     define('DB_PASSWORD',   'Focus43#2016');
     define('DB_DATABASE',   'svalinn_main');

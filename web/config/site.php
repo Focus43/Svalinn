@@ -32,7 +32,7 @@
   define('PASSWORD_SALT', '6NVukfgwAgqaOi3SMlsWwEqURSe4Xh8pBApvhOauP7blC2kx1FKsHxcjGSXMqP3N');
   
   // Sitemap.xml file
-  define('SITEMAPXML_FILE', 'files/sitemap.xml');
+  //define('SITEMAPXML_FILE', 'files/sitemap.xml');
 
     // Outgoing emails
     define('OUTGOING_MAIL_ISSUER_ADDRESS', 'administrator@snakeriverk9.com');

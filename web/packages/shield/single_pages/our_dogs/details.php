@@ -29,8 +29,7 @@
             )); ?>
             <div class="row">
                 <div class="small-12 columns">
-                    <!--href="<?php //echo $this->url('/our_dogs'); ?>"code removed from line 32 to get rid of link also php disable -->
-                    <a class="btn btn-full gray" style="background:#aaa;">See Other Dogs</a><br/>
+                    <a href="<?php echo $this->url('/our_dogs'); ?>" class="btn btn-full gray" style="background:#aaa;">See Other Dogs</a><br/>
                     <!--<a href="/privateclient/contact/" class="btn btn-lg" style="background:#aaa;">Contact Us</a>-->
                     <form method="post" action="<?php echo ShopifiablePackage::STORE_URL; ?>cart/add">
                         <input type="hidden" name="id" value="<?php echo $variantID; ?>" />

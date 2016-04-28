@@ -23,7 +23,7 @@
 <article class="container main bg-gray dog-details">
     <div class="row">
         <div class="small-12 medium-4 columns dog-item  hide-for-print">
-            <?php Loader::packageElement('partials/dog_detail', 'shield', array(
+            <?php Loader::packageElement('partials/dog_item', 'shield', array(
                 'dogObj'      => $dogObj,
                 'imageHelper' => $imageHelper
             )); ?>

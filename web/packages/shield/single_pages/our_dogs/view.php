@@ -46,7 +46,7 @@
                 <ul class="small-block-grid-1 medium-block-grid-2 dog-grid">
                     <?php foreach($listResults AS $dogObj): ?>
                         <li class="dog-item">
-                            <?php Loader::packageElement('partials/dog_item', 'shield', array(
+                            <?php Loader::packageElement('partials/dog_detail', 'shield', array(
                                 'dogObj'      => $dogObj,
                                 'imageHelper' => $imageHelper
                             )); ?>

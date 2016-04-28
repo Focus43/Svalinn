@@ -1,7 +1,7 @@
 <?php /** @var $dogObj ShieldDog */ ?>
 <div class="row">
     <div class="small-12 columns">
-        <a class="pic">
+        <a class="pic" href="<?php echo $this->action('details', $dogObj->getDogID()); ?>">
             <?php if( $dogObj->getPictureFileObj()->getFileID() >= 1 ): ?>
                 <img src="<?php echo $imageHelper->getThumbnail($dogObj->getPictureFileObj(), 600, 368, true)->src; ?>" />
             <?php else: ?>

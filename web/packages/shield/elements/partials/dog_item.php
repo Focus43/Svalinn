@@ -1,7 +1,7 @@
 <?php /** @var $dogObj ShieldDog */ ?>
 <div class="row">
     <div class="small-12 columns">
-        <a>
+        <p>
             <?php if( $dogObj->getPictureFileObj()->getFileID() >= 1 ): ?>
                 <img src="<?php echo $imageHelper->getThumbnail($dogObj->getPictureFileObj(), 600, 368, true)->src; ?>" />
             <?php else: ?>
@@ -13,7 +13,7 @@
                 <?php echo ((int)$dogObj->getReservedStatus() === ShieldDog::RESERVED_YES) ? sprintf('Reserved until %s', $dogObj->getReservedUntil('M d, Y')) : $dogObj->getReservedStatus(true); //((int)$this->reservedStatus === self::RESERVED_YES ? sprintf('until %s', $this->getReservedUntil('M d, Y')) : '') ?>
             </span>
             <?php endif; ?>
-        </a>
+        </p>
     </div>
 </div>
 <div class="row">

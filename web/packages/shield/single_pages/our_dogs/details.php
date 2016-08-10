@@ -68,7 +68,7 @@
 	                        $print_count = 0;
 	                        foreach($files as $f) {
 	                        	$print_count = $print_count+1;
-	                        	if( $print_count <= 3 ){
+	                        	if( $print_count <= 0 ){
 		                        	$img_class = 'show-for-print';
 	                        	}else{
 		                        	$img_class = 'hide-for-print';

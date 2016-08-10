@@ -177,7 +177,7 @@
             // split the headers into an array
             $headers    = preg_split("/\r\n|\n|\r/", $httpHeaders);
             // preg_grep returns array w/ prefilled keys; array_values sets key to 0
-            $status     = array_values( preg_grep("/status/i", $headers) );
+            $status     = array_values( preg_grep("/HTTP/i", $headers) );
             // array([0] => Status:, [1] => {int}, [2] => OK)
             $pieces     = explode(' ', $status[0]);
             $httpCode   = (int) $pieces[1];

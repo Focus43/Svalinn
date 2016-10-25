@@ -13,7 +13,7 @@
             $db = Loader::db();
             $this->searchKeywords = $db->quote($keywords);
             $qkeywords = $db->quote('%' . $keywords . '%');
-            $this->filter(false, "(dogs.name LIKE $qkeywords OR dogs.breed LIKE $qkeywords)");
+            $this->filter(false, "(dogs.name LIKE $qkeywords OR dogs.breedHandle LIKE $qkeywords)");
 		}
 		
 		

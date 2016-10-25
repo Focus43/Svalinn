@@ -1,4 +1,3 @@
-test
 <?php Loader::packageElement('flash_message', 'shield', array('flash' => $flash)); ?>
 
 <?php echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Dog Search'), t('View dogs for sale.'), false, false ); ?>
